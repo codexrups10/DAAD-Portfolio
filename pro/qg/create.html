@@ -1,0 +1,14 @@
+<form action="save_quiz.php" method="POST" id="quizForm">
+    <input type="text" name="quiz_title" placeholder="Quiz Title" required>
+    
+    <div id="questionsContainer">
+        <div class="q-block">
+            <input type="text" name="q[]" placeholder="Enter Question" required>
+            <input type="text" name="a[]" placeholder="Option A" required>
+            <input type="text" name="b[]" placeholder="Option B" required>
+            <input type="text" name="correct[]" placeholder="Correct Answer" required>
+        </div>
+    </div>
+    
+    <button type="submit">Publish Quiz</button>
+</form>

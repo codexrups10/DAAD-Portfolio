@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./form.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+    <div class="con">
+        <div class="conrap">
+            <form action="./form.php" method="post">
+                <table class="table">
+                <tr>
+                    <th colspan="2"><h1 align="center">Marksheet</h1></th>
+                </tr>
+                <tr>
+                    <th>First Name:</th>
+                    <th><input type="text" name="fname" id="fname" class="form-control"></th>
+                </tr>
+                <tr>
+                    <th>Last Name:</th>
+                    <th><input type="text" name="lname" id="lname" class="form-control"></th>
+                </tr>
+                <tr>
+                    <th>Gender:</th>
+                    <th>
+                        <input type="radio" name="rad" value="m">Male
+                        <input type="radio" name="rad" value="f">Female
+                        <input type="radio" name="rad" value="o">Other
+                    </th>
+                </tr>
+                <tr>
+                    <th>Math:</th>
+                    <th><input type="number" name="math" id="math" class="form-control"></th>
+                </tr>
+                <tr>
+                    <th>English:</th>
+                    <th><input type="number" name="eng" id="eng" class="form-control"></th>
+                </tr>
+                <tr>
+                    <th>Computer:</th>
+                    <th><input type="number" name="comp" id="comp" class="form-control"></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><input type="submit" class="btn btn-primary"></th>
+                </tr>
+            </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – Palam Hybrid Premium</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+:root{
+    --c1:#FFFBDE;
+    --c2:#91C8E4;
+    --c3:#749BC2;
+    --c4:#4682A9;
+    --gradient: linear-gradient(135deg,var(--c1),var(--c2),var(--c3),var(--c4));
+}
+body{
+    font-family: 'Arial', sans-serif;
+    background: var(--c1);
+    padding-top: 80px;
+}
+.section-title{
+    font-weight: 700;
+    font-size: 2.4rem;
+}
+.icon-box{
+    background: var(--gradient);
+    color:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.2);
+    transition:0.4s;
+}
+.icon-box:hover{
+    transform: translateY(-8px);
+}
+.icon-box i{
+    font-size:2.5rem;
+    margin-bottom:15px;
+}
+</style>
+<!-- =============================
+     PREMIUM NAVBAR WITH MEGA DROPDOWN
+============================= -->
+<nav class="navbar navbar-expand-lg fixed-top" style="background: linear-gradient(135deg,#91C8E4,#fff); box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+  <div class="container">
+    <a class="navbar-brand text-white fw-bold d-flex align-items-center" href="index.html">
+      <img src="./image/logo.jpg" width="65" class="me-2 rounded-circle shadow-sm">
+    
+    </a>
+
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="nav">
+      <ul class="navbar-nav">
+
+        <li class="nav-item"><a class="nav-link text-black active" href="./index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-black " href="./about.html">About</a></li>
+
+        <!-- Mega Dropdown -->
+        <li class="nav-item dropdown position-static">
+          <a class="nav-link dropdown-toggle text-black" href="./product.html" data-bs-toggle="dropdown">Products</a>
+          <ul class="dropdown-menu p-4 mega-dropdown shadow" style="min-width:650px; border-radius:12px; background: linear-gradient(135deg,#91C8E4,#fff);">
+            <div class="row">
+              <div class="col-md-4">
+                <h6 class="fw-bold text-primary">Padlocks</h6>
+                <ul class="list-unstyled">
+                  <li><a class="dropdown-item active" href="./product.html">Pad Locks</a></li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <h6 class="fw-bold text-primary">Builders Hardware</h6>
+                <ul class="list-unstyled">
+                  <li><a class="dropdown-item" href="./Door Accessories.html">Door Accessories</a></li>
+                  <li><a class="dropdown-item" href="./Mortis Lock.html">Door Closer</a></li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <h6 class="fw-bold text-primary">Furniture Locks & Accessories</h6>
+                <ul class="list-unstyled">
+                  <li><a class="dropdown-item" href="./Furniture Locks.HTML">Furniture Locks</a></li>
+                  <li><a class="dropdown-item" href="./Digital Locks.HTML">Digital Locks</a></li>
+                </ul>
+              </div>
+            </div>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-black" href="./support.html">Support</a></li>
+        <li class="nav-item"><a class="nav-link text-black" href="./contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- =============================
+       NAVBAR CSS
+============================= -->
+<style>
+/* Navbar links style */
+.navbar-nav .nav-link {
+    position: relative;
+    color: #fff;
+    font-weight: 600;
+    margin-right: 15px;
+    transition: 0.3s;
+    text-shadow: 0 0 3px #91C8E4, 0 0 6px #fff;
+}
+
+/* Gradient animated underline */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #91C8E4, #fff, #91C8E4);
+    border-radius: 2px;
+    transition: width 0.4s ease-in-out;
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+/* Navbar hover glow effect */
+.navbar-nav .nav-link:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #91C8E4, 0 0 12px #fff;
+}
+
+/* Hamburger button */
+.navbar-toggler {
+    border: 2px solid #fff;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.navbar-toggler:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.1);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+}
+
+
+/* Mega Dropdown */
+.mega-dropdown {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 30px 20px;
+}
+.nav-item.dropdown:hover > .mega-dropdown {
+  display: block;
+}
+.mega-dropdown h6 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.mega-dropdown .dropdown-item {
+  color: #0d6efd;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.mega-dropdown .dropdown-item:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #fff;
+  background: rgba(255,255,255,0.2);
+  border-radius: 5px;
+}
+
+/* Toggler icon hover effect */
+.navbar-toggler:hover {
+  filter: brightness(1.2) invert(1);
+}
+</style>
+
+<!-- ==============================
+     PADLOCK HERO SECTION (PREMIUM)
+============================== -->
+<section class="padlock-hero position-relative overflow-hidden text-center py-5" 
+         style="background: linear-gradient(135deg,#91C8E4,#fff);">
+  
+  <!-- Animated glowing background orb -->
+  <div class="glow-orb" style="position:absolute; top:-80px; left:-50px; width:250px; height:250px; background: rgba(0,200,255,0.3); border-radius:50%; filter: blur(120px); z-index:0; animation: floatOrb 6s ease-in-out infinite alternate;"></div>
+  
+  <div class="container position-relative" style="z-index:1;">
+    <h1 class="fw-bold mb-3 text-black display-4" data-aos="fade-down" 
+        style="text-shadow: 0 0 12px #91C8E4, 0 0 20px #fff;">Premium Padlocks Collection</h1>
+    
+    <p class="lead mb-4 text-black-50" data-aos="fade-up" data-aos-delay="200">
+      High-security, durable, and innovative padlocks for home, office, and industrial use.
+    </p>
+    
+    <a href="#padlock-showcase" class="btn btn-light btn-lg fw-bold neon-btn" 
+       data-aos="zoom-in" data-aos-delay="400">Roofing Solutions</a>
+  </div>
+
+  
+</section>
+
+<!-- ==========================
+     HERO CSS
+========================== -->
+<style>
+/* Floating orb animation */
+@keyframes floatOrb {
+    0% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(20px) translateX(10px); }
+    100% { transform: translateY(0px) translateX(0px); }
+}
+
+/* Neon button effect */
+.neon-btn {
+    position: relative;
+    background: #fff;
+    color: #00c6ff;
+    text-shadow: 0 0 5px #00c6ff, 0 0 10px #91C8E4;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 30px;
+    box-shadow: 0 0 15px rgba(0,198,255,0.5), 0 0 30px rgba(145,200,228,0.3);
+    transition: all 0.3s ease-in-out;
+}
+.neon-btn:hover {
+    background: #00c6ff;
+    color: #fff;
+    box-shadow: 0 0 30px #00c6ff, 0 0 60px #91C8E4, 0 0 90px #00ffd5;
+    transform: scale(1.05);
+}
+
+/* Floating padlocks animation */
+.floating-lock {
+    position: absolute;
+    transition: transform 0.6s ease-in-out, filter 0.6s;
+}
+.floating-lock:hover {
+    transform: translateY(-10px) scale(1.05) rotate(-5deg);
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+}
+
+/* Text shadow glow */
+.padlock-hero h1 {
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    animation: textGlow 3s infinite alternate;
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 10px #91C8E4, 0 0 20px #fff; }
+    100% { text-shadow: 0 0 20px #00c6ff, 0 0 40px #fff; }
+}
+</style>
+
+
+
+
+
+<!-- =============================
+     PADLOCK PRODUCT SHOWCASE
+============================= -->
+<section id="padlock-showcase" class="py-5" style="background: #f0f8ff;">
+  <div class="container">
+    <h2 class="section-title text-center mb-5" data-aos="fade-up" style="color:#4682A9;">Our Premium Padlocks</h2>
+
+    <div class="row g-4">
+
+      <!-- Product Card 1 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon-box text-center" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#749BC2,#4682A9);">
+          <img src="./image/pad1.webp" alt="Padlock 1" class="img-fluid mb-3 rounded" style="height:180px; object-fit:contain;">
+          <h5 class="fw-bold">Premium Steel Padlock</h5>
+          <p>High-quality steel lock with anti-rust coating for long-lasting security.</p>
+          <a href="#" class="btn btn-light mt-2">View Details</a>
+        </div>
+      </div>
+
+      <!-- Product Card 2 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon-box text-center" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#749BC2,#4682A9);">
+          <img src="./image/pad2.webp" alt="Padlock 2" class="img-fluid mb-3 rounded" style="height:180px; object-fit:contain;">
+          <h5 class="fw-bold">Combination Lock</h5>
+          <p>Easy-to-use combination padlock offering enhanced security for home or office.</p>
+          <a href="#" class="btn btn-light mt-2">View Details</a>
+        </div>
+      </div>
+
+      <!-- Product Card 3 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="icon-box text-center" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#749BC2,#4682A9);">
+          <img src="./image/pad3.webp" alt="Padlock 3" class="img-fluid mb-3 rounded" style="height:180px; object-fit:contain;">
+          <h5 class="fw-bold">Conytrol Padlock</h5>
+          <p>Modern digital lock with keypad access, ideal for smart security needs.</p>
+          <a href="#" class="btn btn-light mt-2">View Details</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
+      <a href="./contact.html" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg,#4682A9,#91C8E4); border:none;">Get Your Padlock Today</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     AOS Animation Script
+============================== -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
+
+
+<!-- =============================
+     PADLOCK CSS-ONLY FILTER GALLERY
+============================= -->
+<section id="padlock-gallery" class="py-5" style="background: #f0f8ff;">
+  <div class="container">
+    <h2 class="section-title text-center mb-5" style="color:#4682A9;">Browse Our Padlocks</h2>
+
+    <!-- Tabs -->
+    <div class="text-center mb-4">
+      <input type="radio" name="padlock-filter" id="all" checked>
+      <label for="all" class="filter-tab">All</label>
+
+      <input type="radio" name="padlock-filter" id="steel">
+      <label for="steel" class="filter-tab">Steel</label>
+
+      <input type="radio" name="padlock-filter" id="combination">
+      <label for="combination" class="filter-tab">Combination</label>
+
+      <input type="radio" name="padlock-filter" id="digital">
+      <label for="digital" class="filter-tab">Digital</label>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="row g-4">
+
+      <!-- Steel Lock 1 -->
+      <div class="col-md-4 padlock-item steel">
+        <div class="card padlock-card border-0 shadow position-relative overflow-hidden">
+          <img src="./image/pad4.webp" class="card-img-top" alt="Steel Padlock 1">
+          <div class="overlay">
+            <h5 class="fw-bold">Premium Steel Padlock</h5>
+            <p>Rust-proof, Heavy-duty, Max Security</p>
+            <a href="#" class="btn btn-gradient mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Combination Lock -->
+      <div class="col-md-4 padlock-item combination">
+        <div class="card padlock-card border-0 shadow position-relative overflow-hidden">
+          <img src="./image/pad5.webp" class="card-img-top" alt="Combination Lock">
+          <div class="overlay">
+            <h5 class="fw-bold">Combination Lock</h5>
+            <p>No keys needed, Durable & Safe</p>
+            <a href="#" class="btn btn-gradient mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Digital Lock -->
+      <div class="col-md-4 padlock-item digital">
+        <div class="card padlock-card border-0 shadow position-relative overflow-hidden">
+          <img src="./image/pad6.webp" class="card-img-top" alt="Digital Padlock">
+          <div class="overlay">
+            <h5 class="fw-bold">Digital Padlock</h5>
+            <p>Keypad Access, Smart Security</p>
+            <a href="#" class="btn btn-gradient mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Steel Lock 2 -->
+      <div class="col-md-4 padlock-item steel">
+        <div class="card padlock-card border-0 shadow position-relative overflow-hidden">
+          <img src="./image/pad7.webp" class="card-img-top" alt="Steel Padlock 2">
+          <div class="overlay">
+            <h5 class="fw-bold">Heavy-Duty Steel Padlock</h5>
+            <p>Rust-resistant, Anti-theft, Strong Build</p>
+            <a href="#" class="btn btn-gradient mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Combination Lock 2 -->
+      <div class="col-md-4 padlock-item combination">
+        <div class="card padlock-card border-0 shadow position-relative overflow-hidden">
+          <img src="./image/pad8.webp" class="card-img-top" alt="Combination Lock 2">
+          <div class="overlay">
+            <h5 class="fw-bold">Secure Combination Lock</h5>
+            <p>Easy Setup, Keyless, High Security</p>
+            <a href="#" class="btn btn-gradient mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Digital Lock 2 -->
+      <div class="col-md-4 padlock-item digital">
+        <div class="card padlock-card border-0 shadow position-relative overflow-hidden">
+          <img src="./image/pad9.webp" class="card-img-top" alt="Digital Lock 2">
+          <div class="overlay">
+            <h5 class="fw-bold">Smart Digital Padlock</h5>
+            <p>Bluetooth Access, Keyless Entry, Modern Security</p>
+            <a href="#" class="btn btn-gradient mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     CSS FOR FILTER & CARD
+============================== -->
+<style>
+/* Filter Tabs */
+.filter-tab {
+  display: inline-block;
+  margin: 0 5px 10px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  background: linear-gradient(135deg,#91C8E4,#4682A9);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.filter-tab:hover {
+  background: linear-gradient(135deg,#4682A9,#91C8E4);
+}
+input[name="padlock-filter"] {
+  display: none;
+}
+
+/* Card styles */
+.padlock-card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.4s, box-shadow 0.4s;
+  cursor: pointer;
+  position: relative;
+}
+.padlock-card img {
+  height: 220px;
+  object-fit: contain;
+  background: linear-gradient(135deg,#FFFBDE,#91C8E4,#749BC2,#4682A9);
+  padding: 20px;
+}
+.padlock-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 18px 40px rgba(70,130,169,0.35);
+}
+
+/* Overlay on hover */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(70,130,169,0.85);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: 0.4s;
+  padding: 20px;
+}
+.padlock-card:hover .overlay {
+  opacity: 1;
+}
+.overlay h5 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+.overlay p {
+  font-size: 0.9rem;
+}
+.btn-gradient {
+  background: linear-gradient(135deg,#FFFBDE,#4682A9);
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 8px;
+}
+.btn-gradient:hover {
+  background: linear-gradient(135deg,#4682A9,#91C8E4);
+  transform: scale(1.05);
+}
+
+/* CSS-only Filtering */
+.padlock-item { display: block; }
+
+#all:checked ~ .container .padlock-item { display: block; }
+#steel:checked ~ .container .padlock-item { display: none; }
+#steel:checked ~ .container .padlock-item.steel { display: block; }
+
+#combination:checked ~ .container .padlock-item { display: none; }
+#combination:checked ~ .container .padlock-item.combination { display: block; }
+
+#digital:checked ~ .container .padlock-item { display: none; }
+#digital:checked ~ .container .padlock-item.digital { display: block; }
+</style>
+
+<!-- =============================
+     1️⃣ SECURITY LEVEL COMPARISON
+============================= -->
+<section id="security-level" class="py-5" style="background: #e0f4ff;">
+  <div class="container">
+    <h2 class="section-title text-center mb-5" style="color:#4682A9;">Security Level Comparison</h2>
+
+    <div class="row g-4 text-center">
+
+      <!-- Steel Padlock -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card shadow-lg rounded-4 border-0 position-relative overflow-hidden" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#749BC2,#4682A9); color:#fff;">
+          <div class="ribbon bg-warning">Basic</div>
+          <img src="./image/pad1.webp" class="card-img-top p-4" alt="Steel Padlock">
+          <div class="card-body">
+            <h5 class="fw-bold mb-2">Steel Padlock</h5>
+            <p class="text-light">Basic Home & Storage Lock</p>
+            <div class="progress mb-3" style="height:8px; border-radius:6px;">
+              <div class="progress-bar bg-warning" style="width:60%"></div>
+            </div>
+            <a href="#" class="btn btn-gradient mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Combination Lock -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card shadow-lg rounded-4 border-0 position-relative overflow-hidden" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#749BC2,#4682A9); color:#fff;">
+          <div class="ribbon bg-danger">Medium</div>
+          <img src="./image/pad9.webp" class="card-img-top p-4" alt="Combination Lock">
+          <div class="card-body">
+            <h5 class="fw-bold mb-2">Combination Lock</h5>
+            <p class="text-light">Medium Security, Keyless</p>
+            <div class="progress mb-3" style="height:8px; border-radius:6px;">
+              <div class="progress-bar bg-danger" style="width:80%"></div>
+            </div>
+            <a href="#" class="btn btn-gradient mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Digital Lock -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="card shadow-lg rounded-4 border-0 position-relative overflow-hidden" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#749BC2,#4682A9); color:#fff;">
+          <div class="ribbon bg-success">High</div>
+          <img src="./image/pad10.webp" class="card-img-top p-4" alt="Digital Padlock">
+          <div class="card-body">
+            <h5 class="fw-bold mb-2">Control Padlock</h5>
+            <p class="text-light">High Security, Smart Access</p>
+            <div class="progress mb-3" style="height:8px; border-radius:6px;">
+              <div class="progress-bar bg-success" style="width:100%"></div>
+            </div>
+            <a href="#" class="btn btn-gradient mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.ribbon {
+  position: absolute;
+  top: 15px;
+  left: -10px;
+  padding: 6px 28px;
+  color: #fff;
+  font-weight: 700;
+  transform: rotate(-45deg);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+</style>
+
+<!-- =============================
+     HOW PALAM PADLOCKS WORK - TIMELINE
+============================= -->
+<section id="how-it-works" class="py-5" style="background: #f0f8ff;">
+  <div class="container">
+    <h2 class="section-title text-center mb-5" style="color:#4682A9;">How Palam Padlocks Work</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+        <div class="timeline-icon bg-gradient-icon"><i class="bi bi-unlock-fill"></i></div>
+        <div class="timeline-content">
+          <h5>Step 1: Unlock</h5>
+          <p>Use key, combination, or digital code to unlock your padlock effortlessly.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+        <div class="timeline-icon bg-gradient-icon"><i class="bi bi-box-seam"></i></div>
+        <div class="timeline-content">
+          <h5>Step 2: Secure</h5>
+          <p>Place the lock on your door, gate, locker, or storage area with ease.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+        <div class="timeline-icon bg-gradient-icon"><i class="bi bi-shield-lock"></i></div>
+        <div class="timeline-content">
+          <h5>Step 3: Lock</h5>
+          <p>Engage the lock with key, combination, or digital code to secure your property.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+        <div class="timeline-icon bg-gradient-icon"><i class="bi bi-star-fill"></i></div>
+        <div class="timeline-content">
+          <h5>Step 4: Enjoy Safety</h5>
+          <p>Relax knowing your property is protected by Palam premium padlocks.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg,#91C8E4,#4682A9);
+  border-radius: 2px;
+}
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+.timeline-item:nth-child(odd) { left: 0; text-align: right; }
+.timeline-item:nth-child(even) { left: 50%; text-align: left; }
+.timeline-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 2rem;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  z-index: 1;
+  position: relative;
+}
+.bg-gradient-icon {
+  background: linear-gradient(135deg,#FFFBDE,#91C8E4,#4682A9,#749BC2);
+}
+.timeline-content {
+  background: #fff;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  margin-top: 20px;
+  position: relative;
+}
+.timeline-item:nth-child(odd) .timeline-content::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 20px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 4px solid #91C8E4;
+  border-radius: 50%;
+}
+.timeline-item:nth-child(even) .timeline-content::after {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 20px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 4px solid #4682A9;
+  border-radius: 50%;
+}
+.timeline h5 {
+  color: #4682A9;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.timeline p {
+  font-size: 0.95rem;
+  color: #555;
+}
+@media(max-width:768px){
+  .timeline::before { left: 20px; }
+  .timeline-item { width: 100%; padding-left: 60px; padding-right: 20px; text-align: left; margin-bottom: 40px;}
+  .timeline-item:nth-child(even) { left: 0; }
+  .timeline-item:nth-child(odd) .timeline-content::after,
+  .timeline-item:nth-child(even) .timeline-content::after { left: 0; }
+}
+</style>
+<!-- =============================
+     MATERIAL & DURABILITY - RADIAL STYLE
+============================= -->
+<section id="material-durability" class="py-5" style="background: #e8f7ff;">
+  <div class="container">
+    <h2 class="section-title text-center mb-5" style="color:#4682A9;">Material & Durability</h2>
+
+    <div class="row g-4 text-center">
+
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="durability-card p-4 rounded-4 shadow" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#4682A9); color:#fff;">
+          <div class="radial-progress" style="--progress:90;">90%</div>
+          <h5 class="mt-3 fw-bold">Rust Proof Steel</h5>
+          <p>High-quality stainless steel prevents rust & corrosion.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="durability-card p-4 rounded-4 shadow" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#4682A9); color:#fff;">
+          <div class="radial-progress" style="--progress:85;">85%</div>
+          <h5 class="mt-3 fw-bold">Impact Resistant</h5>
+          <p>Withstands heavy usage, impact, and tampering.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="durability-card p-4 rounded-4 shadow" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#4682A9); color:#fff;">
+          <div class="radial-progress" style="--progress:95;">95%</div>
+          <h5 class="mt-3 fw-bold">Long-lasting</h5>
+          <p>Built for years of reliable performance & peace of mind.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.radial-progress {
+  --size: 100px;
+  --thickness: 12px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: conic-gradient(#FFD700 calc(var(--progress) * 1%), rgba(255,255,255,0.2) 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  position: relative;
+}
+.radial-progress::before {
+  content: '';
+  width: calc(var(--size) - var(--thickness)*2);
+  height: calc(var(--size) - var(--thickness)*2);
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  position: absolute;
+}
+</style>
+
+
+
+<!-- =============================
+     WHY CHOOSE PALAM LOCKS
+============================= -->
+<section id="why-choose" class="py-5" style="background: #f5faff;">
+  <div class="container">
+    <h2 class="section-title text-center mb-5" data-aos="fade-down" style="color:#4682A9;">Why Choose Palam Locks?</h2>
+    
+    <div class="row g-4 text-center">
+
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon-box p-4 rounded shadow" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#749BC2,#4682A9); color:#fff;">
+          <i class="bi bi-shield-lock-fill" style="font-size:2.5rem;"></i>
+          <h5 class="mt-3 fw-bold">High Security</h5>
+          <p>Advanced locking mechanism for maximum protection of your home & office.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon-box p-4 rounded shadow" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#749BC2,#4682A9); color:#fff;">
+          <i class="bi bi-droplet-half" style="font-size:2.5rem;"></i>
+          <h5 class="mt-3 fw-bold">Rust Resistant</h5>
+          <p>Durable materials with anti-corrosion coating for long-lasting use.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="icon-box p-4 rounded shadow" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#749BC2,#4682A9); color:#fff;">
+          <i class="bi bi-gear-fill" style="font-size:2.5rem;"></i>
+          <h5 class="mt-3 fw-bold">Easy to Use</h5>
+          <p>Simple designs and features that make locking and unlocking effortless.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="icon-box p-4 rounded shadow" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#749BC2,#4682A9); color:#fff;">
+          <i class="bi bi-award-fill" style="font-size:2.5rem;"></i>
+          <h5 class="mt-3 fw-bold">Trusted Brand</h5>
+          <p>Palam is a recognized brand for reliability, innovation, and quality assurance.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- =============================
+     CUSTOMER TESTIMONIALS
+============================= -->
+<section id="testimonials" class="py-5" style="background: #e0f2ff;">
+  <div class="container">
+    <h2 class="section-title text-center mb-5" data-aos="fade-down" style="color:#4682A9;">What Our Customers Say</h2>
+
+    <div class="row g-4">
+
+      <!-- Testimonial 1 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card border-0 shadow-sm p-4 rounded" style="background: #fff;">
+          <p>"Palam Padlocks are the best I have ever used. Strong, reliable, and long-lasting."</p>
+          <div class="d-flex align-items-center mt-3">
+            <img src="./image/customer2.jpg" alt="Customer 1" class="rounded-circle me-3" width="50">
+            <div>
+              <h6 class="mb-0 fw-bold">Rahul S.</h6>
+              <small class="text-muted">Bangalore</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card border-0 shadow-sm p-4 rounded" style="background: #fff;">
+          <p>"Excellent quality and very durable locks. I feel my home is much safer now."</p>
+          <div class="d-flex align-items-center mt-3">
+            <img src="./image/customer1.jpg" alt="Customer 2" class="rounded-circle me-3" width="50">
+            <div>
+              <h6 class="mb-0 fw-bold">Anita K.</h6>
+              <small class="text-muted">Delhi</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="card border-0 shadow-sm p-4 rounded" style="background: #fff;">
+          <p>"I purchased digital locks from Palam. Very easy to install and highly secure."</p>
+          <div class="d-flex align-items-center mt-3">
+            <img src="./image/customer3.webp" alt="Customer 3" class="rounded-circle me-3" width="50">
+            <div>
+              <h6 class="mb-0 fw-bold">Salini Panda.</h6>
+              <small class="text-muted">Mumbai</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+/* ---------------- PREMIUM FOOTER (INLINE CSS) ---------------- */
+
+.premium-footer {
+    background: rgba(15, 20, 35, 0.85);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 0 20px;
+    color: #dbe3ff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative glowing orbs */
+.premium-footer::before,
+.premium-footer::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    filter: blur(150px);
+    border-radius: 50%;
+    z-index: 0;
+}
+.premium-footer::before {
+    background: rgba(0, 200, 255, 0.25);
+    top: -80px;
+    right: -80px;
+}
+.premium-footer::after {
+    background: rgba(0, 255, 150, 0.25);
+    bottom: -80px;
+    left: -80px;
+}
+
+.footer-section {
+    z-index: 1;
+    position: relative;
+}
+
+/* Logo */
+.footer-logo {
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0px 6px 18px rgba(255, 255, 255, 0.15);
+}
+
+/* About */
+.footer-about {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Social Icons */
+.footer-social a {
+    font-size: 20px;
+    color: #cfd9ff;
+    margin-right: 15px;
+    transition: 0.3s;
+}
+.footer-social a:hover {
+    color: #00c6ff;
+    transform: scale(1.2);
+}
+
+/* Headings */
+.premium-footer h5 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: #fff;
+    position: relative;
+}
+.premium-footer h5::after {
+    content: "";
+    width: 50px;
+    height: 3px;
+    background: #00c6ff;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    border-radius: 3px;
+}
+
+/* Links */
+.footer-links li {
+    margin-bottom: 10px;
+}
+.footer-links a {
+    color: #c9d4ef;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.footer-links a:hover {
+    color: #00c6ff;
+    padding-left: 8px;
+}
+
+/* Newsletter Form */
+.footer-newsletter {
+    display: flex;
+    margin-bottom: 15px;
+}
+.footer-newsletter input {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    background: #ffffff10;
+    color: #fff;
+    outline: none;
+}
+.footer-newsletter input::placeholder {
+    color: #d0d7f1;
+}
+.footer-newsletter button {
+    padding: 10px 16px;
+    margin-left: 8px;
+    border: none;
+    border-radius: 8px;
+    background: #00c6ff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.footer-newsletter button:hover {
+    background: #00ffd5;
+}
+
+/* Contact Info */
+.footer-contact p {
+    margin-bottom: 6px;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 14px;
+    color: #b8c4e3;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .premium-footer {
+        text-align: center;
+    }
+
+    .premium-footer h5::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-newsletter {
+        flex-direction: column;
+    }
+    .footer-newsletter button {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+}
+</style>
+
+<!-- =================== PREMIUM FOOTER HTML =================== -->
+<footer class="premium-footer">
+    <div class="container">
+        <div class="row">
+
+            <!-- Logo & About -->
+            <div class="col-md-4 footer-section">
+                <img src="./image/logo.jpg" alt="Palam Logo" width="90" class="footer-logo">
+                <p class="footer-about">
+                    Premium Hardware & Security Solutions<br>
+                    Trusted by customers for reliability & innovation.
+                </p>
+
+                <!-- Social Icons -->
+                <div class="footer-social">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-youtube"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-4 footer-section">
+                <h5>Quick Links</h5>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="col-md-4 footer-section">
+                <h5>Stay Updated</h5>
+                <p>Subscribe for product updates & offers.</p>
+
+                <form class="footer-newsletter">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+
+                <div class="footer-contact">
+                    <p>Email: info@palam.com</p>
+                    <p>Phone: +91-XXXXXXXXXX</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+        © 2025 Palam Hardware. All Rights Reserved.
+    </div>
+</footer>

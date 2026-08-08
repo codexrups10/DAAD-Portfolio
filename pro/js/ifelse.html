@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>If-Else Level | JavaScript Programming Game</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body{font-family:Poppins;background:#000;color:#e5e7eb}
+::placeholder{color:#94a3b8 !important; opacity:1;}
+.video-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
+.video-bg video{width:100%;height:100%;object-fit:cover;filter:brightness(0.35);}
+.game-card{
+  background:rgba(2,6,23,0.85);
+  border:1px solid rgba(56,189,248,0.4);
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 0 25px rgba(56,189,248,0.4);
+  transition:.3s;
+}
+.game-card:hover{transform:translateY(-6px); box-shadow:0 0 35px rgba(56,189,248,.6);}
+.game-card h5{color:#38bdf8;font-family:Orbitron}
+input, select{background:#020617!important;color:#fff!important;border:1px solid rgba(56,189,248,0.4)!important}
+.result{margin-top:10px;color:#22d3ee;font-weight:600;}
+.game-nav{background:rgba(2,6,23,0.85);backdrop-filter:blur(10px);border-bottom:1px solid rgba(56,189,248,0.4);box-shadow:0 0 25px rgba(56,189,248,0.3);}
+.game-logo{font-family:Orbitron;font-size:1.4rem;color:#38bdf8;letter-spacing:3px;}
+.game-logo span{color:#38bdf8;}
+.game-link{position:relative;color:#e5e7eb;font-weight:600;letter-spacing:1px;padding:10px 15px;transition:0.3s;}
+.game-link::after{content:"";position:absolute;left:50%;bottom:0;width:0;height:2px;background:#38bdf8;transition:0.3s;transform:translateX(-50%);}
+.game-link:hover{color:#38bdf8 !important;text-shadow:0 0 12px rgba(56,189,248,0.8);}
+.game-link:hover::after{width:70%;}
+.game-dropdown{background:#020617;border:1px solid rgba(56,189,248,0.4);border-radius:15px;box-shadow:0 0 25px rgba(56,189,248,0.5);}
+.game-dropdown .dropdown-item{color:#e5e7eb;font-weight:500;padding:12px 20px;transition:0.3s;}
+.game-dropdown .dropdown-item:hover{background:rgba(56,189,248,0.15);color:#38bdf8;text-shadow:0 0 8px rgba(56,189,248,0.6);}
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO BACKGROUND -->
+<div class="video-bg">
+  <video autoplay muted loop>
+    <source src="https://cdn.coverr.co/videos/coverr-programming-screen-1567/1080p.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg game-nav fixed-top">
+  <div class="container">
+    <a class="navbar-brand game-logo" href="index.html"><span>JS</span></a>
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#menu">☰</button>
+    <div class="collapse navbar-collapse justify-content-end" id="menu">
+      <ul class="navbar-nav align-items-center gap-3">
+        <li class="nav-item"><a class="nav-link game-link" href="index.html">HOME</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link game-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">PROGRAMS</a>
+          <ul class="dropdown-menu game-dropdown">
+            <li><a class="dropdown-item" href="basic.html">Basic Level</a></li>
+            <li><a class="dropdown-item" href="ifelse.html">If-Else Level</a></li>
+            <li><a class="dropdown-item" href="loops.html">Looping Level</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link game-link" href="about.html">ABOUT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container" style="padding-top:100px;padding-bottom:40px">
+
+<!-- LEVEL STATUS -->
+<div class="game-card text-center mb-4">
+  <h5>📊 Level Status</h5>
+  <div class="progress" style="height:10px;background:#020617">
+    <div id="progressBar" class="progress-bar bg-info" style="width:0%"></div>
+  </div>
+  <small class="text-info" id="progressText">0 / 15 Completed</small>
+  <div class="mt-2">⭐ Score: <span id="score">0</span></div>
+</div>
+
+<h2 class="text-center mb-5" style="font-family:Orbitron;color:#38bdf8">🎮 IF-ELSE LEVEL PROGRAMS</h2>
+
+<div class="row g-4">
+
+<!-- Q1 -->
+<div class="col-md-6"><div class="game-card">
+<h5>1. Largest of Two Numbers</h5>
+<input id="if1a" class="form-control mb-2" placeholder="First Number">
+<input id="if1b" class="form-control mb-2" placeholder="Second Number">
+<button class="btn btn-info w-100" onclick="largest2()">Check</button>
+<div class="result" id="r_if1"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(1)">View Logic</button>
+
+
+<!-- Q2 -->
+<div class="col-md-6"><div class="game-card">
+<h5>2. Largest of Three Numbers</h5>
+<input id="if2a" class="form-control mb-2" placeholder="Number 1">
+<input id="if2b" class="form-control mb-2" placeholder="Number 2">
+<input id="if2c" class="form-control mb-2" placeholder="Number 3">
+<button class="btn btn-info w-100" onclick="largest3()">Check</button>
+<div class="result" id="r_if2"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(2)">View Logic</button>
+
+<!-- Q3 -->
+<div class="col-md-6"><div class="game-card">
+<h5>3. Positive, Negative or Zero</h5>
+<input id="if3" class="form-control mb-2" placeholder="Enter Number">
+<button class="btn btn-info w-100" onclick="posNegZero()">Check</button>
+<div class="result" id="r_if3"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(3)">View Logic</button>
+
+<!-- Q4 -->
+<div class="col-md-6"><div class="game-card">
+<h5>4. Even or Odd</h5>
+<input id="if4" class="form-control mb-2" placeholder="Enter Number">
+<button class="btn btn-info w-100" onclick="evenOddIf()">Check</button>
+<div class="result" id="r_if4"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(4)">View Logic</button>
+
+<!-- Q5 -->
+<div class="col-md-6"><div class="game-card">
+<h5>5. Check Leap Year</h5>
+<input id="if5" class="form-control mb-2" placeholder="Enter Year">
+<button class="btn btn-info w-100" onclick="leapYear()">Check</button>
+<div class="result" id="r_if5"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(5)">View Logic</button>
+
+<!-- Q6 -->
+<div class="col-md-6"><div class="game-card">
+<h5>6. Grade Calculator</h5>
+<input id="if6" class="form-control mb-2" placeholder="Marks 0-100">
+<button class="btn btn-info w-100" onclick="gradeCalc()">Check</button>
+<div class="result" id="r_if6"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(6)">View Logic</button>
+
+<!-- Q7 -->
+<div class="col-md-6"><div class="game-card">
+<h5>7. Pass or Fail</h5>
+<input id="if7" class="form-control mb-2" placeholder="Marks 0-100">
+<button class="btn btn-info w-100" onclick="passFail()">Check</button>
+<div class="result" id="r_if7"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(7)">View Logic</button>
+
+<!-- Q8 -->
+<div class="col-md-6"><div class="game-card">
+<h5>8. Vowel or Consonant</h5>
+<input id="if8" class="form-control mb-2" placeholder="Enter a Letter">
+<button class="btn btn-info w-100" onclick="vowelConsonant()">Check</button>
+<div class="result" id="r_if8"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(8)">View Logic</button>
+
+<!-- Q9 -->
+<div class="col-md-6"><div class="game-card">
+<h5>9. Positive & Even Check</h5>
+<input id="if9" class="form-control mb-2" placeholder="Enter Number">
+<button class="btn btn-info w-100" onclick="posEven()">Check</button>
+<div class="result" id="r_if9"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(9)">View Logic</button>
+
+<!-- Q10 -->
+<div class="col-md-6"><div class="game-card">
+<h5>10. Eligibility to Vote</h5>
+<input id="if10" class="form-control mb-2" placeholder="Enter Age">
+<button class="btn btn-info w-100" onclick="voteEligibility()">Check</button>
+<div class="result" id="r_if10"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(10)">View Logic</button>
+
+<!-- Q11 -->
+<div class="col-md-6"><div class="game-card">
+<h5>11. Discount Calculator</h5>
+<input id="if11" class="form-control mb-2" placeholder="Enter Price">
+<button class="btn btn-info w-100" onclick="discountCalc()">Check</button>
+<div class="result" id="r_if11"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(11)">View Logic</button>
+
+<!-- Q12 -->
+<div class="col-md-6"><div class="game-card">
+<h5>12. Age Group</h5>
+<input id="if12" class="form-control mb-2" placeholder="Enter Age">
+<button class="btn btn-info w-100" onclick="ageGroup()">Check</button>
+<div class="result" id="r_if12"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(12)">View Logic</button>
+
+<!-- Q13 -->
+<div class="col-md-6"><div class="game-card">
+<h5>13. Number Sign</h5>
+<input id="if13" class="form-control mb-2" placeholder="Enter Number">
+<button class="btn btn-info w-100" onclick="numberSign()">Check</button>
+<div class="result" id="r_if13"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(13)">View Logic</button>
+
+<!-- Q14 -->
+<div class="col-md-6"><div class="game-card">
+<h5>14. Maximum of Four Numbers</h5>
+<input id="if14a" class="form-control mb-2" placeholder="Number 1">
+<input id="if14b" class="form-control mb-2" placeholder="Number 2">
+<input id="if14c" class="form-control mb-2" placeholder="Number 3">
+<input id="if14d" class="form-control mb-2" placeholder="Number 4">
+<button class="btn btn-info w-100" onclick="max4()">Check</button>
+<div class="result" id="r_if14"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(14)">View Logic</button>
+
+<!-- Q15 -->
+<div class="col-md-6"><div class="game-card">
+<h5>15. Leap Year with Message</h5>
+<input id="if15" class="form-control mb-2" placeholder="Enter Year">
+<button class="btn btn-info w-100" onclick="leapMessage()">Check</button>
+<div class="result" id="r_if15"></div>
+</div></div>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showIfLogic(15)">View Logic</button>
+
+</div>
+
+</div>
+
+<!-- SOURCE CODE MODAL -->
+<div class="modal fade" id="logicModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content" style="background:#020617;color:#e5e7eb;border:1px solid #38bdf8;border-radius:15px">
+      <div class="modal-header">
+        <h5 class="modal-title text-info" id="logicTitle"></h5>
+        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <pre style="white-space:pre-wrap;color:#22d3ee;font-size:14px" id="logicCode"></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center py-3" style="border-top:1px solid rgba(255,255,255,0.1)">
+© 2025 JavaScript Programming Game | If-Else Level
+</footer>
+
+<script>
+let completed = 0;
+const total = 15;
+
+function updateProgress() {
+  completed++;
+  let percent = Math.min((completed / total) * 100, 100);
+  document.getElementById('progressBar').style.width = percent + '%';
+  document.getElementById('progressText').innerText = completed + " / " + total + " Completed";
+}
+
+// Q1: Largest of Two Numbers
+function largest2() {
+  let a = Number(document.getElementById('if1a').value);
+  let b = Number(document.getElementById('if1b').value);
+  if (isNaN(a) || isNaN(b)) { document.getElementById('r_if1').innerText="❌ Enter valid numbers"; return; }
+  document.getElementById('r_if1').innerText = "✅ Largest = " + (a > b ? a : b);
+  updateProgress();
+
+}
+
+// Q2: Largest of Three Numbers
+function largest3() {
+  let a = Number(document.getElementById('if2a').value);
+  let b = Number(document.getElementById('if2b').value);
+  let c = Number(document.getElementById('if2c').value);
+  if (isNaN(a) || isNaN(b) || isNaN(c)) { document.getElementById('r_if2').innerText="❌ Enter valid numbers"; return; }
+  document.getElementById('r_if2').innerText = "✅ Largest = " + Math.max(a,b,c);
+  updateProgress();
+}
+
+// Q3: Positive, Negative or Zero
+function posNegZero() {
+  let n = Number(document.getElementById('if3').value);
+  if (isNaN(n)) { document.getElementById('r_if3').innerText="❌ Enter valid number"; return; }
+  let msg = (n > 0) ? "Positive" : (n < 0) ? "Negative" : "Zero";
+  document.getElementById('r_if3').innerText = "✅ " + msg;
+  updateProgress();
+}
+
+// Q4: Even or Odd
+function evenOddIf() {
+  let n = Number(document.getElementById('if4').value);
+  if (isNaN(n)) { document.getElementById('r_if4').innerText="❌ Enter valid number"; return; }
+  document.getElementById('r_if4').innerText = "✅ " + ((n % 2 === 0) ? "Even" : "Odd");
+  updateProgress();
+}
+
+// Q5: Check Leap Year
+function leapYear() {
+  let y = Number(document.getElementById('if5').value);
+  if (isNaN(y)) { document.getElementById('r_if5').innerText="❌ Enter valid year"; return; }
+  let isLeap = (y % 4 === 0 && y % 100 !== 0) || (y % 400 === 0);
+  document.getElementById('r_if5').innerText = "✅ " + (isLeap ? "Leap Year" : "Not Leap Year");
+  updateProgress();
+}
+
+// Q6: Grade Calculator
+function gradeCalc() {
+  let marks = Number(document.getElementById('if6').value);
+  if (isNaN(marks) || marks < 0 || marks > 100) { document.getElementById('r_if6').innerText="❌ Enter marks 0-100"; return; }
+  let grade = (marks >= 90) ? 'A' : (marks >= 80) ? 'B' : (marks >= 70) ? 'C' : (marks >= 60) ? 'D' : 'F';
+  document.getElementById('r_if6').innerText = "✅ Grade = " + grade;
+  updateProgress();
+}
+
+// Q7: Pass/Fail
+function passFail() {
+  let marks = Number(document.getElementById('if7').value);
+  if (isNaN(marks) || marks < 0 || marks > 100) { document.getElementById('r_if7').innerText="❌ Enter marks 0-100"; return; }
+  document.getElementById('r_if7').innerText = "✅ " + (marks >= 35 ? "Pass" : "Fail");
+  updateProgress();
+}
+
+// Q8: Vowel or Consonant
+function vowelConsonant() {
+  let ch = document.getElementById('if8').value.toLowerCase();
+  if (!ch || ch.length !== 1 || !(/[a-z]/.test(ch))) { document.getElementById('r_if8').innerText="❌ Enter a valid letter"; return; }
+  document.getElementById('r_if8').innerText = "✅ " + ('aeiou'.includes(ch) ? "Vowel" : "Consonant");
+  updateProgress();
+}
+
+// Q9: Positive & Even Check
+function posEven() {
+  let n = Number(document.getElementById('if9').value);
+  if (isNaN(n)) { document.getElementById('r_if9').innerText="❌ Enter valid number"; return; }
+  document.getElementById('r_if9').innerText = (n > 0 && n % 2 === 0) ? "✅ Positive & Even" : "✅ Condition not met";
+  updateProgress();
+}
+
+// Q10: Eligibility to Vote
+function voteEligibility() {
+  let age = Number(document.getElementById('if10').value);
+  if (isNaN(age) || age < 0) { document.getElementById('r_if10').innerText="❌ Enter valid age"; return; }
+  document.getElementById('r_if10').innerText = "✅ " + (age >= 18 ? "Eligible to Vote" : "Not Eligible");
+  updateProgress();
+}
+
+// Q11: Discount Calculator (10% discount)
+function discountCalc() {
+  let price = Number(document.getElementById('if11').value);
+  if (isNaN(price) || price < 0) { document.getElementById('r_if11').innerText="❌ Enter valid price"; return; }
+  let discounted = price * 0.9; // 10% discount
+  document.getElementById('r_if11').innerText = "✅ Discounted Price = " + discounted.toFixed(2);
+  updateProgress();
+}
+
+// Q12: Age Group
+function ageGroup() {
+  let age = Number(document.getElementById('if12').value);
+  if (isNaN(age) || age < 0) { document.getElementById('r_if12').innerText="❌ Enter valid age"; return; }
+  let group = (age <= 12) ? "Child" : (age <= 19) ? "Teen" : (age <= 60) ? "Adult" : "Senior";
+  document.getElementById('r_if12').innerText = "✅ Age Group = " + group;
+  updateProgress();
+}
+
+// Q13: Number Sign
+function numberSign() {
+  let n = Number(document.getElementById('if13').value);
+  if (isNaN(n)) { document.getElementById('r_if13').innerText="❌ Enter valid number"; return; }
+  let sign = (n > 0) ? "Positive" : (n < 0) ? "Negative" : "Zero";
+  document.getElementById('r_if13').innerText = "✅ " + sign;
+  updateProgress();
+}
+
+// Q14: Maximum of Four Numbers
+function max4() {
+  let a = Number(document.getElementById('if14a').value);
+  let b = Number(document.getElementById('if14b').value);
+  let c = Number(document.getElementById('if14c').value);
+  let d = Number(document.getElementById('if14d').value);
+  if ([a,b,c,d].some(x => isNaN(x))) { document.getElementById('r_if14').innerText="❌ Enter valid numbers"; return; }
+  document.getElementById('r_if14').innerText = "✅ Maximum = " + Math.max(a,b,c,d);
+  updateProgress();
+}
+
+// Q15: Leap Year with Message
+function leapMessage() {
+  let y = Number(document.getElementById('if15').value);
+  if (isNaN(y)) { document.getElementById('r_if15').innerText="❌ Enter valid year"; return; }
+  let isLeap = (y % 4 === 0 && y % 100 !== 0) || (y % 400 === 0);
+  document.getElementById('r_if15').innerText = isLeap ? "✅ "+y+" is a Leap Year! 🎉" : "✅ "+y+" is Not a Leap Year.";
+  updateProgress();
+}
+
+// Show Logic Modal
+
+
+function showIfLogic(q){
+  let title = "", code = "";
+
+  switch(q){
+
+    case 1:
+      title = "Largest of Two Numbers";
+      code =
+"let a = Number(if1a.value);\n" +
+"let b = Number(if1b.value);\n\n" +
+"if (a > b)\n" +
+"  result = a;\n" +
+"else\n" +
+"  result = b;";
+      break;
+
+    case 2:
+      title = "Largest of Three Numbers";
+      code =
+"let a = Number(if2a.value);\n" +
+"let b = Number(if2b.value);\n" +
+"let c = Number(if2c.value);\n\n" +
+"if (a > b && a > c)\n" +
+"  result = a;\n" +
+"else if (b > c)\n" +
+"  result = b;\n" +
+"else\n" +
+"  result = c;";
+      break;
+
+    case 3:
+      title = "Positive / Negative / Zero";
+      code =
+"let n = Number(if3.value);\n\n" +
+"if (n > 0)\n" +
+'  result = "Positive";\n' +
+"else if (n < 0)\n" +
+'  result = "Negative";\n' +
+"else\n" +
+'  result = "Zero";';
+      break;
+
+    case 4:
+      title = "Even or Odd";
+      code =
+"let n = Number(if4.value);\n\n" +
+"if (n % 2 == 0)\n" +
+'  result = "Even";\n' +
+"else\n" +
+'  result = "Odd";';
+      break;
+
+    case 5:
+      title = "Leap Year";
+      code =
+"let y = Number(if5.value);\n\n" +
+"if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0)\n" +
+'  result = "Leap Year";\n' +
+"else\n" +
+'  result = "Not Leap Year";';
+      break;
+
+    case 6:
+      title = "Grade Calculator";
+      code =
+"let m = Number(if6.value);\n\n" +
+'if (m >= 90) grade = "A";\n' +
+'else if (m >= 80) grade = "B";\n' +
+'else if (m >= 70) grade = "C";\n' +
+'else if (m >= 60) grade = "D";\n' +
+'else grade = "F";';
+      break;
+
+    case 7:
+      title = "Pass or Fail";
+      code =
+"let m = Number(if7.value);\n\n" +
+"if (m >= 35)\n" +
+'  result = "Pass";\n' +
+"else\n" +
+'  result = "Fail";';
+      break;
+
+    case 8:
+      title = "Vowel or Consonant";
+      code =
+"let ch = if8.value.toLowerCase();\n\n" +
+'if ("aeiou".includes(ch))\n' +
+'  result = "Vowel";\n' +
+"else\n" +
+'  result = "Consonant";';
+      break;
+
+    case 9:
+      title = "Positive & Even";
+      code =
+"let n = Number(if9.value);\n\n" +
+"if (n > 0 && n % 2 == 0)\n" +
+'  result = "Positive & Even";\n' +
+"else\n" +
+'  result = "Condition not met";';
+      break;
+
+    case 10:
+      title = "Vote Eligibility";
+      code =
+"let age = Number(if10.value);\n\n" +
+"if (age >= 18)\n" +
+'  result = "Eligible";\n' +
+"else\n" +
+'  result = "Not Eligible";';
+      break;
+
+    case 11:
+      title = "Discount Calculation";
+      code =
+"let price = Number(if11.value);\n\n" +
+"if (price > 0)\n" +
+"  price = price - (price * 0.10);";
+      break;
+
+    case 12:
+      title = "Age Group";
+      code =
+"let age = Number(if12.value);\n\n" +
+'if (age <= 12) group = "Child";\n' +
+'else if (age <= 19) group = "Teen";\n' +
+'else if (age <= 60) group = "Adult";\n' +
+'else group = "Senior";';
+      break;
+
+    case 13:
+      title = "Number Sign";
+      code =
+"let n = Number(if13.value);\n\n" +
+'if (n > 0) result = "Positive";\n' +
+'else if (n < 0) result = "Negative";\n' +
+'else result = "Zero";';
+      break;
+
+    case 14:
+      title = "Maximum of Four Numbers";
+      code =
+"let a = Number(if14a.value);\n" +
+"let b = Number(if14b.value);\n" +
+"let c = Number(if14c.value);\n" +
+"let d = Number(if14d.value);\n\n" +
+"let max = Math.max(a, b, c, d);";
+      break;
+
+    case 15:
+      title = "Leap Year with Message";
+      code =
+"// Same leap year logic\n" +
+"// with custom message\n\n" +
+"if (leapYear)\n" +
+'  message = "Leap Year 🎉";\n' +
+"else\n" +
+'  message = "Not a Leap Year";';
+      break;
+  }
+
+  document.getElementById("logicTitle").innerText = title;
+  document.getElementById("logicCode").innerText = code;
+
+  if (window.bootstrap) {
+    new bootstrap.Modal(document.getElementById("logicModal")).show();
+  }
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

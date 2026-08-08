@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Basic Level | JavaScript Programming Game</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body{font-family:Poppins;background:#000;color:#e5e7eb}
+
+::placeholder{color:#f1f1f1 !important; opacity:1;}
+
+
+.game-card{
+  background:rgba(2,6,23,0.85);
+  border:1px solid rgba(56,189,248,0.4);
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 0 25px rgba(56,189,248,0.4);
+}
+.game-card h5{color:#38bdf8;font-family:Orbitron}
+input{background:#020617!important;color:#fff!important}
+.result{margin-top:10px;color:#22d3ee;font-weight:600}
+</style>
+</head>
+
+<body>
+
+
+<div class="row g-4">
+  <!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body{font-family:Poppins;background:#000;color:#e5e7eb}
+::placeholder{color:#94a3b8 !important; opacity:1;}
+.video-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
+.video-bg video{width:100%;height:100%;object-fit:cover;filter:brightness(0.35);}
+.game-card{
+  background:rgba(2,6,23,0.85);
+  border:1px solid rgba(56,189,248,0.4);
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 0 25px rgba(56,189,248,0.4);
+  transition:.3s;
+}
+.game-card:hover{transform:translateY(-6px); box-shadow:0 0 35px rgba(56,189,248,.6);}
+.game-card h5{color:#38bdf8;font-family:Orbitron}
+input, select{background:#020617!important;color:#fff!important;border:1px solid rgba(56,189,248,0.4)!important}
+.result{margin-top:10px;color:#22d3ee;font-weight:600;}
+.game-nav{background:rgba(2,6,23,0.85);backdrop-filter:blur(10px);border-bottom:1px solid rgba(56,189,248,0.4);box-shadow:0 0 25px rgba(56,189,248,0.3);}
+.game-logo{font-family:Orbitron;font-size:1.4rem;color:#38bdf8;letter-spacing:3px;}
+.game-logo span{color:#38bdf8;}
+.game-link{position:relative;color:#e5e7eb;font-weight:600;letter-spacing:1px;padding:10px 15px;transition:0.3s;}
+.game-link::after{content:"";position:absolute;left:50%;bottom:0;width:0;height:2px;background:#38bdf8;transition:0.3s;transform:translateX(-50%);}
+.game-link:hover{color:#38bdf8 !important;text-shadow:0 0 12px rgba(56,189,248,0.8);}
+.game-link:hover::after{width:70%;}
+.game-dropdown{background:#020617;border:1px solid rgba(56,189,248,0.4);border-radius:15px;box-shadow:0 0 25px rgba(56,189,248,0.5);}
+.game-dropdown .dropdown-item{color:#e5e7eb;font-weight:500;padding:12px 20px;transition:0.3s;}
+.game-dropdown .dropdown-item:hover{background:rgba(56,189,248,0.15);color:#38bdf8;text-shadow:0 0 8px rgba(56,189,248,0.6);}
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO BACKGROUND -->
+<div class="video-bg">
+  <video autoplay muted loop>
+    <source src="https://cdn.coverr.co/videos/coverr-programming-screen-1567/1080p.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg game-nav fixed-top">
+  <div class="container">
+    <a class="navbar-brand game-logo" href="index.html"><span>JS</span></a>
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#menu">☰</button>
+    <div class="collapse navbar-collapse justify-content-end" id="menu">
+      <ul class="navbar-nav align-items-center gap-3">
+        <li class="nav-item"><a class="nav-link game-link" href="index.html">HOME</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link game-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">PROGRAMS</a>
+          <ul class="dropdown-menu game-dropdown">
+            <li><a class="dropdown-item" href="basic.html">Basic Level</a></li>
+            <li><a class="dropdown-item" href="ifelse.html">If-Else Level</a></li>
+            <li><a class="dropdown-item" href="loops.html">Looping Level</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link game-link" href="about.html">ABOUT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container" style="padding-top:100px;padding-bottom:40px">
+
+<!-- LEVEL STATUS -->
+<div class="game-card text-center mb-4">
+  <h5>📊 Level Status</h5>
+  <div class="progress" style="height:10px;background:#020617">
+    <div id="progressBar" class="progress-bar bg-info" style="width:0%"></div>
+  </div>
+  <small class="text-info" id="progressText">0 / 15 Completed</small>
+  <div class="mt-2">⭐ Score: <span id="score">0</span></div>
+</div>
+
+<h2 class="text-center mb-5" style="font-family:Orbitron;color:#38bdf8">🎮 Basic Level PROGRAMS</h2>
+
+<div class="row g-4">
+
+
+<!-- Q1 -->
+<div class="col-md-6">
+<div class="game-card">
+<h5>1. Area of Rectangle</h5>
+<input id="l" class="form-control mb-2" placeholder="Length">
+<input id="b" class="form-control mb-2" placeholder="Breadth">
+
+<button class="btn btn-info w-100" onclick="areaRect()">Check</button>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showLogic(1)">View Logic</button>
+
+<div class="result" id="r1"></div>
+</div>
+</div>
+
+<!-- Q2 -->
+<div class="col-md-6">
+<div class="game-card">
+<h5>2. Area of Square</h5>
+<input id="s" class="form-control mb-2" placeholder="Side">
+
+<button class="btn btn-info w-100" onclick="areaSquare()">Check</button>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showLogic(2)">View Logic</button>
+
+<div class="result" id="r2"></div>
+</div>
+</div>
+
+<!-- Q3 -->
+<div class="col-md-6">
+<div class="game-card">
+<h5>3. Simple Interest</h5>
+<input id="p" class="form-control mb-2" placeholder="Principal">
+<input id="t" class="form-control mb-2" placeholder="Time">
+<input id="r" class="form-control mb-2" placeholder="Rate">
+
+<button class="btn btn-info w-100" onclick="si()">Check</button>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showLogic(3)">View Logic</button>
+
+<div class="result" id="r3"></div>
+</div>
+</div>
+
+<!-- Q4 -->
+<div class="col-md-6">
+<div class="game-card">
+<h5>4. Celsius to Fahrenheit</h5>
+<input id="c" class="form-control mb-2" placeholder="Celsius">
+
+<button class="btn btn-info w-100" onclick="ctof()">Check</button>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showLogic(4)">View Logic</button>
+
+<div class="result" id="r4"></div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- LOGIC MODAL -->
+<div class="modal fade" id="logicModal" tabindex="-1">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal-content bg-dark text-info border-info">
+<div class="modal-header">
+<h5 id="logicTitle"></h5>
+<button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<pre id="logicCode" style="color:#22d3ee;font-size:14px"></pre>
+</div>
+</div>
+</div>
+</div>
+<!-- Q11 -->
+<div class="col-md-6">
+<div class="game-card">
+<h5>11. Even or Odd</h5>
+<input id="eo" class="form-control mb-2" placeholder="Enter number">
+
+<button class="btn btn-info w-100" onclick="evenodd()">Check</button>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showLogic(11)">View Logic</button>
+
+<div class="result" id="r11"></div>
+</div>
+</div>
+
+<!-- Q12 -->
+<div class="col-md-6">
+<div class="game-card">
+<h5>12. Positive or Negative</h5>
+<input id="pn" class="form-control mb-2" placeholder="Enter number">
+
+<button class="btn btn-info w-100" onclick="posneg()">Check</button>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showLogic(12)">View Logic</button>
+
+<div class="result" id="r12"></div>
+</div>
+</div>
+
+<!-- Q13 -->
+<div class="col-md-6">
+<div class="game-card">
+<h5>13. Maximum of Two Numbers</h5>
+<input id="m1" class="form-control mb-2" placeholder="First number">
+<input id="m2" class="form-control mb-2" placeholder="Second number">
+
+<button class="btn btn-info w-100" onclick="max2()">Check</button>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showLogic(13)">View Logic</button>
+
+<div class="result" id="r13"></div>
+</div>
+</div>
+
+<!-- Q14 -->
+<div class="col-md-6">
+<div class="game-card">
+<h5>14. Kilometer to Meter</h5>
+<input id="km" class="form-control mb-2" placeholder="Kilometer">
+
+<button class="btn btn-info w-100" onclick="kmtom()">Check</button>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showLogic(14)">View Logic</button>
+
+<div class="result" id="r14"></div>
+</div>
+</div>
+
+<!-- Q15 -->
+<div class="col-md-6">
+<div class="game-card">
+<h5>15. Average of Three Numbers</h5>
+<input id="a1" class="form-control mb-2" placeholder="Number 1">
+<input id="a2" class="form-control mb-2" placeholder="Number 2">
+<input id="a3" class="form-control mb-2" placeholder="Number 3">
+
+<button class="btn btn-info w-100" onclick="avg()">Check</button>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showLogic(15)">View Logic</button>
+
+<div class="result" id="r15"></div>
+</div>
+</div>
+
+<!-- Q16 -->
+<div class="col-md-6">
+<div class="game-card">
+<h5>16. Perimeter of Rectangle</h5>
+<input id="pl" class="form-control mb-2" placeholder="Length">
+<input id="pb" class="form-control mb-2" placeholder="Breadth">
+
+<button class="btn btn-info w-100" onclick="periRect()">Check</button>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showLogic(16)">View Logic</button>
+
+<div class="result" id="r16"></div>
+</div>
+</div>
+
+<!-- Q17 -->
+<div class="col-md-6">
+<div class="game-card">
+<h5>17. Area of Circle</h5>
+<input id="rad" class="form-control mb-2" placeholder="Radius">
+
+<button class="btn btn-info w-100" onclick="areaCircle()">Check</button>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showLogic(17)">View Logic</button>
+
+<div class="result" id="r17"></div>
+</div>
+</div>
+
+<!-- Q18 -->
+<div class="col-md-6">
+<div class="game-card">
+<h5>18. Days to Years</h5>
+<input id="days" class="form-control mb-2" placeholder="Days">
+
+<button class="btn btn-info w-100" onclick="daysToYears()">Check</button>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showLogic(18)">View Logic</button>
+
+<div class="result" id="r18"></div>
+</div>
+</div>
+
+<!-- Q19 -->
+<div class="col-md-6">
+<div class="game-card">
+<h5>19. Meter to Centimeter</h5>
+<input id="meter" class="form-control mb-2" placeholder="Meter">
+
+<button class="btn btn-info w-100" onclick="mtocm()">Check</button>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showLogic(19)">View Logic</button>
+
+<div class="result" id="r19"></div>
+</div>
+</div>
+
+<!-- Q20 -->
+<div class="col-md-6">
+<div class="game-card">
+<h5>20. Swap Two Numbers</h5>
+<input id="x" class="form-control mb-2" placeholder="X">
+<input id="y" class="form-control mb-2" placeholder="Y">
+
+<button class="btn btn-info w-100" onclick="swap()">Check</button>
+<button class="btn btn-outline-info w-100 mt-2" onclick="showLogic(20)">View Logic</button>
+
+<div class="result" id="r20"></div>
+</div>
+</div>
+
+
+<script>
+function val(id){ return Number(document.getElementById(id).value); }
+
+/* PROGRAM LOGIC */
+function areaRect(){
+  document.getElementById("r1").innerText =
+    "Area = " + (val("l") * val("b"));
+}
+
+function areaSquare(){
+  document.getElementById("r2").innerText =
+    "Area = " + (val("s") * val("s"));
+}
+
+function si(){
+  document.getElementById("r3").innerText =
+    "Simple Interest = " + ((val("p")*val("t")*val("r"))/100);
+}
+
+function ctof(){
+  document.getElementById("r4").innerText =
+    "Fahrenheit = " + ((val("c")*9/5)+32);
+}
+
+/* VIEW LOGIC FUNCTION */
+function showLogic(q){
+  let title="", code="";
+
+  switch(q){
+    case 1:
+      title="Area of Rectangle";
+      code=
+`let length = Number(l.value);
+let breadth = Number(b.value);
+
+let area = length * breadth;
+
+output = area;`;
+      break;
+
+    case 2:
+      title="Area of Square";
+      code=
+`let side = Number(s.value);
+
+let area = side * side;
+
+output = area;`;
+      break;
+
+    case 3:
+      title="Simple Interest";
+      code=
+`let p = Number(p.value);
+let t = Number(t.value);
+let r = Number(r.value);
+
+let si = (p * t * r) / 100;
+
+output = si;`;
+      break;
+
+    case 4:
+      title="Celsius to Fahrenheit";
+      code=
+`let c = Number(c.value);
+
+let f = (c * 9/5) + 32;
+
+output = f;`;
+      break;
+  }
+  function evenodd(){
+  r11.innerText = (eo.value % 2 == 0) ? "Even Number" : "Odd Number";
+}
+
+function posneg(){
+  r12.innerText = (pn.value >= 0) ? "Positive" : "Negative";
+}
+
+function max2(){
+  r13.innerText = "Maximum = " + Math.max(m1.value, m2.value);
+}
+
+function kmtom(){
+  r14.innerText = "Meters = " + (km.value * 1000);
+}
+
+function avg(){
+  r15.innerText = "Average = " +
+    ((+a1.value + +a2.value + +a3.value) / 3);
+}
+
+function periRect(){
+  r16.innerText = "Perimeter = " +
+    (2 * (+pl.value + +pb.value));
+}
+
+function areaCircle(){
+  r17.innerText = "Area = " +
+    (3.14 * rad.value * rad.value).toFixed(2);
+}
+
+function daysToYears(){
+  r18.innerText = "Years = " + (days.value / 365).toFixed(2);
+}
+
+function mtocm(){
+  r19.innerText = "Centimeters = " + (meter.value * 100);
+}
+
+function swap(){
+  let t = x.value;
+  x.value = y.value;
+  y.value = t;
+  r20.innerText = "Swapped Successfully";
+}
+
+
+  document.getElementById("logicTitle").innerText = title;
+  document.getElementById("logicCode").innerText = code;
+  new bootstrap.Modal(document.getElementById("logicModal")).show();
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

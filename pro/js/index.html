@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JavaScript Programming </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:Poppins;
+    color:#e5e7eb;
+    background:#000;
+}
+
+/* VIDEO BACKGROUND */
+.video-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-1;
+}
+.video-bg video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(0.35);
+}
+
+/* NAVBAR */
+.navbar{
+    background:rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+}
+.navbar-brand{
+    font-family:Orbitron;
+    color:#38bdf8 !important;
+    letter-spacing:2px;
+}
+.nav-link{
+    color:#e5e7eb !important;
+}
+.nav-link:hover{
+    color:#38bdf8 !important;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+.hero-box{
+    background:rgba(2,6,23,0.85);
+    border:1px solid rgba(56,189,248,0.4);
+    border-radius:22px;
+    padding:55px;
+    max-width:850px;
+    box-shadow:0 0 40px rgba(56,189,248,0.4);
+    animation:glow 3s infinite alternate;
+}
+@keyframes glow{
+    from{box-shadow:0 0 25px rgba(56,189,248,0.3);}
+    to{box-shadow:0 0 50px rgba(56,189,248,0.8);}
+}
+
+.hero h1{
+    font-family:Orbitron;
+    color:#38bdf8;
+    margin-bottom:20px;
+}
+.hero p{
+    color:#cbd5f5;
+    font-size:1.15rem;
+}
+
+/* GAME BUTTON */
+.btn-game{
+    margin-top:30px;
+    padding:16px 40px;
+    font-size:1.1rem;
+    font-weight:600;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(135deg,#38bdf8,#22d3ee);
+    color:#000;
+    box-shadow:0 0 25px rgba(56,189,248,0.8);
+    transition:0.3s;
+}
+.btn-game:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 50px rgba(56,189,248,1);
+}
+
+/* FEATURES */
+.features{
+    padding:80px 0;
+    background:rgba(0,0,0,0.75);
+}
+.feature-card{
+    background:#020617;
+    border:1px solid rgba(56,189,248,0.3);
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    transition:0.3s;
+}
+.feature-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px rgba(56,189,248,0.6);
+}
+.feature-card h5{
+    color:#38bdf8;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    color:#94a3b8;
+    background:#000;
+    border-top:1px solid rgba(255,255,255,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO BACKGROUND -->
+<div class="video-bg">
+    <!-- You can replace video.mp4 with your own coding video -->
+    <video autoplay muted loop>
+        <source src="https://cdn.coverr.co/videos/coverr-programming-screen-1567/1080p.mp4" type="video/mp4">
+    </video>
+</div>
+
+<!-- ================= GAME NAVIGATION ================= -->
+<nav class="navbar navbar-expand-lg game-nav fixed-top">
+  <div class="container">
+
+    <!-- LOGO -->
+    <a class="navbar-brand game-logo" href="./index.html">
+      <span>JS</span>
+    </a>
+
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      ☰
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="menu">
+      <ul class="navbar-nav align-items-center gap-3">
+
+        <li class="nav-item">
+          <a class="nav-link game-link" href="./index.html" > HOME</a>
+        </li>
+
+        <!-- PROGRAMS DROPDOWN -->
+        <li class="nav-item dropdown">
+          <a class="nav-link game-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+             PROGRAMS
+          </a>
+          <ul class="dropdown-menu game-dropdown">
+            <li><a class="dropdown-item" href="./Basic.html"> Basic Level</a></li>
+            <li><a class="dropdown-item" href="./ifelse.html"> If-Else Level</a></li>
+            <li><a class="dropdown-item" href="./loops.html"> Looping Level</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link game-link" href="./about.html"> ABOUT</a>
+        </li>
+
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+<style>
+    /* ================= GAME NAV ================= */
+.game-nav{
+  background:rgba(2,6,23,0.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(56,189,248,0.4);
+  box-shadow:0 0 25px rgba(56,189,248,0.3);
+}
+
+.game-logo{
+  font-family:Orbitron;
+  font-size:1.4rem;
+  color:#38bdf8 !important;
+  letter-spacing:3px;
+}
+.game-logo span{
+  color:#38bdf8;
+}
+.game-logo small{
+  color:#94a3b8;
+  font-size:0.8rem;
+  margin-left:4px;
+}
+
+/* NAV LINKS */
+.game-link{
+  position:relative;
+  color:#e5e7eb !important;
+  font-weight:600;
+  letter-spacing:1px;
+  padding:10px 15px;
+  transition:0.3s;
+}
+
+.game-link::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:0;
+  width:0;
+  height:2px;
+  background:#38bdf8;
+  transition:0.3s;
+  transform:translateX(-50%);
+}
+
+.game-link:hover{
+  color:#38bdf8 !important;
+  text-shadow:0 0 12px rgba(56,189,248,0.8);
+}
+.game-link:hover::after{
+  width:70%;
+}
+
+/* DROPDOWN */
+.game-dropdown{
+  background:#020617;
+  border:1px solid rgba(56,189,248,0.4);
+  border-radius:15px;
+  box-shadow:0 0 25px rgba(56,189,248,0.5);
+}
+
+.game-dropdown .dropdown-item{
+  color:#e5e7eb;
+  font-weight:500;
+  padding:12px 20px;
+  transition:0.3s;
+}
+.game-dropdown .dropdown-item:hover{
+  background:rgba(56,189,248,0.15);
+  color:#38bdf8;
+  text-shadow:0 0 8px rgba(56,189,248,0.6);
+}
+
+/* PLAY BUTTON */
+.play-btn{
+  background:linear-gradient(135deg,#38bdf8,#22d3ee);
+  color:#000;
+  font-weight:700;
+  padding:10px 25px;
+  border-radius:20px;
+  box-shadow:0 0 25px rgba(56,189,248,0.8);
+  transition:0.3s;
+}
+.play-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 45px rgba(56,189,248,1);
+}
+</style>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-box">
+    <h1>JavaScript Programming </h1>
+    <p>
+      Code like a game <br>
+      Learn <b>If-Else</b>, <b>Loops</b>, <b>Switch</b> & Logic Building
+    </p>
+    <a href="./Basic.html" class="btn btn-game">▶ START CODING</a>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container">
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h5>🧠 Game Levels</h5>
+          <p>Each program works like a level in a game.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h5>⚡ Live Output</h5>
+          <p>Instant result like a real coding environment.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h5>🏆 Skill Mode</h5>
+          <p>Perfect for exams, interviews & practice.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+© 2025 JavaScript Mini Project | Coding Game Edition 🎮
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

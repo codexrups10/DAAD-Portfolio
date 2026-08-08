@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account - ZUDIO</title>
+  <link rel="stylesheet" href="./css/account.css">
+</head>
+<body>
+   <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="./images/logo.png" alt="ZUDIO Logo" width="180px">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="product.html">Product</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="account.html">Account</a></li>
+                        <li>
+                            <a href="#">
+                                <img src="./images/cart_icon.png" alt="Cart" width="30px" height="30px">
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+  <header >
+    <h1>ZUDIO - My Account</h1>
+    <p>Login or Create your ZUDIO account</p>
+  </header>
+
+
+  <section class="account-container">
+    <div class="form-box">
+      <h2>Login</h2>
+      <form>
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" name="login-email" placeholder="your@email.com" required>
+
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" name="login-password" placeholder="Enter password" required>
+
+        <button type="submit">Login</button>
+        <p class="alt-text">Don’t have an account? <a href="#register">Register</a></p>
+      </form>
+    </div>
+
+    <div class="form-box" id="register">
+      <h2>Create Account</h2>
+      <form>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+        <label for="register-email">Email</label>
+        <input type="email" id="register-email" name="register-email" placeholder="your@email.com" required>
+
+        <label for="register-password">Password</label>
+        <input type="password" id="register-password" name="register-password" placeholder="Choose password" required>
+
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter password" required>
+
+        <button type="submit">Register</button>
+        <p class="alt-text">Already have an account? <a href="#login">Login</a></p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ZUDIO. All rights reserved.</p>
+  </footer>
+</body>
+</html>

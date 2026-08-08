@@ -1,0 +1,2533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CV Builder - Professional CV Builder. Create stunning, customizable resumes with real-time preview and PDF export. 100% free and private."
+    />
+    <meta
+      name="keywords"
+      content="CV builder, resume maker, professional CV, free resume builder, online CV creator"
+    />
+    <title>Professional CV Builder</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <style>
+      /* ============================================
+   HOMEPAGE STYLES FOR  CV BUILDER
+   ============================================ */
+
+      :root {
+        /* Colors */
+        --primary-color: #6c5ce7;
+        --primary-dark: #5f4fd1;
+        --primary-light: #a29bfe;
+        --secondary-color: #00b894;
+        --dark-color: #2d3436;
+        --light-color: #f5f6fa;
+        --white-color: #ffffff;
+        --text-color: #2d3436;
+        --text-light: #636e72;
+        --border-color: #dfe6e9;
+
+        /* Typography */
+        --font-primary: "Inter", sans-serif;
+        --font-display: "Playfair Display", serif;
+
+        /* Spacing */
+        --section-padding: 100px;
+
+        /* Transitions */
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-primary);
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* ============================================
+   NAVIGATION
+   ============================================ */
+
+      .navbar {
+        padding: 1rem 0;
+        background: transparent;
+        transition: var(--transition);
+      }
+
+      .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--white-color) !important;
+        transition: var(--transition);
+      }
+
+      .navbar.scrolled .navbar-brand {
+        color: var(--primary-color) !important;
+      }
+
+      .brand-text {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--primary-light)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .navbar.scrolled .brand-text {
+        -webkit-text-fill-color: var(--primary-color);
+      }
+
+      .nav-link {
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-weight: 500;
+        padding: 0.5rem 1rem !important;
+        transition: var(--transition);
+      }
+
+      .navbar.scrolled .nav-link {
+        color: var(--text-color) !important;
+      }
+
+      .nav-link:hover {
+        color: var(--primary-light) !important;
+      }
+
+      .navbar.scrolled .nav-link:hover {
+        color: var(--primary-color) !important;
+      }
+
+      .btn-primary-custom {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--primary-dark)
+        );
+        color: var(--white-color);
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: var(--transition);
+      }
+
+      .btn-primary-custom:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
+        color: var(--white-color);
+      }
+
+      /* ============================================
+   HERO SECTION
+   ============================================ */
+
+      .hero-section {
+        position: relative;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: var(--white-color);
+        overflow: hidden;
+      }
+
+      .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .hero-shapes {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .shape {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        animation: float 20s infinite ease-in-out;
+      }
+
+      .shape-1 {
+        width: 300px;
+        height: 300px;
+        top: -100px;
+        right: -100px;
+        animation-delay: 0s;
+      }
+
+      .shape-2 {
+        width: 200px;
+        height: 200px;
+        bottom: -50px;
+        left: -50px;
+        animation-delay: 7s;
+      }
+
+      .shape-3 {
+        width: 400px;
+        height: 400px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation-delay: 14s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(50px, 50px) scale(1.1);
+        }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-title {
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        font-family: var(--font-display);
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .btn-hero-primary {
+        background: var(--white-color);
+        color: var(--primary-color);
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: var(--transition);
+      }
+
+      .btn-hero-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        color: var(--primary-dark);
+      }
+
+      .btn-hero-outline {
+        background: transparent;
+        color: var(--white-color);
+        border: 2px solid var(--white-color);
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: var(--transition);
+      }
+
+      .btn-hero-outline:hover {
+        background: var(--white-color);
+        color: var(--primary-color);
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 3rem;
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        font-family: var(--font-display);
+      }
+
+      .stat-label {
+        font-size: 0.9375rem;
+        opacity: 0.9;
+      }
+
+      .hero-image {
+        position: relative;
+        z-index: 2;
+      }
+
+      .mockup-container {
+        position: relative;
+        animation: float-gentle 6s infinite ease-in-out;
+      }
+
+      @keyframes float-gentle {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .mockup-img {
+        border-radius: 20px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      .floating-badge {
+        position: absolute;
+        background: var(--white-color);
+        color: var(--primary-color);
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.875rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        animation: badge-float 3s infinite ease-in-out;
+      }
+
+      .badge-1 {
+        top: 20%;
+        right: -10%;
+        animation-delay: 0s;
+      }
+
+      .badge-2 {
+        bottom: 30%;
+        left: -10%;
+        animation-delay: 1s;
+      }
+
+      .badge-3 {
+        bottom: 10%;
+        right: 10%;
+        animation-delay: 2s;
+      }
+
+      @keyframes badge-float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* ============================================
+   SECTION HEADERS
+   ============================================ */
+
+      .section-header {
+        margin-bottom: 4rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-family: var(--font-display);
+        color: var(--dark-color);
+      }
+
+      .section-subtitle {
+        font-size: 1.125rem;
+        color: var(--text-light);
+      }
+
+      /* ============================================
+   FEATURES SECTION
+   ============================================ */
+
+      .features-section {
+        background: var(--white-color);
+        padding: var(--section-padding) 0;
+      }
+
+      .feature-card {
+        background: var(--white-color);
+        padding: 2.5rem;
+        border-radius: 20px;
+        text-align: center;
+        transition: var(--transition);
+        border: 2px solid var(--border-color);
+        height: 100%;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(108, 92, 231, 0.15);
+        border-color: var(--primary-color);
+      }
+
+      .feature-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--primary-light)
+        );
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: var(--white-color);
+      }
+
+      .feature-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+      }
+
+      .feature-description {
+        color: var(--text-light);
+        line-height: 1.8;
+      }
+
+      /* ============================================
+   TEMPLATES SECTION
+   ============================================ */
+
+      .templates-section {
+        background: var(--light-color);
+        padding: var(--section-padding) 0;
+      }
+
+      .template-card {
+        background: var(--white-color);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: var(--transition);
+        height: 100%;
+      }
+
+      .template-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      .template-preview {
+        position: relative;
+        overflow: hidden;
+        height: 400px;
+      }
+
+      .template-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .template-card:hover .template-preview img {
+        transform: scale(1.1);
+      }
+
+      .template-overlay {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+
+      .badge-tag {
+        background: var(--primary-color);
+        color: var(--white-color);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 600;
+      }
+
+      .badge-creative {
+        background: var(--secondary-color);
+      }
+
+      .badge-classic {
+        background: var(--dark-color);
+      }
+
+      .template-info {
+        padding: 2rem;
+      }
+
+      .template-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+      }
+
+      .template-description {
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+      }
+
+      .template-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .template-tag {
+        background: var(--light-color);
+        color: var(--primary-color);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+
+      .template-tag i {
+        margin-right: 0.25rem;
+      }
+
+      /* ============================================
+   HOW IT WORKS SECTION
+   ============================================ */
+
+      .how-it-works-section {
+        background: var(--white-color);
+        padding: var(--section-padding) 0;
+      }
+
+      .step-content {
+        padding: 2rem 0;
+      }
+
+      .step-number {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--primary-light)
+        );
+        color: var(--white-color);
+        font-size: 2rem;
+        font-weight: 800;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .step-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+      }
+
+      .step-description {
+        font-size: 1.125rem;
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+      }
+
+      .step-features {
+        list-style: none;
+        padding: 0;
+      }
+
+      .step-features li {
+        padding: 0.5rem 0;
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .step-features i {
+        color: var(--secondary-color);
+        margin-right: 0.75rem;
+      }
+
+      .step-image img {
+        transition: var(--transition);
+      }
+
+      .step-image img:hover {
+        transform: scale(1.05);
+      }
+
+      /* ============================================
+   ADVANTAGES SECTION
+   ============================================ */
+
+      .advantages-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: var(--section-padding) 0;
+        color: var(--white-color);
+      }
+
+      .advantages-section .section-title,
+      .advantages-section .section-subtitle {
+        color: var(--white-color);
+      }
+
+      .advantage-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 2rem;
+        border-radius: 20px;
+        text-align: center;
+        transition: var(--transition);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        height: 100%;
+      }
+
+      .advantage-card:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-5px);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .advantage-icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 1.5rem;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        color: var(--white-color);
+      }
+
+      .advantage-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--white-color);
+      }
+
+      .advantage-description {
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.8;
+      }
+
+      /* ============================================
+   FAQ SECTION
+   ============================================ */
+
+      .faq-section {
+        background: var(--light-color);
+        padding: var(--section-padding) 0;
+      }
+
+      .accordion-item {
+        border: none;
+        margin-bottom: 1rem;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .accordion-button {
+        background: var(--white-color);
+        color: var(--dark-color);
+        font-weight: 600;
+        font-size: 1.125rem;
+        padding: 1.5rem;
+        border: none;
+      }
+
+      .accordion-button:not(.collapsed) {
+        background: var(--primary-color);
+        color: var(--white-color);
+        box-shadow: none;
+      }
+
+      .accordion-button:focus {
+        box-shadow: none;
+        border: none;
+      }
+
+      .accordion-button::after {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236c5ce7'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+      }
+
+      .accordion-button:not(.collapsed)::after {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+      }
+
+      .accordion-body {
+        padding: 1.5rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        background: var(--white-color);
+      }
+
+      /* ============================================
+   CTA SECTION
+   ============================================ */
+
+      .cta-section {
+        background: var(--white-color);
+        padding: var(--section-padding) 0;
+      }
+
+      .cta-container {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--primary-dark)
+        );
+        padding: 4rem;
+        border-radius: 30px;
+        color: var(--white-color);
+      }
+
+      .cta-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        font-family: var(--font-display);
+      }
+
+      .cta-subtitle {
+        font-size: 1.125rem;
+        opacity: 0.95;
+        line-height: 1.8;
+      }
+
+      .btn-cta {
+        background: var(--white-color);
+        color: var(--primary-color);
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        border: none;
+        transition: var(--transition);
+      }
+
+      .btn-cta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        color: var(--primary-dark);
+      }
+
+      /* ============================================
+   FOOTER
+   ============================================ */
+
+      .footer {
+        background: var(--dark-color);
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .footer-brand h3 {
+        color: var(--white-color);
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .footer-description {
+        line-height: 1.8;
+      }
+
+      .footer-title {
+        color: var(--white-color);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--primary-light);
+        padding-left: 5px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-link {
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--white-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .social-link:hover {
+        background: var(--primary-color);
+        color: var(--white-color);
+        transform: translateY(-3px);
+      }
+
+      .footer-divider {
+        border-color: rgba(255, 255, 255, 0.1);
+        margin: 2rem 0;
+      }
+
+      .copyright {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* ============================================
+   SCROLL TO TOP BUTTON
+   ============================================ */
+
+      .scroll-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary-color);
+        color: var(--white-color);
+        border: none;
+        border-radius: 50%;
+        font-size: 1.25rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        z-index: 1000;
+        box-shadow: 0 5px 20px rgba(108, 92, 231, 0.4);
+      }
+
+      .scroll-to-top.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .scroll-to-top:hover {
+        transform: translateY(-5px);
+        background: var(--primary-dark);
+      }
+
+      /* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+      @media (max-width: 992px) {
+        .hero-title {
+          font-size: 3rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .hero-stats {
+          justify-content: center;
+        }
+
+        .cta-container {
+          padding: 3rem 2rem;
+          text-align: center;
+        }
+
+        .cta-title {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        :root {
+          --section-padding: 60px;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+        }
+
+        .btn-hero-primary,
+        .btn-hero-outline {
+          width: 100%;
+        }
+
+        .floating-badge {
+          display: none;
+        }
+
+        .step-number {
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+        }
+
+        .step-title {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 1.75rem;
+        }
+
+        .cta-title {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <i class="fas fa-file-alt me-2"></i>
+          <span class="brand-text">CV Builder</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#templates">Templates</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#how-it-works">How It Works</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#advantages">Advantages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#faq">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary-custom ms-lg-3" href="cvmaker.html">
+                <i class="fas fa-rocket me-2"></i>Start Building
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-background">
+        <div class="hero-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row align-items-center min-vh-100 py-5">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+            <div class="hero-content">
+              <h1 class="hero-title">
+                Craft Your <span class="gradient-text">Perfect</span> Resume
+              </h1>
+              <p class="hero-subtitle">
+                Professional CV builder with real-time preview, stunning
+                templates, and powerful customization. Create a resume that gets
+                you hired—100% free and private.
+              </p>
+              <div class="hero-buttons">
+                <a href="cvmaker.html" class="btn btn-hero-primary btn-lg">
+                  <i class="fas fa-magic me-2"></i>Create Your CV
+                </a>
+                <a href="#how-it-works" class="btn btn-hero-outline btn-lg">
+                  <i class="fas fa-play-circle me-2"></i>See How It Works
+                </a>
+              </div>
+              <div class="hero-stats mt-5">
+                <div class="stat-item">
+                  <h3 class="stat-number">3</h3>
+                  <p class="stat-label">Premium Templates</p>
+                </div>
+                <div class="stat-item">
+                  <h3 class="stat-number">15+</h3>
+                  <p class="stat-label">Customizable Sections</p>
+                </div>
+                <div class="stat-item">
+                  <h3 class="stat-number">100%</h3>
+                  <p class="stat-label">Free & Private</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-6"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
+            <div class="hero-image">
+              <div class="mockup-container">
+                <img
+                  src="./images/p1.jfif"
+                  alt="CV Builder Preview"
+                  class="img-fluid mockup-img"
+                />
+                <div class="floating-badge badge-1">
+                  <i class="fas fa-check-circle"></i> Real-time Preview
+                </div>
+                <div class="floating-badge badge-2">
+                  <i class="fas fa-palette"></i> Customizable
+                </div>
+                <div class="floating-badge badge-3">
+                  <i class="fas fa-file-pdf"></i> PDF Export
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section py-5">
+      <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">Powerful Features</h2>
+          <p class="section-subtitle">
+            Everything you need to create a professional CV
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-eye"></i>
+              </div>
+              <h3 class="feature-title">Real-Time Preview</h3>
+              <p class="feature-description">
+                See your CV come to life as you type. Instant feedback with
+                side-by-side editing and preview.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-palette"></i>
+              </div>
+              <h3 class="feature-title">Full Customization</h3>
+              <p class="feature-description">
+                Choose colors, fonts, and layouts. Make your CV uniquely yours
+                with our customization panel.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <h3 class="feature-title">PDF Export</h3>
+              <p class="feature-description">
+                Download high-quality, print-ready PDFs with a single click.
+                Professional A4 format.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-save"></i>
+              </div>
+              <h3 class="feature-title">Auto-Save</h3>
+              <p class="feature-description">
+                Your work is automatically saved to your browser. Never lose
+                your progress again.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-infinity"></i>
+              </div>
+              <h3 class="feature-title">Unlimited Entries</h3>
+              <p class="feature-description">
+                Add as many work experiences, education entries, skills, and
+                projects as you need.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-4"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-lock"></i>
+              </div>
+              <h3 class="feature-title">100% Private</h3>
+              <p class="feature-description">
+                All data stays on your device. No server uploads, no
+                registration, complete privacy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section id="templates" class="templates-section py-5">
+      <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">Premium Templates</h2>
+          <p class="section-subtitle">
+            Three professionally designed templates for different industries
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="0">
+            <div class="template-card">
+              <div class="template-preview">
+                <img
+                  src="./images/p1.jfif"
+                  alt="Modern Executive Template"
+                  class="img-fluid"
+                />
+                <div class="template-overlay">
+                  <span class="badge-tag">Most Popular</span>
+                </div>
+              </div>
+              <div class="template-info">
+                <h3 class="template-name">Modern Executive</h3>
+                <p class="template-description">
+                  Clean, minimalist design perfect for corporate roles,
+                  management positions, and traditional industries.
+                </p>
+                <div class="template-features">
+                  <span class="template-tag"
+                    ><i class="fas fa-check"></i> Minimalist</span
+                  >
+                  <span class="template-tag"
+                    ><i class="fas fa-check"></i> Professional</span
+                  >
+                  <span class="template-tag"
+                    ><i class="fas fa-check"></i> Elegant</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="template-card">
+              <div class="template-preview">
+                <img
+                  src="./images/p2.jfif"
+                  alt="Creative Tech Template"
+                  class="img-fluid"
+                />
+                <div class="template-overlay">
+                  <span class="badge-tag badge-creative">Tech Favorite</span>
+                </div>
+              </div>
+              <div class="template-info">
+                <h3 class="template-name">Creative Tech</h3>
+                <p class="template-description">
+                  Two-column layout with vibrant sidebar. Ideal for tech
+                  professionals, designers, and creative fields.
+                </p>
+                <div class="template-features">
+                  <span class="template-tag"
+                    ><i class="fas fa-check"></i> Modern</span
+                  >
+                  <span class="template-tag"
+                    ><i class="fas fa-check"></i> Colorful</span
+                  >
+                  <span class="template-tag"
+                    ><i class="fas fa-check"></i> Dynamic</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="template-card">
+              <div class="template-preview">
+                <img
+                  src="./images/p3.jfif"
+                  alt="Academic Classic Template"
+                  class="img-fluid"
+                />
+                <div class="template-overlay">
+                  <span class="badge-tag badge-classic">Traditional</span>
+                </div>
+              </div>
+              <div class="template-info">
+                <h3 class="template-name">Academic Classic</h3>
+                <p class="template-description">
+                  Traditional centered layout. Perfect for academic positions,
+                  research roles, and formal institutions.
+                </p>
+                <div class="template-features">
+                  <span class="template-tag"
+                    ><i class="fas fa-check"></i> Formal</span
+                  >
+                  <span class="template-tag"
+                    ><i class="fas fa-check"></i> Classic</span
+                  >
+                  <span class="template-tag"
+                    ><i class="fas fa-check"></i> Detailed</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works-section py-5">
+      <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-subtitle">
+            Create your professional CV in 4 simple steps
+          </p>
+        </div>
+
+        <div class="steps-container">
+          <div class="row align-items-center mb-5" data-aos="fade-right">
+            <div class="col-lg-6 order-lg-1">
+              <div class="step-content">
+                <div class="step-number">01</div>
+                <h3 class="step-title">Fill In Your Details</h3>
+                <p class="step-description">
+                  Start by entering your personal information, professional
+                  summary, work experience, education, skills, and more. Our
+                  intuitive forms guide you through each section.
+                </p>
+                <ul class="step-features">
+                  <li>
+                    <i class="fas fa-check-circle"></i> Easy-to-use input fields
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Helpful placeholders and
+                    tips
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Upload profile image
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Add unlimited entries
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6 order-lg-2">
+              <div class="step-image">
+                <img
+                  src="./images/p4.jfif"
+                  alt="Fill in details"
+                  class="img-fluid rounded-4 shadow-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row align-items-center mb-5" data-aos="fade-left">
+            <div class="col-lg-6 order-lg-2">
+              <div class="step-content">
+                <div class="step-number">02</div>
+                <h3 class="step-title">Choose Your Template</h3>
+                <p class="step-description">
+                  Select from three premium templates designed for different
+                  industries and roles. Each template is professionally crafted
+                  and fully customizable.
+                </p>
+                <ul class="step-features">
+                  <li>
+                    <i class="fas fa-check-circle"></i> Modern Executive for
+                    corporate roles
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Creative Tech for tech
+                    professionals
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Academic Classic for
+                    traditional fields
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Switch templates anytime
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+              <div class="step-image">
+                <img
+                  src="./images/p5.jfif"
+                  alt="Choose template"
+                  class="img-fluid rounded-4 shadow-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row align-items-center mb-5" data-aos="fade-right">
+            <div class="col-lg-6 order-lg-1">
+              <div class="step-content">
+                <div class="step-number">03</div>
+                <h3 class="step-title">Customize & Preview</h3>
+                <p class="step-description">
+                  Personalize your CV with custom colors and font pairings.
+                  Watch your changes come to life instantly with our real-time
+                  preview feature.
+                </p>
+                <ul class="step-features">
+                  <li>
+                    <i class="fas fa-check-circle"></i> Choose accent colors
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Select font combinations
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Real-time preview
+                    updates
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> See exactly how it looks
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6 order-lg-2">
+              <div class="step-image">
+                <img
+                  src="./images/p6.jfif"
+                  alt="Customize and preview"
+                  class="img-fluid rounded-4 shadow-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row align-items-center" data-aos="fade-left">
+            <div class="col-lg-6 order-lg-2">
+              <div class="step-content">
+                <div class="step-number">04</div>
+                <h3 class="step-title">Export & Share</h3>
+                <p class="step-description">
+                  When you're satisfied, export your CV as a high-quality PDF
+                  with a single click. Your resume is ready to send to employers
+                  or print.
+                </p>
+                <ul class="step-features">
+                  <li>
+                    <i class="fas fa-check-circle"></i> One-click PDF export
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Professional A4 format
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Print-ready quality
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Share with employers
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+              <div class="step-image">
+             
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section id="advantages" class="advantages-section py-5">
+      <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">Why Choose CV Maker?</h2>
+          <p class="section-subtitle">Stand out from other CV builders</p>
+        </div>
+
+        <div class="row g-4">
+          <div
+            class="col-md-6 col-lg-3"
+            data-aos="flip-left"
+            data-aos-delay="0"
+          >
+            <div class="advantage-card">
+              <div class="advantage-icon">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <h3 class="advantage-title">100% Free</h3>
+              <p class="advantage-description">
+                No hidden fees, no subscriptions, no premium tiers. Everything
+                is completely free forever.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-3"
+            data-aos="flip-left"
+            data-aos-delay="100"
+          >
+            <div class="advantage-card">
+              <div class="advantage-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3 class="advantage-title">Privacy First</h3>
+              <p class="advantage-description">
+                Your data never leaves your device. No cloud uploads, no
+                tracking, no registration required.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-3"
+            data-aos="flip-left"
+            data-aos-delay="200"
+          >
+            <div class="advantage-card">
+              <div class="advantage-icon">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <h3 class="advantage-title">Lightning Fast</h3>
+              <p class="advantage-description">
+                Real-time updates, instant previews, no lag. Built with modern
+                web technologies for speed.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-3"
+            data-aos="flip-left"
+            data-aos-delay="300"
+          >
+            <div class="advantage-card">
+              <div class="advantage-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <h3 class="advantage-title">Works Everywhere</h3>
+              <p class="advantage-description">
+                Use on any device, any browser. No installation needed—just open
+                and start building.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-3"
+            data-aos="flip-left"
+            data-aos-delay="400"
+          >
+            <div class="advantage-card">
+              <div class="advantage-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <h3 class="advantage-title">Professional Quality</h3>
+              <p class="advantage-description">
+                Templates designed by professionals. Create CVs that impress
+                hiring managers.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-3"
+            data-aos="flip-left"
+            data-aos-delay="500"
+          >
+            <div class="advantage-card">
+              <div class="advantage-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3 class="advantage-title">No Signup</h3>
+              <p class="advantage-description">
+                Start immediately without creating an account. No email, no
+                password, no hassle.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-3"
+            data-aos="flip-left"
+            data-aos-delay="600"
+          >
+            <div class="advantage-card">
+              <div class="advantage-icon">
+                <i class="fas fa-download"></i>
+              </div>
+              <h3 class="advantage-title">Offline Capable</h3>
+              <p class="advantage-description">
+                Works offline after first load. Create your CV anywhere, even
+                without internet.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-md-6 col-lg-3"
+            data-aos="flip-left"
+            data-aos-delay="700"
+          >
+            <div class="advantage-card">
+              <div class="advantage-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h3 class="advantage-title">Made with Care</h3>
+              <p class="advantage-description">
+                Built by developers who care about user experience and attention
+                to detail.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section py-5">
+      <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">
+            Everything you need to know about CV Maker
+          </p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="accordion" id="faqAccordion" data-aos="fade-up">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq1"
+                  >
+                    Is CV Maker really free?
+                  </button>
+                </h2>
+                <div
+                  id="faq1"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Yes! CV Maker is 100% free with no hidden costs. There are no
+                    premium features, no subscriptions, and no limitations.
+                    Everything you see is available to everyone, forever.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq2"
+                  >
+                    Do I need to create an account?
+                  </button>
+                </h2>
+                <div
+                  id="faq2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    No account needed! Simply open the CV builder and start
+                    creating. Your data is automatically saved to your browser's
+                    local storage, so you can return anytime without logging in.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq3"
+                  >
+                    Is my data secure?
+                  </button>
+                </h2>
+                <div
+                  id="faq3"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Absolutely! Your data never leaves your device. Everything
+                    is stored locally in your browser, with no server uploads or
+                    cloud synchronization. We don't collect any personal
+                    information.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq4"
+                  >
+                    Can I edit my CV after downloading?
+                  </button>
+                </h2>
+                <div
+                  id="faq4"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Your CV data is saved in your browser, so you can return
+                    anytime to make changes and export a new PDF. However, the
+                    PDF itself is not editable—you'll need to make changes in
+                    the builder and re-export.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq5"
+                  >
+                    What browsers are supported?
+                  </button>
+                </h2>
+                <div
+                  id="faq5"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    CV Maker works on all modern browsers including Chrome,
+                    Firefox, Safari, and Edge (version 90+). For the best
+                    experience, we recommend using the latest version of your
+                    preferred browser.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq6"
+                  >
+                    Can I use CV Maker on mobile?
+                  </button>
+                </h2>
+                <div
+                  id="faq6"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    While CV Maker is optimized for desktop and tablet devices,
+                    you can use it on mobile. However, for the best experience
+                    with side-by-side preview, we recommend using a larger
+                    screen.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq7"
+                  >
+                    How do I save my progress?
+                  </button>
+                </h2>
+                <div
+                  id="faq7"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Your progress is automatically saved as you type! There's
+                    also a manual "Save" button in the header for peace of mind.
+                    Just don't clear your browser data if you want to keep your
+                    CV.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq8"
+                  >
+                    Can I create multiple CVs?
+                  </button>
+                </h2>
+                <div
+                  id="faq8"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Currently, one CV is stored per browser. To create multiple
+                    versions, you can export your current CV as PDF, clear your
+                    data, and create a new one. Or use different browsers for
+                    different CVs.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section py-5">
+      <div class="container">
+        <div class="cta-container" data-aos="zoom-in">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <h2 class="cta-title">Ready to Create Your Perfect CV?</h2>
+              <p class="cta-subtitle">
+                Join thousands of professionals who have landed their dream jobs
+                with CV Maker. Start building your resume today—it's free, fast,
+                and private.
+              </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="index.html" class="btn btn-cta btn-lg">
+                <i class="fas fa-arrow-right me-2"></i>Start Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <div class="footer-brand">
+              <h3><i class="fas fa-file-alt me-2"></i>CV Maker</h3>
+              <p class="footer-description">
+                Professional CV builder designed for modern job seekers. Create
+                stunning resumes with ease and land your dream job.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+            <h5 class="footer-title">Product</h5>
+            <ul class="footer-links">
+              <li><a href="#features">Features</a></li>
+              <li><a href="#templates">Templates</a></li>
+              <li><a href="index.html">CV Builder</a></li>
+              <li><a href="#advantages">Why CV Maker</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+            <h5 class="footer-title">Resources</h5>
+            <ul class="footer-links">
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="README.md">Documentation</a></li>
+              <li><a href="FEATURES.md">Features List</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+            <h5 class="footer-title">Legal</h5>
+            <ul class="footer-links">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">License</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2">
+            <h5 class="footer-title">Connect</h5>
+            <div class="social-links">
+              <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <hr class="footer-divider" />
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="copyright">
+              © 2025 CV Maker. Built with ❤️ for professionals.
+            </p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <p class="copyright">
+              All rights reserved. Open source and free forever.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+      // ============================================
+      // HOMEPAGE JAVASCRIPT FOR CV BUILDER
+      // ============================================
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+          duration: 800,
+          easing: "ease-in-out",
+          once: true,
+          offset: 100,
+        });
+
+        // Initialize all features
+        initNavbar();
+        initScrollToTop();
+        initSmoothScroll();
+        initAnimatedCounter();
+        initParallax();
+      });
+
+      // ============================================
+      // NAVBAR FUNCTIONALITY
+      // ============================================
+
+      function initNavbar() {
+        const navbar = document.getElementById("mainNav");
+
+        // Add scroll effect to navbar
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 100) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+
+        // Close mobile menu when clicking a link
+        const navLinks = document.querySelectorAll(".nav-link");
+        const navbarCollapse = document.querySelector(".navbar-collapse");
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            if (navbarCollapse.classList.contains("show")) {
+              const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+              bsCollapse.hide();
+            }
+          });
+        });
+
+        // Active link highlighting
+        const sections = document.querySelectorAll("section[id]");
+
+        window.addEventListener("scroll", () => {
+          let current = "";
+
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+
+            if (window.scrollY >= sectionTop - 200) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) {
+              link.classList.add("active");
+            }
+          });
+        });
+      }
+
+      // ============================================
+      // SCROLL TO TOP BUTTON
+      // ============================================
+
+      function initScrollToTop() {
+        const scrollBtn = document.getElementById("scrollToTop");
+
+        // Show/hide scroll to top button
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 500) {
+            scrollBtn.classList.add("show");
+          } else {
+            scrollBtn.classList.remove("show");
+          }
+        });
+
+        // Scroll to top when clicked
+        scrollBtn.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      }
+
+      // ============================================
+      // SMOOTH SCROLLING FOR ANCHOR LINKS
+      // ============================================
+
+      function initSmoothScroll() {
+        const links = document.querySelectorAll('a[href^="#"]');
+
+        links.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+
+            // Skip if it's just "#" or doesn't have an id
+            if (href === "#" || href === "") return;
+
+            const targetId = href.substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+              e.preventDefault();
+
+              const navbarHeight =
+                document.getElementById("mainNav").offsetHeight;
+              const targetPosition = targetSection.offsetTop - navbarHeight;
+
+              window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      }
+
+      // ============================================
+      // ANIMATED COUNTER FOR STATS
+      // ============================================
+
+      function initAnimatedCounter() {
+        const stats = document.querySelectorAll(".stat-number");
+        let animated = false;
+
+        const animateCounters = () => {
+          if (animated) return;
+
+          const firstStat = stats[0];
+          const rect = firstStat.getBoundingClientRect();
+          const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+          if (isVisible) {
+            animated = true;
+
+            stats.forEach((stat) => {
+              const target = parseInt(stat.textContent);
+              let current = 0;
+              const increment = target / 50; // Divide into 50 steps
+              const duration = 2000; // 2 seconds
+              const stepTime = duration / 50;
+
+              // Special handling for percentage
+              const isPercentage = stat.textContent.includes("%");
+
+              const counter = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                  stat.textContent = target + (isPercentage ? "%" : "");
+                  clearInterval(counter);
+                } else {
+                  stat.textContent =
+                    Math.floor(current) + (isPercentage ? "%" : "");
+                }
+              }, stepTime);
+            });
+          }
+        };
+
+        // Run on scroll
+        window.addEventListener("scroll", animateCounters);
+        // Run immediately in case already in view
+        animateCounters();
+      }
+
+      // ============================================
+      // PARALLAX EFFECT FOR HERO SHAPES
+      // ============================================
+
+      function initParallax() {
+        const shapes = document.querySelectorAll(".shape");
+
+        window.addEventListener("scroll", () => {
+          const scrolled = window.scrollY;
+
+          shapes.forEach((shape, index) => {
+            const speed = (index + 1) * 0.1;
+            const yPos = -(scrolled * speed);
+            shape.style.transform = `translateY(${yPos}px)`;
+          });
+        });
+      }
+
+      // ============================================
+      // FEATURE CARD HOVER EFFECT
+      // ============================================
+
+      const featureCards = document.querySelectorAll(".feature-card");
+
+      featureCards.forEach((card) => {
+        card.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-10px) scale(1.02)";
+        });
+
+        card.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0) scale(1)";
+        });
+      });
+
+      // ============================================
+      // TEMPLATE CARD INTERACTIONS
+      // ============================================
+
+      const templateCards = document.querySelectorAll(".template-card");
+
+      templateCards.forEach((card) => {
+        card.addEventListener("mouseenter", function () {
+          const img = this.querySelector(".template-preview img");
+          img.style.transform = "scale(1.1)";
+        });
+
+        card.addEventListener("mouseleave", function () {
+          const img = this.querySelector(".template-preview img");
+          img.style.transform = "scale(1)";
+        });
+      });
+
+      // ============================================
+      // ACCORDION INTERACTIONS
+      // ============================================
+
+      const accordionButtons = document.querySelectorAll(".accordion-button");
+
+      accordionButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          // Add smooth transition
+          const accordionItem = this.closest(".accordion-item");
+          const collapse = accordionItem.querySelector(".accordion-collapse");
+
+          // Animate icon rotation
+          setTimeout(() => {
+            if (this.classList.contains("collapsed")) {
+              this.style.transform = "rotate(0deg)";
+            } else {
+              this.style.transform = "rotate(180deg)";
+            }
+          }, 100);
+        });
+      });
+
+      // ============================================
+      // LAZY LOADING FOR IMAGES
+      // ============================================
+
+      if ("IntersectionObserver" in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src || img.src;
+              img.classList.add("loaded");
+              observer.unobserve(img);
+            }
+          });
+        });
+
+        const images = document.querySelectorAll("img[data-src]");
+        images.forEach((img) => imageObserver.observe(img));
+      }
+
+      // ============================================
+      // TYPING EFFECT FOR HERO TITLE (OPTIONAL)
+      // ============================================
+
+      function initTypingEffect() {
+        const titleElement = document.querySelector(".hero-title");
+        if (!titleElement) return;
+
+        const originalText = titleElement.innerHTML;
+        const words = originalText.split(" ");
+        let currentIndex = 0;
+
+        titleElement.innerHTML = "";
+
+        function typeWord() {
+          if (currentIndex < words.length) {
+            titleElement.innerHTML += words[currentIndex] + " ";
+            currentIndex++;
+            setTimeout(typeWord, 100);
+          }
+        }
+
+        // Uncomment to enable typing effect
+        // typeWord();
+      }
+
+      // ============================================
+      // TOOLTIP INITIALIZATION (Bootstrap)
+      // ============================================
+
+      const tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      );
+      const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+
+      // ============================================
+      // PERFORMANCE OPTIMIZATION
+      // ============================================
+
+      // Debounce function for scroll events
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      // Optimize scroll events with debounce
+      const optimizedScroll = debounce(() => {
+        // Any expensive scroll operations
+      }, 100);
+
+      window.addEventListener("scroll", optimizedScroll);
+
+      // ============================================
+      // PRELOADER (OPTIONAL)
+      // ============================================
+
+      function hidePreloader() {
+        const preloader = document.getElementById("preloader");
+        if (preloader) {
+          setTimeout(() => {
+            preloader.style.opacity = "0";
+            setTimeout(() => {
+              preloader.style.display = "none";
+            }, 300);
+          }, 500);
+        }
+      }
+
+      // Call when page is fully loaded
+      window.addEventListener("load", hidePreloader);
+
+      // ============================================
+      // EASTER EGG - KONAMI CODE
+      // ============================================
+
+      let konamiCode = [];
+      const konamiPattern = [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight",
+        "b",
+        "a",
+      ];
+
+      document.addEventListener("keydown", (e) => {
+        konamiCode.push(e.key);
+        konamiCode = konamiCode.slice(-10);
+
+        if (konamiCode.join("") === konamiPattern.join("")) {
+          activateEasterEgg();
+        }
+      });
+
+      function activateEasterEgg() {
+        // Add confetti effect or special animation
+        console.log("🎉 Easter Egg Activated! You found the secret!");
+
+        // Add rainbow colors to hero section
+        const hero = document.querySelector(".hero-section");
+        hero.style.background =
+          "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #F093FB 100%)";
+
+        // Show a fun message
+        const message = document.createElement("div");
+        message.innerHTML =
+          "🎉 You found the secret! Enjoy your CV building! 🎉";
+        message.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        padding: 2rem 3rem;
+        border-radius: 20px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        z-index: 9999;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        animation: bounce 0.5s ease;
+    `;
+
+        document.body.appendChild(message);
+
+        setTimeout(() => {
+          message.style.animation = "fadeOut 0.5s ease";
+          setTimeout(() => message.remove(), 500);
+        }, 3000);
+      }
+
+      // ============================================
+      // CONSOLE EASTER EGG
+      // ============================================
+
+      console.log(
+        "%c🎨 CV Maker",
+        "font-size: 24px; font-weight: bold; color: #6c5ce7;"
+      );
+      console.log(
+        "%cBuilt with ❤️ for professionals",
+        "font-size: 14px; color: #636e72;"
+      );
+      console.log(
+        "%c\nInterested in the code? Check out the repository!",
+        "font-size: 12px; color: #00b894;"
+      );
+      console.log(
+        "%c\nTip: Try the Konami Code (↑↑↓↓←→←→BA) for a surprise! 🎮",
+        "font-size: 12px; color: #fdcb6e; font-style: italic;"
+      );
+
+      // ============================================
+      // BROWSER COMPATIBILITY CHECK
+      // ============================================
+
+      function checkBrowserCompatibility() {
+        const isIE = /MSIE|Trident/.test(window.navigator.userAgent);
+
+        if (isIE) {
+          const banner = document.createElement("div");
+          banner.innerHTML = `
+            <div style="background: #d63031; color: white; padding: 1rem; text-align: center; position: fixed; top: 0; left: 0; right: 0; z-index: 10000;">
+                ⚠️ You're using an outdated browser. For the best experience, please use Chrome, Firefox, Safari, or Edge.
+            </div>
+        `;
+          document.body.insertBefore(
+            banner.firstElementChild,
+            document.body.firstChild
+          );
+        }
+      }
+
+      checkBrowserCompatibility();
+
+      // ============================================
+      // PRINT PREVENTION (For homepage only)
+      // ============================================
+
+      window.addEventListener("beforeprint", (e) => {
+        if (
+          confirm(
+            "This page is for viewing only. Would you like to create your CV instead?"
+          )
+        ) {
+          window.location.href = "index.html";
+          e.preventDefault();
+        }
+      });
+
+      // ============================================
+      // CUSTOM CURSOR EFFECT (OPTIONAL - DISABLED BY DEFAULT)
+      // ============================================
+
+      function initCustomCursor() {
+        const cursor = document.createElement("div");
+        cursor.className = "custom-cursor";
+        document.body.appendChild(cursor);
+
+        document.addEventListener("mousemove", (e) => {
+          cursor.style.left = e.clientX + "px";
+          cursor.style.top = e.clientY + "px";
+        });
+
+        document.querySelectorAll("a, button").forEach((el) => {
+          el.addEventListener("mouseenter", () =>
+            cursor.classList.add("hover")
+          );
+          el.addEventListener("mouseleave", () =>
+            cursor.classList.remove("hover")
+          );
+        });
+      }
+
+      // Uncomment to enable custom cursor
+      // initCustomCursor();
+
+      // ============================================
+      // ANALYTICS TRACKING (Placeholder)
+      // ============================================
+
+      function trackEvent(category, action, label) {
+        // Placeholder for analytics
+        console.log("Event tracked:", { category, action, label });
+
+        // Integrate with Google Analytics, Plausible, etc.
+        // Example: gtag('event', action, { 'event_category': category, 'event_label': label });
+      }
+
+      // Track CTA button clicks
+      document
+        .querySelectorAll(".btn-hero-primary, .btn-cta")
+        .forEach((btn) => {
+          btn.addEventListener("click", () => {
+            trackEvent("CTA", "click", "Start Building CV");
+          });
+        });
+
+      // Track template card views
+      const templateCardObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const templateName =
+                entry.target.querySelector(".template-name").textContent;
+              trackEvent("Template", "view", templateName);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      document.querySelectorAll(".template-card").forEach((card) => {
+        templateCardObserver.observe(card);
+      });
+
+      // ============================================
+      // DARK MODE TOGGLE (Future feature)
+      // ============================================
+
+      function initDarkMode() {
+        const darkModeToggle = document.getElementById("darkModeToggle");
+
+        if (!darkModeToggle) return;
+
+        // Check for saved preference
+        const darkMode = localStorage.getItem("darkMode");
+
+        if (darkMode === "enabled") {
+          document.body.classList.add("dark-mode");
+        }
+
+        darkModeToggle.addEventListener("click", () => {
+          document.body.classList.toggle("dark-mode");
+
+          if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("darkMode", "enabled");
+          } else {
+            localStorage.setItem("darkMode", "disabled");
+          }
+        });
+      }
+
+      // ============================================
+      // INITIALIZE ALL ON LOAD
+      // ============================================
+
+      console.log("✅ Homepage JavaScript loaded successfully!");
+
+      // Add any additional initialization here
+    </script>
+  </body>
+</html>

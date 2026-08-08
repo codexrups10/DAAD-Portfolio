@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Madhyamgram Girls’ High School</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* HERO SECTION */
+    .about-section {
+      position: relative;
+      text-align: center;
+      padding: 6rem 1rem 4rem;
+
+      color: lab(99.48% -1.02 1.78);
+    }
+
+    .about-section::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+
+      z-index: 0;
+    }
+
+    .about-section h1 {
+      position: relative;
+      z-index: 1;
+      font-size: 3rem;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    /* ABOUT CONTENT */
+    .about-container {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .about-text h2 {
+      color: #a43737;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    /* MISSION & VISION */
+    .mission-vision {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 4rem auto;
+      max-width: 1100px;
+      padding: 0 1rem;
+    }
+
+    .mv-card {
+      flex: 1 1 300px;
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .mv-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .mv-card i {
+      font-size: 2.5rem;
+      color: #a43737;
+      margin-bottom: 1rem;
+    }
+
+    /* PRINCIPAL'S MESSAGE */
+    .principal-section {
+      max-width: 900px;
+      margin: 4rem auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .principal-img img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    .principal-text h2 {
+      color: #a43737;
+      margin-bottom: 0.5rem;
+    }
+
+    .principal-text p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: #a43737;
+    }
+
+    /* HISTORY SECTION */
+    .history {
+      background: #fff7f7;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .history h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #a43737;
+    }
+
+    .history p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    /* FACILITIES SECTION */
+    .facilities {
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+    }
+
+    .facilities h2 {
+      text-align: center;
+      color: #a43737;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .facility-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .facility-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .facility-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .facility-card i {
+      font-size: 2rem;
+      color: #a43737;
+      margin-bottom: 1rem;
+    }
+
+    /* CO-CURRICULAR ACTIVITIES */
+    .activities {
+      background: #fff7f7;
+      padding: 4rem 1rem;
+    }
+
+    .activities h2 {
+      text-align: center;
+      color: #a43737;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .activity-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .activity-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .activity-card i {
+      font-size: 2rem;
+      color: #a43737;
+      margin-bottom: 1rem;
+    }
+
+    /* BANNER SECTION */
+    .banner {
+      margin: 4rem 0;
+      background: url('./Images/ban.jpg') center / cover no-repeat;
+      margin-left: 40rem;
+      margin-right: 2rem;
+      height: 250px;
+      border-radius: 16px;
+      
+      align-items: left;
+    }
+
+    .banner::after {
+      content: "";
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      background-color: rgba(78, 116, 40, 0);
+      border-radius: 16px;
+      align-items: left;
+    }
+
+    .banner-text {
+      position: absolute;
+      top:50%;
+      left:25%;
+      transform: translate(-50%, -50%);
+      color: rgb(255, 255, 255);
+      text-align: left;
+      z-index: 1;
+      align-items: left;
+    }
+
+    .banner-text h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      align-items: left;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      color: #a43737;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .testimonial-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      font-style: italic;
+    }
+
+/* Header */
+body {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  background: #f8f8f8;
+  color: #222;
+  line-height: 1.6;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #4e0101;
+}
+
+ 
+.header {
+  background: #4d0003;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.header .container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  text-decoration: underline;
+}
+
+   
+  </style>
+</head>
+<body>
+
+     <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="./Images/logo.jpg" alt="School Logo" style="height:40px; vertical-align:middle; margin-right:10px; display:inline-block;">
+        <span style="display:inline-block; vertical-align:middle;">Madhayamgram Girls' High School</span>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="admission.html">Admissions</a></li>
+          <li><a href="academic.html">Academics</a></li>
+          <li><a href="results.html">Results</a></li>
+          <li><a href="events.html">Events & Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- HERO SECTION -->
+  <section class="about-section">
+    <h1>About Madhyamgram Girls’ High School</h1>
+    <!-- HERO SLIDESHOW -->
+<section class="hero">
+  <div class="slideshow">
+    <div class="slide s1"><img src="./Images/ban.jpg"    alt="School Banner 1"></div>
+    <div class="slide s2"><img src="./Images/s1.jpg" alt="School Banner 2"></div>
+    <div class="slide s3"><img src="./Images/slide2.jpg" alt="School Banner 3"></div>
+    <div class="slide s4"><img src="./Images/slide3.jpg" alt="School Banner 4"></div>
+    <div class="slide s5"><img src="./Images/slide4.jpg" alt="School Banner 5"></div>
+    <div class="slide s6"><img src="./Images/s5.jpg" alt="School Banner 6"></div>
+    <div class="slide s6"><img src="./Images/s2.jpg" alt="School Banner 6"></div>
+    <div class="slide s6"><img src="./Images/s3.jpg" alt="School Banner 6"></div>
+    <div class="slide s6"><img src="./Images/s4.jpg" alt="School Banner 6"></div>
+    
+    
+    <br>
+    <br>
+    <style>
+      .hero {
+      position: relative; /* Make the hero section a positioning context */
+      }
+      .banner-overlay {
+      position: absolute;
+      bottom: 20px; /* Position at the bottom */
+      left: 50%; /* Center horizontally */
+      transform: translateX(-50%);
+      z-index: 10; /* Ensure it's above the slideshow */
+      background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      color: rgb(252, 252, 252);
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      width: 90%;
+      max-width: 600px;
+      }
+      .banner-overlay h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-family: 'Dancing Script', cursive;
+      }
+    </style>
+     <div class="banner-overlay">
+      <h2>Empowering Girls, Shaping Futures</h2>
+     </div>
+
+  </section>
+ 
+  <!-- MAIN ABOUT CONTENT -->
+  <div class="about-container">
+    <div class="about-text">
+      <h2>Welcome to Our School</h2>
+      <p style="color: black;">At Madhyamgram Girls’ High School, we believe in the power of education to transform lives.</p>
+      <p style="color: black;">
+        Madhyamgram Girls’ High School is dedicated to nurturing young minds with a commitment to academic excellence, discipline, and holistic development.
+        Established with the vision of empowering girls through education, we provide a safe, inclusive, and intellectually stimulating environment that encourages every student to achieve her highest potential.
+      </p>
+      <p style="color: black;">
+        Our experienced faculty, well-equipped classrooms, modern laboratories, and a rich library ensure that learning is both engaging and meaningful.
+        Beyond academics, we emphasize co-curricular activities to develop leadership, creativity, and confidence among our students.
+      </p>
+    </div>
+
+
+    <div class="about-image">
+      <img src="./Images/sch bag.jpg" alt="School Building">
+    </div>
+  </div>
+
+  <!-- MISSION & VISION -->
+  <div class="mission-vision">
+    <div class="mv-card">
+      <i class="fas fa-bullseye"></i>
+      <h3>Our Mission</h3>
+      <p style="color: black;">To empower girls through quality education, instilling values, knowledge, and confidence that prepare them for life’s challenges.</p>
+    </div>
+
+    <div class="mv-card">
+      <i class="fas fa-eye"></i>
+      <h3>Our Vision</h3>
+      <p style="color: black;">To be a leading institution where every girl discovers her potential, learns with joy, and grows into a responsible global citizen.</p>
+    </div>
+  </div>
+
+  <!-- PRINCIPAL'S MESSAGE -->
+  <div class="principal-section">
+    <div class="principal-img">
+      <img src="./Images/principal.jpg" alt="Principal">
+    </div>
+    <div class="principal-text">
+      <h2>Principal’s Message</h2>
+      <p style="color: black;" >
+        Dear Parents and Students,<br>
+        At Madhyamgram Girls’ High School, we believe that education goes beyond textbooks. 
+        Our goal is to shape young minds into compassionate, confident, and capable individuals who can contribute positively to society. 
+        We emphasize discipline, creativity, and values that prepare our students for the future.
+      </p>
+      <p class="signature">– Principal</p>
+    </div>
+  </div>
+
+  <div class="principal-section">
+    <div class="principal-img">
+     <img src="./Images/faculty.jfif" 
+     alt="Principal" 
+     style="width: 900px; height: 500px; border-radius: 10px;">
+
+    </div>
+    <div class="principal-text">
+      <h2>Our Faculty</h2>
+      <p style="color: black;" >
+       The faculty of Madhyamgram High School is a dedicated and highly qualified team committed to providing quality education and holistic development for every student. Each member of the teaching staff brings deep subject knowledge, modern teaching methodologies, and a genuine passion for nurturing young minds. The faculty emphasizes not only academic excellence but also the moral and emotional growth of students, ensuring they are well-prepared for future challenges. Through continuous professional development, innovative classroom practices, and a supportive learning environment, the teachers of Madhyamgram High School have played a key role in maintaining the school’s reputation for excellence and integrity in education.
+      </p>
+      <p class="signature">– Board Members </p>
+    </div>
+  </div>
+  <!-- HISTORY SECTION -->
+  <div class="history">
+    <h2>Our Legacy</h2>
+    <p style="color: black;" >
+      For decades, Madhyamgram Girls’ High School has been a pillar of education in our community.
+      We have produced confident, responsible, and accomplished young women who continue to excel in diverse fields.
+      Our alumni network is a testament to the values and skills our school has imparted over the years.
+    </p>
+  </div>
+
+  <!-- FACILITIES -->
+  <div class="facilities">
+    <h2>Our Facilities</h2>
+    <div class="facility-grid">
+      <div class="facility-card">
+        <i class="fas fa-flask"></i>
+        <h3>Modern Laboratories</h3>
+        <p style="color: black;">Equipped labs for science, computer, and technology subjects to enhance practical learning.</p>
+      </div>
+      <div class="facility-card">
+        <i class="fas fa-book"></i>
+        <h3>Library</h3>
+        <p style="color: black;">A rich collection of books, journals, and digital resources to support research and reading.</p>
+      </div>
+      <div class="facility-card">
+        <i class="fas fa-futbol"></i>
+        <h3>Sports & Playground</h3>
+        <p style="color: black;">Facilities for sports and games to encourage physical fitness and teamwork.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CO-CURRICULAR ACTIVITIES -->
+  <div class="activities">
+    <h2>Co-Curricular Activities</h2>
+    <div class="activity-grid">
+      <div class="activity-card">
+        <i class="fas fa-paint-brush"></i>
+        <h3>Arts & Culture</h3>
+        <p style="color: black;">Fostering creativity through music, dance, and visual arts programs.</p>
+      </div>
+      <div class="activity-card">
+        <i class="fas fa-users"></i>
+        <h3>Clubs & Societies</h3>
+        <p style="color: black;">Various student clubs to encourage leadership, teamwork, and personal growth.</p>
+      </div>
+      <div class="activity-card">
+        <i class="fas fa-globe"></i>
+        <h3>Social Service</h3>
+        <p style="color: black;">Community engagement programs that instill empathy and responsibility.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACHIEVEMENTS -->
+  <div style="max-width:1100px; margin:4rem auto; padding:0 1rem; text-align:center;">
+    <h2 style="color:#a43737; font-size:2rem; margin-bottom:2rem;">Our Achievements</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:2rem;">
+      <div style="background:white; padding:1.5rem; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.1);">
+        <i class="fas fa-trophy" style="font-size:2rem; color:#a43737; margin-bottom:1rem;"></i>
+        <h3>State-Level Science Fair Winners</h3>
+        <p style="color: black;">Our students consistently excel in science competitions, bringing home top awards.</p>
+      </div>
+      <div style="background:white; padding:1.5rem; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.1);">
+        <i class="fas fa-award" style="font-size:2rem; color:#a43737; margin-bottom:1rem;"></i>
+        <h3>Top Academic Performers</h3>
+        <p style="color: black;">High scores in board examinations showcase our commitment to academic excellence.</p>
+      </div>
+      <div style="background:white; padding:1.5rem; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.1);">
+        <i class="fas fa-medal" style="font-size:2rem; color:#a43737; margin-bottom:1rem;"></i>
+        <h3>Sports Champions</h3>
+        <p style="color: black;"  >Our teams have won multiple district and state-level tournaments.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENTS -->
+  <div style="max-width:1100px; margin:4rem auto; padding:0 1rem; text-align:center; background:#fff7f7;">
+    <h2 style="color:#a43737; font-size:2rem; margin-bottom:2rem;">Our Events</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:2rem;">
+      <div style="background:white; padding:1.5rem; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.1);">
+        <i class="fas fa-calendar-alt" style="font-size:2rem; color:#a43737; margin-bottom:1rem;"></i>
+        <h3>Annual Cultural Fest</h3>
+        <p style="color: black;">A celebration of talent, creativity, and school spirit.</p>
+      </div>
+      <div style="background:white; padding:1.5rem; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.1);">
+        <i class="fas fa-microscope" style="font-size:2rem; color:#a43737; margin-bottom:1rem;"></i>
+        <h3>Science Exhibition</h3>
+        <p style="color: black;">Students present innovative projects and experiments each year.</p>
+      </div>
+      <div style="background:white; padding:1.5rem; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.1);">
+        <i class="fas fa-running" style="font-size:2rem; color:#a43737; margin-bottom:1rem;"></i>
+        <h3>Sports Day</h3>
+        <p style="color: black;">Encouraging fitness, teamwork, and healthy competition.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALUMNI SPOTLIGHT -->
+  <div style="max-width:1100px; margin:4rem auto; padding:0 1rem; text-align:center;">
+    <h2 style="color:#a43737; font-size:2rem; margin-bottom:2rem;">Alumni Spotlight</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:2rem;">
+      <div style="background:white; padding:1.5rem; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.1);">
+        <img src="images/sir1.jpg" alt="Alumni 1" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;">
+        <h3 style="color:#a43737; margin-bottom:0.5rem;">Dr. Arun Sen</h3>
+        <p style="color: black;">Leading researcher in biotechnology and proud alumna of Madhyamgram Girls’ High School.</p>
+      </div>
+      <div style="background:white; padding:1.5rem; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,0.1);">
+        <img src="images/mam1.jpg" alt="Alumni 2" style="width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;">
+        <h3 style="color:#a43737; margin-bottom:0.5rem;">Ms. Ritu Roy</h3>
+        <p style="color: black;"  >Entrepreneur and social activist inspiring the next generation of students.</p>
+      </div>
+    </div>
+  </div>
+
+  
+ <!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  
+  <!-- Background Image -->
+  <img src="https://images.unsplash.com/photo-1588075592446-2953d4a50e83?fit=crop&w=1600&q=80"
+       alt="School Background" class="bg-image">
+
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Title -->
+  <h2 class="section-title">💬 What Parents & Students Say</h2>
+  
+  <!-- Testimonials Grid -->
+  <div class="testimonial-grid">
+
+    <div class="testimonial-card">
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/women/45.jpg" alt="Mrs. Sharma">
+      <span class="quote-icon">❝</span>
+      <p>Green Valley has given my child the confidence to explore and grow. The teachers are supportive and caring.</p>
+      <h4>- Mrs. Sharma, Parent</h4>
+    </div>
+
+    <div class="testimonial-card">
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/men/46.jpg" alt="Aarav">
+      <span class="quote-icon">❝</span>
+      <p>The labs and library are amazing! I love how interactive and fun learning has become here.</p>
+      <h4>- Aarav, Class 10 Parent</h4>
+    </div>
+
+    <div class="testimonial-card">
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/men/52.jpg" alt="Mr. Singh">
+      <span class="quote-icon">❝</span>
+      <p>Transport and communication are very organized. I always feel updated as a parent.</p>
+      <h4>- Mr. Singh, Parent</h4>
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* Section Base */
+.testimonials-section {
+  position: relative;
+  padding: 6rem 2rem;
+  text-align: center;
+  overflow: hidden;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Background Image with Subtle Zoom */
+.testimonials-section .bg-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  animation: slow-zoom 15s ease-in-out infinite alternate;
+}
+
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+/* Overlay with Gradient */
+.testimonials-section .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.55));
+  z-index: 1;
+}
+
+/* Title Styling */
+.testimonials-section .section-title {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 3rem;
+  z-index: 2;
+  letter-spacing: 1px;
+}
+
+/* Testimonials Grid */
+.testimonial-grid {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+/* Individual Testimonial Card */
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 3rem 1.5rem 1.5rem; /* Extra space for profile image */
+  width: 320px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: visible; /* Let profile image sit outside */
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+}
+
+/* Profile Picture */
+.profile-pic {
+  position: absolute;
+  top: -40px;
+  left: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background: #fff;
+}
+
+/* Quotation Icon */
+.quote-icon {
+  font-size: 2.2rem;
+  color: #a43737;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  opacity: 0.7;
+}
+
+/* Card Text */
+.testimonial-card p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.testimonial-card h4 {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #a43737;
+  text-align: right;
+}
+</style>
+</section>
+
+
+<!-- MODERN FOOTER -->
+<footer style="background:#540404; color:#fff; font-family:'Cormorant Garamond', serif; padding:60px 20px; position:relative; overflow:hidden;">
+  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; gap:30px; justify-content:space-between;">
+
+    <!-- About -->
+    <div style="flex:1 1 250px; min-width:220px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;">About Us</h3>
+      <p style="color:#f0e6e6; line-height:1.7; font-size:0.95rem;">
+        Madhayamgram Girls' High School is dedicated to nurturing excellence, creativity, and discipline. We empower every student to achieve their full potential in academics, arts, and co-curricular activities.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div style="flex:1 1 200px; min-width:180px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;"> Quick Links</h3>
+      <ul style="list-style:none; padding:0; line-height:2;">
+        <li><a href="index.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">🏠 Home</a></li>
+        <li><a href="about.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">ℹ️ About</a></li>
+        <li><a href="admission.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">📝 Admissions</a></li>
+        <li><a href="academics.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">📚 Academics</a></li>
+        <li><a href="contact.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">📞 Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div style="flex:1 1 250px; min-width:200px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;">Contact</h3>
+      <p style="color:#f0e6e6; font-size:0.95rem; line-height:1.7;">
+        <i class="fas fa-map-marker-alt"></i> 12 Madhyamgram Road, West Bengal, India<br>
+        <i class="fas fa-phone-alt"></i> +91 12345 67890<br>
+        <i class="fas fa-envelope"></i> info@mghs.edu.in
+      </p>
+      <div style="margin-top:15px;">
+        <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem; transition: color 0.3s;"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem; transition: color 0.3s;"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem; transition: color 0.3s;"><i class="fab fa-instagram"></i></a>
+        <a href="#" style="color:#fff; font-size:1.2rem; transition: color 0.3s;"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div style="flex:1 1 250px; min-width:220px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;">Newsletter</h3>
+      <p style="color:#f0e6e6; font-size:0.95rem; line-height:1.7;">Subscribe to get updates on events, admissions, and announcements.</p>
+      <form style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;">
+        <input type="email" placeholder="Your Email" style="flex:1; padding:10px 15px; border:none; border-radius:5px;">
+        <button type="submit" style="background:#f2c200; color:#540404; border:none; padding:10px 20px; border-radius:5px; font-weight:bold; cursor:pointer; transition: background 0.3s;">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Bottom Bar -->
+  <div style="text-align:center; margin-top:50px; font-size:0.9rem; color:#f0e6e6;">
+    &copy; 2025 Madhayamgram Girls' High School. All Rights Reserved.
+    <br>
+    Designed by Rumpi
+  </div>
+</footer>
+
+<!-- Hover Effects -->
+<style>
+  footer a:hover { color: #f2c200; }
+  footer button:hover { background:#e0b500; }
+</style>
+
+
+</body>
+</html>

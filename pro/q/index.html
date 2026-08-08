@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizVault - Gamified Quiz Arena</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-yellow: #FFD700;
+            --deep-black: #111111;
+            --pure-white: #FFFFFF;
+            --dark-gray: #333333;
+            --electric-yellow: #FFED4E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #111111 100%);
+            color: var(--pure-white);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        .navbar-custom {
+            background: var(--deep-black) !important;
+            border-bottom: 3px solid var(--primary-yellow);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .navbar-brand {
+            color: var(--primary-yellow) !important;
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .coin-display {
+            background: var(--dark-gray);
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 2px solid var(--primary-yellow);
+            color: var(--primary-yellow);
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 100px 0 50px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--primary-yellow);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--pure-white);
+            margin-bottom: 40px;
+        }
+
+        /* Topic Cards */
+        .topic-card {
+            background: var(--deep-black);
+            border: 3px solid var(--primary-yellow);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .topic-card:hover::before {
+            left: 100%;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.5);
+            border-color: var(--electric-yellow);
+        }
+
+        .topic-icon {
+            font-size: 3rem;
+            color: var(--primary-yellow);
+            margin-bottom: 15px;
+        }
+
+        .topic-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--pure-white);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .play-btn {
+            background: var(--primary-yellow);
+            color: var(--deep-black);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .play-btn:hover {
+            background: var(--electric-yellow);
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Quiz Section */
+        .quiz-container {
+            max-width: 900px;
+            margin: 80px auto 50px;
+            background: var(--deep-black);
+            border: 3px solid var(--primary-yellow);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 50px rgba(255, 215, 0, 0.3);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-yellow);
+        }
+
+        .question-counter {
+            font-size: 1.2rem;
+            color: var(--primary-yellow);
+            font-weight: bold;
+        }
+
+        .quiz-topic {
+            font-size: 1.5rem;
+            color: var(--pure-white);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .question-text {
+            font-size: 1.5rem;
+            color: var(--pure-white);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .option-btn {
+            background: var(--dark-gray);
+            color: var(--pure-white);
+            border: 2px solid var(--primary-yellow);
+            padding: 15px 25px;
+            margin: 10px 0;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            text-align: left;
+            transition: all 0.3s ease;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .option-btn:hover {
+            background: var(--primary-yellow);
+            color: var(--deep-black);
+            transform: translateX(10px);
+        }
+
+        .option-btn.selected {
+            background: var(--primary-yellow);
+            color: var(--deep-black);
+            border-color: var(--electric-yellow);
+        }
+
+        .option-btn.correct {
+            background: #00FF00;
+            color: var(--deep-black);
+            border-color: #00FF00;
+        }
+
+        .option-btn.wrong {
+            background: #FF0000;
+            color: var(--pure-white);
+            border-color: #FF0000;
+        }
+
+        .next-btn {
+            background: var(--primary-yellow);
+            color: var(--deep-black);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .next-btn:hover {
+            background: var(--electric-yellow);
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .next-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Result Section */
+        .result-container {
+            max-width: 700px;
+            margin: 100px auto 50px;
+            background: var(--deep-black);
+            border: 3px solid var(--primary-yellow);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 10px 50px rgba(255, 215, 0, 0.3);
+        }
+
+        .result-score {
+            font-size: 4rem;
+            color: var(--primary-yellow);
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .result-message {
+            font-size: 1.8rem;
+            color: var(--pure-white);
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .coin-animation {
+            font-size: 3rem;
+            color: var(--primary-yellow);
+            margin: 20px 0;
+            animation: coinFlip 1s ease-in-out;
+        }
+
+        @keyframes coinFlip {
+            0% {
+                transform: rotateY(0deg) scale(0.5);
+                opacity: 0;
+            }
+
+            50% {
+                transform: rotateY(180deg) scale(1.2);
+            }
+
+            100% {
+                transform: rotateY(360deg) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .home-btn {
+            background: var(--primary-yellow);
+            color: var(--deep-black);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .home-btn:hover {
+            background: var(--electric-yellow);
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Hidden Class */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .quiz-container,
+            .result-container {
+                padding: 20px;
+                margin: 80px 15px 30px;
+            }
+
+            .question-text {
+                font-size: 1.2rem;
+            }
+
+            .result-score {
+                font-size: 3rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--primary-yellow);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Daily Bonus Button */
+        .daily-bonus-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: var(--deep-black);
+            border: 3px solid var(--electric-yellow);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 30px rgba(255, 215, 0, 0.6);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: bounceBonus 2s infinite;
+        }
+
+        .daily-bonus-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 8px 40px rgba(255, 215, 0, 0.8);
+        }
+
+        .daily-bonus-btn.disabled {
+            background: var(--dark-gray);
+            border-color: #666;
+            cursor: not-allowed;
+            animation: none;
+            opacity: 0.6;
+        }
+
+        @keyframes bounceBonus {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .bonus-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #FF0000;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        /* Bonus Modal */
+        .bonus-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .bonus-content {
+            background: var(--deep-black);
+            border: 4px solid var(--primary-yellow);
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            animation: zoomIn 0.4s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .bonus-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--pure-white);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .bonus-close:hover {
+            color: var(--primary-yellow);
+        }
+
+        .bonus-icon {
+            font-size: 5rem;
+            color: var(--primary-yellow);
+            margin-bottom: 20px;
+            animation: rotateBonus 3s infinite;
+        }
+
+        @keyframes rotateBonus {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(-10deg);
+            }
+
+            75% {
+                transform: rotate(10deg);
+            }
+        }
+
+        .bonus-title {
+            font-size: 2.5rem;
+            color: var(--primary-yellow);
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .bonus-description {
+            font-size: 1.2rem;
+            color: var(--pure-white);
+            margin-bottom: 30px;
+        }
+
+        .claim-btn {
+            background: var(--primary-yellow);
+            color: var(--deep-black);
+            border: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .claim-btn:hover {
+            background: var(--electric-yellow);
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
+        }
+
+        .claim-btn:disabled {
+            background: var(--dark-gray);
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .countdown-timer {
+            font-size: 1.5rem;
+            color: var(--primary-yellow);
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .daily-bonus-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .bonus-content {
+                padding: 30px;
+                margin: 20px;
+            }
+
+            .bonus-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-trophy"></i> QuizVault</a>
+            <div class="coin-display">
+                <i class="fas fa-coins"></i>
+                <span id="coinBalance">30</span> Coins
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="homeSection" class="container">
+        <div class="hero-section" data-aos="fade-down">
+            <h1 class="hero-title">Welcome to QuizVault</h1>
+            <p class="hero-subtitle">Test Your Knowledge, Earn Coins, Dominate the Arena!</p>
+            <p style="color: var(--primary-yellow); font-size: 1.1rem;">
+                <i class="fas fa-info-circle"></i> Entry Fee: 30 Coins | Win 8/10 to earn 60 Coins!
+            </p>
+        </div>
+
+        <div class="row" id="topicsGrid">
+            <!-- Topics will be generated dynamically -->
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quizSection" class="hidden">
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <div class="question-counter">
+                    Question <span id="currentQuestion">1</span>/10
+                </div>
+                <div class="quiz-topic" id="quizTopic"></div>
+            </div>
+
+            <h2 class="question-text" id="questionText"></h2>
+
+            <div id="optionsContainer">
+                <!-- Options will be generated dynamically -->
+            </div>
+
+            <button class="next-btn" id="nextBtn" disabled>Next Question</button>
+        </div>
+    </section>
+
+    <!-- Result Section -->
+    <section id="resultSection" class="hidden">
+        <div class="result-container" data-aos="zoom-in">
+            <div class="result-score" id="resultScore"></div>
+            <h2 class="result-message" id="resultMessage"></h2>
+            <div class="coin-animation" id="coinAnimation"></div>
+            <p style="font-size: 1.3rem; color: var(--pure-white); margin-top: 20px;">
+                New Balance: <span style="color: var(--primary-yellow); font-weight: bold;" id="newBalance"></span>
+                Coins
+            </p>
+            <button class="home-btn" onclick="goHome()">
+                <i class="fas fa-home"></i> Back to Home
+            </button>
+        </div>
+    </section>
+
+    <!-- Daily Bonus Button -->
+    <div class="daily-bonus-btn" id="dailyBonusBtn" onclick="openBonusModal()">
+        <i class="fas fa-gift"></i>
+        <span class="bonus-badge hidden" id="bonusBadge">!</span>
+    </div>
+
+    <!-- Bonus Modal -->
+    <div class="bonus-modal hidden" id="bonusModal">
+        <div class="bonus-content">
+            <button class="bonus-close" onclick="closeBonusModal()">&times;</button>
+            <div class="bonus-icon">
+                <i class="fas fa-gift"></i>
+            </div>
+            <h2 class="bonus-title">Daily Bonus</h2>
+            <p class="bonus-description" id="bonusDescription">
+                Claim your free 50 coins once every 24 hours!
+            </p>
+            <button class="claim-btn" id="claimBtn" onclick="claimBonus()">
+                <i class="fas fa-hand-holding-usd"></i> Claim 50 Coins
+            </button>
+            <div class="countdown-timer hidden" id="countdownTimer"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Quiz Data
+        const quizData = {
+            "General Knowledge": [
+                { question: "What is the capital of France?", options: ["London", "Berlin", "Paris", "Madrid"], correct: 2 },
+                { question: "Which planet is known as the Red Planet?", options: ["Venus", "Mars", "Jupiter", "Saturn"], correct: 1 },
+                { question: "Who painted the Mona Lisa?", options: ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Claude Monet"], correct: 1 },
+                { question: "What is the largest ocean on Earth?", options: ["Atlantic", "Indian", "Arctic", "Pacific"], correct: 3 },
+                { question: "In which year did World War II end?", options: ["1943", "1944", "1945", "1946"], correct: 2 },
+                { question: "What is the smallest country in the world?", options: ["Monaco", "Vatican City", "San Marino", "Liechtenstein"], correct: 1 },
+                { question: "Who wrote 'Romeo and Juliet'?", options: ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"], correct: 1 },
+                { question: "What is the chemical symbol for gold?", options: ["Go", "Gd", "Au", "Ag"], correct: 2 },
+                { question: "How many continents are there?", options: ["5", "6", "7", "8"], correct: 2 },
+                { question: "What is the tallest mountain in the world?", options: ["K2", "Kangchenjunga", "Mount Everest", "Lhotse"], correct: 2 }
+            ],
+            "Technology": [
+                { question: "What does CPU stand for?", options: ["Central Process Unit", "Central Processing Unit", "Computer Personal Unit", "Central Processor Unit"], correct: 1 },
+                { question: "Who is known as the father of computers?", options: ["Alan Turing", "Charles Babbage", "Bill Gates", "Steve Jobs"], correct: 1 },
+                { question: "What year was the first iPhone released?", options: ["2005", "2006", "2007", "2008"], correct: 2 },
+                { question: "What does HTTP stand for?", options: ["HyperText Transfer Protocol", "High Transfer Text Protocol", "HyperText Transmission Protocol", "High Text Transfer Protocol"], correct: 0 },
+                { question: "Which company developed the Android operating system?", options: ["Apple", "Microsoft", "Google", "Samsung"], correct: 2 },
+                { question: "What is the most popular programming language in 2023?", options: ["Java", "Python", "C++", "JavaScript"], correct: 1 },
+                { question: "What does AI stand for?", options: ["Automated Intelligence", "Artificial Intelligence", "Advanced Intelligence", "Automated Information"], correct: 1 },
+                { question: "Who founded Microsoft?", options: ["Steve Jobs", "Bill Gates", "Mark Zuckerberg", "Elon Musk"], correct: 1 },
+                { question: "What is the main function of RAM?", options: ["Permanent storage", "Temporary storage", "Processing", "Networking"], correct: 1 },
+                { question: "What does VPN stand for?", options: ["Virtual Private Network", "Visual Private Network", "Virtual Public Network", "Verified Private Network"], correct: 0 }
+            ],
+            "Movies & Entertainment": [
+                { question: "Which movie won the Oscar for Best Picture in 2020?", options: ["1917", "Joker", "Parasite", "Once Upon a Time in Hollywood"], correct: 2 },
+                { question: "Who played Iron Man in the Marvel Cinematic Universe?", options: ["Chris Evans", "Robert Downey Jr.", "Chris Hemsworth", "Mark Ruffalo"], correct: 1 },
+                { question: "What is the highest-grossing film of all time?", options: ["Avengers: Endgame", "Avatar", "Titanic", "Star Wars: The Force Awakens"], correct: 1 },
+                { question: "Which actor played Jack in Titanic?", options: ["Brad Pitt", "Leonardo DiCaprio", "Tom Cruise", "Johnny Depp"], correct: 1 },
+                { question: "What year was the first Harry Potter movie released?", options: ["1999", "2000", "2001", "2002"], correct: 2 },
+                { question: "Who directed The Dark Knight trilogy?", options: ["Steven Spielberg", "Christopher Nolan", "James Cameron", "Quentin Tarantino"], correct: 1 },
+                { question: "Which animated movie features the song 'Let It Go'?", options: ["Moana", "Tangled", "Frozen", "Brave"], correct: 2 },
+                { question: "What is the name of the fictional African country in Black Panther?", options: ["Wakanda", "Zamunda", "Genovia", "Sokovia"], correct: 0 },
+                { question: "Who played the Joker in The Dark Knight?", options: ["Jared Leto", "Joaquin Phoenix", "Heath Ledger", "Jack Nicholson"], correct: 2 },
+                { question: "Which streaming service produced Stranger Things?", options: ["Amazon Prime", "Hulu", "Disney+", "Netflix"], correct: 3 }
+            ],
+            "Sports": [
+                { question: "How many players are on a soccer team?", options: ["9", "10", "11", "12"], correct: 2 },
+                { question: "Which country won the FIFA World Cup in 2018?", options: ["Germany", "Brazil", "France", "Argentina"], correct: 2 },
+                { question: "What sport is known as 'The Beautiful Game'?", options: ["Basketball", "Soccer", "Tennis", "Baseball"], correct: 1 },
+                { question: "How many Grand Slam tournaments are there in tennis?", options: ["3", "4", "5", "6"], correct: 1 },
+                { question: "Who has won the most Olympic gold medals?", options: ["Usain Bolt", "Michael Phelps", "Carl Lewis", "Mark Spitz"], correct: 1 },
+                { question: "What is the national sport of Canada?", options: ["Ice Hockey", "Lacrosse", "Basketball", "Baseball"], correct: 1 },
+                { question: "How many points is a touchdown worth in American football?", options: ["5", "6", "7", "8"], correct: 1 },
+                { question: "Which country hosted the 2016 Summer Olympics?", options: ["China", "UK", "Brazil", "Japan"], correct: 2 },
+                { question: "What color is the center of an archery target?", options: ["Red", "Blue", "Yellow", "Gold"], correct: 2 },
+                { question: "Who is known as 'The Greatest' in boxing?", options: ["Mike Tyson", "Muhammad Ali", "Floyd Mayweather", "Manny Pacquiao"], correct: 1 }
+            ],
+            "Coding & Programming": [
+                { question: "Which language is primarily used for web development?", options: ["Python", "Java", "JavaScript", "C++"], correct: 2 },
+                { question: "What does HTML stand for?", options: ["HyperText Markup Language", "High Transfer Markup Language", "HyperText Modern Language", "High Text Markup Language"], correct: 0 },
+                { question: "Which symbol is used for comments in Python?", options: ["//", "#", "/*", "<!--"], correct: 1 },
+                { question: "What is the output of 2 + '2' in JavaScript?", options: ["4", "22", "Error", "NaN"], correct: 1 },
+                { question: "Which of these is a Python web framework?", options: ["React", "Angular", "Django", "Vue"], correct: 2 },
+                { question: "What does CSS stand for?", options: ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style System", "Cascading System Sheets"], correct: 0 },
+                { question: "Which data structure uses LIFO?", options: ["Queue", "Stack", "Array", "Tree"], correct: 1 },
+                { question: "What is the time complexity of binary search?", options: ["O(n)", "O(log n)", "O(n²)", "O(1)"], correct: 1 },
+                { question: "Which keyword is used to define a function in Python?", options: ["function", "def", "func", "define"], correct: 1 },
+                { question: "What does API stand for?", options: ["Application Programming Interface", "Advanced Programming Interface", "Application Process Interface", "Advanced Process Interface"], correct: 0 }
+            ],
+            "Brain Teasers": [
+                { question: "What has keys but no locks?", options: ["A door", "A piano", "A map", "A computer"], correct: 1 },
+                { question: "What comes once in a minute, twice in a moment, but never in a thousand years?", options: ["The letter M", "Time", "Breath", "Sound"], correct: 0 },
+                { question: "I speak without a mouth and hear without ears. What am I?", options: ["Wind", "Echo", "Shadow", "Dream"], correct: 1 },
+                { question: "What has hands but cannot clap?", options: ["A baby", "A clock", "A statue", "A tree"], correct: 1 },
+                { question: "The more you take, the more you leave behind. What am I?", options: ["Money", "Footsteps", "Time", "Memories"], correct: 1 },
+                { question: "What can travel around the world while staying in a corner?", options: ["A stamp", "A coin", "A letter", "A passport"], correct: 0 },
+                { question: "What gets wetter as it dries?", options: ["A sponge", "A towel", "Soil", "Paper"], correct: 1 },
+                { question: "If you have me, you want to share me. If you share me, you don't have me. What am I?", options: ["Money", "A secret", "Food", "Knowledge"], correct: 1 },
+                { question: "What has a head and a tail but no body?", options: ["A snake", "A coin", "A fish", "A comet"], correct: 1 },
+                { question: "What can run but never walks?", options: ["A river", "A car", "Time", "Wind"], correct: 0 }
+            ],
+            "Competitive Exams": [
+                { question: "What is 15% of 200?", options: ["25", "30", "35", "40"], correct: 1 },
+                { question: "If A = 1, B = 2, C = 3, what is the value of CAB?", options: ["312", "321", "123", "213"], correct: 0 },
+                { question: "Find the next number: 2, 6, 12, 20, __", options: ["28", "30", "32", "36"], correct: 1 },
+                { question: "Which word does not belong: Apple, Orange, Carrot, Banana?", options: ["Apple", "Orange", "Carrot", "Banana"], correct: 2 },
+                { question: "If 5x + 3 = 18, what is x?", options: ["2", "3", "4", "5"], correct: 1 },
+                { question: "What is the square root of 144?", options: ["10", "11", "12", "13"], correct: 2 },
+                { question: "How many sides does a hexagon have?", options: ["5", "6", "7", "8"], correct: 1 },
+                { question: "What is the synonym of 'rapid'?", options: ["Slow", "Fast", "Steady", "Moderate"], correct: 1 },
+                { question: "If all Bloops are Razzies and all Razzies are Lazzies, are all Bloops Lazzies?", options: ["Yes", "No", "Maybe", "Cannot determine"], correct: 0 },
+                { question: "What comes next: J, F, M, A, M, __", options: ["J", "A", "S", "N"], correct: 0 }
+            ],
+            "Fun & Random Quizzes": [
+                { question: "What is the world's most popular social media platform?", options: ["Twitter", "Instagram", "Facebook", "TikTok"], correct: 2 },
+                { question: "Which animal is known as the 'King of the Jungle'?", options: ["Tiger", "Elephant", "Lion", "Bear"], correct: 2 },
+                { question: "What is the main ingredient in guacamole?", options: ["Tomato", "Avocado", "Pepper", "Onion"], correct: 1 },
+                { question: "How many colors are in a rainbow?", options: ["5", "6", "7", "8"], correct: 2 },
+                { question: "What is the fastest land animal?", options: ["Lion", "Cheetah", "Leopard", "Tiger"], correct: 1 },
+                { question: "Which fruit is known as the 'King of Fruits'?", options: ["Mango", "Durian", "Pineapple", "Apple"], correct: 1 },
+                { question: "What is the currency of Japan?", options: ["Yuan", "Won", "Yen", "Ringgit"], correct: 2 },
+                { question: "How many legs does a spider have?", options: ["6", "8", "10", "12"], correct: 1 },
+                { question: "What is the largest mammal in the world?", options: ["Elephant", "Blue Whale", "Giraffe", "Polar Bear"], correct: 1 },
+                { question: "Which planet is closest to the Sun?", options: ["Venus", "Earth", "Mercury", "Mars"], correct: 2 }
+            ]
+        };
+
+        // Topics Configuration
+        const topics = [
+            { name: "General Knowledge", icon: "fa-brain" },
+            { name: "Technology", icon: "fa-microchip" },
+            { name: "Movies & Entertainment", icon: "fa-film" },
+            { name: "Sports", icon: "fa-futbol" },
+            { name: "Coding & Programming", icon: "fa-code" },
+            { name: "Brain Teasers", icon: "fa-puzzle-piece" },
+            { name: "Competitive Exams", icon: "fa-graduation-cap" },
+            { name: "Fun & Random Quizzes", icon: "fa-dice" }
+        ];
+
+        // Game State
+        let coins = 30;
+        let currentTopic = "";
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedAnswer = null;
+        let quizQuestions = [];
+        let bonusAvailable = false;
+        let countdownInterval = null;
+
+        // Initialize Game
+        function initGame() {
+            // Load coins from localStorage
+            const savedCoins = localStorage.getItem('quizCoins');
+            if (savedCoins) {
+                coins = parseInt(savedCoins);
+            }
+            updateCoinDisplay();
+
+            // Generate topic cards
+            generateTopicCards();
+
+            // Check daily bonus availability
+            checkDailyBonus();
+        }
+
+        // Generate Topic Cards
+        function generateTopicCards() {
+            const grid = document.getElementById('topicsGrid');
+            grid.innerHTML = '';
+
+            topics.forEach((topic, index) => {
+                const col = document.createElement('div');
+                col.className = 'col-12 col-sm-6 col-lg-3';
+                col.setAttribute('data-aos', 'fade-up');
+                col.setAttribute('data-aos-delay', index * 100);
+
+                col.innerHTML = `
+                    <div class="topic-card" onclick="startQuiz('${topic.name}')">
+                        <div class="topic-icon">
+                            <i class="fas ${topic.icon}"></i>
+                        </div>
+                        <h3 class="topic-title">${topic.name}</h3>
+                        <button class="play-btn">
+                            <i class="fas fa-play"></i> Play (30 Coins)
+                        </button>
+                    </div>
+                `;
+
+                grid.appendChild(col);
+            });
+        }
+
+        // Update Coin Display
+        function updateCoinDisplay() {
+            document.getElementById('coinBalance').textContent = coins;
+            localStorage.setItem('quizCoins', coins);
+        }
+
+        // Start Quiz
+        function startQuiz(topicName) {
+            if (coins < 30) {
+                alert("❌ Not enough coins! You need 30 coins to play.");
+                return;
+            }
+
+            // Deduct coins
+            coins -= 30;
+            updateCoinDisplay();
+
+            // Setup quiz
+            currentTopic = topicName;
+            quizQuestions = [...quizData[topicName]];
+            currentQuestionIndex = 0;
+            score = 0;
+
+            // Show quiz section
+            document.getElementById('homeSection').classList.add('hidden');
+            document.getElementById('quizSection').classList.remove('hidden');
+            document.getElementById('quizTopic').textContent = topicName;
+
+            // Load first question
+            loadQuestion();
+        }
+
+        // Load Question
+        function loadQuestion() {
+            if (currentQuestionIndex >= quizQuestions.length) {
+                showResults();
+                return;
+            }
+
+            const question = quizQuestions[currentQuestionIndex];
+            selectedAnswer = null;
+
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('questionText').textContent = question.question;
+            document.getElementById('nextBtn').disabled = true;
+
+            // Generate options
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+
+            question.options.forEach((option, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = option;
+                btn.onclick = () => selectOption(index, btn);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        // Select Option
+        function selectOption(index, btnElement) {
+            // Remove previous selection
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+
+            // Mark new selection
+            btnElement.classList.add('selected');
+            selectedAnswer = index;
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        // Next Button Handler
+        document.getElementById('nextBtn').addEventListener('click', function () {
+            if (selectedAnswer === null) return;
+
+            const question = quizQuestions[currentQuestionIndex];
+
+            // Check answer
+            if (selectedAnswer === question.correct) {
+                score++;
+            }
+
+            // Move to next question
+            currentQuestionIndex++;
+            loadQuestion();
+        });
+
+        // Show Results
+        function showResults() {
+            document.getElementById('quizSection').classList.add('hidden');
+            document.getElementById('resultSection').classList.remove('hidden');
+
+            const resultScore = document.getElementById('resultScore');
+            const resultMessage = document.getElementById('resultMessage');
+            const coinAnimation = document.getElementById('coinAnimation');
+            const newBalance = document.getElementById('newBalance');
+
+            resultScore.textContent = `${score}/10`;
+
+            // Win/Loss Logic
+            if (score >= 8) {
+                // WIN: Add 60 coins (30 refund + 30 profit)
+                coins += 60;
+                resultMessage.innerHTML = '<i class="fas fa-trophy"></i> VICTORY! You Dominated the Arena!';
+                resultMessage.style.color = '#00FF00';
+                coinAnimation.innerHTML = '<i class="fas fa-coins"></i> +60 Coins!';
+            } else {
+                // LOSE: Reset to 30 coins (as per game rules)
+                coins = 30;
+                resultMessage.innerHTML = '<i class="fas fa-times-circle"></i> Not Quite There... Try Again!';
+                resultMessage.style.color = '#FF6B6B';
+                coinAnimation.innerHTML = '<i class="fas fa-redo"></i> Balance Reset to 30 Coins';
+            }
+
+            updateCoinDisplay();
+            newBalance.textContent = coins;
+
+            // Re-initialize AOS for result section
+            AOS.refresh();
+        }
+
+        // Go Home
+        function goHome() {
+            document.getElementById('resultSection').classList.add('hidden');
+            document.getElementById('homeSection').classList.remove('hidden');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Daily Bonus System
+        function checkDailyBonus() {
+            const lastClaimTime = localStorage.getItem('lastBonusClaim');
+            const now = Date.now();
+            const twentyFourHours = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+            if (!lastClaimTime || (now - parseInt(lastClaimTime)) >= twentyFourHours) {
+                // Bonus is available
+                bonusAvailable = true;
+                updateBonusButton();
+            } else {
+                // Bonus is not available yet
+                bonusAvailable = false;
+                updateBonusButton();
+                startCountdown(parseInt(lastClaimTime) + twentyFourHours);
+            }
+        }
+
+        function updateBonusButton() {
+            const bonusBtn = document.getElementById('dailyBonusBtn');
+            const bonusBadge = document.getElementById('bonusBadge');
+
+            if (bonusAvailable) {
+                bonusBtn.classList.remove('disabled');
+                bonusBadge.classList.remove('hidden');
+            } else {
+                bonusBtn.classList.add('disabled');
+                bonusBadge.classList.add('hidden');
+            }
+        }
+
+        function openBonusModal() {
+            const modal = document.getElementById('bonusModal');
+            const claimBtn = document.getElementById('claimBtn');
+            const description = document.getElementById('bonusDescription');
+            const countdown = document.getElementById('countdownTimer');
+
+            modal.classList.remove('hidden');
+
+            if (bonusAvailable) {
+                claimBtn.disabled = false;
+                claimBtn.textContent = '🎁 Claim 50 Coins';
+                description.textContent = 'Claim your free 50 coins once every 24 hours!';
+                countdown.classList.add('hidden');
+            } else {
+                claimBtn.disabled = true;
+                claimBtn.textContent = '⏳ Already Claimed';
+                description.textContent = 'You have already claimed your daily bonus. Come back later!';
+                countdown.classList.remove('hidden');
+            }
+        }
+
+        function closeBonusModal() {
+            document.getElementById('bonusModal').classList.add('hidden');
+        }
+
+        function claimBonus() {
+            if (!bonusAvailable) return;
+
+            // Add 50 coins
+            coins += 50;
+            updateCoinDisplay();
+
+            // Save claim time
+            const now = Date.now();
+            localStorage.setItem('lastBonusClaim', now.toString());
+
+            // Update bonus availability
+            bonusAvailable = false;
+            updateBonusButton();
+
+            // Show success animation
+            const bonusIcon = document.querySelector('.bonus-icon');
+            bonusIcon.innerHTML = '<i class="fas fa-check-circle" style="color: #00FF00;"></i>';
+
+            const description = document.getElementById('bonusDescription');
+            description.innerHTML = '<span style="color: #00FF00; font-size: 1.5rem; font-weight: bold;">+50 Coins Added! 🎉</span>';
+
+            const claimBtn = document.getElementById('claimBtn');
+            claimBtn.disabled = true;
+            claimBtn.textContent = '✅ Claimed!';
+
+            // Start countdown for next bonus
+            startCountdown(now + (24 * 60 * 60 * 1000));
+
+            // Auto close modal after 2 seconds
+            setTimeout(() => {
+                closeBonusModal();
+                // Reset modal content
+                setTimeout(() => {
+                    bonusIcon.innerHTML = '<i class="fas fa-gift"></i>';
+                    description.textContent = 'You have already claimed your daily bonus. Come back later!';
+                    document.getElementById('countdownTimer').classList.remove('hidden');
+                }, 500);
+            }, 2000);
+        }
+
+        function startCountdown(targetTime) {
+            // Clear any existing countdown
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+
+            const countdownElement = document.getElementById('countdownTimer');
+
+            function updateCountdown() {
+                const now = Date.now();
+                const timeLeft = targetTime - now;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    bonusAvailable = true;
+                    updateBonusButton();
+                    countdownElement.textContent = 'Bonus Available!';
+                    return;
+                }
+
+                const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                countdownElement.textContent = `Next bonus in: ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            updateCountdown();
+            countdownInterval = setInterval(updateCountdown, 1000);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('bonusModal').addEventListener('click', function (e) {
+            if (e.target.id === 'bonusModal') {
+                closeBonusModal();
+            }
+        });
+
+        // Initialize on load
+        window.addEventListener('load', initGame);
+    </script>
+</body>
+
+</html>

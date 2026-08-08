@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – Palam Hybrid Premium</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+:root{
+    --c1:#FFFBDE;
+    --c2:#91C8E4;
+    --c3:#749BC2;
+    --c4:#4682A9;
+    --gradient: linear-gradient(135deg,var(--c1),var(--c2),var(--c3),var(--c4));
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: var(--c1);
+    padding-top: 80px;
+}
+
+.section-title {
+    font-weight: 700;
+    font-size: 2.4rem;
+    margin-bottom: 40px;
+    color: #4682A9;
+}
+
+.icon-box {
+    background: var(--gradient);
+    color:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.2);
+    transition:0.4s;
+}
+.icon-box:hover {
+    transform: translateY(-8px) scale(1.05);
+}
+.icon-box i {
+    font-size:2.5rem;
+    margin-bottom:15px;
+}
+
+.team-card img {
+    border-radius:12px;
+    height:250px;
+    object-fit:cover;
+}
+
+/* Navbar styles */
+.navbar-nav .nav-link {
+    position: relative;
+    color: #fff;
+    font-weight: 600;
+    margin-right: 15px;
+    transition: 0.3s;
+    text-shadow: 0 0 3px #91C8E4, 0 0 6px #fff;
+}
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #91C8E4, #fff, #91C8E4);
+    border-radius: 2px;
+    transition: width 0.4s ease-in-out;
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+.navbar-nav .nav-link:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #91C8E4, 0 0 12px #fff;
+}
+.navbar-toggler {
+    border: 2px solid #fff;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.navbar-toggler:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.1);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+}
+
+/* Footer */
+.premium-footer {
+    background: rgba(15, 20, 35, 0.85);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 0 20px;
+    color: #dbe3ff;
+    position: relative;
+}
+.premium-footer::before,
+.premium-footer::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    filter: blur(150px);
+    border-radius: 50%;
+    z-index: 0;
+}
+.premium-footer::before { background: rgba(0, 200, 255, 0.25); top: -80px; right: -80px; }
+.premium-footer::after { background: rgba(0, 255, 150, 0.25); bottom: -80px; left: -80px; }
+.footer-section { z-index: 1; position: relative; }
+.footer-logo { border-radius: 12px; margin-bottom: 15px; box-shadow: 0px 6px 18px rgba(255, 255, 255, 0.15); }
+.footer-about { font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
+.footer-social a { font-size: 20px; color: #cfd9ff; margin-right: 15px; transition: 0.3s; }
+.footer-social a:hover { color: #00c6ff; transform: scale(1.2); }
+.premium-footer h5 { font-size: 20px; font-weight: 600; margin-bottom: 18px; color: #fff; position: relative; }
+.premium-footer h5::after { content: ""; width: 50px; height: 3px; background: #00c6ff; position: absolute; left: 0; bottom: -8px; border-radius: 3px; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { color: #c9d4ef; text-decoration: none; transition: 0.3s; }
+.footer-links a:hover { color: #00c6ff; padding-left: 8px; }
+.footer-newsletter { display: flex; margin-bottom: 15px; }
+.footer-newsletter input { flex: 1; padding: 10px 14px; border-radius: 8px; border: none; background: #ffffff10; color: #fff; outline: none; }
+.footer-newsletter input::placeholder { color: #d0d7f1; }
+.footer-newsletter button { padding: 10px 16px; margin-left: 8px; border: none; border-radius: 8px; background: #00c6ff; color: #000; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.footer-newsletter button:hover { background: #00ffd5; }
+.footer-contact p { margin-bottom: 6px; }
+.footer-bottom { text-align: center; margin-top: 30px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 14px; color: #b8c4e3; }
+
+/* Support CTA */
+.btn-support {
+    background: linear-gradient(135deg,#FFFBDE,#91C8E4,#4682A9);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    border-radius: 12px;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    text-decoration: none;
+}
+.btn-support:hover {
+    background: linear-gradient(135deg,#4682A9,#749BC2,#91C8E4,#FFFBDE);
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(70,130,169,0.4);
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav class="navbar navbar-expand-lg fixed-top" style="background: linear-gradient(135deg,#91C8E4,#fff); box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+      <img src="./image/logo.jpg" width="65" class="me-2 rounded-circle shadow-sm">
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="nav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link text-black" href="./index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-black " href="./about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link text-black" href="./product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link text-black active" href="./support.html">Support</a></li>
+        <li class="nav-item"><a class="nav-link text-black" href="./contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== SUPPORT SECTIONS ==================== -->
+<section id="support-sections" class="py-5">
+  <div class="container">
+
+    <!-- CTA Top -->
+    <div class="text-center text-white mb-5" style="background: linear-gradient(135deg,#91C8E4,#4682A9); padding:50px; border-radius:12px;" data-aos="fade-up">
+      <h2>Need Help with Your Palam Padlock?</h2>
+      <p class="mb-4">Our expert support team is ready to assist you 24/7 with setup, maintenance, and troubleshooting.</p>
+      <a href="./contact.html" class="btn btn-support">Get Support Now</a>
+    </div>
+
+    <!-- FAQ -->
+    <section id="support-faq" class="mb-5" data-aos="fade-up">
+      <h2 class="section-title text-center">Frequently Asked Questions</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeading1">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              How do I install a Palam Padlock?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Step-by-step guide in the user manual or tutorial videos.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faqHeading2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              How do I request maintenance support?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Contact our support team via phone or email, or fill out the support request form.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Stats -->
+    <section id="support-stats" class="mb-5">
+      <h2 class="section-title text-center" data-aos="fade-up">Our Support At a Glance</h2>
+      <div class="row text-center g-4 mt-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="icon-box">
+            <i class="bi bi-clock-history"></i>
+            <h5 class="mt-3 fw-bold">24/7 Availability</h5>
+            <p>Round-the-clock assistance for all queries and emergencies.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon-box">
+            <i class="bi bi-people"></i>
+            <h5 class="mt-3 fw-bold">Expert Team</h5>
+            <p>Trained professionals ensuring quick and reliable solutions.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="icon-box">
+            <i class="bi bi-graph-up-arrow"></i>
+            <h5 class="mt-3 fw-bold">Fast Response</h5>
+            <p>Average resolution time under 24 hours for most issues.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="support-testimonials" class="mb-5">
+      <h2 class="section-title text-center" data-aos="fade-up">What Our Customers Say</h2>
+      <div class="row g-4 mt-4 text-center">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card border-0 shadow-sm p-4">
+            <p>"Palam's support team helped me fix my lock issue in no time. Very professional!"</p>
+            <h6 class="fw-bold mt-3">— Ramesh K.</h6>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card border-0 shadow-sm p-4">
+            <p>"Quick response and clear guidance. Highly recommend Palam products!"</p>
+            <h6 class="fw-bold mt-3">— Anita S.</h6>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card border-0 shadow-sm p-4">
+            <p>"24/7 support is amazing. Made installation super easy for me."</p>
+            <h6 class="fw-bold mt-3">— Vikram P.</h6>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Bottom -->
+    <div class="text-center text-white" style="background: linear-gradient(135deg,#91C8E4,#4682A9); padding:50px; border-radius:12px;" data-aos="fade-up">
+      <h2>Still Need Help?</h2>
+      <p class="mb-4">Our expert support team is ready to assist you 24/7. Get in touch for any queries or issues.</p>
+      <a href="./contact.html" class="btn btn-support">Contact Support Now</a>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- ================================
+     ADDITIONAL SECTIONS BEFORE FOOTER
+================================ -->
+
+<section id="features" class="py-5" style="background:#f0f8ff;">
+  <div class="container">
+    <h2 class="section-title text-center mb-5" data-aos="fade-up">Our Features</h2>
+    <div class="row g-4 text-center">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon-box shadow-lg rounded-4 p-4" style="background: linear-gradient(135deg,#91C8E4,#4682A9); color:#fff;">
+          <i class="bi bi-shield-lock" style="font-size:3rem;"></i>
+          <h5 class="mt-3 fw-bold">High Security</h5>
+          <p>Top-notch security padlocks to protect your valuables.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon-box shadow-lg rounded-4 p-4" style="background: linear-gradient(135deg,#91C8E4,#4682A9); color:#fff;">
+          <i class="bi bi-gear" style="font-size:3rem;"></i>
+          <h5 class="mt-3 fw-bold">Durable Build</h5>
+          <p>Premium materials ensure long-lasting and reliable locks.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="icon-box shadow-lg rounded-4 p-4" style="background: linear-gradient(135deg,#91C8E4,#4682A9); color:#fff;">
+          <i class="bi bi-lightning-charge" style="font-size:3rem;"></i>
+          <h5 class="mt-3 fw-bold">Quick Access</h5>
+          <p>Smart and easy-to-use locking mechanisms for convenience.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline / Journey Section -->
+<section id="timeline" class="py-5" style="background:#eaf3fb;">
+  <div class="container">
+    <h2 class="section-title text-center mb-5" data-aos="fade-up">Our Journey</h2>
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-icon bg-gradient-icon d-flex justify-content-center align-items-center">
+          <i class="bi bi-building"></i>
+        </div>
+        <div class="timeline-content">
+          <h5>2005 - Company Founded</h5>
+          <p>Started with a vision to provide premium security solutions.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="timeline-icon bg-gradient-icon d-flex justify-content-center align-items-center">
+          <i class="bi bi-award"></i>
+        </div>
+        <div class="timeline-content">
+          <h5>2010 - Industry Recognition</h5>
+          <p>Recognized for quality and innovation in padlocks and hardware.</p>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="timeline-icon bg-gradient-icon d-flex justify-content-center align-items-center">
+          <i class="bi bi-people"></i>
+        </div>
+        <div class="timeline-content">
+          <h5>2020 - Expansion</h5>
+          <p>Expanded product range and entered new markets globally.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final Call-to-Action Banner -->
+<section id="cta-final" class="py-5" style="background: linear-gradient(135deg,#91C8E4,#4682A9);">
+  <div class="container text-center text-white" data-aos="fade-up">
+    <h2 class="fw-bold mb-3">Get Your Palam Padlock Today</h2>
+    <p class="mb-4">Secure your home, office, or business with our premium padlocks. Contact us for more information or place an order now.</p>
+    <a href="./contact.html" class="btn btn-support">Contact Us</a>
+  </div>
+</section>
+
+<section id="stats" class="py-5" style="background:#f0f8ff;">
+  <div class="container text-center">
+    <h2 class="section-title mb-5" style="color:#4682A9;" data-aos="fade-up">Customer Satisfaction</h2>
+    <div class="row g-4">
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon-box shadow-lg rounded-4 p-4">
+          <i class="bi bi-emoji-smile" style="font-size:3rem; color:#4682A9;"></i>
+          <h3 class="counter fw-bold mt-3">98</h3>
+          <p>% Happy Customers</p>
+        </div>
+      </div>
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon-box shadow-lg rounded-4 p-4">
+          <i class="bi bi-clock-history" style="font-size:3rem; color:#4682A9;"></i>
+          <h3 class="counter fw-bold mt-3">24</h3>
+          <p>Hrs Response Time</p>
+        </div>
+      </div>
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="icon-box shadow-lg rounded-4 p-4">
+          <i class="bi bi-box-seam" style="font-size:3rem; color:#4682A9;"></i>
+          <h3 class="counter fw-bold mt-3">1500</h3>
+          <p>Products Sold</p>
+        </div>
+      </div>
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="icon-box shadow-lg rounded-4 p-4">
+          <i class="bi bi-people" style="font-size:3rem; color:#4682A9;"></i>
+          <h3 class="counter fw-bold mt-3">500</h3>
+          <p>Returning Customers</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="faq-icons" class="py-5" style="background:#f0f8ff;">
+  <div class="container">
+    <h2 class="section-title text-center mb-5" style="color:#4682A9;" data-aos="fade-up">Common Questions</h2>
+    <div class="accordion" id="faqIconsAccordion">
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="accordion-header" id="faqIcon1">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqIconCollapse1">
+            <i class="bi bi-shield-lock me-2"></i> Are your padlocks waterproof?
+          </button>
+        </h2>
+        <div id="faqIconCollapse1" class="accordion-collapse collapse" data-bs-parent="#faqIconsAccordion">
+          <div class="accordion-body">Yes, all our padlocks are designed to withstand outdoor conditions and are water-resistant.</div>
+        </div>
+      </div>
+      <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="accordion-header" id="faqIcon2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqIconCollapse2">
+            <i class="bi bi-gear me-2"></i> Can I customize my padlock?
+          </button>
+        </h2>
+        <div id="faqIconCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqIconsAccordion">
+          <div class="accordion-body">Yes, we offer engraving and key customization options for select models.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="premium-footer">
+  <div class="container">
+    <div class="row">
+
+      <!-- Logo & About -->
+      <div class="col-md-4 footer-section">
+        <img src="./image/logo.jpg" alt="Palam Logo" width="90" class="footer-logo">
+        <p class="footer-about">
+          Premium Hardware & Security Solutions<br>
+          Trusted by customers for reliability & innovation.
+        </p>
+        <div class="footer-social">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+          <a href="#"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 footer-section">
+        <h5>Quick Links</h5>
+        <ul class="footer-links list-unstyled">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="col-md-4 footer-section">
+        <h5>Stay Updated</h5>
+        <p>Subscribe for product updates & offers.</p>
+        <form class="footer-newsletter">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="footer-contact">
+          <p>Email: info@palam.com</p>
+          <p>Phone: +91-XXXXXXXXXX</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 Palam Hardware. All Rights Reserved.
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+</body>
+</html>

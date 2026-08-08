@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Elite University</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2><i class="fas fa-graduation-cap"></i> Elite University</h2>
+                </div>
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="programs.html" class="nav-link">Programs</a></li>
+                        <li><a href="admissions.html" class="nav-link">Admissions</a></li>
+                        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                    </ul>
+                    <div class="nav-toggle">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contact Page -->
+    <section class="contact-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Contact Us</h1>
+                <p>Get in touch with our admissions team</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>123 University Avenue<br>Academic City, AC 12345<br>United States</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>Main: (123) 456-7890<br>Admissions: (123) 456-7891<br>Emergency: (123) 456-7899</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>General: info@eliteuniversity.edu<br>Admissions: admissions@eliteuniversity.edu<br>Support: support@eliteuniversity.edu</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Office Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: 10:00 AM - 2:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <h3>Follow Us</h3>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-section">
+                    <div class="form-card">
+                        <h3>Send us a Message</h3>
+                        <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+                        <form class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="admissions">Admissions Inquiry</option>
+                                    <option value="programs">Program Information</option>
+                                    <option value="visiting">Campus Visit</option>
+                                    <option value="financial">Financial Aid</option>
+                                    <option value="general">General Information</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="Tell us how we can help you..."></textarea>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="newsletter" id="newsletter">
+                                    <span class="checkmark"></span>
+                                    Subscribe to our newsletter for updates and news
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section">
+                <h2>Find Us</h2>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215537808!2d-73.98784568459375!3d40.75889597932781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1638360000000!5m2!1sen!2sus"
+                        width="100%"
+                        height="400"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>How do I apply for admission?</h4>
+                        <p>You can apply online through our admissions portal. The process takes about 15-20 minutes and requires basic personal information and academic records.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>What are the admission requirements?</h4>
+                        <p>Requirements vary by program, but generally include high school transcripts, standardized test scores, letters of recommendation, and a personal statement.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>When is the application deadline?</h4>
+                        <p>Fall semester applications are due March 15, and spring semester applications are due November 1. Some programs have rolling admissions.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Do you offer financial aid?</h4>
+                        <p>Yes, we offer various financial aid options including scholarships, grants, work-study programs, and student loans. Contact our financial aid office for details.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Can I visit the campus?</h4>
+                        <p>Absolutely! We offer guided campus tours throughout the week. Please schedule your visit through our website or contact the admissions office.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>What is the student-to-faculty ratio?</h4>
+                        <p>Our student-to-faculty ratio is 15:1, ensuring that students receive personalized attention and support from our dedicated faculty members.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Cards -->
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Admissions Office</h3>
+                    <p>Questions about applying? Our admissions counselors are here to help.</p>
+                    <a href="admissions.html" class="card-link">Apply Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="contact-card">
+                    <div class="card-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Financial Aid</h3>
+                    <p>Learn about scholarships, grants, and financing options available to you.</p>
+                    <a href="#" class="card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="contact-card">
+                    <div class="card-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Housing</h3>
+                    <p>Find information about on-campus housing and residence life.</p>
+                    <a href="#" class="card-link">View Options <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Elite University</h3>
+                    <p>Committed to excellence in education and research since 1950. Shaping the leaders of tomorrow through innovative teaching and cutting-edge research.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Academic Programs</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="#">Student Life</a></li>
+                        <li><a href="#">Research</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Admissions</h4>
+                    <ul>
+                        <li><a href="admissions.html">Apply Online</a></li>
+                        <li><a href="#">Tuition & Fees</a></li>
+                        <li><a href="#">Financial Aid</a></li>
+                        <li><a href="#">Scholarships</a></li>
+                        <li><a href="#">Visit Campus</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Campus Map</a></li>
+                        <li><a href="#">Library</a></li>
+                        <li><a href="#">IT Services</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elite University. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admission - Personal Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 900px;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+
+        .tag-registration {
+            background-color: #fcdada;
+            color: #e74c3c;
+        }
+
+        .tag-english {
+            background-color: #d4efdf;
+            color: #27ae60;
+        }
+
+        p.description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            color: #999;
+        }
+
+        .step.active {
+            color: #e67e22;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #eee;
+            color: #999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .step.active .step-number {
+            background-color: #e67e22;
+            color: #fff;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        label .required {
+            color: #e74c3c;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper input {
+            padding-right: 60px;
+        }
+
+        .char-count {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 12px;
+        }
+
+        .submit-btn-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .submit-btn {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>College Admission Form</h1>
+        <div class="tags">
+            <span class="tag tag-registration">Registration form</span>
+            <span class="tag tag-english">English</span>
+        </div>
+        <p class="description">The college admission form template enhances the application process, making it easier to submit and manage prospective student information effectively for universities and colleges.</p>
+
+        <div class="progress-steps">
+            <div class="step active">
+                <div class="step-number">1</div>
+                <div>Personal details</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>Education background</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>Signature</div>
+            </div>
+        </div>
+
+        <form id="admissionForm" action="./education.php" method="POST">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="first_name">First Name <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="first_name" name="first_name" required>
+                        <span class="char-count">0 / 500</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="last_name" name="last_name" required>
+                        <span class="char-count">0 / 500</span>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="dob">Date of Birth <span class="required">*</span></label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" name="email" required placeholder="email@domain.com">
+                        <span class="char-count">0 / 500</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="tel" id="phone" name="phone" required placeholder="+0123456789">
+                        <span class="char-count">0 / 500</span>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="address">Street Address <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="address" name="address" required>
+                        <span class="char-count">0 / 500</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city">City <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="city" name="city" required>
+                        <span class="char-count">0 / 500</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="state">State/Province <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="state" name="state" required>
+                        <span class="char-count">0 / 500</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="zip">ZIP/Postal Code <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="zip" name="zip" required>
+                        <span class="char-count">0 / 500</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender <span class="required">*</span></label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                        <option value="prefer_not">Prefer not to say</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="emergency_contact">Emergency Contact Name <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="emergency_contact" name="emergency_contact" required>
+                        <span class="char-count">0 / 500</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="emergency_phone">Emergency Contact Phone <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="tel" id="emergency_phone" name="emergency_phone" required placeholder="+0123456789">
+                        <span class="char-count">0 / 500</span>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="citizenship">Citizenship <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" id="citizenship" name="citizenship" required placeholder="e.g., United States">
+                        <span class="char-count">0 / 500</span>
+                    </div>
+                </div>
+            </div>
+            <div class="submit-btn-container">
+                <button type="submit" class="submit-btn">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Character counter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
+
+            inputs.forEach(input => {
+                const charCount = input.parentElement.querySelector('.char-count');
+
+                if (charCount) {
+                    input.addEventListener('input', function() {
+                        const currentLength = this.value.length;
+                        charCount.textContent = currentLength + ' / 500';
+
+                        // Change color when approaching limit
+                        if (currentLength > 450) {
+                            charCount.style.color = '#e74c3c';
+                        } else if (currentLength > 400) {
+                            charCount.style.color = '#f39c12';
+                        } else {
+                            charCount.style.color = '#999';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

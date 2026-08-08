@@ -1,0 +1,620 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header class="bg-dark text-white py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <h1 class="h4 mb-0"><i class="fab fa-apple"></i> iPhone </h1>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search iPhones...">
+                        <button class="btn btn-outline-light" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-3 text-end">
+                    <a href="cart.php" class="btn btn-outline-light me-2"><i class="fas fa-shopping-cart"></i> Cart (<?php echo count($_SESSION['cart'] ?? []); ?>)</a>
+                    <a href="login.php" class="btn btn-outline-light"><i class="fas fa-user"></i> Account</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="./index.php"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./products.php"><i class="fas fa-mobile-alt"></i> iPhones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./accessories.php"><i class="fas fa-headphones"></i> Accessories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./about.php"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./contact.php"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-heart"></i> Wishlist</a></li>
+                    <li class="nav-item"><a class="nav-link" href="compare.php"><i class="fas fa-balance-scale"></i> Compare</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./login.php"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+    <div class="video-docker">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="./image/Vi_presenterar_iPhone_15_WOW_Apple_1080P.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content text-center">
+        <div class="mt-auto mb-5">
+            <a href="./products.php" class="btn btn-light btn-lg px-5 rounded-pill">Shop Now</a>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-black">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-8 reveal">
+                <div class="bento-card main-feature p-5 d-flex flex-column justify-content-end" 
+                     style="background-image: url('https://images.unsplash.com/photo-1695610210332-909794017600?auto=format&fit=crop&q=80&w=1000');">
+                    <div class="bento-content">
+                        <h2 class="display-5 fw-bold text-white">A17 Pro chip. <br>A monster win for gaming.</h2>
+                        <p class="text-secondary">The biggest redesign in the history of Apple GPUs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 reveal">
+                <div class="bento-card sub-feature p-4 text-center">
+                    <i class="fas fa-battery-full fa-3x mb-3 text-success"></i>
+                    <h3 class="h4 fw-bold">All-day battery.</h3>
+                    <p class="text-secondary">Up to 29 hours video playback.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 reveal">
+                <div class="bento-card sub-feature p-4 text-center">
+                    <i class="fas fa-wifi fa-3x mb-3 text-primary"></i>
+                    <h3 class="h4 fw-bold">Wi-Fi 6E.</h3>
+                    <p class="text-secondary">2x faster wireless speeds.</p>
+                </div>
+            </div>
+            <div class="col-lg-8 reveal">
+                <div class="bento-card glass-feature p-4 d-flex align-items-center">
+                    <div class="px-4">
+                        <h3 class="h2 fw-bold mb-0">USB-C.</h3>
+                        <p class="text-secondary mb-0">Gigabit speeds. Pro workflows.</p>
+                    </div>
+                    <img src="./image/usb c.png" class="ms-auto img-fluid rounded" style="max-height: 100px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 design-reveal overflow-hidden">
+    <div class="container-fluid p-0">
+        <div class="row g-0 align-items-center">
+            <div class="col-lg-6 order-2 order-lg-1 reveal">
+                <div class="design-text-box p-5">
+                    <h6 class="text-primary fw-bold text-uppercase mb-3">Material Science</h6>
+                    <h2 class="display-3 fw-bold text-white mb-4">Forged in Titanium.</h2>
+                    <p class="lead text-secondary mb-5">iPhone 15 Pro is the first iPhone to feature an aerospace-grade titanium design, using the same alloy that spacecraft use for missions to Mars.</p>
+                    <div class="d-flex gap-4">
+                        <div class="design-stat">
+                            <span class="d-block h2 fw-bold text-white">Light.</span>
+                            <small class="text-secondary">Our lightest Pro ever.</small>
+                        </div>
+                        <div class="design-stat">
+                            <span class="d-block h2 fw-bold text-white">Strong.</span>
+                            <small class="text-secondary">Highest strength-to-weight.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 reveal-right">
+                <div class="design-image-container">
+                    <img src="https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&q=80&w=1200" alt="Titanium Texture" class="img-fluid design-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Featured Products Carousel -->
+    <section class="py-5 bg-dark text-white">
+        <div class="container">
+            <h2 class="text-center mb-4">Featured iPhones</h2>
+            <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card bg-dark text-white">
+                                    <img src="./image/a pink.webp" class="card-img-top" alt="iPhone 15 Pro Max">
+                                    <div class="card-body">
+                                        <h5 class="card-title">iPhone 15 Pro Max</h5>
+                                        <p class="card-text">₹1,59,900</p>
+                                        <a href="products.php?id=1" class="btn btn-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-dark text-white">
+                                    <img src="./image/a1.webp" class="card-img-top" alt="iPhone 15 Pro">
+                                    <div class="card-body">
+                                        <h5 class="card-title">iPhone 15 Pro</h5>
+                                        <p class="card-text">₹1,29,900</p>
+                                        <a href="products.php?id=2" class="btn btn-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-dark text-white">
+                                    <img src="./image/a15 plus.webp" class="card-img-top" alt="iPhone 15 Plus">
+                                    <div class="card-body">
+                                        <h5 class="card-title">iPhone 15 Plus</h5>
+                                        <p class="card-text">₹89,900</p>
+                                        <a href="products.php?id=3" class="btn btn-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card bg-dark text-white">
+                                    <img src="./image/dis3.png" class="card-img-top" alt="iPhone 14 Pro Max">
+                                    <div class="card-body">
+                                        <h5 class="card-title">iPhone 14 Pro Max</h5>
+                                        <p class="card-text">₹1,39,900</p>
+                                        <a href="products.php?id=5" class="btn btn-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-dark text-white">
+                                    <img src="./image/app2.jpg" class="card-img-top" alt="iPhone 14 Pro">
+                                    <div class="card-body">
+                                        <h5 class="card-title">iPhone 14 Pro</h5>
+                                        <p class="card-text">₹1,19,900</p>
+                                        <a href="products.php?id=6" class="btn btn-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-dark text-white">
+                                    <img src="./image/app.jpg" class="card-img-top" alt="iPhone 13 Pro Max">
+                                    <div class="card-body">
+                                        <h5 class="card-title">iPhone 13 Pro Max</h5>
+                                        <p class="card-text">₹1,29,900</p>
+                                        <a href="products.php?id=9" class="btn btn-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs bg-dark text-white">
+        <div class="container">
+            <a href="./index.php">Home</a> <span>/</span> <span>iPhones</span>
+        </div>
+    </div>
+
+    <main class="container my-4 bg-dark text-white">
+        <div class="row">
+            <aside class="col-md-3">
+                <div class="filters bg-dark text-white p-3 rounded">
+                    <h5><i class="fas fa-filter"></i> Filters</h5>
+                    <div class="mb-3">
+                        <label>Price Range</label>
+                        <input type="range" class="form-range" min="30000" max="160000" id="priceRange">
+                        <div class="d-flex justify-content-between">
+                            <span>₹30,000</span>
+                            <span>₹1,60,000</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Storage</label>
+                        <select class="form-select" id="storageFilter">
+                            <option value="">All</option>
+                            <option value="64GB">64GB</option>
+                            <option value="128GB">128GB</option>
+                            <option value="256GB">256GB</option>
+                            <option value="512GB">512GB</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Sort By</label>
+                        <select class="form-select" id="sortBy">
+                            <option value="relevance">Relevance</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+            </aside>
+            <section class="col-md-9" id="products">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2><i class="fas fa-mobile-alt"></i> iPhones</h2>
+                    <div>
+                        <span id="productCount">12 products</span>
+                    </div>
+                </div>
+                <div class="row" id="productsContainer">
+                    
+                    <!-- Products will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    
+    <section class="py-5 ecosystem-section overflow-hidden">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 reveal">
+                <h6 class="text-primary fw-bold text-uppercase tracking-widest">Ecosystem</h6>
+                <h2 class="display-4 fw-bold text-white">Better together.</h2>
+                <p class="lead text-secondary">iPhone works seamlessly with Mac, iPad, and Apple Watch. Start a task on one, finish on another.</p>
+                <div class="mt-4">
+                    <div class="ecosystem-card p-3 mb-3 d-flex align-items-center">
+                        <i class="fas fa-copy fa-2x text-primary me-3"></i>
+                        <div>
+                            <h5 class="mb-0 text-white">Universal Clipboard</h5>
+                            <small class="text-secondary">Copy on iPhone, paste on Mac.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 text-center reveal-right">
+                <div class="ecosystem-visual">
+                    <img src="./image/dis5.png" alt="Ecosystem" class="img-fluid floating-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="lifestyle-banner py-5 d-flex align-items-center justify-content-center text-center">
+    <div class="lifestyle-text-bg">IPHONE</div>
+    <div class="container reveal">
+        <h2 class="display-2 fw-bold text-white">Designed to be loved.</h2>
+        <p class="lead text-white-50 mx-auto" style="max-width: 600px;">Every detail is engineered for durability, security, and the future of your digital life.</p>
+        <button class="btn btn-outline-light rounded-pill px-5 py-3 mt-4 hover-glow">Explore Privacy Features</button>
+    </div>
+</section>
+
+<!-- Popular Accessories Section -->
+    <section class="py-5 bg-dark text-white">
+        <div class="container">
+            <h2 class="text-center mb-4">Popular Accessories</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card bg-dark text-white">
+                        <img src="./image/AIR PODS.jpg" class="card-img-top" alt="AirPods Pro">
+                        <div class="card-body">
+                            <h5 class="card-title">AirPods Pro</h5>
+                            <p class="card-text">₹24,900</p>
+                            <a href="product.php?id=1&type=accessory" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-dark text-white">
+                        <img src="./image/CABIL.webp" class="card-img-top" alt="MagSafe Charger">
+                        <div class="card-body">
+                            <h5 class="card-title">MagSafe Charger</h5>
+                            <p class="card-text">₹3,900</p>
+                            <a href="product.php?id=2&type=accessory" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-dark text-white">
+                        <img src="./image/iPhone Case.webp" class="card-img-top" alt="iPhone Case">
+                        <div class="card-body">
+                            <h5 class="card-title">iPhone Case</h5>
+                            <p class="card-text">₹4,900</p>
+                            <a href="product.php?id=3&type=accessory" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-dark text-white">
+                        <img src="./image/Lightning Cable.jpg" class="card-img-top" alt="Lightning Cable">
+                        <div class="card-body">
+                            <h5 class="card-title">Lightning Cable</h5>
+                            <p class="card-text">₹1,900</p>
+                            <a href="product.php?id=4&type=accessory" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="accessories.php" class="btn btn-outline-dark btn-lg">View All Accessories</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Why Choose Us Section -->
+    <section class="bg-dark text-white py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Why Choose iPhone Store?</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-shipping-fast fa-3x mb-3"></i>
+                    <h4>Fast Shipping</h4>
+                    <p>Get your iPhone delivered quickly and safely.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-shield-alt fa-3x mb-3"></i>
+                    <h4>Secure Payment</h4>
+                    <p>Your transactions are protected with top security.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-headset fa-3x mb-3"></i>
+                    <h4>24/7 Support</h4>
+                    <p>Our team is here to help you anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="py-5 bg-dark text-white">
+        <div class="container">
+            <h2 class="text-center mb-4">What Our Customers Say</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body">
+                            <p class="card-text">"Amazing service and fast delivery. Highly recommend!"</p>
+                            <footer class="blockquote-footer text-white">John Doe</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body">
+                            <p class="card-text">"Great selection of iPhones at competitive prices."</p>
+                            <footer class="blockquote-footer text-white">Jane Smith</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body">
+                            <p class="card-text">"The chatbot helped me choose the perfect iPhone!"</p>
+                            <footer class="blockquote-footer text-white">Mike Johnson</footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   <section class="tech-specs py-5">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 reveal">
+                <h2 class="display-5 fw-bold text-white mb-4">Beyond Powerful.</h2>
+                <p class="lead text-secondary">Experience the industry-leading A17 Pro chip, a titanium design, and a camera system that redefines mobile photography.</p>
+                <ul class="feature-list list-unstyled mt-4">
+                    <li><i class="fas fa-microchip"></i> <span>A17 Pro Chip with 6-core GPU</span></li>
+                    <li><i class="fas fa-gem"></i> <span>Aerospace-grade Titanium design</span></li>
+                    <li><i class="fas fa-camera"></i> <span>48MP Main camera for super-high-resolution</span></li>
+                </ul>
+            </div>
+            <div class="col-lg-6 text-center reveal-right">
+                <div class="floating-img-container">
+                    <img src="./image/iPhone-15-Pro-Features.webp" alt="iPhone Internals" class="img-fluid floating-img">
+                    <div class="spec-badge badge-1">Titanium</div>
+                    <div class="spec-badge badge-2"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 text-center mt-5">
+            <div class="col-6 col-md-3 reveal">
+                <div class="stat-card">
+                    <h3 class="gradient-text">20x</h3>
+                    <p>Faster Transfer</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="stat-card">
+                    <h3 class="gradient-text">29h</h3>
+                    <p>Video Playback</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="stat-card">
+                    <h3 class="gradient-text">0.5ms</h3>
+                    <p>Touch Latency</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 reveal">
+                <div class="stat-card">
+                    <h3 class="gradient-text">Ray</h3>
+                    <p>Tracing Enabled</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="comparison-section py-5 bg-black">
+    <div class="container reveal">
+        <h2 class="text-center text-white mb-5">Which iPhone is right for you?</h2>
+        <div class="table-responsive glass-table-container">
+            <table class="table table-dark table-borderless align-middle text-center">
+                <thead>
+                    <tr>
+                        <th class="text-start">Model</th>
+                        <th>iPhone 15 Pro</th>
+                        <th>iPhone 15</th>
+                        <th>iPhone 14</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-bottom border-secondary">
+                        <td class="text-start fw-bold">Display</td>
+                        <td>6.1" ProMotion</td>
+                        <td>6.1" OLED</td>
+                        <td>6.1" OLED</td>
+                    </tr>
+                    <tr class="border-bottom border-secondary">
+                        <td class="text-start fw-bold">Chip</td>
+                        <td>A17 Pro</td>
+                        <td>A16 Bionic</td>
+                        <td>A15 Bionic</td>
+                    </tr>
+                    <tr class="border-bottom border-secondary">
+                        <td class="text-start fw-bold">Camera</td>
+                        <td>3x Telephoto</td>
+                        <td>Main / Ultra Wide</td>
+                        <td>Dual System</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><a href="#" class="btn btn-sm btn-primary rounded-pill px-4">Buy</a></td>
+                        <td><a href="#" class="btn btn-sm btn-outline-light rounded-pill px-4">Buy</a></td>
+                        <td><a href="#" class="btn btn-sm btn-outline-light rounded-pill px-4">Buy</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+    <!-- Newsletter Section -->
+    <section class="bg-dark text-white py-5">
+        <div class="container text-center">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get the latest updates on new iPhone releases and exclusive offers.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>iPhone Store</h5>
+                    <p>Your trusted source for the latest iPhones.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="index.php">iPhones</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="contact.php">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Warranty</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2023 iPhone Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<div id="chatbot" class="chatbot">
+    <div class="chatbot-header">
+        <div class="d-flex align-items-center">
+            <div class="bot-avatar me-2">
+                <i class="fas fa-robot"></i>
+                <span class="online-status"></span>
+            </div>
+            <div>
+                <span class="d-block fw-bold">iPhone Assistant</span>
+                <small class="opacity-75">Always online</small>
+            </div>
+        </div>
+        <button id="close-chat" class="btn-close btn-close-white"></button>
+    </div>
+    
+    <div class="chatbot-body" id="chat-messages">
+        <div class="message bot animate-msg">
+            Hi! I'm your Apple expert. Looking for a specific model or need a recommendation based on your budget?
+        </div>
+    </div>
+
+    <div class="chatbot-footer">
+        <div class="input-wrapper">
+            <input type="text" id="chat-input" placeholder="Ask about iPhone 15...">
+            <button id="send-chat"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+</div>
+
+<div id="chat-toggle" class="chat-toggle">
+    <div class="pulse-ring"></div>
+    <i class="fas fa-comment-dots"></i>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

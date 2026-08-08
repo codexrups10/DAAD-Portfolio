@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results | Madhyamgram Girls' High School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family:'Cormorant Garamond', serif;
+      margin:0; padding:0;
+      background:#f8f8f8; color:#222; line-height:1.6;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed; top:0; left:0; width:100%; z-index:1000;
+      background:#4d0003;
+      box-shadow:0 2px 6px rgba(0,0,0,0.2);
+    }
+    .header .container {
+      max-width:1200px; margin:auto; padding:1rem 2rem;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .logo { font-size:1.6rem; font-weight:bold; display:flex; align-items:center; gap:10px; color:white; }
+    .nav-links { list-style:none; display:flex; gap:1.5rem; margin:0; }
+    .nav-links a { color:white; text-decoration:none; font-weight:bold; transition:0.3s; }
+    .nav-links a:hover, .nav-links a.active { text-decoration:underline; }
+
+    /* Headings Bold & Attractive */
+    h1, h2, h3, h4 {
+        font-weight: bolder; color:#540404; text-transform: uppercase; letter-spacing:1px;
+    }
+    h1 { font-size:3rem; margin-bottom:15px; }
+    h2 { font-size:2.2rem; margin-bottom:25px; }
+    h3 { font-size:1.8rem; margin-bottom:15px; }
+    h4 { font-size:1.4rem; margin-bottom:10px; }
+
+    /* Banner */
+    .banner {
+      width:100%; height:40px; background:url('./Images/result\ banner.jpg') center/cover no-repeat; position:relative;
+      height: 800px; /* Adjust height for better visibility */
+      display:flex; align-items:center; justify-content:center; margin-top:80px;
+    }
+    .banner h1 {
+      color:#fff; font-size:3rem; text-shadow:2px 2px 10px rgba(0,0,0,0.7);
+    }
+
+    /* Sections */
+    section { padding:60px 20px; text-align:center; }
+    .section-light { background:#f8f8f8; }
+    .card-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:25px; max-width:1200px; margin:auto; }
+    .card { background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); width:220px; }
+    .card img { width:100%; height:140px; object-fit:cover; border-radius:8px; }
+    .cta-btn { display:inline-block; margin-top:25px; background:#f2c200; color:#540404; padding:12px 25px; border-radius:6px; font-weight:bold; text-decoration:none; transition:background 0.3s; }
+    .cta-btn:hover { background:#e0b500; }
+
+    /* Footer */
+    footer { background:#540404; color:#fff; font-family:'Cormorant Garamond', serif; padding:60px 20px; position:relative; overflow:hidden; }
+    footer a { color:#fff; text-decoration:none; transition: color 0.3s; }
+    footer a:hover { color:#f2c200; }
+    footer button:hover { background:#e0b500; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <img src="./Images/logo.jpg" alt="School Logo" style="height:40px; vertical-align:middle; margin-right:10px; display:inline-block;">
+      <span style="display:inline-block; vertical-align:middle;">Madhayamgram Girls' High School</span>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="admission.html">Admissions</a></li>
+        <li><a href="academic.html">Academics</a></li>
+        <li><a href="results.html" class="active">Results</a></li>
+        <li><a href="events.html">Events & Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<!-- BANNER -->
+<div class="banner">
+  <h1>Our Board Results</h1>
+</div>
+
+
+<!-- LATEST RESULTS -->
+<section class="section-light">
+  <h2>📊 Latest Board Results</h2>
+  <div class="card-grid">
+    <div class="card">
+      <img src="./Images/top12.jpg" alt="Result 1">
+      <h4>Class XII Topper</h4>
+      <p>Riya Das – 98% in WB Board Exam 2025</p>
+    </div>
+    <div class="card">
+      <img src="./Images/top10.jpg" alt="Result 2">
+      <h4>Class X Topper</h4>
+      <p>Ananya Mukherjee – 97% in WB Board Exam 2025</p>
+    </div>
+    <div class="card">
+      <img src="./Images/top_sci.jpg" alt="Result 3">
+      <h4>Best in Science</h4>
+      <p>Aarav Roy – Highest marks in Science</p>
+    </div>
+    <div class="card">
+      <img src="./Images/top_arts.jpg" alt="Result 4">
+      <h4>Best in Arts</h4>
+      <p>Priya Sen – Highest marks in Arts</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUBJECT TOPPERS -->
+<section>
+  <h2>🏅 Subject-wise Toppers</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Mathematics</h4>
+      <p>Ritika Ghosh – 99%</p>
+    </div>
+    <div class="card">
+      <h4>Science</h4>
+      <p>Devansh Roy – 98%</p>
+    </div>
+    <div class="card">
+      <h4>English</h4>
+      <p>Tanvi Sen – 97%</p>
+    </div>
+    <div class="card">
+      <h4>Social Science</h4>
+      <p>Arjun Das – 96%</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENT GALLERY -->
+<section class="section-light">
+  <h2>🎉 Achievements Gallery</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:1200px; margin:auto;">
+    <img src="./Images/ach1.jpg" alt="Achievement 1" style="width:280px; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/ach2.jpg" alt="Achievement 2" style="width:280px; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/ach3.jpg" alt="Achievement 3" style="width:280px; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+  </div>
+</section>
+
+
+<!-- PASS PERCENTAGE STATS -->
+<section style="background:#f2f2f2; padding:60px 20px; text-align:center;">
+  <h2>📈 Overall Pass Percentage</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; max-width:1200px; margin:auto;">
+    <div style="width:220px; background:#fff; padding:25px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>Class X</h4>
+      <p style="font-size:1.5rem; color:#4caf50; font-weight:bold;">98%</p>
+      <p>Overall pass percentage in 2025 WB Board Exams</p>
+    </div>
+    <div style="width:220px; background:#fff; padding:25px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>Class XII</h4>
+      <p style="font-size:1.5rem; color:#4caf50; font-weight:bold;">97%</p>
+      <p>Overall pass percentage in 2025 WB Board Exams</p>
+    </div>
+    <div style="width:220px; background:#fff; padding:25px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>Top Distinctions</h4>
+      <p style="font-size:1.5rem; color:#4caf50; font-weight:bold;">35%</p>
+      <p>Percentage of students scoring above 90%</p>
+    </div>
+  </div>
+</section>
+
+<!-- STUDENT SPOTLIGHTS -->
+<section style="background:#fff; padding:60px 20px; text-align:center;">
+  <h2>🌟 Student Spotlights</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; max-width:1200px; margin:auto;">
+    <div style="width:250px; background:#f8f8f8; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <img src="./Images/top12.jpg" alt="Student 1" style="width:100%; height:180px; object-fit:cover; border-radius:8px;">
+      <h4>Riya Das</h4>
+      <p>Class XII Topper – 98% in Board Exams</p>
+    </div>
+    <div style="width:250px; background:#f8f8f8; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <img src="./Images/top10.jpg" alt="Student 2" style="width:100%; height:180px; object-fit:cover; border-radius:8px;">
+      <h4>Ananya Mukherjee</h4>
+      <p>Class X Topper – 97% in Board Exams</p>
+    </div>
+    <div style="width:250px; background:#f8f8f8; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <img src="./Images/top_sci.jpg" alt="Student 3" style="width:100%; height:180px; object-fit:cover; border-radius:8px;">
+      <h4>Aaravi Roy</h4>
+      <p>Highest marks in Science & Innovation</p>
+    </div>
+  </div>
+</section>
+
+<!-- ALUMNI SUCCESS STORIES -->
+<section style="background:#f2f2f2; padding:60px 20px; text-align:center;">
+  <h2>🎓 Alumni Success Stories</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; max-width:1200px; margin:auto;">
+    <div style="width:300px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>Dr. Tanvi Sen</h4>
+      <p>MBBS – Currently practicing at AIIMS, inspiring current students to achieve excellence.</p>
+    </div>
+    <div style="width:300px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>Ritik Ghosh</h4>
+      <p>Software Engineer at Google – Alumni who excelled in STEM & Coding Clubs.</p>
+    </div>
+    <div style="width:300px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>Priya Sen</h4>
+      <p>Artist & Designer – Showcasing the school’s creative arts legacy.</p>
+    </div>
+  </div>
+</section>
+
+
+<section style="background:#fff0f5; padding:60px 20px; text-align:center;">
+  <h2>🏅 Topper Insights</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; max-width:1200px; margin:auto;">
+    <div style="width:250px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>Riya Das – Class XII</h4>
+      <p><strong>Maths:</strong> 98%</p>
+      <p><strong>Science:</strong> 97%</p>
+      <p style="font-style:italic; color:#540404;">“Hard work and curiosity are the keys to success!”</p>
+    </div>
+    <div style="width:250px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>Ananya Mukherjee – Class X</h4>
+      <p><strong>English:</strong> 99%</p>
+      <p><strong>Social Science:</strong> 96%</p>
+      <p style="font-style:italic; color:#540404;">“Stay focused and believe in yourself!”</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f8f8f8; padding:60px 20px; text-align:center;">
+  <h2>📊 Class-Wise Pass Comparison</h2>
+  <div style="max-width:900px; margin:auto; text-align:left;">
+    <div style="margin-bottom:20px;">
+      <h4>Class X – 2025: 98%</h4>
+      <div style="background:#ddd; height:25px; border-radius:12px; overflow:hidden;">
+        <div style="width:98%; background:#4caf50; height:100%;"></div>
+      </div>
+    </div>
+    <div style="margin-bottom:20px;">
+      <h4>Class XII – 2025: 97%</h4>
+      <div style="background:#ddd; height:25px; border-radius:12px; overflow:hidden;">
+        <div style="width:97%; background:#4caf50; height:100%;"></div>
+      </div>
+    </div>
+    <div style="margin-bottom:20px;">
+      <h4>Class X – 2024: 95%</h4>
+      <div style="background:#ddd; height:25px; border-radius:12px; overflow:hidden;">
+        <div style="width:95%; background:#2196f3; height:100%;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff; padding:60px 20px; text-align:center;">
+  <h2>🎯 Subject Excellence Awards</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; max-width:1200px; margin:auto;">
+    <div style="width:220px; background:#f8f8f8; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>Mathematics</h4>
+      <p>Riya Das – 98%</p>
+    </div>
+    <div style="width:220px; background:#f8f8f8; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>Science</h4>
+      <p>Aarav Roy – 97%</p>
+    </div>
+    <div style="width:220px; background:#f8f8f8; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>English</h4>
+      <p>Ananya Mukherjee – 99%</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f8f8f8; padding:60px 20px; text-align:center;">
+  <h2>💡 Parental Tips & Student Guidance</h2>
+  <div style="max-width:1000px; margin:auto; display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+    <div style="width:300px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>For Students</h4>
+      <p>Set realistic goals, maintain a study schedule, and actively participate in classes.</p>
+    </div>
+    <div style="width:300px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>For Parents</h4>
+      <p>Encourage learning at home, provide a supportive environment, and celebrate achievements.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff0f0; padding:60px 20px; text-align:center;">
+  <h2>🎓 Upcoming Competitions & Scholarships</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:1200px; margin:auto;">
+    <div style="width:280px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>Science Olympiad</h4>
+      <p>Encourage students to participate in regional and national level science competitions.</p>
+    </div>
+    <div style="width:280px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>Scholarship Programs</h4>
+      <p>High-performing students are eligible for merit-based scholarships and awards.</p>
+    </div>
+    <div style="width:280px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4>Debate & Quiz Competitions</h4>
+      <p>Sharpen critical thinking and communication skills through inter-school competitions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section style="background: linear-gradient(135deg,#a43737,#540404); color:#fff;">
+  <h2 style="color: #ddd;">Enroll Your Child Today!</h2>
+  <p>Join Madhyamgram Girls' High School and be part of a legacy of excellence and success.</p>
+  <a href="admission.html" class="cta-btn">Apply Now</a>
+</section>
+
+<!-- MODERN FOOTER -->
+<footer style="background:#540404; color:#fff; font-family:'Cormorant Garamond', serif; padding:60px 20px; position:relative; overflow:hidden;">
+  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; gap:30px; justify-content:space-between;">
+
+    <!-- About -->
+    <div style="flex:1 1 250px; min-width:220px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;">About Us</h3>
+      <p style="color:#f0e6e6; line-height:1.7; font-size:0.95rem;">
+        Madhayamgram Girls' High School is dedicated to nurturing excellence, creativity, and discipline. We empower every student to achieve their full potential in academics, arts, and co-curricular activities.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div style="flex:1 1 200px; min-width:180px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;"> Quick Links</h3>
+      <ul style="list-style:none; padding:0; line-height:2;">
+        <li><a href="index.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">🏠 Home</a></li>
+        <li><a href="about.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">ℹ️ About</a></li>
+        <li><a href="admission.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">📝 Admissions</a></li>
+        <li><a href="academics.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">📚 Academics</a></li>
+        <li><a href="contact.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">📞 Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div style="flex:1 1 250px; min-width:200px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;">Contact</h3>
+      <p style="color:#f0e6e6; font-size:0.95rem; line-height:1.7;">
+        <i class="fas fa-map-marker-alt"></i> 12 Madhyamgram Road, West Bengal, India<br>
+        <i class="fas fa-phone-alt"></i> +91 12345 67890<br>
+        <i class="fas fa-envelope"></i> info@mghs.edu.in
+      </p>
+      <div style="margin-top:15px;">
+        <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem; transition: color 0.3s;"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem; transition: color 0.3s;"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem; transition: color 0.3s;"><i class="fab fa-instagram"></i></a>
+        <a href="#" style="color:#fff; font-size:1.2rem; transition: color 0.3s;"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div style="flex:1 1 250px; min-width:220px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;">Newsletter</h3>
+      <p style="color:#f0e6e6; font-size:0.95rem; line-height:1.7;">Subscribe to get updates on events, admissions, and announcements.</p>
+      <form style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;">
+        <input type="email" placeholder="Your Email" style="flex:1; padding:10px 15px; border:none; border-radius:5px;">
+        <button type="submit" style="background:#f2c200; color:#540404; border:none; padding:10px 20px; border-radius:5px; font-weight:bold; cursor:pointer; transition: background 0.3s;">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Bottom Bar -->
+  <div style="text-align:center; margin-top:50px; font-size:0.9rem; color:#f0e6e6;">
+    &copy; 2025 Madhayamgram Girls' High School. All Rights Reserved.
+    <br>
+    Designed by Rumpi
+  </div>
+</footer>
+
+<!-- Hover Effects -->
+<style>
+  footer a:hover { color: #f2c200; }
+  footer button:hover { background:#e0b500; }
+</style>
+
+
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academics | Madhyamgram Girls' High School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="font-family:'Cormorant Garamond', serif; margin:0; padding:0;">
+
+ <style>
+
+/* Make all headings bold, bigger and more attractive */
+h1, h2, h3, h4 {
+    font-weight: bolder; /* Extra bold */
+    color: #540404;      /* Dark maroon for consistency */
+    text-transform: uppercase; /* Optional: uppercase for emphasis */
+    letter-spacing: 1px; /* Small spacing to make it elegant */
+}
+
+h1 { font-size: 3rem; margin-bottom: 15px; }
+h2 { font-size: 2.2rem; margin-bottom: 25px; }
+h3 { font-size: 1.8rem; margin-bottom: 15px; }
+h4 { font-size: 1.4rem; margin-bottom: 10px; }
+
+  /* Header */
+body {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  background: #f8f8f8;
+  color: #222;
+  line-height: 1.6;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #4e0101;
+}
+
+ 
+.header {
+  background: #4d0003;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.header .container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  text-decoration: underline;
+}
+
+   
+  </style>
+
+     <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="./Images/logo.jpg" alt="School Logo" style="height:40px; vertical-align:middle; margin-right:10px; display:inline-block;">
+        <span style="display:inline-block; vertical-align:middle;">Madhayamgram Girls' High School</span>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" >Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="admission.html">Admissions</a></li>
+          <li><a href="academics.html" class="active">Academics</a></li>
+          <li><a href="results.html">Results</a></li>
+          <li><a href="events.html">Events & Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+
+
+  <!-- HERO VIDEO SECTION -->
+  <section class="academics-hero" style="position:relative; overflow:hidden;">
+    <video id="academics-hero-video" autoplay muted loop playsinline style="width:100%; height:820px; object-fit:cover; display:block;">
+      <source src="./Images/academic video.MP4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="academics-hero-overlay" style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:#fff;">
+      <h1 style="font-size:2.5rem; color:#fff; margin:0 1rem; text-shadow:2px 2px 8px rgba(0,0,0,0.7);">Our Academic Programs</h1>
+      <p style="font-size:1.2rem; color:#fff; max-width:700px; margin:12px auto 0; text-shadow:1px 1px 6px rgba(0,0,0,0.6);">At Madhayamgram Girls' High School, we focus on holistic development through a well-rounded curriculum spanning from Primary to Senior levels.</p>
+      <button id="academics-hero-toggle" aria-label="Pause hero video" style="margin-top:16px; background:rgba(0,0,0,0.5); color:#fff; border:0; padding:8px 12px; border-radius:6px; cursor:pointer;">Pause</button>
+    </div>
+  </section>
+
+  <style>
+    .academics-hero { margin-top: 70px; }
+    .academics-hero video { width:100%; height:420px; object-fit:cover; }
+    .academics-hero-overlay { z-index:2; pointer-events:none; }
+    .academics-hero-overlay h1, .academics-hero-overlay p, #academics-hero-toggle { pointer-events:auto; }
+    @media (max-width:768px) {
+      .academics-hero video { height:260px; }
+      .academics-hero-overlay h1 { font-size:1.6rem; }
+      .academics-hero-overlay p { font-size:1rem; }
+    }
+  </style>
+
+  <script>
+    (function(){
+      const video = document.getElementById('academics-hero-video');
+      const btn = document.getElementById('academics-hero-toggle');
+      if (!video || !btn) return;
+      btn.addEventListener('click', function(){
+        if (video.paused) { video.play(); btn.textContent = 'Pause'; btn.setAttribute('aria-label','Pause hero video'); }
+        else { video.pause(); btn.textContent = 'Play'; btn.setAttribute('aria-label','Play hero video'); }
+      });
+    })();
+  </script>
+
+  <!-- ACADEMIC WINGS -->
+  <section style="padding:50px 20px; background:#fff;">
+    <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+      <!-- Primary -->
+      <div style="width:300px; background:#f9f9f9; border-radius:12px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+        <img src="./Images/acc1.jpg" alt="Primary Wing" style="width:100%; height:200px; object-fit:cover;">
+        <div style="padding:20px;">
+          <h3 style="color:#540404;">Primary Wing</h3>
+          <p>Interactive learning with emphasis on creativity, reading, and foundational skills.</p>
+        </div>
+      </div>
+      <!-- Middle -->
+      <div style="width:300px; background:#f9f9f9; border-radius:12px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+        <img src="./Images/acc2.jpg" alt="Middle Wing" style="width:100%; height:200px; object-fit:cover;">
+        <div style="padding:20px;">
+          <h3 style="color:#540404;">Middle Wing</h3>
+          <p>Balanced curriculum fostering academic excellence, critical thinking, and social skills.</p>
+        </div>
+      </div>
+      <!-- Senior -->
+      <div style="width:300px; background:#f9f9f9; border-radius:12px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+        <img src="./Images/acc3.jpg" alt="Senior Wing" style="width:100%; height:200px; object-fit:cover;">
+        <div style="padding:20px;">
+          <h3 style="color:#540404;">Senior Wing</h3>
+          <p>Advanced curriculum in Science, Arts & Commerce with career guidance and skill-building.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACILITIES SECTION -->
+  <section style="background:#f8f8f8; padding:50px 20px; text-align:center;">
+    <h2 style="color:#540404; margin-bottom:40px;">Our Academic Facilities</h2>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; max-width:1200px; margin:auto;">
+      <div style="width:220px; background:#fff; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <i class="fas fa-flask" style="font-size:2rem; color:#ff9800;"></i>
+        <h4 style="margin-top:15px; color:#333;">Science Labs</h4>
+        <p>Well-equipped labs for Physics, Chemistry & Biology.</p>
+      </div>
+      <div style="width:220px; background:#fff; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <i class="fas fa-laptop-code" style="font-size:2rem; color:#007bff;"></i>
+        <h4 style="margin-top:15px; color:#333;">Computer Lab</h4>
+        <p>Modern labs with latest software for coding & research.</p>
+      </div>
+      <div style="width:220px; background:#fff; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <i class="fas fa-book" style="font-size:2rem; color:#4caf50;"></i>
+        <h4 style="margin-top:15px; color:#333;">Library</h4>
+        <p>Extensive collection of books, journals & digital resources.</p>
+      </div>
+      <div style="width:220px; background:#fff; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <i class="fas fa-chalkboard-teacher" style="font-size:2rem; color:#ff5722;"></i>
+        <h4 style="margin-top:15px; color:#333;">Smart Classrooms</h4>
+        <p>Interactive learning with modern teaching aids and projectors.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS SECTION -->
+  <section style="background:#fff; padding:50px 20px; text-align:center;">
+    <h2 style="color:#540404; margin-bottom:30px;">Academic Achievements</h2>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; max-width:1200px; margin:auto;">
+      <div style="width:180px; padding:15px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); background:#f8f8f8;">
+        <img src="./Images/ach1.jpg" alt="Achievement 1" style="width:100%; height:140px; object-fit:cover; border-radius:6px;">
+        <p style="margin-top:10px; font-size:0.95rem;">Top WB Board Results 2025</p>
+      </div>
+      <div style="width:180px; padding:15px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); background:#f8f8f8;">
+        <img src="./Images/ach2.jpg" alt="Achievement 2" style="width:100%; height:140px; object-fit:cover; border-radius:6px;">
+        <p style="margin-top:10px; font-size:0.95rem;">Science Fair Winners</p>
+      </div>
+      <div style="width:180px; padding:15px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); background:#f8f8f8;">
+        <img src="./Images/ach3.jpg" alt="Achievement 3" style="width:100%; height:140px; object-fit:cover; border-radius:6px;">
+        <p style="margin-top:10px; font-size:0.95rem;">Debate & Quiz Champions</p>
+      </div>
+      <div style="width:180px; padding:15px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); background:#f8f8f8;">
+        <img src="./Images/ach4.jpg" alt="Achievement 4" style="width:100%; height:140px; object-fit:cover; border-radius:6px;">
+        <p style="margin-top:10px; font-size:0.95rem;">Sports & Cultural Medals</p>
+      </div>
+    </div>
+  </section>
+  <section style="background:#f2f2f2; padding:60px 20px; text-align:center;">
+  <h2 style="color:#540404; margin-bottom:50px;">🏆 Academic Achievements Wall</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:1200px; margin:auto;">
+    <div style="background:#fff; padding:20px; border-radius:12px; width:250px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+      <h4 style="color:#333;">Topper 2025</h4>
+      <p>Riya Das – 98% in Class XII Board Exam</p>
+    </div>
+    <div style="background:#fff; padding:20px; border-radius:12px; width:250px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+      <h4 style="color:#333;">Science Fair Winner</h4>
+      <p>Aarav Roy – First Place in Regional Science Fair</p>
+    </div>
+    <div style="background:#fff; padding:20px; border-radius:12px; width:250px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+      <h4 style="color:#333;">Math Olympiad</h4>
+      <p>Priya Sen – State Level Bronze Medal</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff; padding:60px 20px; text-align:center;">
+  <h2 style="color:#540404; margin-bottom:50px;">🔬 Virtual Lab Tour</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:1200px; margin:auto;">
+    <img src="./Images/lab1.jpg" alt="Science Lab" style="width:300px; height:200px; object-fit:cover; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/lab2.jpg" alt="Computer Lab" style="width:300px; height:200px; object-fit:cover; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/library3.jpg" alt="Library" style="width:300px; height:200px; object-fit:cover; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+  </div>
+</section>
+
+
+<section style="background:#f8f8f8; padding:60px 20px; text-align:center;">
+  <h2 style="color:#540404; margin-bottom:50px;">📘 Subject Highlights</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; max-width:1200px; margin:auto;">
+    <div style="width:220px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <i class="fas fa-flask" style="font-size:2rem; color:#4caf50;"></i>
+      <h4 style="margin-top:15px; color:#333;">Science</h4>
+      <p>Hands-on experiments, innovation, and exploration.</p>
+    </div>
+    <div style="width:220px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <i class="fas fa-calculator" style="font-size:2rem; color:#2196f3;"></i>
+      <h4 style="margin-top:15px; color:#333;">Mathematics</h4>
+      <p>Problem-solving, logic, and competitions.</p>
+    </div>
+    <div style="width:220px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <i class="fas fa-language" style="font-size:2rem; color:#ff5722;"></i>
+      <h4 style="margin-top:15px; color:#333;">Languages</h4>
+      <p>Communication, reading, writing & literature.</p>
+    </div>
+    <div style="width:220px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <i class="fas fa-palette" style="font-size:2rem; color:#ff9800;"></i>
+      <h4 style="margin-top:15px; color:#333;">Arts & Craft</h4>
+      <p>Creativity, expression, and visual storytelling.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff0f0; padding:60px 20px; text-align:center;">
+  <h2 style="color:#540404; margin-bottom:50px;">🤖 STEM & Innovation Corner</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; max-width:1200px; margin:auto;">
+    <img src="./Images/ino1.jpg" alt="Robotics" style="width:280px; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/ino2.jpg" alt="Coding Club" style="width:280px; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/ino3.jpg" alt="Innovation Projects" style="width:280px; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+  </div>
+</section>
+
+
+  <!-- CONTACT / CALL TO ACTION -->
+  <section style="background: linear-gradient(135deg,#a43737,#540404); color:#fff; padding:50px 20px; text-align:center;">
+    <h2 style="font-size:2rem; margin-bottom:20px; color: hsl(0, 13%, 95%);">Enroll Your Child Today!</h2>
+    <p style="max-width:600px; margin:auto; font-size:1.1rem;">Join Madhyamgram Girls' High School and experience excellence in academics and co-curricular activities.</p>
+    <a href="admission.html" style="display:inline-block; margin-top:25px; background:#f2c200; color:#540404; padding:12px 25px; border-radius:6px; font-weight:bold; text-decoration:none; transition:background 0.3s;">Apply Now</a>
+  </section>
+
+
+<!-- MODERN FOOTER -->
+<footer style="background:#540404; color:#fff; font-family:'Cormorant Garamond', serif; padding:60px 20px; position:relative; overflow:hidden;">
+  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; gap:30px; justify-content:space-between;">
+
+    <!-- About -->
+    <div style="flex:1 1 250px; min-width:220px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;">About Us</h3>
+      <p style="color:#f0e6e6; line-height:1.7; font-size:0.95rem;">
+        Madhayamgram Girls' High School is dedicated to nurturing excellence, creativity, and discipline. We empower every student to achieve their full potential in academics, arts, and co-curricular activities.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div style="flex:1 1 200px; min-width:180px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;"> Quick Links</h3>
+      <ul style="list-style:none; padding:0; line-height:2;">
+        <li><a href="index.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">🏠 Home</a></li>
+        <li><a href="about.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">ℹ️ About</a></li>
+        <li><a href="admission.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">📝 Admissions</a></li>
+        <li><a href="academics.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">📚 Academics</a></li>
+        <li><a href="contact.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">📞 Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div style="flex:1 1 250px; min-width:200px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;">Contact</h3>
+      <p style="color:#f0e6e6; font-size:0.95rem; line-height:1.7;">
+        <i class="fas fa-map-marker-alt"></i> 12 Madhyamgram Road, West Bengal, India<br>
+        <i class="fas fa-phone-alt"></i> +91 12345 67890<br>
+        <i class="fas fa-envelope"></i> info@mghs.edu.in
+      </p>
+      <div style="margin-top:15px;">
+        <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem; transition: color 0.3s;"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem; transition: color 0.3s;"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem; transition: color 0.3s;"><i class="fab fa-instagram"></i></a>
+        <a href="#" style="color:#fff; font-size:1.2rem; transition: color 0.3s;"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div style="flex:1 1 250px; min-width:220px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;">Newsletter</h3>
+      <p style="color:#f0e6e6; font-size:0.95rem; line-height:1.7;">Subscribe to get updates on events, admissions, and announcements.</p>
+      <form style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;">
+        <input type="email" placeholder="Your Email" style="flex:1; padding:10px 15px; border:none; border-radius:5px;">
+        <button type="submit" style="background:#f2c200; color:#540404; border:none; padding:10px 20px; border-radius:5px; font-weight:bold; cursor:pointer; transition: background 0.3s;">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Bottom Bar -->
+  <div style="text-align:center; margin-top:50px; font-size:0.9rem; color:#f0e6e6;">
+    &copy; 2025 Madhayamgram Girls' High School. All Rights Reserved.
+    <br>
+    Designed by Rumpi
+  </div>
+</footer>
+
+<!-- Hover Effects -->
+<style>
+  footer a:hover { color: #f2c200; }
+  footer button:hover { background:#e0b500; }
+</style>
+
+
+</body>
+</html>
+

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster | Play & Create</title>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --success: #00b894;
+            --danger: #ff7675;
+            --bg: #f8f9fd;
+            --card: #ffffff;
+            --text: #2d3436;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg: #121212;
+            --card: #1e1e1e;
+            --text: #f5f6fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; background: var(--card);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky; top: 0; z-index: 100;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 900; color: var(--primary); cursor: pointer; }
+        .logo span { color: var(--text); }
+
+        .nav-btns { display: flex; gap: 15px; align-items: center; }
+
+        /* Buttons */
+        .btn {
+            padding: 10px 20px; border-radius: 12px; border: none;
+            font-weight: bold; cursor: pointer; transition: var(--transition);
+        }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3); }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white; padding: 20px;
+        }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; }
+        .hero p { opacity: 0.9; margin-bottom: 30px; max-width: 600px; }
+
+        /* Grid Layout */
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px; margin-top: 30px;
+        }
+
+        /* Quiz Cards */
+        .card {
+            background: var(--card); padding: 30px; border-radius: 24px;
+            text-align: center; cursor: pointer; transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .card:hover { transform: scale(1.05); background: var(--primary); color: white; }
+        .card i { font-size: 3rem; margin-bottom: 15px; display: block; }
+
+        /* Game Overlay */
+        .overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(10px); display: none; 
+            align-items: center; justify-content: center; z-index: 1000;
+        }
+        .active { display: flex !important; }
+
+        .quiz-box {
+            background: var(--card); width: 90%; max-width: 600px;
+            padding: 40px; border-radius: 30px; position: relative;
+        }
+
+        .progress-container {
+            width: 100%; height: 8px; background: #eee; border-radius: 10px; margin: 20px 0;
+        }
+        #progress-bar {
+            height: 100%; width: 0%; background: var(--success); border-radius: 10px; transition: 0.3s;
+        }
+
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px; }
+        .option-btn {
+            padding: 15px; border: 2px solid #eee; border-radius: 15px;
+            background: none; color: var(--text); font-weight: 600; cursor: pointer;
+        }
+        .option-btn:hover { border-color: var(--primary); background: #6c5ce710; }
+
+        /* Sections */
+        .page-section { display: none; }
+        .section-active { display: block; }
+
+        /* Create Quiz Styles */
+        .create-form { background: var(--card); padding: 30px; border-radius: 20px; }
+        .form-group { margin-bottom: 15px; }
+        input { 
+            width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd; 
+            margin-top: 5px; background: var(--bg); color: var(--text);
+        }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo" onclick="showPage('home')">Quiz<span>Master</span></div>
+        <div class="nav-btns">
+            <button class="btn btn-outline" onclick="toggleTheme()">🌓</button>
+            <button class="btn btn-primary" onclick="showPage('create')">Create Quiz</button>
+        </div>
+    </nav>
+
+    <section id="home-page" class="page-section section-active">
+        <header class="hero">
+            <div class="hero-content" data-aos="zoom-in">
+                <h1>Play 1000s of Free Quizzes</h1>
+                <p>The ultimate playground for curious minds. Challenge yourself or create your own games!</p>
+                <div class="nav-btns" style="justify-content: center;">
+                    <button class="btn btn-primary" onclick="startRandom()">Bored Mode</button>
+                    <button class="btn btn-outline" style="color:white; border-color:white" onclick="document.getElementById('categories').scrollIntoView()">Browse All</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="container" id="categories">
+            <h2 data-aos="fade-right">Popular Categories</h2>
+            <div class="grid" id="category-grid">
+                </div>
+        </div>
+    </section>
+
+    <section id="create-page" class="page-section">
+        <div class="container">
+            <div class="create-form" data-aos="fade-up">
+                <h2>🛠 Create a New Quiz</h2>
+                <div class="form-group">
+                    <label>Quiz Title</label>
+                    <input type="text" id="new-quiz-title" placeholder="e.g. Movie Trivia">
+                </div>
+                <div id="questions-list">
+                    <div class="form-group">
+                        <label>Question 1</label>
+                        <input type="text" class="q-input" placeholder="Enter Question">
+                        <input type="text" class="ans-input" placeholder="Correct Answer">
+                        <input type="text" class="opt-input" placeholder="Wrong Option">
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="saveCustomQuiz()">Publish Quiz</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="overlay" id="game-overlay">
+        <div class="quiz-box">
+            <div id="game-screen">
+                <h3 id="quiz-title-display" style="color: var(--primary)">Category Name</h3>
+                <div class="progress-container"><div id="progress-bar"></div></div>
+                <h2 id="question-text" style="margin-top: 10px;">Question loading...</h2>
+                <div class="options-grid" id="options-parent"></div>
+            </div>
+            
+            <div id="result-screen" class="hidden" style="text-align: center;">
+                <h1 style="font-size: 3rem;">🎉</h1>
+                <h2>Quiz Complete!</h2>
+                <p id="final-score" style="font-size: 1.5rem; margin: 20px 0;"></p>
+                <button class="btn btn-primary" onclick="closeGame()">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialization
+        AOS.init({ duration: 800, once: true });
+
+        // Database
+        const baseQuizzes = [
+            { id: 'geo', name: 'Geography', icon: '🌍', questions: [
+                { q: "Which country has the most islands?", o: ["Sweden", "Greece", "Norway", "Canada"], a: "Sweden" },
+                { q: "What is the smallest country?", o: ["Malta", "Monaco", "Vatican City", "San Marino"], a: "Vatican City" }
+            ]},
+            { id: 'sci', name: 'Science', icon: '🧪', questions: [
+                { q: "Which planet is known as the Red Planet?", o: ["Mars", "Venus", "Jupiter", "Saturn"], a: "Mars" },
+                { q: "What is the hardest natural substance?", o: ["Gold", "Iron", "Diamond", "Quartz"], a: "Diamond" }
+            ]},
+            { id: 'tech', name: 'Tech', icon: '💻', questions: [
+                { q: "What does CPU stand for?", o: ["Central Process Unit", "Central Processing Unit", "Computer Personal Unit", "Central Processor"], a: "Central Processing Unit" }
+            ]}
+        ];
+
+        let currentQuestions = [];
+        let qIndex = 0;
+        let score = 0;
+
+        // Render Home Grid
+        function renderCategories() {
+            const grid = document.getElementById('category-grid');
+            grid.innerHTML = '';
+            
+            // Get custom quizzes from localStorage
+            const custom = JSON.parse(localStorage.getItem('userQuizzes') || '[]');
+            const allQuizzes = [...baseQuizzes, ...custom];
+
+            allQuizzes.forEach(quiz => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.setAttribute('data-aos', 'zoom-in');
+                card.innerHTML = `<i>${quiz.icon || '🎮'}</i><h3>${quiz.name}</h3><p>${quiz.questions.length} Questions</p>`;
+                card.onclick = () => launchQuiz(quiz);
+                grid.appendChild(card);
+            });
+        }
+
+        // Navigation Logic
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('section-active'));
+            document.getElementById(`${pageId}-page`).classList.add('section-active');
+            if(pageId === 'home') renderCategories();
+        }
+
+        // Quiz Engine
+        function launchQuiz(quiz) {
+            currentQuestions = quiz.questions;
+            qIndex = 0;
+            score = 0;
+            document.getElementById('quiz-title-display').innerText = quiz.name;
+            document.getElementById('game-overlay').classList.add('active');
+            document.getElementById('game-screen').classList.remove('hidden');
+            document.getElementById('result-screen').classList.add('hidden');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const q = currentQuestions[qIndex];
+            document.getElementById('question-text').innerText = q.q;
+            const parent = document.getElementById('options-parent');
+            parent.innerHTML = '';
+            
+            const progress = ((qIndex) / currentQuestions.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+
+            // Merge correct answer and wrong options then shuffle
+            const options = [...q.o];
+            if (!options.includes(q.a)) options.push(q.a); // logic for custom quizzes
+            
+            options.sort(() => Math.random() - 0.5).forEach(opt => {
+                const b = document.createElement('button');
+                b.className = 'option-btn';
+                b.innerText = opt;
+                b.onclick = () => handleAnswer(opt === q.a);
+                parent.appendChild(b);
+            });
+        }
+
+        function handleAnswer(isCorrect) {
+            if(isCorrect) score += 10;
+            qIndex++;
+            if(qIndex < currentQuestions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('game-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+            document.getElementById('final-score').innerText = `You earned ${score} points!`;
+        }
+
+        function closeGame() {
+            document.getElementById('game-overlay').classList.remove('active');
+        }
+
+        // Create Quiz Logic
+        function saveCustomQuiz() {
+            const title = document.getElementById('new-quiz-title').value;
+            const qTxt = document.querySelector('.q-input').value;
+            const ansTxt = document.querySelector('.ans-input').value;
+            const optTxt = document.querySelector('.opt-input').value;
+
+            if(!title || !qTxt) return alert("Please fill in the quiz details!");
+
+            const newQuiz = {
+                id: Date.now(),
+                name: title,
+                icon: '🎨',
+                questions: [{ q: qTxt, a: ansTxt, o: [ansTxt, optTxt] }]
+            };
+
+            const existing = JSON.parse(localStorage.getItem('userQuizzes') || '[]');
+            existing.push(newQuiz);
+            localStorage.setItem('userQuizzes', JSON.stringify(existing));
+            
+            alert("Quiz Published Successfully!");
+            showPage('home');
+        }
+
+        // Extras
+        function toggleTheme() {
+            const body = document.body;
+            const isDark = body.getAttribute('data-theme') === 'dark';
+            body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        }
+
+        function startRandom() {
+            const all = [...baseQuizzes];
+            launchQuiz(all[Math.floor(Math.random() * all.length)]);
+        }
+
+        // Initial Load
+        renderCategories();
+    </script>
+</body>
+</html>

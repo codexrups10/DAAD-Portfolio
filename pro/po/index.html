@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rumpi Saha | Creative UI/UX Designer</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #8e2de2;
+            --secondary: #4a00e0;
+            --accent: #ffcc00;
+            --bg-dark: #0f021a;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-dark);
+            background: radial-gradient(circle at top right, #2d0b5a, #0f021a);
+            color: white;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- CUSTOM CURSOR --- */
+        #cursor {
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 2, 26, 0.8);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            min-height: 100vh;
+            padding: 0 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 15px 0;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+            text-shadow: 0 0 30px rgba(142, 45, 226, 0.3);
+        }
+
+        .welcome {
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+        }
+
+        .desc {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        .hero-img {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-img img {
+            width: 400px;
+            border-radius: 30px;
+            filter: grayscale(20%);
+            transition: 0.5s ease;
+        }
+
+        .hero-img:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        .hero-img .frame {
+            position: absolute;
+            inset: -15px;
+            border: 2px solid var(--primary);
+            border-radius: 35px;
+            z-index: -1;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 20px rgba(142, 45, 226, 0.3);
+        }
+
+        .primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(142, 45, 226, 0.5);
+        }
+
+        .secondary {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            margin-left: 15px;
+        }
+
+        .secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            padding: 120px 8%;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        /* --- CARDS & GRIDS --- */
+        .service-grid,
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 50px 40px;
+            border-radius: 24px;
+            transition: 0.4s ease;
+            text-align: center;
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card:hover {
+            background: linear-gradient(145deg, var(--primary), var(--secondary));
+            transform: translateY(-15px);
+            border-color: transparent;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            height: 400px;
+            cursor: pointer;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .project-card:hover .overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* --- CONTACT --- */
+        .contact-form {
+            background: var(--glass);
+            padding: 50px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 18px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: white;
+            margin-bottom: 20px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .contact-form input:focus {
+            border-color: var(--primary);
+        }
+
+        footer {
+            padding: 50px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 150px;
+            }
+
+            .hero-img img {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .navbar {
+                padding: 15px 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="cursor"></div>
+
+    <nav class="navbar">
+        <div class="logo">RUMPI.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn primary" style="padding: 10px 25px; font-size: 0.8rem;">Let's Talk</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <p class="welcome">AVAILABLE to internships, collaborative projects, and opportunities to grow in the tech space.✨</p>
+            <h1> Tech Enthusiast <span>Digital</span><br>Experiences.</h1>
+            <p class="desc">
+                I’m Rumpi Saha, --Pursuing Graduation in Techno India College of Technology || Computer Science Undergraduate | Aspiring Software Developer  | Passionate about Problem Solving & Innovation .
+            </p>
+            <div class="buttons">
+                <a href="#projects" class="btn primary">View My Work</a>
+                <a href="https://drive.google.com/file/d/10PLHWCnCdQVfoDbRqa_WYKPe43Ip6k7u/view?usp=sharing" class="btn secondary"><i class="fas fa-download"></i> CV</a>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="./image/mine.jpg" alt="Rumpi Saha">
+            <div class="frame"></div>
+        </div>
+    </section>
+
+    <section id="about" style="padding: 120px 8%; position: relative; overflow: hidden;">
+        <div
+            style="position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(142, 45, 226, 0.1) 0%, transparent 70%); top: -10%; left: -10%; z-index: -1;">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center;">
+
+            <div class="about-text-container">
+                <p
+                    style="color: var(--accent); font-weight: 700; letter-spacing: 4px; margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem;">
+                    My Narrative</p>
+                <h2 style="font-size: 3.5rem; margin-bottom: 30px; line-height: 1.1;">Engineering <span
+                        style="color: var(--primary);">Innovation</span> Through Logic.</h2>
+
+                <div style="color: rgba(255,255,255,0.8); line-height: 1.8; font-size: 1.1rem;">
+                    <p style="margin-bottom: 20px;">
+                        Fueled by a passion for knowledge, my journey began in the realm of **Pure Science** (WBCHSE).
+                        This foundation sparked a deep fascination with how the world works—a curiosity that now drives
+                        my **BCA at TICT (MAKAUT)**.
+                    </p>
+                    <p style="margin-bottom: 20px;">
+                        Currently, I am hyper-focused on the architecture of software: mastering **DSA, DBMS, and
+                        Python**. I believe these aren't just tools, but the building blocks for solving real-world
+                        challenges.
+                    </p>
+                    <p
+                        style="font-style: italic; color: var(--accent); margin-bottom: 30px; border-left: 3px solid var(--primary); padding-left: 20px;">
+                        "I thrive where collaboration meets technology. Whether leading a team or contributing code, I
+                        aim to shape a brighter future."
+                    </p>
+                </div>
+
+                <div
+                    style="display: flex; gap: 15px; align-items: center; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; border: 1px dashed rgba(255,255,255,0.2);">
+                    <div
+                        style="width: 12px; height: 12px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88; animation: pulse 2s infinite;">
+                    </div>
+                    <p style="font-size: 0.9rem; margin: 0;">Open to <strong>Internships, Collaborations,</strong> and
+                        tech opportunities.</p>
+                </div>
+            </div>
+
+            <div class="about-visual-grid">
+                <div class="glass-card bento-item" style="padding: 30px; margin-bottom: 20px;">
+                    <h4 style="color: var(--primary); margin-bottom: 5px;">BCA Candidate</h4>
+                    <p style="font-size: 0.8rem; opacity: 0.6;">TICT • MAKAUT University</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="glass-card bento-item" style="padding: 25px; text-align: center;">
+                        <i class="fas fa-brain" style="font-size: 1.5rem; color: #ff61f6; margin-bottom: 10px;"></i>
+                        <h5 style="margin: 0;">DSA</h5>
+                        <p style="font-size: 0.7rem; opacity: 0.5;">Logic Expert</p>
+                    </div>
+                    <div class="glass-card bento-item" style="padding: 25px; text-align: center;">
+                        <i class="fab fa-python" style="font-size: 1.5rem; color: #3776ab; margin-bottom: 10px;"></i>
+                        <h5 style="margin: 0;">Python</h5>
+                        <p style="font-size: 0.7rem; opacity: 0.5;">Versatile Dev</p>
+                    </div>
+                </div>
+
+                <div class="glass-card bento-item"
+                    style="padding: 30px; margin-top: 20px; border-left: 4px solid var(--accent);">
+                    <h4 style="margin-bottom: 5px;">Pure Science Alumni</h4>
+                    <p style="font-size: 0.8rem; opacity: 0.6;">WBCHSE Background</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(0, 255, 136, 0);
+            }
+
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 255, 136, 0);
+            }
+        }
+
+        .bento-item {
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bento-item:hover {
+            background: rgba(142, 45, 226, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+    </style>
+
+    <script>
+        // Smooth Animation for text
+        gsap.from(".about-text-container > *", {
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top 70%"
+            },
+            y: 30,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 1,
+            ease: "power3.out"
+        });
+
+        gsap.from(".about-visual-grid .bento-item", {
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top 60%"
+            },
+            scale: 0.8,
+            opacity: 0,
+            stagger: 0.15,
+            duration: 0.8,
+            ease: "back.out(1.7)"
+        });
+    </script>
+    <section id="education"
+        style="padding: 100px 8%; background: linear-gradient(to bottom, rgba(142, 45, 226, 0.05), transparent);">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <p style="color: var(--accent); font-weight: 600; letter-spacing: 3px; font-size: 0.8rem;">ACADEMIC JOURNEY
+            </p>
+            <h2 class="section-title">Education <span>Background</span></h2>
+        </div>
+
+        <div style="max-width: 1000px; margin: 0 auto; position: relative;">
+            <div
+                style="position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(to bottom, var(--primary), var(--accent)); opacity: 0.3;">
+            </div>
+
+            <div class="edu-node"
+                style="display: flex; justify-content: flex-end; padding-right: 50%; margin-bottom: 60px; position: relative;">
+                <div class="glass-card edu-card"
+                    style="width: 90%; padding: 30px; text-align: right; border-right: 4px solid var(--primary);">
+                    <span class="edu-date"
+                        style="color: var(--primary); font-weight: bold; font-size: 0.9rem;">Present</span>
+                    <h3 style="margin: 10px 0;">BCA (Bachelor of Computer Application)</h3>
+                    <h4 style="color: var(--accent); font-size: 1.1rem; margin-bottom: 15px;">Techno India College Of
+                        Technology</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">Field of Study: <strong>Engineering</strong></p>
+                    <p style="font-size: 0.85rem; opacity: 0.6; line-height: 1.5; margin-top: 10px;">
+                        Focusing on core computing principles, software engineering, and modern application development
+                        under MAKAUT.
+                    </p>
+                </div>
+                <div
+                    style="position: absolute; right: -8px; top: 30px; width: 16px; height: 16px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 15px var(--primary); z-index: 10;">
+                </div>
+            </div>
+
+            <div class="edu-node"
+                style="display: flex; justify-content: flex-start; padding-left: 50%; position: relative;">
+                <div class="glass-card edu-card"
+                    style="width: 90%; padding: 30px; border-left: 4px solid var(--accent);">
+                    <span class="edu-date" style="color: var(--accent); font-weight: bold; font-size: 0.9rem;">Higher
+                        Secondary (10+2)</span>
+                    <h3 style="margin: 10px 0;">Madhyamgram Girls High School</h3>
+                    <h4 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 15px;">Pure Science Stream</h4>
+
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
+                        <span class="subject-tag">Physics</span>
+                        <span class="subject-tag">Chemistry</span>
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">Biology</span>
+                        <span class="subject-tag">English</span>
+                        <span class="subject-tag">Bengali</span>
+                    </div>
+                </div>
+                <div
+                    style="position: absolute; left: -8px; top: 30px; width: 16px; height: 16px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 15px var(--accent); z-index: 10;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .edu-card {
+            transition: transform 0.4s ease, background 0.4s ease;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .subject-tag {
+            background: rgba(142, 45, 226, 0.1);
+            border: 1px solid rgba(142, 45, 226, 0.3);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: #fff;
+        }
+
+        /* Mobile Responsive Adjustment */
+        @media (max-width: 768px) {
+            .edu-node {
+                padding: 0 !important;
+                justify-content: flex-start !important;
+                margin-left: 30px;
+            }
+
+            .edu-card {
+                text-align: left !important;
+                width: 100% !important;
+                border-left: 4px solid var(--primary) !important;
+                border-right: none !important;
+            }
+
+            div[style*="left: 50%"] {
+                left: 0 !important;
+            }
+
+            div[style*="right: -8px"],
+            div[style*="left: -8px"] {
+                left: -38px !important;
+            }
+        }
+    </style>
+
+    <script>
+        // GSAP Scroll reveal for Education nodes
+        gsap.from(".edu-node", {
+            scrollTrigger: {
+                trigger: "#education",
+                start: "top 80%"
+            },
+            opacity: 0,
+            y: 50,
+            stagger: 0.3,
+            duration: 1,
+            ease: "power2.out"
+        });
+    </script>
+    <section id="services">
+        <h2 class="section-title">What I Do</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <i class="fas fa-bezier-curve"></i>
+                <h3>Backend Development</h3>
+                <p>Developing robust server-side logic and APIs using Node.js, Express, and Php, MySQL ..</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>Web Design</h3>
+                <p>Responsive, fast-loading, and SEO-friendly website layouts.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-mobile-button"></i>
+                <h3>App Design</h3>
+                <p>Clean and intuitive mobile application interfaces for iOS & Android.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" style="padding: 100px 8%;">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <p
+                style="color: var(--accent); font-weight: 600; letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase;">
+                Direct Portfolio Access</p>
+            <h2 class="section-title" style="margin-top: 10px;">My <span>Creative Projects</span></h2>
+        </div>
+
+        <div class="project-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+
+            <a href="https://www.icubelearning.com/project/DAAD1232/website1/" target="_blank" class="project-wrapper">
+                <div class="glass-card project-card">
+                    <div class="image-container"><img src="./image/zudio.jpg" alt="Web 1"></div>
+                    <div class="project-content">
+                        <span class="category-tag">Live Project</span>
+                        <h3>ZUDIO E-Commerce Website</h3>
+                        <p>Developed a fully responsive fashion e-commerce website showcasing featured categories and
+                            products with modern UI/UX.
+                            Implemented promotional sections and intuitive navigation to enhance user engagement and
+                            conversion.</p>
+                        <div class="view-project">Launch Site <i class="fas fa-external-link-alt"></i></div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.icubelearning.com/project/DAAD1232/website5/" target="_blank" class="project-wrapper">
+                <div class="glass-card project-card">
+                    <div class="image-container"><img src="./image/ban.png" alt="Web 2"></div>
+                    <div class="project-content">
+                        <span class="category-tag">Banquet</span>
+                        <h3> Showcase Portal</h3>
+                        <p>Created an educational showcase portal highlighting e E-Commerce work and featured listings.
+                            Built structured navigation and dynamic content presentation to emphasize portfolio and
+                            institutional offerings.</p>
+                        <div class="view-project">Launch Site <i class="fas fa-external-link-alt"></i></div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.icubelearning.com/project/DAAD1232/website3/" target="_blank" class="project-wrapper">
+                <div class="glass-card project-card">
+                    <div class="image-container"><img src="./image/travel.jpg" alt="Web 3"></div>
+                    <div class="project-content">
+                        <span class="category-tag">E-Commerce</span>
+                        <h3>Trails & Tales Travel Blog</h3>
+                        <p>Designed a travel and blogging platform focused on destinations, experiences, and tour
+                            categories.
+                            Features intuitive exploration sections and curated destination highlights for immersive
+                            user engagement.</p>
+                        <div class="view-project">Launch Site <i class="fas fa-external-link-alt"></i></div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.icubelearning.com/project/DAAD1232/website6/" target="_blank" class="project-wrapper">
+                <div class="glass-card project-card">
+                    <div class="image-container"><img src="./image/palam.jpg" alt="Web 4"></div>
+                    <div class="project-content">
+                        <span class="category-tag">Business Side</span>
+                        <h3>Palam Hybrid Security Solutions Website</h3>
+                        <p>Built a security hardware product site displaying featured categories with high-quality
+                            visuals.</p>
+                        <div class="view-project">Launch Site <i class="fas fa-external-link-alt"></i></div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.icubelearning.com/project/DAAD1232/website7/" target="_blank" class="project-wrapper">
+                <div class="glass-card project-card">
+                    <div class="image-container"><img src="./image/js.png" alt="Web 5"></div>
+                    <div class="project-content">
+                        <span class="category-tag">Web App</span>
+                        <h3>Interactive JavaScript Learning App</h3>
+                        <p>Developed an interactive front-end JavaScript learning interface with live coding output.</p>
+                        <div class="view-project">Launch Site <i class="fas fa-external-link-alt"></i></div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.icubelearning.com/project/DAAD1232/website9/" target="_blank" class="project-wrapper">
+                <div class="glass-card project-card">
+                    <div class="image-container"><img src="./image/clg.jpg" alt="Web 6"></div>
+                    <div class="project-content">
+                        <span class="category-tag">College admission</span>
+                        <h3>Elite University Institutional Website</h3>
+                        <p>Constructed a professional university website to present academic programs, admissions, and
+                            campus overview.</p>
+                        <div class="view-project">Launch Site <i class="fas fa-external-link-alt"></i></div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.icubelearning.com/project/DAAD1232/website8/" target="_blank" class="project-wrapper">
+                <div class="glass-card project-card">
+                    <div class="image-container"><img src="./image/cv.jpg" alt="Web 7"></div>
+                    <div class="project-content">
+                        <span class="category-tag">Innovation</span>
+                        <h3>Professional CV Builder</h3>
+                        <p>Built a resume-builder web application with real-time preview, customizable templates, and
+                            PDF export.</p>
+                        <div class="view-project">Launch Site <i class="fas fa-external-link-alt"></i></div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.icubelearning.com/project/DAAD1232/website10/" target="_blank" class="project-wrapper">
+                <div class="glass-card project-card">
+                    <div class="image-container"><img src="./image/iphone.png" alt="Web 8"></div>
+                    <div class="project-content">
+                        <span class="category-tag">UI/UX Prototype</span>
+                        <h3>iPhone Store </h3>
+                        <p>Designed a responsive e-commerce prototype for an iPhone retail store with product filtering
+                            and featured listings.</p>
+                        <div class="view-project">Launch Site <i class="fas fa-external-link-alt"></i></div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.icubelearning.com/project/DAAD1232/website4/" target="_blank" class="project-wrapper">
+                <div class="glass-card project-card">
+                    <div class="image-container"><img src="./image/sch (1).png" alt="Web 9"></div>
+                    <div class="project-content">
+                        <span class="category-tag">School Website</span>
+                        <h3>Madhayamgram Girls’ High School Website</h3>
+                        <p>Developed an informative and engaging school website presenting academics, admissions, and
+                            events.
+                            Includes dynamic content for announcements, activities, and essential institutional details.
+                        </p>
+                        <div class="view-project">Launch Site <i class="fas fa-external-link-alt"></i></div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <style>
+        /* Styling for the Project Grid */
+        .project-wrapper {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
+        }
+
+        .project-card {
+            border-radius: 24px;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-tag {
+            font-size: 0.65rem;
+            color: var(--accent);
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .project-content p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .view-project {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        /* Hover States */
+        .project-wrapper:hover .project-card {
+            transform: translateY(-12px);
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-wrapper:hover .image-container img {
+            transform: scale(1.1);
+        }
+
+        .project-wrapper:hover .view-project {
+            gap: 15px;
+            text-shadow: 0 0 10px var(--primary);
+        }
+    </style>
+
+
+
+    <style>
+        /* Add this to your existing <style> tag */
+        .skill-pill:hover {
+            background: rgba(142, 45, 226, 0.2);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(142, 45, 226, 0.2);
+        }
+    </style>
+    <section id="experience" style="padding: 100px 8%;">
+    <div style="text-align: center; margin-bottom: 60px;">
+        <p style="color: var(--accent); font-weight: 600; letter-spacing: 3px; font-size: 0.8rem;">CAREER PATH</p>
+        <h2 class="section-title">Professional <span>Experience</span></h2>
+    </div>
+
+    <div class="timeline-container" style="max-width: 900px; margin: 0 auto; position: relative;">
+
+        <div class="experience-card glass-card" style="margin-bottom: 40px; padding: 35px; position: relative; border-left: 4px solid var(--primary); overflow: hidden;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                <div style="flex: 1; min-width: 280px;">
+                    <h3 style="color: var(--accent); font-size: 1.4rem;">Front-End Development Intern</h3>
+                    <p style="font-weight: 700; margin: 5px 0; font-size: 0.95rem;">Skillbit Technologies • Remote</p>
+                    <ul style="margin-top: 15px; color: rgba(255,255,255,0.7); line-height: 1.6; padding-left: 20px; font-size: 0.9rem;">
+                        <li>Developed responsive user interfaces using HTML5, CSS3, and JS.</li>
+                        <li>Optimized website performance and page load speeds.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-cert-box">
+                    <img src="./image/skill.jpg" alt="Skillbit">
+                    <button class="view-cert-btn" onclick="showFullCert('./image/skill.jpg')">
+                        <i class="fas fa-expand"></i> Full View
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 25px;">
+            <div class="glass-card exp-small-card">
+                <div class="card-content">
+                    <h4 style="color: #f1e05a;">Java Programmer Intern</h4>
+                    <p class="org-name">KodBud</p>
+                    <p class="desc">Focus on backend logic and OOPs.</p>
+                </div>
+                <div class="exp-cert-box small-box">
+                    <img src="./image/kod.jpg" alt="KodBud">
+                    <button class="view-cert-btn" onclick="showFullCert('./image/kod.jpg')">Full View</button>
+                </div>
+            </div>
+
+            <div class="glass-card exp-small-card">
+                <div class="card-content">
+                    <h4 style="color: #3776ab;">Python Programmer Intern</h4>
+                    <p class="org-name">CodeAlpha</p>
+                    <p class="desc">Automation scripts and data apps.</p>
+                </div>
+                <div class="exp-cert-box small-box">
+                    <img src="./image/code.jpg" alt="CodeAlpha">
+                    <button class="view-cert-btn" onclick="showFullCert('./image/code.jpg')">Full View</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+            <div class="glass-card exp-small-card" style="border-top: 4px solid #ff4b2b;">
+                <div class="card-content">
+                    <h4 style="color: #ff4b2b;">Machine Learning</h4>
+                    <p class="org-name">Euphoria Genx</p>
+                    <p class="desc">Weather Predictor using AI/ML concepts.</p>
+                </div>
+                <div class="exp-cert-box small-box">
+                    <img src="./image/euphoria.jpg" alt="Euphoria">
+                    <button class="view-cert-btn" onclick="showFullCert('./image/euphoria.jpg')">Full View</button>
+                </div>
+            </div>
+
+            <div class="glass-card exp-small-card" style="border-top: 4px solid #00d2ff;">
+                <div class="card-content">
+                    <h4 style="color: #00d2ff;">Data Science & AI/ML</h4>
+                    <p class="org-name">Indian Institute of Internship</p>
+                    <p class="desc">Hand Gesture Recognition Project.</p>
+                </div>
+                <div class="exp-cert-box small-box">
+                    <img src="./image/tint intern .jpg" alt="IIInternship">
+                    <button class="view-cert-btn" onclick="showFullCert('./image/tint intern .jpg')">Full View</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="certModal" class="cert-modal" onclick="this.style.display='none'">
+    <span class="close-modal">&times;</span>
+    <img id="fullCertImage" src="" alt="Full Certificate">
+</div>
+
+<style>
+    /* PROFESSIONAL SMALLER IMAGE BOXES */
+    .exp-cert-box {
+        width: 140px; /* Reduced from 180px */
+        height: 95px;  /* Reduced from 120px */
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: #000;
+        flex-shrink: 0;
+    }
+
+    .exp-small-card {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 220px;
+        border-top: 4px solid #f1e05a;
+        transition: 0.3s ease;
+    }
+
+    .exp-small-card .desc { font-size: 0.8rem; opacity: 0.6; margin-top: 8px; }
+    .exp-small-card .org-name { font-size: 0.9rem; font-weight: 600; margin: 2px 0; }
+
+    .exp-cert-box.small-box {
+        width: 110px; /* Even smaller for the grid cards */
+        height: 75px;
+        margin-top: 15px;
+        align-self: flex-end; /* Keeps it professional at the bottom right */
+    }
+
+    .exp-cert-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.5;
+        transition: 0.4s;
+    }
+
+    /* THE PROFESSIONAL BUTTON */
+    .view-cert-btn {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        background: rgba(142, 45, 226, 0.2);
+        color: white;
+        border: none;
+        font-size: 0.65rem;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .exp-cert-box:hover img { opacity: 0.8; transform: scale(1.1); }
+    .exp-cert-box:hover .view-cert-btn { background: rgba(142, 45, 226, 0.6); }
+
+    /* LIGHTBOX MODAL */
+    .cert-modal {
+        display: none; 
+        position: fixed; 
+        z-index: 10000; 
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        background: rgba(10, 5, 20, 0.95);
+        align-items: center; justify-content: center;
+    }
+    .cert-modal img {
+        max-width: 85%;
+        max-height: 80%;
+        border-radius: 12px;
+        border: 2px solid rgba(255,255,255,0.2);
+        box-shadow: 0 0 40px rgba(142, 45, 226, 0.4);
+        animation: zoomIn 0.3s ease;
+    }
+    @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .close-modal { position: absolute; top: 30px; right: 40px; color: white; font-size: 40px; cursor: pointer; }
+</style>
+
+<script>
+    function showFullCert(imageSrc) {
+        document.getElementById('certModal').style.display = "flex";
+        document.getElementById('fullCertImage').src = imageSrc;
+    }
+</script>
+    <section id="certifications" style="background: rgba(255, 255, 255, 0.02); padding: 100px 8%;">
+        <h2 class="section-title">Academic <span>& Tech Licenses</span></h2>
+
+        <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto;">
+
+            <div class="glass-card dpl-card"
+                style="padding: 40px; position: relative; overflow: hidden; border: 1px solid var(--primary); min-height: 400px; display: flex; flex-direction: column; justify-content: center;">
+                <div style="position: relative; z-index: 1;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <i class="fas fa-user-graduate" style="font-size: 2.5rem; color: var(--primary);"></i>
+                        <h3 style="font-size: 1.6rem; margin: 0;">DPL: Diploma in Programming Languages</h3>
+                    </div>
+                    <p style="font-weight: bold; color: var(--accent); margin-bottom: 10px;">ICUBE Learning | Nov 2023 -
+                        Nov 2024</p>
+                    <p style="opacity: 0.8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+                        Trained across C, C++, Java, Python, Web Technologies, and Digital Logic at the Institute of
+                        Intellectual Information.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="mini-tag">C/C++</span>
+                        <span class="mini-tag">Java</span>
+                        <span class="mini-tag">Python</span>
+                        <span class="mini-tag">Web Tech</span>
+                    </div>
+                </div>
+
+                <div class="cert-overlay">
+                    <div
+                        style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; background: rgba(15, 2, 26, 0.98);">
+                        <img src="./image/dpl.jpg" alt="Diploma"
+                            style="width: 100%; max-width: 300px; height: auto; border-radius: 8px; border: 2px solid var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                        <a href="./image/dpl.jpg" target="_blank" class="btn primary"
+                            style="margin-top: 20px; font-size: 0.8rem; padding: 12px 25px;">View Full Document</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+
+                <div class="glass-card cert-item-row modern-cert-card"
+                    style="padding: 25px; display: flex; align-items: center; gap: 15px; border-left: 4px solid #4285F4; position: relative; overflow: hidden;">
+                    <i class="fas fa-laptop-code" style="font-size: 1.8rem; color: #4285F4;"></i>
+                    <div style="flex-grow: 1; z-index: 1;">
+                        <h5 style="margin: 0; font-size: 1.1rem;">Information Technology Application</h5>
+                        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 4px;">Youth Computer Training Centre</p>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1SlYyrxsNFV47U6FdZpkV3UfNrbGmZDea/view?usp=drivesdk"
+                        target="_blank" style="color: var(--accent); z-index: 1;"><i
+                            class="fas fa-external-link-alt"></i></a>
+
+                    <div class="small-cert-overlay">
+                        <img src="./image/yctc.jpg" alt="IT Application Certificate">
+                    </div>
+                </div>
+
+                <div class="glass-card cert-item-row modern-cert-card"
+                    style="padding: 25px; display: flex; align-items: center; gap: 15px; border-left: 4px solid #00f2fe; position: relative; overflow: hidden;">
+                    <i class="fas fa-project-diagram" style="font-size: 1.8rem; color: #00f2fe;"></i>
+                    <div style="flex-grow: 1; z-index: 1;">
+                        <h5 style="margin: 0; font-size: 1.1rem;">Innovative Project Poster Competition 2025</h5>
+                        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 4px;">Techno International New Town</p>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1C4tvZgYzDvnKutNx3WU4Qa9cZ79swrgF/view?usp=drivesdk"
+                        target="_blank" style="color: var(--accent); z-index: 1;"><i
+                            class="fas fa-external-link-alt"></i></a>
+
+                    <div class="small-cert-overlay">
+                        <img src="./image/pro.jpg" alt="Poster Competition Certificate">
+                    </div>
+                </div>
+
+                <div class="glass-card cert-item-row modern-cert-card"
+                    style="padding: 25px; display: flex; align-items: center; gap: 15px; border-left: 4px solid #8e2de2; position: relative; overflow: hidden;">
+                    <i class="fas fa-link" style="font-size: 1.8rem; color: #8e2de2;"></i>
+                    <div style="flex-grow: 1; z-index: 1;">
+                        <h5 style="margin: 0; font-size: 1.1rem;">Blockchain Technology</h5>
+                        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 4px;">Techno India College Of Technology
+                        </p>
+                    </div>
+                    <a href="https://drive.google.com/file/d/158mn7eVaZZT2IMM0B3IkjAoKrYcosLiX/view?usp=sharing"
+                        target="_blank" style="color: var(--accent); z-index: 1;"><i
+                            class="fas fa-external-link-alt"></i></a>
+
+                    <div class="small-cert-overlay">
+                        <img src="./image/block.jpg" alt="Blockchain Certificate">
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                /* New Styles for the Side Certificates */
+                .modern-cert-card {
+                    cursor: pointer;
+                    transition: all 0.4s ease;
+                }
+
+                .small-cert-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(15, 2, 26, 0.95);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transform: translateX(101%);
+                    /* Slides in from the right */
+                    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                    padding: 10px;
+                    z-index: 5;
+                }
+
+                .modern-cert-card:hover .small-cert-overlay {
+                    transform: translateX(0);
+                }
+
+                .small-cert-overlay img {
+                    max-height: 100%;
+                    max-width: 90%;
+                    border-radius: 5px;
+                    border: 1px solid var(--primary);
+                }
+
+                .modern-cert-card:hover {
+                    transform: scale(1.02);
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                }
+            </style>
+        </div>
+    </section>
+
+    <style>
+        /* Prevent text selection and overlapping issues */
+        .dpl-card {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .cert-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            transform: translateY(101%);
+            /* Hide completely below */
+            transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            pointer-events: none;
+            /* Allows clicks to pass through when hidden */
+        }
+
+        .dpl-card:hover .cert-overlay {
+            transform: translateY(0);
+            pointer-events: auto;
+            /* Re-enable clicks when visible */
+        }
+
+        .mini-tag {
+            background: rgba(142, 45, 226, 0.15);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .cert-item-row {
+            transition: all 0.3s ease;
+        }
+
+        .cert-item-row:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+    </style>
+    <section id="arsenal" style="padding: 100px 8%; background: rgba(142, 45, 226, 0.02);">
+        <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start;">
+
+            <div>
+                <p style="color: var(--accent); font-weight: 600; letter-spacing: 2px; margin-bottom: 10px;">CORE STACK
+                </p>
+                <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Technical <span>Expertise</span></h2>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="glass-card skill-box">
+                        <i class="fas fa-database" style="color: #00758f;"></i>
+                        <div>
+                            <h4>DBMS</h4>
+                            <p>SQL & NoSQL</p>
+                        </div>
+                    </div>
+                    <div class="glass-card skill-box">
+                        <i class="fab fa-php" style="color: #777bb3;"></i>
+                        <div>
+                            <h4>PHP</h4>
+                            <p>Server-side</p>
+                        </div>
+                    </div>
+                    <div class="glass-card skill-box">
+                        <i class="fas fa-microchip" style="color: #ff9900;"></i>
+                        <div>
+                            <h4>DSA</h4>
+                            <p>Logic & Algos</p>
+                        </div>
+                    </div>
+                    <div class="glass-card skill-box">
+                        <i class="fab fa-js" style="color: #f7df1e;"></i>
+                        <div>
+                            <h4>JavaScript</h4>
+                            <p>ES6+ Logic</p>
+                        </div>
+                    </div>
+                    <div class="glass-card skill-box">
+                        <i class="fab fa-react" style="color: #61dbfb;"></i>
+                        <div>
+                            <h4>React.js</h4>
+                            <p>Modern UI</p>
+                        </div>
+                    </div>
+                    <div class="glass-card skill-box">
+                        <i class="fas fa-code" style="color: #2b5b3f;"></i>
+                        <div>
+                            <h4>C / C++</h4>
+                            <p>Core Logic</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card"
+                style="padding: 40px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1);">
+                <h3 style="margin-bottom: 25px; display: flex; align-items: center; gap: 12px;">
+                    <i class="fas fa-award" style="color: var(--accent);"></i> Verified Achievements
+                </h3>
+
+                <div class="cert-scroll-container">
+
+                    <div class="cert-mini-card">
+                        <div class="cert-image-preview">
+                            <img src="./image/TechXNinjas.jpg"
+                                alt=" Certificate">
+                        </div>
+                        <div class="cert-info">
+                            <h5>Paranox 2.0 Hackathon </h5>
+                            <p> organized by TechXNinjas</p>
+                            <a href="https://www.linkedin.com/posts/rumpi-saha-a42137216_hackathon-innovation-learningjourney-activity-7390042988003037184-WZup?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADZ7FBIB-H5o2ccM5j2xC0gkU30j0SElTZk" class="view-link">View LinkedIn <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="cert-mini-card">
+                        <div class="cert-image-preview">
+                            <img src="./image/cert2.png"
+                                alt=" Certificate">
+                        </div>
+                        <div class="cert-info">
+                            <h5>Quiz with IEEE YP </h5>
+                            <p> - Kolkata Section</p>
+                            <a href="https://drive.google.com/file/d/1ZtZ2AFKKZyaL9ZuOmJni-WHIN-lWeh1b/view?usp=sharing" class="view-link">View Original <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="cert-mini-card">
+                        <div class="cert-image-preview">
+                            <img src="./image/CERT3.jpg"
+                                alt=" Certificate">
+                        </div>
+                        <div class="cert-info">
+                            <h5>React project Bootcamp: Build a To-Do App</h5>
+                            <p>SkillEcted</p>
+                            <a href="#" class="view-link">View Original <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="cert-mini-card">
+                        <div class="cert-image-preview">
+                            <img src="./image/CERT4.jpg"
+                                alt="Python Certificate">
+                        </div>
+                        <div class="cert-info">
+                            <h5>Master Restful API'S and Node.js</h5>
+                            <p>SkillEcted</p>
+                            <a href="#" class="view-link">View Original <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="cert-mini-card">
+                        <div class="cert-image-preview">
+                            <img src="./image/CERT5.jpg"
+                                alt="Cyber Security Certificate">
+                        </div>
+                        <div class="cert-info">
+                            <h5>Educ-A-Thon 2.0 Hackathons</h5>
+                            <p>Organised by the Educational Club of Techno Main Salt Lake.</p>
+                            <a href="https://www.linkedin.com/posts/rumpi-saha-a42137216_hackathon-webdevelopment-teamleader-activity-7405955995543363584-H63J?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADZ7FBIB-H5o2ccM5j2xC0gkU30j0SElTZk" class="view-link">View LinkedIn <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <style>
+                /* Scroll Container for Certificates */
+                .cert-scroll-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    max-height: 450px;
+                    overflow-y: auto;
+                    padding-right: 10px;
+                }
+
+                /* Custom Scrollbar */
+                .cert-scroll-container::-webkit-scrollbar {
+                    width: 5px;
+                }
+
+                .cert-scroll-container::-webkit-scrollbar-thumb {
+                    background: var(--primary);
+                    border-radius: 10px;
+                }
+
+                /* Card Styling */
+                .cert-mini-card {
+                    background: rgba(255, 255, 255, 0.03);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    padding: 15px;
+                    transition: 0.3s ease;
+                    cursor: pointer;
+                }
+
+                .cert-mini-card:hover {
+                    background: rgba(255, 255, 255, 0.08);
+                    border-color: var(--accent);
+                    transform: scale(1.02);
+                }
+
+                /* Image Preview Container */
+                .cert-image-preview {
+                    width: 100px;
+                    height: 70px;
+                    flex-shrink: 0;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                }
+
+                .cert-image-preview img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: 0.5s ease;
+                }
+
+                .cert-mini-card:hover .cert-image-preview img {
+                    transform: scale(1.1);
+                }
+
+                /* Text info */
+                .cert-info h5 {
+                    margin: 0 0 5px 0;
+                    font-size: 0.95rem;
+                    color: #fff;
+                }
+
+                .cert-info p {
+                    margin: 0 0 8px 0;
+                    font-size: 0.8rem;
+                    opacity: 0.6;
+                }
+
+                .view-link {
+                    font-size: 0.7rem;
+                    color: var(--accent);
+                    text-decoration: none;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+
+                .view-link:hover {
+                    text-decoration: underline;
+                }
+            </style>
+
+        </div>
+        </div>
+    </section>
+
+    <style>
+        /* Skill Boxes */
+        .skill-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px !important;
+            transition: 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .skill-box i {
+            font-size: 1.5rem;
+        }
+
+        .skill-box h4 {
+            font-size: 0.9rem;
+            margin: 0;
+            color: #fff;
+        }
+
+        .skill-box p {
+            font-size: 0.7rem;
+            margin: 0;
+            opacity: 0.5;
+        }
+
+        .skill-box:hover {
+            background: rgba(142, 45, 226, 0.1) !important;
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        /* Certificate Scroll */
+        .cert-scroll-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        /* Custom Scrollbar */
+        .cert-scroll-container::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .cert-scroll-container::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .cert-mini-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.3s;
+        }
+
+        .cert-mini-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+        }
+
+        .cert-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .cert-info h5 {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .cert-info p {
+            margin: 0;
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+    </style>
+    <section id="github-bento">
+        <div class="glass-card"
+            style="padding: 50px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: center;">
+            <div>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Open Source <span
+                        style="color: var(--accent);">Impact</span></h2>
+                <p style="opacity: 0.7; margin-bottom: 30px;">I don't just design; I build. My GitHub reflects my
+                    passion for clean code, reusable UI components, and the latest web technologies.</p>
+
+                <div style="display: flex; gap: 40px;">
+                    <div>
+                        <h3 style="font-size: 2rem; color: var(--primary);">250+</h3>
+                        <p style="font-size: 0.8rem; opacity: 0.5;">Commits this year</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2rem; color: var(--primary);">15+</h3>
+                        <p style="font-size: 0.8rem; opacity: 0.5;">Repositories</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.3); padding: 30px; border-radius: 20px; text-align: center;">
+                <i class="fab fa-github" style="font-size: 4rem; margin-bottom: 20px;"></i>
+                <h4 style="margin-bottom: 15px;">@codexrups10</h4>
+                <a href="https://github.com/codexrups10" target="_blank" class="btn primary" style="width: 100%;">Follow
+                    on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* CSS for Interactive Project Overlays */
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+            background: linear-gradient(to top, #0f021a 90%, transparent);
+        }
+
+        .cert-item {
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .tag {
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+    </style>
+
+    <script>
+        // GSAP Animation for Certifications
+        gsap.from(".cert-item", {
+            scrollTrigger: {
+                trigger: "#certifications",
+                start: "top 80%"
+            },
+            opacity: 0,
+            x: -30,
+            stagger: 0.2,
+            duration: 0.8,
+            ease: "power2.out"
+        });
+    </script>
+    <section id="resume-cta"
+        style="padding: 100px 8%; background: linear-gradient(to bottom, transparent, rgba(142, 45, 226, 0.05));">
+        <div class="glass-card"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; padding: 60px; border-radius: 40px; align-items: center; border: 1px solid rgba(142, 45, 226, 0.3);">
+
+            <div>
+                <h2 style="font-size: 2.5rem; margin-bottom: 15px;">Ready to start a <span
+                        style="color: var(--primary);">Project?</span></h2>
+                <p style="opacity: 0.7; margin-bottom: 30px; line-height: 1.8;">
+                    I am currently looking for new opportunities and collaborations.
+                    Whether you have a question or just want to say hi, my inbox is always open!
+                </p>
+
+                <a href="#" id="downloadBtn" class="btn primary"
+                    style="display: inline-flex; align-items: center; gap: 15px; padding: 18px 40px; position: relative; overflow: hidden;">
+                    <span id="btnText">Download Full Resume</span>
+                    <i class="fas fa-file-download" id="downloadIcon"></i>
+                    <div id="btnGlow"
+                        style="position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: 0.5s;">
+                    </div>
+                </a>
+            </div>
+
+            <div
+                style="text-align: center; background: rgba(0,0,0,0.2); padding: 40px; border-radius: 30px; border: 1px solid var(--glass-border);">
+                <div
+                    style="width: 100px; height: 100px; background: url('./image/mine.jpg') center/cover; border-radius: 50%; margin: 0 auto 20px; border: 3px solid var(--primary);">
+                </div>
+                <h3 style="margin-bottom: 5px;">Rumpi Saha</h3>
+                <p
+                    style="font-size: 0.8rem; color: var(--accent); font-weight: bold; margin-bottom: 20px; letter-spacing: 1px;">
+                    UI/UX DESIGNER & Web DEVELOPER</p>
+
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <a href="https://www.linkedin.com/in/rumpi-saha-a42137216" target="_blank" class="btn secondary"
+                        style="margin: 0; font-size: 0.9rem; border-style: solid; border-color: #0077b5; color: #0077b5;">
+                        <i class="fab fa-linkedin" style="margin-right: 10px;"></i> View LinkedIn
+                    </a>
+                    <a href="https://github.com/codexrups10" target="_blank" class="btn secondary"
+                        style="margin: 0; font-size: 0.9rem; border-style: solid;">
+                        <i class="fab fa-github" style="margin-right: 10px;"></i> Follow GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Button Hover Animation */
+        #downloadBtn:hover #btnGlow {
+            left: 150%;
+            transition: 0.7s;
+        }
+
+        #downloadBtn:hover #downloadIcon {
+            animation: bounceDown 0.8s infinite;
+        }
+
+        @keyframes bounceDown {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(5px);
+            }
+        }
+
+        .btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-3px);
+        }
+    </style>
+
+    <script>
+        // Resume Button Interaction
+        document.getElementById('downloadBtn').addEventListener('click', function (e) {
+            // e.preventDefault(); // Uncomment if you don't have a file yet
+            const btnText = document.getElementById('btnText');
+            const icon = document.getElementById('downloadIcon');
+
+            btnText.innerText = "Preparing PDF...";
+
+            setTimeout(() => {
+                btnText.innerText = "Download Started!";
+                icon.className = "fas fa-check-circle";
+
+                setTimeout(() => {
+                    btnText.innerText = "Download Full Resume";
+                    icon.className = "fas fa-file-download";
+                }, 3000);
+            }, 1500);
+        });
+
+        // GSAP Scroll Reveal for this section
+        gsap.from("#resume-cta .glass-card", {
+            scrollTrigger: {
+                trigger: "#resume-cta",
+                start: "top 80%"
+            },
+            y: 100,
+            opacity: 0,
+            duration: 1.2,
+            ease: "expo.out"
+        });
+    </script>
+
+    <section id="contact" style="position: relative; overflow: hidden;">
+        <div
+            style="position: absolute; width: 300px; height: 300px; background: var(--primary); filter: blur(150px); opacity: 0.1; top: 0; right: 0; z-index: -1;">
+        </div>
+
+        <h2 class="section-title">Let's <span>Connect</span></h2>
+
+        <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; max-width: 1100px; margin: 0 auto;">
+
+            <div class="contact-info">
+                <h3 style="margin-bottom: 20px; font-size: 1.8rem;">Have a project in mind?</h3>
+                <p style="color: rgba(255,255,255,0.6); margin-bottom: 30px;">
+                    I'm currently available for freelance work and full-time opportunities.
+                    Let's build something amazing together.
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="glass-card" style="padding: 20px; display: flex; align-items: center; gap: 15px;">
+                        <i class="fas fa-envelope" style="color: var(--accent);"></i>
+                        <span>rumpi.saha.bca.2023@tint.edu.com</span>
+                    </div>
+                    <div class="glass-card" style="padding: 20px; display: flex; align-items: center; gap: 15px;">
+                        <i class="fab fa-linkedin" style="color: #0077b5;"></i>
+                        <span>rumpi-saha-a42137216</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card" style="padding: 40px; border-radius: 30px;">
+                <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <div style="margin-bottom: 20px;">
+                        <input type="text" placeholder="Your Name" required
+                            style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; color: white; outline: none;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <input type="email" placeholder="Your Email" required
+                            style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; color: white; outline: none;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <textarea placeholder="Tell me about your project..." rows="4" required
+                            style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; color: white; outline: none; resize: none;"></textarea>
+                    </div>
+                    <button type="submit" class="btn primary" style="width: 100%; border: none; cursor: pointer;">
+                        Send Message <i class="fas fa-paper-plane" style="margin-left: 10px;"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="contactModal"
+        style="position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px;">
+        <div class="glass-card"
+            style="max-width: 450px; width: 100%; padding: 40px; text-align: center; position: relative; border-color: var(--primary);">
+            <button onclick="closeModal()"
+                style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: white; cursor: pointer; font-size: 1.2rem;">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div
+                style="width: 80px; height: 80px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                <i class="fas fa-check" style="font-size: 2rem;"></i>
+            </div>
+
+            <h2 style="margin-bottom: 10px;">Message Sent!</h2>
+            <p style="opacity: 0.7; margin-bottom: 30px;">Thanks for reaching out. While you wait for a reply, let's
+                connect on social media:</p>
+
+            <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
+                <a href="https://www.linkedin.com/in/rumpi-saha-a42137216" target="_blank" class="social-icon-btn"
+                    style="color: #0077b5; font-size: 2rem;"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/codexrups10" target="_blank" class="social-icon-btn"
+                    style="color: white; font-size: 2rem;"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-icon-btn" style="color: #E4405F; font-size: 2rem;"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
+
+            <button onclick="closeModal()" class="btn secondary" style="margin-top: 10px;">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Handle Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            // Show the professional success modal
+            const modal = document.getElementById('contactModal');
+            modal.style.display = 'flex';
+
+            // Optional: Animate modal entry
+            gsap.from("#contactModal .glass-card", {
+                scale: 0.8,
+                opacity: 0,
+                duration: 0.5,
+                ease: "back.out(1.7)"
+            });
+
+            // Reset the form
+            event.target.reset();
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('contactModal');
+            gsap.to("#contactModal .glass-card", {
+                scale: 0.8,
+                opacity: 0,
+                duration: 0.3,
+                onComplete: () => {
+                    modal.style.display = 'none';
+                    // Reset styles for next opening
+                    gsap.set("#contactModal .glass-card", { scale: 1, opacity: 1 });
+                }
+            });
+        }
+
+        // Add CSS transition for social icons in script to keep it clean
+        document.querySelectorAll('.social-icon-btn').forEach(btn => {
+            btn.style.transition = "transform 0.3s ease";
+            btn.onmouseover = () => btn.style.transform = "scale(1.2) rotate(5deg)";
+            btn.onmouseout = () => btn.style.transform = "scale(1) rotate(0deg)";
+        });
+    </script>
+
+
+    <footer>
+        <div class="socials" style="margin-bottom: 20px;">
+            <a href="#" style="color: white; margin: 0 15px; font-size: 1.2rem;"><i class="fab fa-linkedin"></i></a>
+            <a href="#" style="color: white; margin: 0 15px; font-size: 1.2rem;"><i class="fab fa-github"></i></a>
+            <a href="#" style="color: white; margin: 0 15px; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+        </div>
+        © 2026 Rumpi Saha • Designed with 💜
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
+        });
+
+        // Hero Animations
+        const tl = gsap.timeline();
+        tl.from(".navbar", { y: -100, opacity: 0, duration: 1, ease: "expo.out" })
+            .from(".welcome", { opacity: 0, x: -30, duration: 0.5 })
+            .from(".hero-text h1", { opacity: 0, y: 30, duration: 0.8 }, "-=0.3")
+            .from(".desc", { opacity: 0, duration: 0.5 })
+            .from(".hero-img", { opacity: 0, scale: 0.8, duration: 1, ease: "elastic.out(1, 0.5)" }, "-=0.5");
+
+        // Scroll Animations for Sections
+        gsap.utils.toArray(".service-card, .project-card, .section-title").forEach(el => {
+            gsap.from(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 85%",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            });
+        });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            gsap.to(counter, {
+                innerText: target,
+                duration: 2,
+                snap: { innerText: 1 },
+                scrollTrigger: {
+                    trigger: counter,
+                    start: "top 90%",
+                },
+                onUpdate: function () {
+                    counter.innerText = Math.ceil(this.targets()[0].innerText) + "+";
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Elite University</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./home.css">
+    <style>
+        .admissions-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .admissions-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .admissions-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .apply-btn {
+            background: #ff6b35;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .apply-btn:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .requirements-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .requirements-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .requirement-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .requirement-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .requirement-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .requirement-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .requirement-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .process-section {
+            padding: 80px 0;
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .process-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .process-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .step-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .step-arrow {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .step-arrow {
+                display: block;
+                position: absolute;
+                top: 30px;
+                right: -20px;
+                font-size: 2rem;
+                color: #667eea;
+            }
+
+            .process-step:last-child .step-arrow {
+                display: none;
+            }
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .deadline-notice {
+            background: #fff3cd;
+            color: #856404;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .deadline-notice h4 {
+            margin-bottom: 10px;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2><i class="fas fa-graduation-cap"></i> Elite University</h2>
+                </div>
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="./index.html" class="nav-link">Home</a></li>
+                        <li><a href="./about.html" class="nav-link">About</a></li>
+                        <li><a href="./programs.html" class="nav-link">Programs</a></li>
+                        <li><a href="./admissions.html" class="nav-link active">Admissions</a></li>
+                        <li><a href="./contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                    <div class="nav-toggle">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Admissions Hero Section -->
+    <section class="admissions-hero">
+        <div class="container">
+            <h1>Join Elite University</h1>
+            <p>Start your journey towards academic excellence and career success</p>
+            <a href="./form.html" class="apply-btn">Start Your Application</a>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="requirements-section">
+        <div class="requirements-container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: #2c3e50;">Admission Requirements</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #666; margin-bottom: 60px;">Everything you need to know about applying to Elite University</p>
+
+            <div class="requirements-grid">
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Academic Excellence</h3>
+                    <p>High school diploma or equivalent with a minimum GPA of 3.0. Strong academic performance in core subjects is essential.</p>
+                </div>
+
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Application Form</h3>
+                    <p>Complete our comprehensive online application form with personal details, educational background, and program preferences.</p>
+                </div>
+
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>English Proficiency</h3>
+                    <p>Demonstrate English language proficiency through TOEFL, IELTS, or equivalent tests for international applicants.</p>
+                </div>
+
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Application Fee</h3>
+                    <p>A non-refundable application fee of $50 is required to process your admission application.</p>
+                </div>
+
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Letters of Recommendation</h3>
+                    <p>Submit two letters of recommendation from teachers or counselors who can speak to your academic abilities.</p>
+                </div>
+
+                <div class="requirement-card">
+                    <div class="requirement-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Personal Statement</h3>
+                    <p>Write a 500-word personal statement explaining your goals, interests, and why you want to attend Elite University.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process Section -->
+    <section class="process-section">
+        <div class="process-container">
+            <h2 class="process-title">Application Process</h2>
+            <p class="process-subtitle">Follow these simple steps to complete your application</p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Submit Application</h3>
+                    <p class="step-description">Fill out the online application form with your personal and academic information.</p>
+                    <i class="fas fa-arrow-right step-arrow"></i>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Document Review</h3>
+                    <p class="step-description">Our admissions team reviews your application and supporting documents.</p>
+                    <i class="fas fa-arrow-right step-arrow"></i>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Interview</h3>
+                    <p class="step-description">Selected candidates may be invited for a personal or virtual interview.</p>
+                    <i class="fas fa-arrow-right step-arrow"></i>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Decision</h3>
+                    <p class="step-description">Receive your admission decision within 2-4 weeks of completing your application.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to Begin Your Journey?</h2>
+            <p class="cta-text">Take the first step towards your future at Elite University</p>
+            <a href="./form.html" class="apply-btn">Apply Now</a>
+
+            <div class="deadline-notice">
+                <h4><i class="fas fa-clock"></i> Application Deadlines</h4>
+                <p><strong>Fall Semester:</strong> June 1st • <strong>Spring Semester:</strong> November 1st • <strong>Summer Session:</strong> April 1st</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #2c3e50; color: white; padding: 40px 0; text-align: center;">
+        <div class="container">
+            <p>&copy; 2024 Elite University. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./home.js"></script>
+</body>
+</html></content>
+<parameter name="filePath">d:\XAMPP\htdocs\College Admission Form\admissions.html

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Madhyamgram Girls' High School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="font-family:'Cormorant Garamond', serif; margin:0; padding:0;">
+
+<style>
+/* Header & Nav */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #4d0003;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+header .container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  text-decoration: underline;
+}
+
+/* Banner */
+.banner {
+  width: 100%;
+  height: 300px;
+  background: url('./Images/contact-banner.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+
+.banner h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+/* Contact Section */
+.contact-section {
+  max-width: 1200px;
+  margin: 80px auto 50px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.contact-info, .contact-form {
+  flex: 1 1 400px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.contact-info h2, .contact-form h2 {
+  color: #540404;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.contact-info p, .contact-info a {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+  text-decoration: none;
+}
+
+.contact-info i {
+  color: #f2c200;
+  margin-right: 10px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input, .contact-form textarea {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+  resize: none;
+}
+
+.contact-form button {
+  background: #f2c200;
+  color: #540404;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #e0b500;
+}
+
+/* Map Section */
+.map-section {
+  max-width: 1200px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.map-section iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  border-radius: 12px;
+}
+
+/* Footer */
+footer a:hover { color: #f2c200; }
+</style>
+
+ <!-- HEADER -->
+  <header class="header" style="background:#4d0003; color:white; position:fixed; width:100%; top:0; z-index:1000; box-shadow:0 2px 6px rgba(0,0,0,0.2);">
+    <div class="container" style="max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem;">
+      <div class="logo" style="font-size:1.6rem; font-weight:bold; display:flex; align-items:center; gap:10px;">
+        <img src="./Images/logo.jpg" alt="School Logo" style="height:40px;">
+        <span>Madhyamgram Girls' High School</span>
+      </div>
+      <nav>
+        <ul class="nav-links" style="list-style:none; display:flex; gap:1.5rem; margin:0;">
+          <li><a href="index.html" style="color:white; text-decoration:none; font-weight:bold;">Home</a></li>
+          <li><a href="about.html" style="color:white; text-decoration:none; font-weight:bold;">About</a></li>
+          <li><a href="admission.html" style="color:white; text-decoration:none; font-weight:bold;">Admissions</a></li>
+          <li><a href="academics.html" style="color:white; text-decoration:none; font-weight:bold;">Academics</a></li>
+          <li><a href="results.html" style="color:white; text-decoration:none; font-weight:bold;">Results</a></li>
+          <li><a href="events.html"  style="color:white; text-decoration:none; font-weight:bold;">Events & Gallery</a></li>
+          <li><a href="contact.html" class="active" style="color:white; text-decoration:underline; font-weight:bold;">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+<section class="banner" aria-label="Contact banner" style="position:relative; width:100%; height:700px; overflow:hidden;">
+  <picture>
+    <img src="./Images/contact.jpg"
+         alt="Students and school building at Madhyamgram Girls' High School"
+         style="width:100%; height:100%; object-fit:cover; display:block;"
+         loading="lazy" decoding="async">
+  </picture>
+
+  <h1 style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; text-shadow:2px 2px 6px rgba(0,0,0,0.6); font-size:3rem; margin:0;">
+    Contact Us
+  </h1>
+</section>
+
+<section style="background:#fff; padding:60px 20px; text-align:center;">
+  <h2 style="color:#540404; font-weight:bold; font-size:2rem; margin-bottom:30px;">⏰ Office Hours</h2>
+  <table style="margin:auto; border-collapse:collapse; width:70%; max-width:700px; font-size:1rem;">
+    <tr style="background:#f2c200; color:#540404; font-weight:bold;">
+      <td style="padding:12px; border:1px solid #ddd;">Day</td>
+      <td style="padding:12px; border:1px solid #ddd;">Time</td>
+    </tr>
+    <tr>
+      <td style="padding:12px; border:1px solid #ddd;">Monday – Friday</td>
+      <td style="padding:12px; border:1px solid #ddd;">8:30 AM – 3:30 PM</td>
+    </tr>
+    <tr>
+      <td style="padding:12px; border:1px solid #ddd;">Saturday</td>
+      <td style="padding:12px; border:1px solid #ddd;">8:30 AM – 1:00 PM</td>
+    </tr>
+    <tr>
+      <td style="padding:12px; border:1px solid #ddd;">Sunday</td>
+      <td style="padding:12px; border:1px solid #ddd;">Closed</td>
+    </tr>
+  </table>
+</section>
+
+<section style="background:#f8f8f8; padding:60px 20px; text-align:center;">
+  <h2 style="color:#540404; font-weight:bold; font-size:2rem; margin-bottom:30px;">🌐 Stay Connected</h2>
+  <p style="margin-bottom:30px; font-size:1rem; color:#333;">Follow us on social media to get the latest updates, news & events.</p>
+  <div style="display:flex; justify-content:center; gap:25px;">
+    <a href="#" style="text-decoration:none; background:#f2c200; color:#540404; padding:12px 20px; border-radius:50px; font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.1);">Facebook</a>
+    <a href="#" style="text-decoration:none; background:#f2c200; color:#540404; padding:12px 20px; border-radius:50px; font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.1);">Instagram</a>
+    <a href="#" style="text-decoration:none; background:#f2c200; color:#540404; padding:12px 20px; border-radius:50px; font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.1);">YouTube</a>
+  </div>
+</section>
+
+<section style="background:#f8f8f8; padding:60px 20px; text-align:center;">
+  <h2 style="color:#540404; font-weight:bold; font-size:2rem; margin-bottom:30px;">📞 School Contact Directory</h2>
+  <table style="margin:auto; border-collapse:collapse; width:80%; max-width:800px; font-size:1rem;">
+    <tr style="background:#f2c200; color:#540404; font-weight:bold;">
+      <td style="padding:12px; border:1px solid #ddd;">Department</td>
+      <td style="padding:12px; border:1px solid #ddd;">Phone</td>
+      <td style="padding:12px; border:1px solid #ddd;">Email</td>
+    </tr>
+    <tr>
+      <td style="padding:12px; border:1px solid #ddd;">Library</td>
+      <td style="padding:12px; border:1px solid #ddd;">+91 98765 33333</td>
+      <td style="padding:12px; border:1px solid #ddd;">library@mghschool.in</td>
+    </tr>
+    <tr>
+      <td style="padding:12px; border:1px solid #ddd;">Sports Office</td>
+      <td style="padding:12px; border:1px solid #ddd;">+91 98765 44444</td>
+      <td style="padding:12px; border:1px solid #ddd;">sports@mghschool.in</td>
+    </tr>
+    <tr>
+      <td style="padding:12px; border:1px solid #ddd;">Student Counseling</td>
+      <td style="padding:12px; border:1px solid #ddd;">+91 98765 55555</td>
+      <td style="padding:12px; border:1px solid #ddd;">counsel@mghschool.in</td>
+    </tr>
+  </table>
+</section>
+
+
+<!-- CONTACT INFO + FORM -->
+<section class="contact-section">
+  <!-- Contact Info -->
+  <div class="contact-info">
+    <h2>Get in Touch</h2>
+    <p><i class="fas fa-map-marker-alt"></i> 12 Madhyamgram Road, West Bengal, India</p>
+    <p><i class="fas fa-phone-alt"></i> +91 12345 67890</p>
+    <p><i class="fas fa-envelope"></i> info@mghs.edu.in</p>
+    <p>Our office hours: Mon - Sat, 9:00 AM - 5:00 PM</p>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="contact-form">
+    <h2>Send Us a Message</h2>
+    <form action="#" method="post">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="subject" placeholder="Subject" required>
+      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<section style="background:#fff; padding:60px 20px; text-align:center;">
+  <h2 style="color:#540404; font-weight:bold; font-size:2rem; margin-bottom:40px;">💡 Success Stories</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; max-width:1000px; margin:auto;">
+    <div style="flex:1; min-width:250px; background:#f8f8f8; padding:20px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <p style="font-style:italic; font-size:0.95rem; color:#333;">“The staff was always available to guide me and my parents during admission. Great support!”</p>
+      <h4 style="margin-top:15px; color:#540404;">– Riya, Class XI</h4>
+    </div>
+    <div style="flex:1; min-width:250px; background:#f8f8f8; padding:20px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <p style="font-style:italic; font-size:0.95rem; color:#333;">“Quick response to our queries made the process hassle-free. Thank you!”</p>
+      <h4 style="margin-top:15px; color:#540404;">– Parent of Class VI Student</h4>
+    </div>
+  </div>
+</section>
+
+
+<!-- QUICK INQUIRY FLOATING BUTTON -->
+<div style="position: fixed; bottom: 30px; right: 30px; background: #f2c200; color: #540404; padding: 15px 20px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index:1001;" onclick="document.getElementById('popupForm').style.display='block'">
+  Quick Inquiry
+</div>
+
+
+<!-- POPUP FORM -->
+<div id="popupForm" style="display:none; position: fixed; bottom: 80px; right: 30px; width: 300px; background: #fff; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.25); padding: 20px; z-index:1002;">
+  <h3 style="margin-top:0; color:#540404; font-weight:bold; font-size:1.5rem;">Quick Inquiry</h3>
+  <form action="#" method="post">
+    <input type="text" name="name" placeholder="Your Name" required style="width:100%; padding:10px; margin-top:10px; border-radius:6px; border:1px solid #ccc; font-size:1rem;">
+    <input type="email" name="email" placeholder="Your Email" required style="width:100%; padding:10px; margin-top:10px; border-radius:6px; border:1px solid #ccc; font-size:1rem;">
+    <textarea name="message" rows="4" placeholder="Your Message" required style="width:100%; padding:10px; margin-top:10px; border-radius:6px; border:1px solid #ccc; font-size:1rem; resize:none;"></textarea>
+    <button type="submit" style="margin-top:10px; width:100%; background:#f2c200; color:#540404; border:none; padding:10px; font-weight:bold; border-radius:6px; cursor:pointer;">Send</button>
+  </form>
+</div>
+
+<section style="background:#f8f8f8; padding:60px 20px; text-align:center;">
+  <h2 style="color:#540404; font-weight:bold; font-size:2rem; margin-bottom:40px;">🚨 Emergency Contacts</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; max-width:1000px; margin:auto;">
+    <div style="flex:1; min-width:250px; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4 style="color:#540404;">School Reception</h4>
+      <p style="margin:8px 0; font-size:0.95rem;">📞 +91 33 1234 5678</p>
+      <p style="margin:0; font-size:0.95rem;">✉️ info@mghschool.in</p>
+    </div>
+    <div style="flex:1; min-width:250px; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4 style="color:#540404;">Transport Helpline</h4>
+      <p style="margin:8px 0; font-size:0.95rem;">📞 +91 33 8765 4321</p>
+      <p style="margin:0; font-size:0.95rem;">🚌 For bus/van related queries</p>
+    </div>
+    <div style="flex:1; min-width:250px; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h4 style="color:#540404;">Health & Safety</h4>
+      <p style="margin:8px 0; font-size:0.95rem;">📞 +91 98765 43210</p>
+      <p style="margin:0; font-size:0.95rem;">🏥 School Medical Officer</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff; padding:60px 20px; text-align:center;">
+  <h2 style="color:#540404; font-weight:bold; font-size:2rem; margin-bottom:20px;">📰 Subscribe to Our Newsletter</h2>
+  <p style="max-width:700px; margin:auto; font-size:1rem; color:#333;">Stay updated with school events, results, and announcements by joining our monthly newsletter.</p>
+  <form style="margin-top:25px; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+    <input type="email" placeholder="Enter your email" required 
+           style="padding:12px; width:280px; border-radius:8px; border:1px solid #ccc; font-size:1rem;">
+    <button type="submit" 
+            style="padding:12px 25px; background:#f2c200; color:#540404; border:none; border-radius:8px; font-weight:bold; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.1);">Subscribe</button>
+  </form>
+</section>
+
+
+<!-- FOOTER -->
+<footer style="background:#540404; color:#fff; font-family:'Cormorant Garamond', serif; padding:60px 20px; position:relative; overflow:hidden;">
+  <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; gap:30px; justify-content:space-between;">
+    <!-- About -->
+    <div style="flex:1 1 250px; min-width:220px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;">About Us</h3>
+      <p style="color:#f0e6e6; line-height:1.7; font-size:0.95rem;">
+        Madhayamgram Girls' High School is dedicated to nurturing excellence, creativity, and discipline. We empower every student to achieve their full potential in academics, arts, and co-curricular activities.
+      </p>
+    </div>
+    <!-- Quick Links -->
+    <div style="flex:1 1 200px; min-width:180px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;"> Quick Links</h3>
+      <ul style="list-style:none; padding:0; line-height:2;">
+        <li><a href="index.html" style="color:#fff; text-decoration:none;">🏠 Home</a></li>
+        <li><a href="about.html" style="color:#fff; text-decoration:none;">ℹ️ About</a></li>
+        <li><a href="admission.html" style="color:#fff; text-decoration:none;">📝 Admissions</a></li>
+        <li><a href="academics.html" style="color:#fff; text-decoration:none;">📚 Academics</a></li>
+        <li><a href="contact.html" style="color:#fff; text-decoration:none;">📞 Contact</a></li>
+      </ul>
+    </div>
+    <!-- Contact -->
+    <div style="flex:1 1 250px; min-width:200px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;">Contact</h3>
+      <p style="color:#f0e6e6; font-size:0.95rem; line-height:1.7;">
+        <i class="fas fa-map-marker-alt"></i> 12 Madhyamgram Road, West Bengal, India<br>
+        <i class="fas fa-phone-alt"></i> +91 12345 67890<br>
+        <i class="fas fa-envelope"></i> info@mghs.edu.in
+      </p>
+      <div style="margin-top:15px;">
+        <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem;"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem;"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
+        <a href="#" style="color:#fff; font-size:1.2rem;"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <!-- Newsletter -->
+    <div style="flex:1 1 250px; min-width:220px;">
+      <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff;">Newsletter</h3>
+      <p style="color:#f0e6e6; font-size:0.95rem;">Subscribe to get updates on events, admissions, and announcements.</p>
+      <form style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;">
+        <input type="email" placeholder="Your Email" style="flex:1; padding:10px 15px; border:none; border-radius:5px;">
+        <button type="submit" style="background:#f2c200; color:#540404; border:none; padding:10px 20px; border-radius:5px; font-weight:bold; cursor:pointer;">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div style="text-align:center; margin-top:50px; font-size:0.9rem; color:#f0e6e6;">
+    &copy; 2025 Madhayamgram Girls' High School. All Rights Reserved.
+    <br>
+    Designed by Rumpi
+  </div>
+</footer>
+
+</body>
+</html>

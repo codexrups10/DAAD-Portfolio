@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiffin Tales — Authentic South Indian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nude-50: #fdf9f4;
+    --nude-100: #f8f0e3;
+    --nude-200: #eddfc8;
+    --nude-300: #dfc9a8;
+    --nude-400: #c9a87a;
+    --nude-500: #b08850;
+    --nude-600: #8c6a38;
+    --nude-700: #6b4f27;
+    --nude-800: #4a341a;
+    --nude-900: #2e1f0e;
+    --spice: #c94b2d;
+    --turmeric: #d4892a;
+    --leaf: #5a7a3a;
+    --cream: #fdf9f4;
+    --text-dark: #2e1f0e;
+    --text-mid: #6b4f27;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { 
+    font-family:'DM Sans', sans-serif; 
+    background:var(--nude-50); 
+    color:var(--text-dark);
+    overflow-x:hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width:6px; }
+  ::-webkit-scrollbar-track { background:var(--nude-100); }
+  ::-webkit-scrollbar-thumb { background:var(--nude-400); border-radius:3px; }
+
+  /* ── NAV ── */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.2rem 4rem;
+    transition:all 0.4s ease;
+  }
+  nav.scrolled {
+    background:rgba(253,249,244,0.95);
+    backdrop-filter:blur(12px);
+    box-shadow:0 2px 30px rgba(46,31,14,0.08);
+    padding:0.8rem 4rem;
+  }
+  .nav-logo {
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.8rem; font-weight:600; letter-spacing:0.02em;
+    color:var(--nude-50); text-decoration:none;
+    transition:color 0.4s;
+  }
+  nav.scrolled .nav-logo { color:var(--text-dark); }
+  .nav-links { display:flex; gap:2.5rem; list-style:none; }
+  .nav-links a {
+    font-size:0.85rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase;
+    color:rgba(253,249,244,0.85); text-decoration:none;
+    position:relative; transition:color 0.3s;
+  }
+  .nav-links a::after {
+    content:''; position:absolute; bottom:-4px; left:0; right:0; height:1px;
+    background:var(--turmeric); transform:scaleX(0); transition:transform 0.3s;
+  }
+  .nav-links a:hover::after { transform:scaleX(1); }
+  .nav-links a:hover { color:var(--turmeric); }
+  nav.scrolled .nav-links a { color:var(--text-mid); }
+  .nav-cta {
+    background:var(--turmeric); color:var(--cream) !important;
+    padding:0.5rem 1.4rem; border-radius:2px;
+  }
+  .nav-cta:hover { background:var(--spice); }
+  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+  .hamburger span { width:24px; height:2px; background:var(--nude-50); transition:all 0.3s; display:block; }
+  nav.scrolled .hamburger span { background:var(--text-dark); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height:100vh;
+    background: 
+      linear-gradient(160deg, rgba(46,31,14,0.72) 0%, rgba(107,79,39,0.4) 60%, rgba(46,31,14,0.3) 100%),
+      url('https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=1800&q=80') center/cover no-repeat;
+    display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
+    padding:0 10% 0 8%;
+    position:relative; overflow:hidden;
+  }
+  #hero::before {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:200px;
+    background:linear-gradient(transparent, var(--nude-50));
+  }
+  .hero-tag {
+    font-size:0.75rem; letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--turmeric); margin-bottom:1.2rem;
+    display:flex; align-items:center; gap:0.8rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-tag::before { content:''; width:40px; height:1px; background:var(--turmeric); }
+  .hero-h1 {
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(3.5rem, 9vw, 7.5rem);
+    line-height:0.95; font-weight:600;
+    color:var(--nude-50);
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+  .hero-h1 em { font-style:italic; color:var(--turmeric); }
+  .hero-sub {
+    max-width:480px; margin-top:1.5rem;
+    font-size:1.05rem; line-height:1.7; color:rgba(253,249,244,0.75);
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .hero-btns { display:flex; gap:1rem; margin-top:2.5rem; animation: fadeUp 0.8s 0.45s ease both; }
+  .btn-primary {
+    background:var(--turmeric); color:var(--cream);
+    padding:0.9rem 2.2rem; text-decoration:none;
+    font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:500;
+    transition:all 0.3s; border:none; cursor:pointer;
+  }
+  .btn-primary:hover { background:var(--spice); transform:translateY(-2px); box-shadow:0 8px 24px rgba(201,75,45,0.3); }
+  .btn-outline {
+    border:1px solid rgba(253,249,244,0.5); color:var(--nude-50);
+    padding:0.9rem 2.2rem; text-decoration:none;
+    font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:500;
+    transition:all 0.3s;
+  }
+  .btn-outline:hover { border-color:var(--turmeric); color:var(--turmeric); }
+  .hero-scroll {
+    position:absolute; bottom:3rem; left:50%; transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:0.5rem;
+    color:rgba(253,249,244,0.5); font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase;
+    animation: bounce 2s infinite;
+  }
+  .hero-scroll::after {
+    content:''; width:1px; height:50px; background:rgba(253,249,244,0.3);
+  }
+  .hero-stats {
+    position:absolute; right:6%; bottom:25%;
+    display:flex; flex-direction:column; gap:2rem;
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+  .stat-item { text-align:right; }
+  .stat-num {
+    font-family:'Cormorant Garamond', serif;
+    font-size:2.8rem; font-weight:600; color:var(--turmeric); line-height:1;
+  }
+  .stat-label { font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(253,249,244,0.5); }
+
+  /* ── MARQUEE STRIP ── */
+  .marquee-strip {
+    background:var(--nude-800);
+    padding:0.8rem 0; overflow:hidden;
+    display:flex;
+  }
+  .marquee-track {
+    display:flex; gap:3rem; animation:marquee 20s linear infinite;
+    white-space:nowrap;
+  }
+  .marquee-item {
+    font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--nude-300); display:flex; align-items:center; gap:1.5rem;
+  }
+  .marquee-dot { width:4px; height:4px; background:var(--turmeric); border-radius:50%; }
+
+  /* ── ABOUT ── */
+  #about { 
+    padding:8rem 8% 6rem;
+    display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center;
+  }
+  .about-img-wrap { position:relative; }
+  .about-img {
+    width:100%; aspect-ratio:3/4; object-fit:cover;
+    filter:sepia(15%) contrast(1.05);
+  }
+  .about-img-accent {
+    position:absolute; bottom:-2rem; right:-2rem;
+    width:60%; aspect-ratio:1;
+    background:var(--nude-100); border:8px solid var(--nude-50);
+    display:flex; align-items:center; justify-content:center;
+    flex-direction:column; gap:0.5rem;
+  }
+  .accent-year {
+    font-family:'Cormorant Garamond', serif;
+    font-size:3.5rem; font-weight:300; color:var(--nude-500); line-height:1;
+  }
+  .accent-label { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--nude-400); }
+  .section-tag {
+    font-size:0.7rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--turmeric);
+    display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;
+  }
+  .section-tag::before { content:''; width:30px; height:1px; background:var(--turmeric); }
+  .section-h2 {
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(2.5rem, 5vw, 4rem); line-height:1.05; font-weight:600;
+  }
+  .section-h2 em { font-style:italic; color:var(--nude-500); }
+  .about-text { margin-top:1.5rem; line-height:1.85; color:var(--text-mid); font-size:1rem; }
+  .feature-pills { display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:2rem; }
+  .pill {
+    padding:0.4rem 1rem; border:1px solid var(--nude-300);
+    font-size:0.75rem; letter-spacing:0.08em; color:var(--nude-600);
+    border-radius:20px; background:var(--nude-100);
+  }
+
+  /* ── MENU ── */
+  #menu { padding:6rem 8%; background:var(--nude-100); }
+  .menu-header { text-align:center; margin-bottom:3rem; }
+  .menu-tabs {
+    display:flex; gap:0; overflow-x:auto; justify-content:center;
+    margin-bottom:3rem; border-bottom:1px solid var(--nude-200);
+    scrollbar-width:none;
+  }
+  .menu-tabs::-webkit-scrollbar { display:none; }
+  .tab-btn {
+    padding:0.8rem 1.8rem; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase;
+    background:none; border:none; cursor:pointer; color:var(--nude-500);
+    white-space:nowrap; position:relative; font-family:'DM Sans', sans-serif;
+    font-weight:500; transition:color 0.3s;
+  }
+  .tab-btn::after {
+    content:''; position:absolute; bottom:-1px; left:0; right:0; height:2px;
+    background:var(--turmeric); transform:scaleX(0); transition:transform 0.3s;
+  }
+  .tab-btn.active { color:var(--text-dark); }
+  .tab-btn.active::after { transform:scaleX(1); }
+  .tab-btn:hover { color:var(--text-dark); }
+  .menu-panel { display:none; }
+  .menu-panel.active { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem; }
+  .menu-card {
+    background:var(--nude-50); border:1px solid var(--nude-200);
+    overflow:hidden; transition:all 0.3s; cursor:pointer; position:relative;
+  }
+  .menu-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(46,31,14,0.1); }
+  .menu-card-img {
+    width:100%; height:200px; object-fit:cover;
+    filter:sepia(10%); transition:transform 0.5s, filter 0.3s;
+  }
+  .menu-card:hover .menu-card-img { transform:scale(1.04); filter:sepia(0%); }
+  .menu-card-body { padding:1.2rem 1.4rem 1.4rem; }
+  .menu-card-tag {
+    font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--turmeric); margin-bottom:0.4rem;
+  }
+  .menu-card-name {
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.4rem; font-weight:600; line-height:1.2; margin-bottom:0.5rem;
+  }
+  .menu-card-desc { font-size:0.82rem; color:var(--text-mid); line-height:1.6; }
+  .menu-card-footer { display:flex; align-items:center; justify-content:space-between; margin-top:1rem; }
+  .menu-price { font-family:'Cormorant Garamond', serif; font-size:1.3rem; font-weight:600; color:var(--nude-600); }
+  .menu-badge {
+    font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase;
+    padding:0.25rem 0.6rem; background:var(--nude-200); color:var(--nude-700);
+  }
+  .badge-spicy { background:#fde8e2; color:var(--spice); }
+  .badge-popular { background:#fdf4e0; color:var(--turmeric); }
+
+  /* ── SPECIALS CAROUSEL ── */
+  #specials { padding:6rem 8%; }
+  .specials-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3rem; }
+  .carousel-wrap { overflow:hidden; position:relative; }
+  .carousel-track {
+    display:flex; gap:2rem;
+    transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+  .special-card {
+    min-width:calc(33.333% - 1.34rem); background:var(--nude-100);
+    border:1px solid var(--nude-200); overflow:hidden;
+    flex-shrink:0;
+  }
+  .special-card-inner { display:flex; flex-direction:column; height:100%; }
+  .special-img { width:100%; height:240px; object-fit:cover; }
+  .special-body { padding:1.5rem 1.5rem 2rem; flex:1; }
+  .special-number {
+    font-family:'Cormorant Garamond', serif;
+    font-size:4rem; font-weight:300; color:var(--nude-200); line-height:1;
+    margin-bottom:-1rem;
+  }
+  .special-name {
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.6rem; font-weight:600; margin-bottom:0.6rem;
+  }
+  .special-desc { font-size:0.82rem; color:var(--text-mid); line-height:1.65; }
+  .carousel-nav { display:flex; gap:0.8rem; margin-top:1.5rem; justify-content:center; }
+  .carousel-btn {
+    width:48px; height:48px; border:1px solid var(--nude-300);
+    background:none; cursor:pointer; font-size:1.2rem; color:var(--nude-600);
+    transition:all 0.3s; display:flex; align-items:center; justify-content:center;
+  }
+  .carousel-btn:hover { background:var(--nude-800); color:var(--nude-50); border-color:var(--nude-800); }
+
+  /* ── EXPERIENCE ── */
+  #experience {
+    padding:8rem 8%;
+    background:var(--nude-800);
+    display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;
+  }
+  #experience .section-tag { color:var(--turmeric); }
+  #experience .section-h2 { color:var(--nude-50); }
+  #experience .section-h2 em { color:var(--nude-400); }
+  .exp-text { color:var(--nude-300); line-height:1.85; margin-top:1.5rem; }
+  .exp-features { margin-top:2.5rem; display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+  .exp-feat {
+    border-top:1px solid var(--nude-600); padding-top:1rem;
+  }
+  .exp-feat-icon { font-size:1.5rem; margin-bottom:0.5rem; }
+  .exp-feat-title { font-size:0.85rem; font-weight:500; color:var(--nude-100); margin-bottom:0.3rem; letter-spacing:0.05em; }
+  .exp-feat-text { font-size:0.78rem; color:var(--nude-400); line-height:1.5; }
+  .exp-visual { position:relative; }
+  .exp-img-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .exp-img { width:100%; aspect-ratio:1; object-fit:cover; filter:sepia(20%) brightness(0.85); }
+  .exp-img:first-child { aspect-ratio:2/1; grid-column:span 2; }
+  .exp-quote {
+    position:absolute; bottom:-2rem; left:50%; transform:translateX(-50%);
+    width:85%; background:var(--nude-700); padding:1.5rem;
+    font-family:'Cormorant Garamond', serif;
+    font-size:1rem; font-style:italic; color:var(--nude-200); line-height:1.6;
+    text-align:center;
+  }
+
+  /* ── PROCESS ── */
+  #process { padding:8rem 8%; background:var(--nude-50); }
+  .process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; margin-top:4rem; }
+  .process-step { text-align:center; padding:2.5rem 1.5rem; position:relative; }
+  .process-step:not(:last-child)::after {
+    content:'→'; position:absolute; right:-1rem; top:50%;
+    transform:translateY(-50%); font-size:1.5rem; color:var(--nude-300);
+  }
+  .step-num {
+    font-family:'Cormorant Garamond', serif;
+    font-size:4rem; font-weight:300; color:var(--nude-200); line-height:1;
+    margin-bottom:0.5rem;
+  }
+  .step-icon { font-size:2rem; margin-bottom:1rem; display:block; }
+  .step-title { font-size:0.9rem; font-weight:500; letter-spacing:0.05em; margin-bottom:0.5rem; color:var(--text-dark); }
+  .step-text { font-size:0.78rem; color:var(--text-mid); line-height:1.6; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { padding:7rem 8%; background:var(--nude-100); }
+  .testimonials-header { text-align:center; margin-bottom:4rem; }
+  .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+  .testi-card {
+    background:var(--nude-50); padding:2rem; border:1px solid var(--nude-200);
+    position:relative; transition:transform 0.3s, box-shadow 0.3s;
+  }
+  .testi-card:hover { transform:translateY(-4px); box-shadow:0 12px 30px rgba(46,31,14,0.08); }
+  .testi-card::before {
+    content:'"'; font-family:'Cormorant Garamond', serif;
+    font-size:5rem; line-height:0.8; color:var(--nude-200);
+    position:absolute; top:1.5rem; left:1.5rem;
+  }
+  .testi-stars { color:var(--turmeric); letter-spacing:2px; font-size:0.85rem; margin-bottom:1rem; padding-top:2rem; }
+  .testi-text { font-size:0.88rem; line-height:1.75; color:var(--text-mid); font-style:italic; }
+  .testi-author { display:flex; align-items:center; gap:0.8rem; margin-top:1.5rem; border-top:1px solid var(--nude-200); padding-top:1.2rem; }
+  .testi-avatar {
+    width:40px; height:40px; border-radius:50%;
+    background:var(--nude-300); display:flex; align-items:center; justify-content:center;
+    font-family:'Cormorant Garamond', serif; font-size:1.1rem; color:var(--nude-700);
+    font-weight:600; flex-shrink:0;
+  }
+  .testi-name { font-size:0.85rem; font-weight:500; }
+  .testi-loc { font-size:0.7rem; color:var(--nude-400); letter-spacing:0.05em; }
+
+  /* ── FAQ ── */
+  #faq { padding:7rem 8%; max-width:900px; margin:0 auto; }
+  .faq-item { border-bottom:1px solid var(--nude-200); }
+  .faq-q {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:1.5rem 0; cursor:pointer; gap:1rem;
+    font-size:1rem; font-weight:500; color:var(--text-dark);
+    transition:color 0.3s;
+  }
+  .faq-q:hover { color:var(--turmeric); }
+  .faq-icon {
+    width:28px; height:28px; border:1px solid var(--nude-300);
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:1rem; color:var(--nude-500); flex-shrink:0; transition:all 0.3s;
+  }
+  .faq-item.open .faq-icon { background:var(--turmeric); color:white; border-color:var(--turmeric); transform:rotate(45deg); }
+  .faq-a {
+    max-height:0; overflow:hidden; transition:max-height 0.4s ease, padding 0.3s;
+    font-size:0.88rem; color:var(--text-mid); line-height:1.75;
+  }
+  .faq-item.open .faq-a { max-height:200px; padding-bottom:1.5rem; }
+
+  /* ── NEWSLETTER ── */
+  #newsletter {
+    padding:6rem 8%;
+    background:var(--nude-800);
+    text-align:center;
+  }
+  #newsletter .section-h2 { color:var(--nude-50); max-width:600px; margin:0 auto; }
+  #newsletter .section-h2 em { color:var(--turmeric); }
+  .newsletter-sub { color:var(--nude-300); margin-top:1rem; font-size:0.95rem; }
+  .newsletter-form { display:flex; max-width:480px; margin:2.5rem auto 0; }
+  .newsletter-input {
+    flex:1; padding:0.9rem 1.2rem; background:rgba(253,249,244,0.08);
+    border:1px solid rgba(253,249,244,0.15); color:var(--nude-50);
+    font-family:'DM Sans',sans-serif; font-size:0.9rem;
+    outline:none; transition:border-color 0.3s;
+  }
+  .newsletter-input::placeholder { color:rgba(253,249,244,0.3); }
+  .newsletter-input:focus { border-color:var(--turmeric); }
+  .newsletter-btn {
+    background:var(--turmeric); color:var(--cream); border:none;
+    padding:0.9rem 1.8rem; cursor:pointer; font-size:0.8rem;
+    letter-spacing:0.1em; text-transform:uppercase; font-family:'DM Sans',sans-serif;
+    transition:background 0.3s;
+  }
+  .newsletter-btn:hover { background:var(--spice); }
+
+  /* ── FOOTER ── */
+  footer {
+    background:var(--nude-900); padding:4rem 8% 2rem;
+  }
+  .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; margin-bottom:3rem; }
+  .footer-brand-name {
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.8rem; font-weight:600; color:var(--nude-50); margin-bottom:1rem;
+  }
+  .footer-tagline { font-size:0.82rem; color:var(--nude-400); line-height:1.7; max-width:260px; }
+  .footer-socials { display:flex; gap:0.8rem; margin-top:1.5rem; }
+  .social-icon {
+    width:36px; height:36px; border:1px solid var(--nude-700);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--nude-400); font-size:0.9rem; text-decoration:none;
+    transition:all 0.3s;
+  }
+  .social-icon:hover { background:var(--turmeric); border-color:var(--turmeric); color:white; }
+  .footer-title { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--nude-400); margin-bottom:1.2rem; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
+  .footer-links a { color:var(--nude-500); font-size:0.85rem; text-decoration:none; transition:color 0.3s; }
+  .footer-links a:hover { color:var(--nude-200); }
+  .footer-bottom {
+    border-top:1px solid var(--nude-800); padding-top:2rem;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:0.75rem; color:var(--nude-600);
+  }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    position:fixed; inset:0; background:var(--nude-900); z-index:200;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    gap:2rem; transform:translateX(100%); transition:transform 0.4s ease;
+  }
+  .mobile-menu.open { transform:translateX(0); }
+  .mobile-menu a {
+    font-family:'Cormorant Garamond', serif; font-size:2.5rem; font-weight:400;
+    color:var(--nude-200); text-decoration:none; letter-spacing:0.02em;
+    transition:color 0.3s;
+  }
+  .mobile-menu a:hover { color:var(--turmeric); }
+  .close-menu {
+    position:absolute; top:1.5rem; right:2rem;
+    background:none; border:none; color:var(--nude-300); font-size:1.8rem; cursor:pointer;
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal {
+    opacity:0; transform:translateY(30px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-left { opacity:0; transform:translateX(-40px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-left.visible { opacity:1; transform:translateX(0); }
+  .reveal-right { opacity:0; transform:translateX(40px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-right.visible { opacity:1; transform:translateX(0); }
+  .stagger > * { opacity:0; transform:translateY(20px); transition:opacity 0.5s ease, transform 0.5s ease; }
+  .stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:0s; }
+  .stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:0.1s; }
+  .stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:0.2s; }
+  .stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:0.3s; }
+  .stagger.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:0.4s; }
+  .stagger.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:0.5s; }
+
+  /* ── KEYFRAMES ── */
+  @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:none; } }
+  @keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  @keyframes bounce { 0%,100% { transform:translateX(-50%) translateY(0); } 50% { transform:translateX(-50%) translateY(-10px); } }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:900px) {
+    nav { padding:1rem 1.5rem; }
+    nav.scrolled { padding:0.7rem 1.5rem; }
+    .nav-links { display:none; }
+    .hamburger { display:flex; }
+    #about { grid-template-columns:1fr; gap:2.5rem; }
+    .about-img-accent { display:none; }
+    #experience { grid-template-columns:1fr; gap:2.5rem; }
+    .exp-img-grid { display:none; }
+    .exp-quote { position:relative; bottom:0; left:0; transform:none; width:100%; }
+    .process-grid { grid-template-columns:1fr 1fr; }
+    .testimonials-grid { grid-template-columns:1fr; }
+    .footer-grid { grid-template-columns:1fr 1fr; }
+    .hero-stats { display:none; }
+    .specials-header { flex-direction:column; gap:1rem; align-items:flex-start; }
+    .special-card { min-width:85%; }
+  }
+  @media(max-width:600px) {
+    #about, #specials, #process, #testimonials, #faq, #newsletter, footer { padding:4rem 5%; }
+    #menu { padding:4rem 5%; }
+    #hero { padding:0 6%; }
+    .hero-h1 { font-size:3rem; }
+    .process-grid { grid-template-columns:1fr; }
+    .process-step::after { display:none; }
+    .footer-grid { grid-template-columns:1fr; }
+    .menu-panel.active { grid-template-columns:1fr; }
+    .newsletter-form { flex-direction:column; }
+    .footer-bottom { flex-direction:column; gap:0.5rem; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Tiffin Tales</a>
+  <ul class="nav-links">
+    <li><a href="#about">Story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#specials">Specials</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#newsletter" class="nav-cta">Reserve</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu" onclick="toggleMenu()">✕</button>
+  <a href="#about" onclick="toggleMenu()">Story</a>
+  <a href="#menu" onclick="toggleMenu()">Menu</a>
+  <a href="#specials" onclick="toggleMenu()">Specials</a>
+  <a href="#experience" onclick="toggleMenu()">Experience</a>
+  <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="#newsletter" onclick="toggleMenu()">Reserve a Table</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-tag">Authentic South Indian Cuisine</div>
+  <h1 class="hero-h1">Where Every<br>Bite <em>Tells</em><br>A Story</h1>
+  <p class="hero-sub">Born from the aromas of grandmothers' kitchens, each dish is a passage into the soul of South India — crafted with time, devotion and the finest ingredients.</p>
+  <div class="hero-btns">
+    <a href="#menu" class="btn-primary">Explore Our Menu</a>
+    <a href="#about" class="btn-outline">Our Story</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">Signature Dishes</div></div>
+    <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">Locations</div></div>
+    <div class="stat-item"><div class="stat-num">4.8★</div><div class="stat-label">Average Rating</div></div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item">Masala Dosa <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Filter Coffee <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Medu Vada <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Appam & Stew <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Bisi Bele Bath <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Chettinad Curry <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Pesarattu <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Pongal <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Kerala Parotta <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Payasam <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Masala Dosa <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Filter Coffee <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Medu Vada <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Appam & Stew <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Bisi Bele Bath <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Chettinad Curry <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Pesarattu <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Pongal <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Kerala Parotta <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Payasam <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img-wrap reveal-left">
+    <img class="about-img" src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&q=80" alt="South Indian food" loading="lazy">
+    <div class="about-img-accent">
+      <div class="accent-year">2010</div>
+      <div class="accent-label">Established</div>
+    </div>
+  </div>
+  <div class="reveal-right">
+    <div class="section-tag">Our Heritage</div>
+    <h2 class="section-h2">Flavours Passed<br>Down <em>Through Generations</em></h2>
+    <p class="about-text">Tiffin Tales was born from a deep reverence for South Indian culinary traditions. Every recipe traces its roots to ancestral kitchens in Tamil Nadu, Kerala, Karnataka and Andhra Pradesh — where food is not just sustenance, but a ritual of love.</p>
+    <p class="about-text" style="margin-top:1rem;">We use stone-ground batters, sun-dried spices, and slow-cooked gravies that honour the original flavours. No shortcuts, no compromises — just honest, beautiful food.</p>
+    <div class="feature-pills stagger">
+      <span class="pill">Stone-Ground Batters</span>
+      <span class="pill">Fresh Coconut Daily</span>
+      <span class="pill">Handpicked Spices</span>
+      <span class="pill">Slow-Cooked Gravies</span>
+      <span class="pill">No Preservatives</span>
+      <span class="pill">Regional Recipes</span>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="menu-header reveal">
+    <div class="section-tag" style="justify-content:center;">Our Offerings</div>
+    <h2 class="section-h2">A Menu That <em>Celebrates</em> the South</h2>
+  </div>
+  <div class="menu-tabs" id="menuTabs">
+    <button class="tab-btn active" data-tab="dosas">Dosas</button>
+    <button class="tab-btn" data-tab="idli">Idli & Vada</button>
+    <button class="tab-btn" data-tab="rice">Rice Dishes</button>
+    <button class="tab-btn" data-tab="curries">Curries</button>
+    <button class="tab-btn" data-tab="snacks">Snacks</button>
+    <button class="tab-btn" data-tab="sweets">Sweets</button>
+    <button class="tab-btn" data-tab="drinks">Beverages</button>
+  </div>
+
+  <div class="menu-panel active" id="tab-dosas">
+    <div class="menu-card">
+      <img class="menu-card-img" src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=500&q=80" alt="Masala Dosa" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Classic</div>
+        <div class="menu-card-name">Masala Dosa</div>
+        <div class="menu-card-desc">Golden crispy crepe filled with spiced potato-onion masala, served with coconut chutney and sambar.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 120</span><span class="menu-badge badge-popular">★ Popular</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="https://images.unsplash.com/photo-1630383249896-424e482df921?w=500&q=80" alt="Paper Dosa" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Crispy</div>
+        <div class="menu-card-name">Paper Roast Dosa</div>
+        <div class="menu-card-desc">Wafer-thin, melt-on-your-tongue dosa roasted to perfection in pure ghee — paper-light and irresistible.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 130</span><span class="menu-badge">Signature</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Mysore Dosa.webp" alt="Mysore Dosa" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Karnataka</div>
+        <div class="menu-card-name">Mysore Masala Dosa</div>
+        <div class="menu-card-desc">Crispy dosa smeared with fiery red chutney, filled with spiced potato masala — the Mysore way.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 140</span><span class="menu-badge badge-spicy">🌶 Spicy</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=500&q=80" alt="Pesarattu" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Andhra Special</div>
+        <div class="menu-card-name">Pesarattu</div>
+        <div class="menu-card-desc">Andhra-style green moong dal crepe, slightly earthy and nutty — served with ginger chutney and upma.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 115</span><span class="menu-badge">Healthy</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=500&q=80" alt="Rava Dosa" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Semolina</div>
+        <div class="menu-card-name">Rava Onion Dosa</div>
+        <div class="menu-card-desc">Lacy, porous semolina crepe with caramelised onion and curry leaves — a breakfast staple reimagined.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 125</span><span class="menu-badge badge-popular">★ Popular</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Neer Dosa.jpg" alt="Neer Dosa" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Karnataka Coast</div>
+        <div class="menu-card-name">Neer Dosa</div>
+        <div class="menu-card-desc">Feather-light, silky rice crepe from coastal Karnataka — delicate and ethereal, best with coconut milk curry.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 110</span><span class="menu-badge">Light</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-panel" id="tab-idli">
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/plainidli.jpg" alt="Idli" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Classic</div>
+        <div class="menu-card-name">Plain Idli</div>
+        <div class="menu-card-desc">Soft, airy steamed rice cakes served with our house-made coconut chutney and fragrant sambar.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 80</span><span class="menu-badge badge-popular">★ Popular</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Ghee Podi Idli.jpg" alt="Ghee Idli" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Indulgent</div>
+        <div class="menu-card-name">Ghee Podi Idli</div>
+        <div class="menu-card-desc">Soft idlis tossed in hand-ground gunpowder spice and generous drizzle of golden clarified butter.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 100</span><span class="menu-badge">Signature</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Medu Vada.jpg" alt="Medu Vada" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Crispy</div>
+        <div class="menu-card-name">Medu Vada</div>
+        <div class="menu-card-desc">Golden fried urad dal fritters, perfectly crunchy outside and fluffy inside. Served with sambar and two chutneys.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 90</span><span class="menu-badge badge-popular">★ Popular</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Sambar Vada.jpg" alt="Sambar Vada" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Comfort</div>
+        <div class="menu-card-name">Sambar Vada</div>
+        <div class="menu-card-desc">Medu vadas dunked in piping hot sambar, soaking up the tangy-spiced tamarind lentil broth.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 100</span><span class="menu-badge">Comfort Food</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Kanchipuram-Idli.png" alt="Kanchipuram Idli" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Temple Style</div>
+        <div class="menu-card-name">Kanchipuram Idli</div>
+        <div class="menu-card-desc">Flavour-packed idli from the temple town, infused with pepper, ginger, cashews and ghee tempering.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 110</span><span class="menu-badge">Heritage</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-panel" id="tab-rice">
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Bisi Bele Bath.jpg" alt="Bisi Bele Bath" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Karnataka</div>
+        <div class="menu-card-name">Bisi Bele Bath</div>
+        <div class="menu-card-desc">Karnataka's beloved one-pot treasure — spiced rice-lentil-vegetable porridge with ghee, cashews and bisi bele bath powder.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 160</span><span class="menu-badge badge-popular">★ Popular</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Curd Rice.jpg" alt="Curd Rice" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Tamil</div>
+        <div class="menu-card-name">Thayir Sadam</div>
+        <div class="menu-card-desc">Cooling curd rice tempered with mustard seeds, curry leaves and pomegranate. A South Indian soul-food classic.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 130</span><span class="menu-badge">Cooling</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Lemon Rice.jpg" alt="Lemon Rice" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Tangy</div>
+        <div class="menu-card-name">Elumichai Sadam</div>
+        <div class="menu-card-desc">Zesty lemon rice fragrant with turmeric and peanuts, tempered with mustard and dried red chillies.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 120</span><span class="menu-badge">Tangy</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Coconut Rice.jpg" alt="Coconut Rice" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Coastal</div>
+        <div class="menu-card-name">Thengai Sadam</div>
+        <div class="menu-card-desc">Fluffy rice tossed with fresh grated coconut, curry leaves and cashews — a coastal celebration in a bowl.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 130</span><span class="menu-badge">Festive</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Sambar Rice.avif" alt="Sambar Rice" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Andhra</div>
+        <div class="menu-card-name">Gongura Pulihora</div>
+        <div class="menu-card-desc">Andhra's signature tamarind rice made with tangy gongura (sorrel leaves) — a punchy, addictive flavour.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 145</span><span class="menu-badge badge-spicy">🌶 Bold</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Pongal.webp" alt="Pongal" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Harvest Festival</div>
+        <div class="menu-card-name">Ven Pongal</div>
+        <div class="menu-card-desc">Creamy rice-moong dal porridge laced with black pepper, cumin and cashews in brown butter — ultimate breakfast comfort.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 110</span><span class="menu-badge badge-popular">★ Popular</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-panel" id="tab-curries">
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Sambar Vada.jpg" alt="Sambar" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Tamil Nadu</div>
+        <div class="menu-card-name">Veechu Sambar</div>
+        <div class="menu-card-desc">Restaurant-style light, aromatic sambar tossed with pearl onions, tomato and a special spice blend.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 80</span><span class="menu-badge">Essential</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Chettinad Vegetable Curry.webp" alt="Chettinad Curry" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Chettinad</div>
+        <div class="menu-card-name">Chettinad Vegetable Curry</div>
+        <div class="menu-card-desc">Bold, aromatic Chettinad masala with kalpasi, marathi mokku and star anise — layers of flavour in every spoonful.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 180</span><span class="menu-badge badge-spicy">🌶 Fiery</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Avial.jpg" alt="Avial" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Kerala</div>
+        <div class="menu-card-name">Avial</div>
+        <div class="menu-card-desc">Kerala's crown jewel — mixed vegetables in a thick coconut-curd gravy, finished with coconut oil and curry leaves.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 160</span><span class="menu-badge">Heritage</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Rasam.webp" alt="Rasam" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Medicinal</div>
+        <div class="menu-card-name">Pepper Rasam</div>
+        <div class="menu-card-desc">Thin, soothing tomato-tamarind broth with black pepper and cumin — the original South Indian digestif.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 70</span><span class="menu-badge">Soul Food</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-panel" id="tab-snacks">
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Paniyaram.jpg" alt="Paniyaram" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Street Food</div>
+        <div class="menu-card-name">Kuzhi Paniyaram</div>
+        <div class="menu-card-desc">Bite-sized fermented rice dumplings cooked in cast iron moulds — crispy outside, soft and airy inside.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 95</span><span class="menu-badge badge-popular">★ Popular</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Upma.jpg" alt="Upma" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Breakfast</div>
+        <div class="menu-card-name">Rava Upma</div>
+        <div class="menu-card-desc">Savoury semolina porridge cooked in ghee with mustard, curry leaves and cashews — a classic morning staple.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 85</span><span class="menu-badge">Classic</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Appam.jpg" alt="Appam" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Kerala</div>
+        <div class="menu-card-name">Appam & Stew</div>
+        <div class="menu-card-desc">Lacy rice-coconut hoppers with fluffy centers, paired with a gentle coconut milk-vegetable stew.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 150</span><span class="menu-badge">Signature</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Puttu.jpg" alt="Puttu" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Kerala Breakfast</div>
+        <div class="menu-card-name">Puttu & Kadala Curry</div>
+        <div class="menu-card-desc">Steamed rice-coconut cylinders with a robust black chickpea curry — Kerala's most beloved morning duo.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 140</span><span class="menu-badge">Heritage</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="https://images.unsplash.com/photo-1630383249896-424e482df921?w=500&q=80" alt="Adai" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Protein Rich</div>
+        <div class="menu-card-name">Adai Avial</div>
+        <div class="menu-card-desc">Thick multi-lentil pancake loaded with protein, served alongside a generous bowl of creamy avial.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 145</span><span class="menu-badge">Wholesome</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-panel" id="tab-sweets">
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Kesari Halwa.avif" alt="Kesari" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Tamil Classic</div>
+        <div class="menu-card-name">Kesari Halwa</div>
+        <div class="menu-card-desc">Semolina pudding glowing with saffron, studded with golden raisins and cashews in fragrant ghee.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 90</span><span class="menu-badge badge-popular">★ Popular</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Paal Payasam.webp" alt="Payasam" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Temple Offering</div>
+        <div class="menu-card-name">Paal Payasam</div>
+        <div class="menu-card-desc">Slow-reduced milk pudding with rice, flavoured with cardamom and rose water, garnished with pistachio.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 110</span><span class="menu-badge">Festive</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Mysore Pak.jpg" alt="Mysore Pak" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Mysore Royal</div>
+        <div class="menu-card-name">Mysore Pak</div>
+        <div class="menu-card-desc">The legendary sweet from the Mysore palace kitchen — crumbly gram flour fudge saturated in ghee.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 80</span><span class="menu-badge">Heritage</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Sakkarai Pongal.webp" alt="Sakkarai Pongal" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Seasonal</div>
+        <div class="menu-card-name">Sakkarai Pongal</div>
+        <div class="menu-card-desc">Sweet rice-lentil porridge with jaggery, cardamom, and ghee-fried cashews — made on auspicious occasions.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 100</span><span class="menu-badge">Traditional</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-panel" id="tab-drinks">
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Degree Filter Coffee.jpg" alt="Filter Coffee" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Must Try</div>
+        <div class="menu-card-name">Degree Filter Coffee</div>
+        <div class="menu-card-desc">South India's iconic chicory-coffee decoction poured back and forth to a perfect froth in a steel tumbler-dabarah.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 60</span><span class="menu-badge badge-popular">★ Iconic</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Buttermilk.webp" alt="Buttermilk" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Cooling</div>
+        <div class="menu-card-name">Spiced Neer Mor</div>
+        <div class="menu-card-desc">Thin, tempered buttermilk with ginger, green chilli and curry leaves — the perfect digestif for a South Indian meal.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 50</span><span class="menu-badge">Digestive</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Panakam.jpg" alt="Panakam" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Festive</div>
+        <div class="menu-card-name">Panakam</div>
+        <div class="menu-card-desc">Traditional jaggery-lemon-pepper drink from Tamil temple festivals — sweet, tangy and cooling all at once.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 55</span><span class="menu-badge">Heritage</span></div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="./images/Rose Milk.webp" alt="Rose Milk" loading="lazy">
+      <div class="menu-card-body">
+        <div class="menu-card-tag">Chennai Classic</div>
+        <div class="menu-card-name">Rose Milk</div>
+        <div class="menu-card-desc">Chilled milk infused with hand-crafted rose syrup — the nostalgic pink drink of every South Indian street.</div>
+        <div class="menu-card-footer"><span class="menu-price">₹ 65</span><span class="menu-badge">Nostalgic</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALS CAROUSEL -->
+<section id="specials">
+  <div class="specials-header">
+    <div class="reveal">
+      <div class="section-tag">Chef's Picks</div>
+      <h2 class="section-h2">Today's <em>Specials</em></h2>
+    </div>
+    <div class="carousel-nav">
+      <button class="carousel-btn" id="prevBtn">←</button>
+      <button class="carousel-btn" id="nextBtn">→</button>
+    </div>
+  </div>
+  <div class="carousel-wrap">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="special-card">
+        <img class="special-img" src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&q=80" alt="Chettinad Thali">
+        <div class="special-body">
+          <div class="special-number">01</div>
+          <div class="special-name">Chettinad Thali</div>
+          <div class="special-desc">A curated feast from the Chettinad heartland — aromatic gravies, fragrant rice, crispy papadams and house-made pickle all on one banana leaf.</div>
+        </div>
+      </div>
+      <div class="special-card">
+        <img class="special-img" src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=600&q=80" alt="Kerala Sadya">
+        <div class="special-body">
+          <div class="special-number">02</div>
+          <div class="special-name">Kerala Sadya Thali</div>
+          <div class="special-desc">The grand Kerala feast served on fresh banana leaves with 12+ dishes — avial, olan, erissery, sambar, rasam and payasam.</div>
+        </div>
+      </div>
+      <div class="special-card">
+        <img class="special-img" src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=600&q=80" alt="Karnataka Oota">
+        <div class="special-body">
+          <div class="special-number">03</div>
+          <div class="special-name">Karnataka Oota</div>
+          <div class="special-desc">Traditional Karnataka meal with bisi bele bath, jolada roti, palya, gojju, kosambari and signature paan payasa.</div>
+        </div>
+      </div>
+      <div class="special-card">
+        <img class="special-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Andhra Meals">
+        <div class="special-body">
+          <div class="special-number">04</div>
+          <div class="special-name">Andhra Bhojanam</div>
+          <div class="special-desc">The fiery Andhra meals experience — gongura pickle, pesarattu, pappu, pulusu and a bold chettinad-style curry.</div>
+        </div>
+      </div>
+      <div class="special-card">
+        <img class="special-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Tamil Tiffin">
+        <div class="special-body">
+          <div class="special-number">05</div>
+          <div class="special-name">Tamil Tiffin Box</div>
+          <div class="special-desc">A curated tiffin of idli, podi dosa, pongal and kesari halwa — the perfect mid-morning repast Tamil grandmothers approved.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="reveal-left">
+    <div class="section-tag">Why Tiffin Tales</div>
+    <h2 class="section-h2">An <em>Experience</em><br>Beyond the Plate</h2>
+    <p class="exp-text">At Tiffin Tales, we believe dining is a multi-sensory ritual. From the moment you step in, the aromas of tempering spices, the warmth of brass lamps, and the textures of handloom cotton set the stage for something extraordinary.</p>
+    <div class="exp-features stagger">
+      <div class="exp-feat">
+        <div class="exp-feat-icon">🫙</div>
+        <div class="exp-feat-title">House-Ground Spices</div>
+        <div class="exp-feat-text">Our spice blends are stone-ground in-house each morning — never pre-packaged.</div>
+      </div>
+      <div class="exp-feat">
+        <div class="exp-feat-icon">🍃</div>
+        <div class="exp-feat-title">Banana Leaf Service</div>
+        <div class="exp-feat-text">Festive thalis served on banana leaf, as tradition demands, enhancing the natural flavour.</div>
+      </div>
+      <div class="exp-feat">
+        <div class="exp-feat-icon">🪔</div>
+        <div class="exp-feat-title">Heritage Ambiance</div>
+        <div class="exp-feat-text">Warm brass accents, handloom textiles and Carnatic instrumental create the perfect backdrop.</div>
+      </div>
+      <div class="exp-feat">
+        <div class="exp-feat-icon">👨‍🍳</div>
+        <div class="exp-feat-title">Regional Specialists</div>
+        <div class="exp-feat-text">Our chefs are sourced from each region — a Tamil Nadu cook for Tamil dishes, a Kerala specialist for Kerala dishes.</div>
+      </div>
+    </div>
+  </div>
+  <div class="exp-visual reveal-right">
+    <div class="exp-img-grid">
+      <img class="exp-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Restaurant interior" loading="lazy">
+      <img class="exp-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=80" alt="Plating" loading="lazy">
+      <img class="exp-img" src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=500&q=80" alt="Spices" loading="lazy">
+    </div>
+    <div class="exp-quote">"Food is not just eaten and forgotten; it is so laden with memory, nostalgia, and longing." — Madhur Jaffrey</div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="reveal" style="text-align:center">
+    <div class="section-tag" style="justify-content:center">Our Craft</div>
+    <h2 class="section-h2">From <em>Farm to Leaf</em></h2>
+  </div>
+  <div class="process-grid stagger">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <span class="step-icon">🌾</span>
+      <div class="step-title">Sourced with Care</div>
+      <div class="step-text">Aged parboiled rice, organic urad dal and farm-fresh coconuts are sourced from partner farms in Tamil Nadu and Kerala.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <span class="step-icon">⚙️</span>
+      <div class="step-title">Stone-Ground Daily</div>
+      <div class="step-text">Batters are ground fresh each morning on wet-stone grinders to preserve enzymes and achieve the perfect fermentation.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <span class="step-icon">🔥</span>
+      <div class="step-title">Slow Cooked</div>
+      <div class="step-text">Gravies are cooked low and slow to develop complexity. Sambar simmers for three hours. Chettinad curry for four.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <span class="step-icon">🍃</span>
+      <div class="step-title">Served with Love</div>
+      <div class="step-text">Every plate is assembled to order — fresh off the griddle, piping hot, and presented with pride on banana leaf or earthenware.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-header reveal">
+    <div class="section-tag" style="justify-content:center">Guest Stories</div>
+    <h2 class="section-h2">Heard From Our <em>Happy Guests</em></h2>
+  </div>
+  <div class="testimonials-grid stagger">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">The Chettinad thali was an absolute revelation — layers of spice so complex, yet so beautifully balanced. The pepper rasam alone was worth the entire trip. This is South Indian food as it was meant to be.</p>
+      <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Anjali Krishnamurthy</div><div class="testi-loc">Chennai, Tamil Nadu</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">I've tried many South Indian restaurants across India, but the Kerala Sadya here genuinely transported me back to my grandmother's home in Thrissur. The avial and olan were perfect in every way.</p>
+      <div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Radhakrishnan Pillai</div><div class="testi-loc">Kolkata, West Bengal</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">The filter coffee here is genuinely the best I've had outside Chennai. They do the proper dabarah-tumbler pour and everything. And the neer dosa with coconut milk stew — ethereal. I come every week now.</p>
+      <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Subramanya Rao</div><div class="testi-loc">Bangalore, Karnataka</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="reveal" style="text-align:center; margin-bottom:3.5rem;">
+    <div class="section-tag" style="justify-content:center">Got Questions?</div>
+    <h2 class="section-h2">Frequently <em>Asked</em></h2>
+  </div>
+  <div id="faqList">
+    <div class="faq-item">
+      <div class="faq-q">What makes your dosa batter different? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Our batter is ground fresh daily on traditional wet-stone grinders, not blenders. This creates a finer texture and allows proper fermentation over 12–16 hours, resulting in dosas that are lighter, crisper and more flavourful.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you cater to vegan guests? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Absolutely. South Indian cuisine is naturally vegan-friendly. Over 80% of our menu is vegan or easily adapted. We clearly mark all dairy-containing items. Even our ghee dishes can often be substituted with coconut oil on request.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How spicy is the food? Can I request milder versions? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Heat levels vary by dish — we mark spicy dishes with a chilli icon. Most dishes can be prepared milder on request. Just inform your server and our chefs will adjust accordingly without compromising the flavour profile.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you offer South Indian thali / meal plates? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Yes! We offer rotating regional thalis — Tamil Tiffin, Kerala Sadya, Chettinad Thali, Andhra Bhojanam and Karnataka Oota. These change with the season and festival calendar. Check our Specials section for availability.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I order for corporate events or large gatherings? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Yes, we take catering orders for 20 to 500 guests including banana leaf meal services, tiffin box sets and live dosa stations. Contact us via the reservation form or call ahead at least 72 hours in advance.</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER / RESERVATION -->
+<section id="newsletter">
+  <div class="reveal">
+    <div class="section-tag" style="justify-content:center; color:var(--nude-400)">Stay Connected</div>
+    <h2 class="section-h2">Reserve a Table or<br><em>Join Our Community</em></h2>
+    <p class="newsletter-sub">Get exclusive previews of seasonal menus, festival thali announcements and members-only offers.</p>
+    <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+      <input class="newsletter-input" type="email" placeholder="Your email address" required>
+      <button class="newsletter-btn" type="submit">Subscribe</button>
+    </form>
+    <p id="subscribeMsg" style="color:var(--turmeric);margin-top:1rem;font-size:0.85rem;display:none;">🎉 Welcome to the Tiffin Tales family!</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">Tiffin Tales</div>
+      <p class="footer-tagline">Celebrating the extraordinary culinary heritage of South India — one honest, lovingly crafted plate at a time.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-icon">f</a>
+        <a href="#" class="social-icon">ig</a>
+        <a href="#" class="social-icon">yt</a>
+        <a href="#" class="social-icon">tw</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#menu">Full Menu</a></li>
+        <li><a href="#specials">Specials</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title">Explore</div>
+      <ul class="footer-links">
+        <li><a href="#">Franchise</a></li>
+        <li><a href="#">Catering</a></li>
+        <li><a href="#">Gift Cards</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title">Locations</div>
+      <ul class="footer-links">
+        <li><a href="#">Salt Lake, Kolkata</a></li>
+        <li><a href="#">Lake Town, Kolkata</a></li>
+        <li><a href="#">Forum Mall, Kolkata</a></li>
+        <li><a href="#">Noida Sector 18</a></li>
+        <li><a href="#">Connaught Place, Delhi</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Tiffin Tales. All rights reserved.</span>
+    <span>Privacy Policy · Terms · Accessibility</span>
+  </div>
+</footer>
+
+<script>
+// NAV SCROLL
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// MOBILE MENU
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// MENU TABS
+document.getElementById('menuTabs').addEventListener('click', (e) => {
+  if (!e.target.classList.contains('tab-btn')) return;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById('tab-' + e.target.dataset.tab).classList.add('active');
+});
+
+// CAROUSEL
+let carouselIdx = 0;
+const track = document.getElementById('carouselTrack');
+function getCardWidth() {
+  const card = track.children[0];
+  const gap = 32;
+  return card.offsetWidth + gap;
+}
+function updateCarousel() {
+  const visible = window.innerWidth < 700 ? 1 : window.innerWidth < 1000 ? 2 : 3;
+  const max = track.children.length - visible;
+  carouselIdx = Math.max(0, Math.min(carouselIdx, max));
+  track.style.transform = `translateX(-${carouselIdx * getCardWidth()}px)`;
+}
+document.getElementById('nextBtn').onclick = () => { carouselIdx++; updateCarousel(); };
+document.getElementById('prevBtn').onclick = () => { carouselIdx--; updateCarousel(); };
+window.addEventListener('resize', updateCarousel);
+
+// FAQ ACCORDION
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// SCROLL REVEAL
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger').forEach(el => observer.observe(el));
+
+// NEWSLETTER
+function handleSubscribe(e) {
+  e.preventDefault();
+  document.getElementById('subscribeMsg').style.display = 'block';
+  e.target.reset();
+}
+</script>
+</body>
+</html>

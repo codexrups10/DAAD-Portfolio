@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – Palam Hybrid Premium</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+:root{
+    --c1:#FFFBDE;
+    --c2:#91C8E4;
+    --c3:#749BC2;
+    --c4:#4682A9;
+    --gradient: linear-gradient(135deg,var(--c1),var(--c2),var(--c3),var(--c4));
+}
+body{
+    font-family: 'Arial', sans-serif;
+    background: var(--c1);
+    padding-top: 80px;
+}
+.section-title{
+    font-weight: 700;
+    font-size: 2.4rem;
+}
+.icon-box{
+    background: var(--gradient);
+    color:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.2);
+    transition:0.4s;
+}
+.icon-box:hover{
+    transform: translateY(-8px);
+}
+.icon-box i{
+    font-size:2.5rem;
+    margin-bottom:15px;
+}
+.team-card img{
+    border-radius:12px;
+    height:250px;
+    object-fit:cover;
+}
+</style>
+
+</head>
+<body>
+
+
+<!-- =============================
+     PREMIUM NAVBAR WITH MEGA DROPDOWN
+============================= -->
+<nav class="navbar navbar-expand-lg fixed-top" style="background: linear-gradient(135deg,#91C8E4,#fff); box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+  <div class="container">
+    <a class="navbar-brand text-white fw-bold d-flex align-items-center" href="index.html">
+      <img src="./image/logo.jpg" width="65" class="me-2 rounded-circle shadow-sm">
+    
+    </a>
+
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="nav">
+      <ul class="navbar-nav">
+
+        <li class="nav-item"><a class="nav-link text-black " href="./index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-black " href="./about.html">About</a></li>
+
+        <!-- Mega Dropdown -->
+        <li class="nav-item dropdown position-static">
+          <a class="nav-link dropdown-toggle text-black" href="./product.html" data-bs-toggle="dropdown">Products</a>
+          <ul class="dropdown-menu p-4 mega-dropdown shadow" style="min-width:650px; border-radius:12px; background: linear-gradient(135deg,#91C8E4,#fff);">
+            <div class="row">
+              <div class="col-md-4">
+                <h6 class="fw-bold text-primary">Padlocks</h6>
+                <ul class="list-unstyled">
+                  <li><a class="dropdown-item" href="#">Pad Locks</a></li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <h6 class="fw-bold text-primary">Builders Hardware</h6>
+                <ul class="list-unstyled">
+                  <li><a class="dropdown-item" href="./Door Accessories.html">Door Accessories</a></li>
+                  <li><a class="dropdown-item" href="./Mortis Lock.html">Door Closer</a></li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <h6 class="fw-bold text-primary">Furniture Locks & Accessories</h6>
+                <ul class="list-unstyled">
+                  <li><a class="dropdown-item" href="Furniture Locks.HTML">Furniture Locks</a></li>
+                  <li><a class="dropdown-item" href="./Digital Locks.HTML">Digital Locks</a></li>
+                </ul>
+              </div>
+            </div>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-black" href="./support.html">Support</a></li>
+        <li class="nav-item"><a class="nav-link text-black active" href="./contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- =============================
+       NAVBAR CSS
+============================= -->
+<style>
+/* Navbar links style */
+.navbar-nav .nav-link {
+    position: relative;
+    color: #fff;
+    font-weight: 600;
+    margin-right: 15px;
+    transition: 0.3s;
+    text-shadow: 0 0 3px #91C8E4, 0 0 6px #fff;
+}
+
+/* Gradient animated underline */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #91C8E4, #fff, #91C8E4);
+    border-radius: 2px;
+    transition: width 0.4s ease-in-out;
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+/* Navbar hover glow effect */
+.navbar-nav .nav-link:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #91C8E4, 0 0 12px #fff;
+}
+
+/* Hamburger button */
+.navbar-toggler {
+    border: 2px solid #fff;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.navbar-toggler:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.1);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+}
+
+
+/* Mega Dropdown */
+.mega-dropdown {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 30px 20px;
+}
+.nav-item.dropdown:hover > .mega-dropdown {
+  display: block;
+}
+.mega-dropdown h6 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.mega-dropdown .dropdown-item {
+  color: #0d6efd;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.mega-dropdown .dropdown-item:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #fff;
+  background: rgba(255,255,255,0.2);
+  border-radius: 5px;
+}
+
+/* Toggler icon hover effect */
+.navbar-toggler:hover {
+  filter: brightness(1.2) invert(1);
+}
+</style>
+
+
+<!-- HERO SECTION -->
+<section class="py-5 text-white" style="background: linear-gradient(135deg,#91C8E4,#4682A9);">
+  <div class="container text-center">
+    <h1 data-aos="fade-up">Get in Touch with Palam</h1>
+    <p class="lead mt-3" data-aos="fade-up" data-aos-delay="100">We are here to answer your questions, help with support, or provide product info.</p>
+  </div>
+</section>
+
+<!-- CONTACT FORM & INFO -->
+<section class="py-5" style="background:#f0f8ff;">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Form -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="section-title mb-4" style="color:#4682A9;">Contact Form</h2>
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="Your Email" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Subject</label>
+            <input type="text" class="form-control" placeholder="Subject" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="5" placeholder="Write your message..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gradient">Send Message</button>
+        </form>
+      </div>
+      <!-- Contact Info -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="section-title mb-4" style="color:#4682A9;">Contact Info</h2>
+        <div class="icon-box mb-4"><i class="bi bi-geo-alt"></i><p class="mt-2 mb-0">123 Palam Street, City, India</p></div>
+        <div class="icon-box mb-4"><i class="bi bi-envelope"></i><p class="mt-2 mb-0">info@palam.com</p></div>
+        <div class="icon-box mb-4"><i class="bi bi-telephone"></i><p class="mt-2 mb-0">+91-XXXXXXXXXX</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOGLE MAP -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="section-title text-center mb-4" style="color:#4682A9;" data-aos="fade-up">Find Us Here</h2>
+    <div class="ratio ratio-16x9" data-aos="fade-up" data-aos-delay="100">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.911114825832!2d-73.98715568459482!3d40.75889504206179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c7ed616b%3A0xa3e4373e1e71b2b!2sTimes%20Square!5e0!3m2!1sen!2sin!4v1668470266040!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT CTA -->
+<section class="py-5 text-center text-white" style="background: linear-gradient(135deg,#91C8E4,#4682A9);">
+  <div class="container">
+    <h2 class="fw-bold mb-3" data-aos="fade-up">Need Help with Palam Products?</h2>
+    <p class="mb-4" data-aos="fade-up" data-aos-delay="100">Our support team is ready to assist you 24/7.</p>
+    <a href="./support.html" class="btn btn-support" data-aos="fade-up" data-aos-delay="200">Get Support Now</a>
+  </div>
+</section>
+
+
+
+<!-- ==============================
+     TEAM / SUPPORT EXPERTS
+============================== -->
+<section id="support-team" class="py-5" style="background:#eaf3fb;">
+  <div class="container">
+    <h2 style="color:#4682A9; font-weight:700; font-size:2.4rem; text-align:center; margin-bottom:3rem;" data-aos="fade-up">Meet Our Support Experts</h2>
+    <div class="row g-4 text-center">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div style="box-shadow:0 4px 14px rgba(0,0,0,0.2); padding:2rem; border-radius:16px;">
+          <img src="./image/expert1.jpg" alt="Expert 1" style="border-radius:12px; width:100%; height:250px; object-fit:cover; margin-bottom:1rem;">
+          <h5 style="font-weight:700;">Rohit Sharma</h5>
+          <p>Technical Support Lead</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div style="box-shadow:0 4px 14px rgba(0,0,0,0.2); padding:2rem; border-radius:16px;">
+          <img src="./image/expert2.jpg" alt="Expert 2" style="border-radius:12px; width:100%; height:250px; object-fit:cover; margin-bottom:1rem;">
+          <h5 style="font-weight:700;">Anita Verma</h5>
+          <p>Customer Care Manager</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div style="box-shadow:0 4px 14px rgba(0,0,0,0.2); padding:2rem; border-radius:16px;">
+          <img src="./image/expert3.jpg" alt="Expert 3" style="border-radius:12px; width:100%; height:250px; object-fit:cover; margin-bottom:1rem;">
+          <h5 style="font-weight:700;">Vikram Patel</h5>
+          <p>Product Specialist</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     CLIENT LOGOS / PARTNERS
+============================== -->
+<section id="partners" class="py-5" style="background:#f0f8ff;">
+  <div class="container" style="text-align:center;">
+    <h2 style="color:#4682A9; font-weight:700; font-size:2.4rem; margin-bottom:3rem;" data-aos="fade-up">Our Trusted Partners</h2>
+    <div class="row g-4 align-items-center justify-content-center">
+      <div class="col-6 col-md-2" data-aos="fade-up" data-aos-delay="100">
+        <img src="./image/logo1.png" alt="Partner 1" style="width:100%; height:auto;">
+      </div>
+      <div class="col-6 col-md-2" data-aos="fade-up" data-aos-delay="200">
+        <img src="./image/logo2.png" alt="Partner 2" style="width:100%; height:auto;">
+      </div>
+      <div class="col-6 col-md-2" data-aos="fade-up" data-aos-delay="300">
+        <img src="./image/logo3.png" alt="Partner 3" style="width:100%; height:auto;">
+      </div>
+      <div class="col-6 col-md-2" data-aos="fade-up" data-aos-delay="400">
+        <img src="./image/logo4.png" alt="Partner 4" style="width:100%; height:auto;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     CONTACT FUN FACTS / STATS
+============================== -->
+<section id="contact-stats" class="py-5" style="background:#eaf3fb;">
+  <div class="container">
+    <h2 style="color:#4682A9; font-weight:700; font-size:2.4rem; text-align:center; margin-bottom:3rem;" data-aos="fade-up">Palam Support At a Glance</h2>
+    <div class="row g-4 text-center">
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <div style="background: linear-gradient(135deg,#91C8E4,#4682A9); color:#fff; padding:2rem; border-radius:16px; box-shadow:0 4px 14px rgba(0,0,0,0.2);">
+          <i class="bi bi-headset" style="font-size:2.5rem;"></i>
+          <h5 style="margin-top:1rem; font-weight:700;">24/7 Support</h5>
+          <p>Always ready to assist our customers.</p>
+        </div>
+      </div>
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+        <div style="background: linear-gradient(135deg,#91C8E4,#4682A9); color:#fff; padding:2rem; border-radius:16px; box-shadow:0 4px 14px rgba(0,0,0,0.2);">
+          <i class="bi bi-people" style="font-size:2.5rem;"></i>
+          <h5 style="margin-top:1rem; font-weight:700;">Expert Team</h5>
+          <p>Trained professionals ensuring fast resolution.</p>
+        </div>
+      </div>
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <div style="background: linear-gradient(135deg,#91C8E4,#4682A9); color:#fff; padding:2rem; border-radius:16px; box-shadow:0 4px 14px rgba(0,0,0,0.2);">
+          <i class="bi bi-graph-up-arrow" style="font-size:2.5rem;"></i>
+          <h5 style="margin-top:1rem; font-weight:700;">Fast Response</h5>
+          <p>Average resolution time under 24 hours.</p>
+        </div>
+      </div>
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+        <div style="background: linear-gradient(135deg,#91C8E4,#4682A9); color:#fff; padding:2rem; border-radius:16px; box-shadow:0 4px 14px rgba(0,0,0,0.2);">
+          <i class="bi bi-award" style="font-size:2.5rem;"></i>
+          <h5 style="margin-top:1rem; font-weight:700;">Trusted Brand</h5>
+          <p>Serving thousands of satisfied customers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ---------------- PREMIUM FOOTER (INLINE CSS) ---------------- */
+
+.premium-footer {
+    background: rgba(15, 20, 35, 0.85);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 0 20px;
+    color: #dbe3ff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative glowing orbs */
+.premium-footer::before,
+.premium-footer::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    filter: blur(150px);
+    border-radius: 50%;
+    z-index: 0;
+}
+.premium-footer::before {
+    background: rgba(0, 200, 255, 0.25);
+    top: -80px;
+    right: -80px;
+}
+.premium-footer::after {
+    background: rgba(0, 255, 150, 0.25);
+    bottom: -80px;
+    left: -80px;
+}
+
+.footer-section {
+    z-index: 1;
+    position: relative;
+}
+
+/* Logo */
+.footer-logo {
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0px 6px 18px rgba(255, 255, 255, 0.15);
+}
+
+/* About */
+.footer-about {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Social Icons */
+.footer-social a {
+    font-size: 20px;
+    color: #cfd9ff;
+    margin-right: 15px;
+    transition: 0.3s;
+}
+.footer-social a:hover {
+    color: #00c6ff;
+    transform: scale(1.2);
+}
+
+/* Headings */
+.premium-footer h5 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: #fff;
+    position: relative;
+}
+.premium-footer h5::after {
+    content: "";
+    width: 50px;
+    height: 3px;
+    background: #00c6ff;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    border-radius: 3px;
+}
+
+/* Links */
+.footer-links li {
+    margin-bottom: 10px;
+}
+.footer-links a {
+    color: #c9d4ef;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.footer-links a:hover {
+    color: #00c6ff;
+    padding-left: 8px;
+}
+
+/* Newsletter Form */
+.footer-newsletter {
+    display: flex;
+    margin-bottom: 15px;
+}
+.footer-newsletter input {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    background: #ffffff10;
+    color: #fff;
+    outline: none;
+}
+.footer-newsletter input::placeholder {
+    color: #d0d7f1;
+}
+.footer-newsletter button {
+    padding: 10px 16px;
+    margin-left: 8px;
+    border: none;
+    border-radius: 8px;
+    background: #00c6ff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.footer-newsletter button:hover {
+    background: #00ffd5;
+}
+
+/* Contact Info */
+.footer-contact p {
+    margin-bottom: 6px;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 14px;
+    color: #b8c4e3;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .premium-footer {
+        text-align: center;
+    }
+
+    .premium-footer h5::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-newsletter {
+        flex-direction: column;
+    }
+    .footer-newsletter button {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+}
+</style>
+
+<!-- =================== PREMIUM FOOTER HTML =================== -->
+<footer class="premium-footer">
+    <div class="container">
+        <div class="row">
+
+            <!-- Logo & About -->
+            <div class="col-md-4 footer-section">
+                <img src="./image/logo.jpg" alt="Palam Logo" width="90" class="footer-logo">
+                <p class="footer-about">
+                    Premium Hardware & Security Solutions<br>
+                    Trusted by customers for reliability & innovation.
+                </p>
+
+                <!-- Social Icons -->
+                <div class="footer-social">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-youtube"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-4 footer-section">
+                <h5>Quick Links</h5>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="col-md-4 footer-section">
+                <h5>Stay Updated</h5>
+                <p>Subscribe for product updates & offers.</p>
+
+                <form class="footer-newsletter">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+
+                <div class="footer-contact">
+                    <p>Email: info@palam.com</p>
+                    <p>Phone: +91-XXXXXXXXXX</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+        © 2025 Palam Hardware. All Rights Reserved.
+    </div>
+</footer>
+
+<!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+</body>
+</html>

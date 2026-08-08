@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – Palam Hybrid Premium</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+:root{
+    --c1:#FFFBDE;
+    --c2:#91C8E4;
+    --c3:#749BC2;
+    --c4:#4682A9;
+    --gradient: linear-gradient(135deg,var(--c1),var(--c2),var(--c3),var(--c4));
+}
+body{
+    font-family: 'Arial', sans-serif;
+    background: var(--c1);
+    padding-top: 80px;
+}
+.section-title{
+    font-weight: 700;
+    font-size: 2.4rem;
+}
+.icon-box{
+    background: var(--gradient);
+    color:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.2);
+    transition:0.4s;
+}
+.icon-box:hover{
+    transform: translateY(-8px);
+}
+.icon-box i{
+    font-size:2.5rem;
+    margin-bottom:15px;
+}
+.team-card img{
+    border-radius:12px;
+    height:250px;
+    object-fit:cover;
+}
+</style>
+
+</head>
+<body>
+
+
+<!-- =============================
+     PREMIUM NAVBAR WITH MEGA DROPDOWN
+============================= -->
+<nav class="navbar navbar-expand-lg fixed-top" style="background: linear-gradient(135deg,#91C8E4,#fff); box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+  <div class="container">
+    <a class="navbar-brand text-white fw-bold d-flex align-items-center" href="index.html">
+      <img src="./image/logo.jpg" width="65" class="me-2 rounded-circle shadow-sm">
+    
+    </a>
+
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="nav">
+      <ul class="navbar-nav">
+
+        <li class="nav-item"><a class="nav-link text-black " href="./index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-black active" href="./about.html">About</a></li>
+
+        <!-- Mega Dropdown -->
+        <li class="nav-item dropdown position-static">
+          <a class="nav-link dropdown-toggle text-black" href="./product.html" data-bs-toggle="dropdown">Products</a>
+          <ul class="dropdown-menu p-4 mega-dropdown shadow" style="min-width:650px; border-radius:12px; background: linear-gradient(135deg,#91C8E4,#fff);">
+            <div class="row">
+              <div class="col-md-4">
+                <h6 class="fw-bold text-primary">Padlocks</h6>
+                <ul class="list-unstyled">
+                  <li><a class="dropdown-item" href="./product.html">Pad Locks</a></li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <h6 class="fw-bold text-primary">Builders Hardware</h6>
+                <ul class="list-unstyled">
+                  <li><a class="dropdown-item" href="./Door Accessories.html">Door Accessories</a></li>
+                  <li><a class="dropdown-item" href="./Mortis Lock.html">Mortis Lock</a></li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <h6 class="fw-bold text-primary">Furniture Locks & Accessories</h6>
+                <ul class="list-unstyled">
+                  <li><a class="dropdown-item" href="./Furniture Locks.HTML">Furniture Locks</a></li>
+                  <li><a class="dropdown-item" href="./Digital Locks.HTML">Digital Locks</a></li>
+                </ul>
+              </div>
+            </div>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-black" href="./support.html">Support</a></li>
+        <li class="nav-item"><a class="nav-link text-black" href="./contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- =============================
+       NAVBAR CSS
+============================= -->
+<style>
+/* Navbar links style */
+.navbar-nav .nav-link {
+    position: relative;
+    color: #fff;
+    font-weight: 600;
+    margin-right: 15px;
+    transition: 0.3s;
+    text-shadow: 0 0 3px #91C8E4, 0 0 6px #fff;
+}
+
+/* Gradient animated underline */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #91C8E4, #fff, #91C8E4);
+    border-radius: 2px;
+    transition: width 0.4s ease-in-out;
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+/* Navbar hover glow effect */
+.navbar-nav .nav-link:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #91C8E4, 0 0 12px #fff;
+}
+
+/* Hamburger button */
+.navbar-toggler {
+    border: 2px solid #fff;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.navbar-toggler:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.1);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+}
+
+
+/* Mega Dropdown */
+.mega-dropdown {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 30px 20px;
+}
+.nav-item.dropdown:hover > .mega-dropdown {
+  display: block;
+}
+.mega-dropdown h6 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.mega-dropdown .dropdown-item {
+  color: #0d6efd;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.mega-dropdown .dropdown-item:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #fff;
+  background: rgba(255,255,255,0.2);
+  border-radius: 5px;
+}
+
+/* Toggler icon hover effect */
+.navbar-toggler:hover {
+  filter: brightness(1.2) invert(1);
+}
+</style>
+
+
+<!-- Hero Section -->
+<section class="py-5 text-white text-center" 
+style="background:var(--gradient); background-size:cover; background-position:center; background-attachment:fixed;">
+  <div class="container">
+    <h1 class="fw-bold mb-3" data-aos="fade-up">
+      About PALAM Locks
+    </h1>
+    <h1 class="neon-text fw-bold mb-4" data-aos="fade-up" data-aos-delay="100">
+      <div style="border-bottom:4px solid #2b4349; display:inline-block; padding-bottom:8px;">
+      Securing Your World with Excellence
+  </div>
+</section>
+    </h1>
+    
+  </div>
+</section>
+
+<!-- Company Story -->
+<section class="py-5" style="background:#f8fbff;">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      
+      <div class="col-md-6" data-aos="fade-right">
+        <img src="./image/s1.jpg" 
+        class="img-fluid rounded shadow" style="border:6px solid #e3f2fd;">
+      </div>
+
+      <div class="col-md-6" data-aos="fade-left">
+        <h2 class="fw-bold mb-3" style="color:#0d47a1;">Our Story</h2>
+        <p style="font-size:16px; color:#444;">
+          PALAM Hybrid Premium is a name synonymous with trust, durability and innovation.
+          From traditional padlocks to advanced digital locking systems, our mission has been
+          to provide security hardware that customers can rely on for a lifetime.
+        </p>
+        <p style="font-size:16px; color:#444;">
+          With state-of-the-art manufacturing facilities, advanced engineering and strict
+          quality checks, we ensure every product meets global standards of safety and performance.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Mission, Vision, Values -->
+<section class="py-5" style="background:#e1f5fe;">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-5" style="color:#01579b;" data-aos="fade-up">Who We Are</h2>
+
+    <div class="row g-4">
+
+      <div class="col-md-4" data-aos="zoom-in">
+        <div style="background:white; border-radius:12px; padding:25px; 
+        box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+          <img src="./image/mis1.webp" 
+          class="img-fluid mb-3" style="border-radius:10px;">
+          <h5 class="fw-bold mt-3" style="color:#0277bd;">Our Mission</h5>
+          <p>To create high-security, durable and innovative locking solutions for every home and business.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="150">
+        <div style="background:white; border-radius:12px; padding:25px; 
+        box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+          <img src="./image/mis3.webp" 
+          class="img-fluid mb-3" style="border-radius:10px;">
+          <h5 class="fw-bold mt-3" style="color:#0277bd;">Our Vision</h5>
+          <p>To become India’s most trusted and globally recognized security hardware brand.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="250">
+        <div style="background:white; border-radius:12px; padding:25px; 
+        box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+          <img src="https://img.freepik.com/free-vector/business-partnership-agreement-handshake-illustration_74855-19924.jpg"
+           class="img-fluid mb-3" style="border-radius:10px;">
+          <h5 class="fw-bold mt-3" style="color:#0277bd;">Our Values</h5>
+          <p>Quality, Reliability, Innovation and Customer Satisfaction are at the heart of PALAM.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Manufacturing Strength -->
+<section class="py-5" style="background:white;">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-5" style="color:#01579b;" data-aos="fade-up">
+      Why Choose PALAM?
+    </h2>
+
+    <div class="row g-4 text-center">
+
+      <div class="col-md-4" data-aos="fade-up">
+        <div style="background:#e3f2fd; border-radius:12px; padding:25px;">
+          <img src="./image/a1.webp" 
+          class="img-fluid rounded mb-3">
+          <h5 class="fw-bold" style="color:#0266b3;">Advanced Engineering</h5>
+          <p>Modern machines, precision tools and automated workflow.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+        <div style="background:#e3f2fd; border-radius:12px; padding:25px;">
+          <img src="https://img.freepik.com/free-photo/security-protection-padlock-icon_53876-123995.jpg"
+           class="img-fluid rounded mb-3">
+          <h5 class="fw-bold" style="color:#0266b3;">Top Security</h5>
+          <p>Anti-theft tested & certified locks for maximum protection.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+        <div style="background:#e3f2fd; border-radius:12px; padding:25px;">
+          <img src="https://img.freepik.com/free-vector/global-network-concept-illustration_114360-5838.jpg"
+           class="img-fluid rounded mb-3">
+          <h5 class="fw-bold" style="color:#0266b3;">Nationwide Network</h5>
+          <p>Strong dealer network and customer support across India.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================= -->
+<!-- 0. WAVY SEPARATOR (TOP) -->
+<!-- ============================= -->
+<div class="wave-top">
+  <svg viewBox="0 0 1440 320"><path fill="#000000" fill-opacity="1" d="M0,64L60,101.3C120,139,240,213,360,213.3C480,213,600,139,720,96C840,53,960,43,1080,85.3C1200,128,1320,224,1380,272L1440,320L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
+</div>
+
+<!-- 1. STATS COUNTER SECTION -->
+<section class="py-5 text-white parallax-section" 
+style="background-image:url('https://images.pexels.com/photos/7130550/pexels-photo-7130550.jpeg'); background-size:cover; background-position:center; background-attachment:fixed;">
+
+  <div class="container text-center">
+    <h2 class="mb-4" data-aos="fade-up" style="color:#e7f9ff;">Our Growth & Impact</h2>
+
+    <div class="row">
+      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="100">
+        <h3 class="display-5" style="color:#00c6ff; text-shadow:0 0 15px #00c6ff;">15K+</h3>
+        <p style="color:white;">Happy Customers</p>
+      </div>
+
+      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="200">
+        <h3 class="display-5" style="color:#00c6ff; text-shadow:0 0 15px #00c6ff;">120+</h3>
+        <p style="color:white;">Premium Projects</p>
+      </div>
+
+      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="300">
+        <h3 class="display-5" style="color:#00c6ff; text-shadow:0 0 15px #00c6ff;">98%</h3>
+        <p style="color:white;">Customer Satisfaction</p>
+      </div>
+
+      <div class="col-md-3 mb-4" data-aos="zoom-in" data-aos-delay="400">
+        <h3 class="display-5" style="color:#00c6ff; text-shadow:0 0 15px #00c6ff;">50+</h3>
+        <p style="color:white;">Expert Team Members</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WAVE SEPARATOR -->
+<div class="wave-bottom">
+  <svg viewBox="0 0 1440 320"><path fill="#ffffff" 
+    d="M0,256L60,240C120,224,240,192,360,192C480,192,600,224,720,240C840,256,960,256,1080,234.7C1200,213,1320,171,1380,149.3L1440,128V320H0Z"></path></svg>
+</div>
+
+
+
+<!-- 2. TIMELINE SECTION -->
+<section class="py-5" style="background:#e7f9ff;">
+  <div class="container">
+    <h2 class="text-center mb-5" data-aos="fade-up" style="color:#00c6ff;">Our Journey</h2>
+
+    <div class="timeline d-flex justify-content-between text-center flex-wrap" 
+      style="position:relative;width:100%;">
+      
+      <!-- Timeline Horizontal Line -->
+      <div style="position:absolute; top:50%; left:0; width:100%; height:4px; background:#00c6ff; z-index:-1;"></div>
+
+      <div data-aos="fade-up" data-aos-delay="100" 
+      style="padding:20px 30px; background:white; border-radius:15px; border:2px solid #00c6ff; box-shadow:0 5px 20px rgba(0,198,255,0.4);">
+        <h5 style="color:#00c6ff;">2018</h5>
+        <p>Our humble beginning</p>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="200"
+      style="padding:20px 30px; background:white; border-radius:15px; border:2px solid #00c6ff; box-shadow:0 5px 20px rgba(0,198,255,0.4);">
+        <h5 style="color:#00c6ff;">2020</h5>
+        <p>Expanded to new regions</p>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="300"
+      style="padding:20px 30px; background:white; border-radius:15px; border:2px solid #00c6ff; box-shadow:0 5px 20px rgba(0,198,255,0.4);">
+        <h5 style="color:#00c6ff;">2022</h5>
+        <p>Launched premium services</p>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="400"
+      style="padding:20px 30px; background:white; border-radius:15px; border:2px solid #00c6ff; box-shadow:0 5px 20px rgba(0,198,255,0.4);">
+        <h5 style="color:#00c6ff;">2024</h5>
+        <p>Achieved global recognition</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 3. GLASSMORPHISM CTA BANNER -->
+<section class="py-5 text-center parallax-section"
+ style="background-image:url('https://images.pexels.com/photos/7130550/pexels-photo-7130550.jpeg'); 
+ background-size:cover; background-attachment:fixed;">
+
+  <div class="container">
+    <div data-aos="zoom-in" 
+    style="background:rgba(255,255,255,0.25); border:1px solid rgba(255,255,255,0.5); 
+    box-shadow:0 10px 30px rgba(0,198,255,0.5); backdrop-filter:blur(10px); 
+    border-radius:25px; padding:40px;">
+
+      <h2 style="color:white;">Level Up Your Experience</h2>
+      <p style="color:#e7f9ff;">Join us in creating something extraordinary.</p>
+      <a href="#" class="btn" style="background:white; color:#00c6ff; border-radius:30px; padding:10px 25px;">Get Started</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 4. TESTIMONIALS CAROUSEL -->
+<section class="py-5" style="background:white;">
+  <div class="container">
+    <h2 class="text-center mb-4" data-aos="fade-up" style="color:#00c6ff;">What People Say</h2>
+
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up">
+
+      <div class="carousel-inner">
+
+        <div class="carousel-item active text-center p-4" 
+        style="background:#e7f9ff; border-radius:20px; box-shadow:0 8px 20px rgba(0,198,255,0.3);">
+          <p class="lead italic">"Amazing quality and exceptional support!"</p>
+          <h6 style="color:#00aee6;">- Sarah Johnson</h6>
+        </div>
+
+        <div class="carousel-item text-center p-4"
+        style="background:#e7f9ff; border-radius:20px; box-shadow:0 8px 20px rgba(0,198,255,0.3);">
+          <p class="lead italic">"Their service changed my entire business."</p>
+          <h6 style="color:#00aee6;">- Michael Lee</h6>
+        </div>
+
+        <div class="carousel-item text-center p-4"
+        style="background:#e7f9ff; border-radius:20px; box-shadow:0 8px 20px rgba(0,198,255,0.3);">
+          <p class="lead italic">"Truly premium and reliable!"</p>
+          <h6 style="color:#00aee6;">- Priya Sharma</h6>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" style="filter:invert(57%) sepia(95%) saturate(2500%) hue-rotate(170deg);"></span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" style="filter:invert(57%) sepia(95%) saturate(2500%) hue-rotate(170deg);"></span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 5. FLOATING 3D CARDS -->
+<section class="py-5 text-white" style="background:#00aee6;">
+  <div class="container">
+    <h2 class="text-center mb-5" data-aos="fade-up" style="color:white;">Why Choose Us?</h2>
+
+    <div class="row g-4">
+
+      <div class="col-md-4" data-aos="flip-left">
+        <div class="p-4 shadow-lg" 
+        style="background:white; color:#00aee6; border-radius:20px; border:1px solid #00c6ff; box-shadow:0 10px 25px rgba(0,198,255,0.5);">
+          <h4>Premium Quality</h4>
+          <p>We deliver top-tier products with unmatched quality.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="flip-up" data-aos-delay="200">
+        <div class="p-4 shadow-lg"
+        style="background:white; color:#00aee6; border-radius:20px; border:1px solid #00c6ff; box-shadow:0 10px 25px rgba(0,198,255,0.5);">
+          <h4>Trusted Globally</h4>
+          <p>Our clients come from more than 20+ countries.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="flip-right" data-aos-delay="300">
+        <div class="p-4 shadow-lg"
+        style="background:white; color:#00aee6; border-radius:20px; border:1px solid #00c6ff; box-shadow:0 10px 25px rgba(0,198,255,0.5);">
+          <h4>24/7 Support</h4>
+          <p>We're always available when you need us.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<style>
+/* =============================
+   GLOBAL 
+============================= */
+
+.parallax-section {
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+
+/* ============================
+   WAVE SEPARATORS
+============================ */
+.wave-top svg, .wave-bottom svg {
+  display: block;
+  width: 100%;
+}
+
+
+/* =============================
+   NEON TEXT EFFECT (Sky Blue)
+============================= */
+.neon-text {
+  color: #00c6ff;
+  text-shadow: 0 0 10px #00c6ff, 0 0 25px #00c6ff;
+}
+
+
+/* =============================
+   TIMELINE (Sky Blue Theme)
+============================= */
+
+.gradient-box {
+  padding: 20px 30px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ffffff, #e7f9ff);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  transition: 0.3s;
+}
+
+.gradient-box:hover {
+  transform: translateY(-10px);
+  border-color: #00c6ff;
+  box-shadow: 0 10px 25px rgba(0, 198, 255, 0.4);
+}
+
+/* Timeline line */
+.timeline {
+  position: relative;
+  width: 100%;
+}
+
+.timeline:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #00c6ff;
+  z-index: -1;
+}
+
+
+/* =============================
+   GLASSMORPHISM CTA (SkyBlue glow)
+============================= */
+.glass-box {
+  background: rgba(255,255,255,0.25);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 25px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 35px rgba(0, 198, 255, 0.35);
+  animation: glow 4s infinite alternate;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 15px rgba(0, 198, 255, 0.2); }
+  100% { box-shadow: 0 0 40px rgba(0, 198, 255, 0.7); }
+}
+
+
+/* =============================
+   TESTIMONIALS (white + skyblue)
+============================= */
+.carousel-item {
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 198, 255, 0.3);
+}
+
+.carousel-item p {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #00aee6;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(52%) sepia(92%) saturate(2900%) hue-rotate(170deg);
+}
+
+
+/* =============================
+   FLOATING GLASS CARDS (white + sky blue neon)
+============================= */
+
+.glass-card {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 198, 255, 0.4);
+  transition: 0.4s ease-in-out;
+}
+
+.glass-card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 20px 45px rgba(0, 198, 255, 0.6);
+}
+
+</style>
+
+<style>
+/* ---------------- PREMIUM FOOTER (INLINE CSS) ---------------- */
+
+.premium-footer {
+    background: rgba(15, 20, 35, 0.85);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 0 20px;
+    color: #dbe3ff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative glowing orbs */
+.premium-footer::before,
+.premium-footer::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    filter: blur(150px);
+    border-radius: 50%;
+    z-index: 0;
+}
+.premium-footer::before {
+    background: rgba(0, 200, 255, 0.25);
+    top: -80px;
+    right: -80px;
+}
+.premium-footer::after {
+    background: rgba(0, 255, 150, 0.25);
+    bottom: -80px;
+    left: -80px;
+}
+
+.footer-section {
+    z-index: 1;
+    position: relative;
+}
+
+/* Logo */
+.footer-logo {
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0px 6px 18px rgba(255, 255, 255, 0.15);
+}
+
+/* About */
+.footer-about {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Social Icons */
+.footer-social a {
+    font-size: 20px;
+    color: #cfd9ff;
+    margin-right: 15px;
+    transition: 0.3s;
+}
+.footer-social a:hover {
+    color: #00c6ff;
+    transform: scale(1.2);
+}
+
+/* Headings */
+.premium-footer h5 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: #fff;
+    position: relative;
+}
+.premium-footer h5::after {
+    content: "";
+    width: 50px;
+    height: 3px;
+    background: #00c6ff;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    border-radius: 3px;
+}
+
+/* Links */
+.footer-links li {
+    margin-bottom: 10px;
+}
+.footer-links a {
+    color: #c9d4ef;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.footer-links a:hover {
+    color: #00c6ff;
+    padding-left: 8px;
+}
+
+/* Newsletter Form */
+.footer-newsletter {
+    display: flex;
+    margin-bottom: 15px;
+}
+.footer-newsletter input {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    background: #ffffff10;
+    color: #fff;
+    outline: none;
+}
+.footer-newsletter input::placeholder {
+    color: #d0d7f1;
+}
+.footer-newsletter button {
+    padding: 10px 16px;
+    margin-left: 8px;
+    border: none;
+    border-radius: 8px;
+    background: #00c6ff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.footer-newsletter button:hover {
+    background: #00ffd5;
+}
+
+/* Contact Info */
+.footer-contact p {
+    margin-bottom: 6px;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 14px;
+    color: #b8c4e3;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .premium-footer {
+        text-align: center;
+    }
+
+    .premium-footer h5::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-newsletter {
+        flex-direction: column;
+    }
+    .footer-newsletter button {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+}
+</style>
+
+<!-- =================== PREMIUM FOOTER HTML =================== -->
+<footer class="premium-footer">
+    <div class="container">
+        <div class="row">
+
+            <!-- Logo & About -->
+            <div class="col-md-4 footer-section">
+                <img src="./image/logo.jpg" alt="Palam Logo" width="90" class="footer-logo">
+                <p class="footer-about">
+                    Premium Hardware & Security Solutions<br>
+                    Trusted by customers for reliability & innovation.
+                </p>
+
+                <!-- Social Icons -->
+                <div class="footer-social">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-youtube"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-4 footer-section">
+                <h5>Quick Links</h5>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="col-md-4 footer-section">
+                <h5>Stay Updated</h5>
+                <p>Subscribe for product updates & offers.</p>
+
+                <form class="footer-newsletter">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+
+                <div class="footer-contact">
+                    <p>Email: info@palam.com</p>
+                    <p>Phone: +91-XXXXXXXXXX</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+        © 2025 Palam Hardware. All Rights Reserved.
+    </div>
+</footer>
+
+<!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+</body>
+</html>

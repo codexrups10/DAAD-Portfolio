@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events & Gallery | Madhyamgram Girls' High School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="font-family:'Cormorant Garamond', serif; margin:0; padding:0; background:#f8f8f8;">
+
+  <!-- HEADER -->
+  <header class="header" style="background:#4d0003; color:white; position:fixed; width:100%; top:0; z-index:1000; box-shadow:0 2px 6px rgba(0,0,0,0.2);">
+    <div class="container" style="max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem;">
+      <div class="logo" style="font-size:1.6rem; font-weight:bold; display:flex; align-items:center; gap:10px;">
+        <img src="./Images/logo.jpg" alt="School Logo" style="height:40px;">
+        <span>Madhyamgram Girls' High School</span>
+      </div>
+      <nav>
+        <ul class="nav-links" style="list-style:none; display:flex; gap:1.5rem; margin:0;">
+          <li><a href="index.html" style="color:white; text-decoration:none; font-weight:bold;">Home</a></li>
+          <li><a href="about.html" style="color:white; text-decoration:none; font-weight:bold;">About</a></li>
+          <li><a href="admission.html" style="color:white; text-decoration:none; font-weight:bold;">Admissions</a></li>
+          <li><a href="academics.html" style="color:white; text-decoration:none; font-weight:bold;">Academics</a></li>
+          <li><a href="results.html" style="color:white; text-decoration:none; font-weight:bold;">Results</a></li>
+          <li><a href="events.html" class="active" style="color:white; text-decoration:underline; font-weight:bold;">Events & Gallery</a></li>
+          <li><a href="contact.html" style="color:white; text-decoration:none; font-weight:bold;">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- BANNER (VIDEO) -->
+  <section class="events-banner" style="margin-top:80px; position:relative; overflow:hidden;">
+    <video id="events-banner-video" autoplay muted loop playsinline style="width:100%; height:850px; object-fit:cover; display:block;">
+      <source src="./Images/event_gallery.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="events-banner-overlay" style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; color:white; text-align:center;">
+      <h1 style="font-size:2.5rem; font-weight:bold; text-shadow:2px 2px 6px rgba(0,0,0,0.6); margin:0;">Events & Gallery</h1>
+      <p style="font-size:1.2rem; text-shadow:1px 1px 3px rgba(0,0,0,0.6); margin-top:8px;">Celebrating achievements, memories, and school life moments</p>
+      <!-- Optional play/pause control for accessibility -->
+      <button id="banner-play-toggle" aria-label="Pause banner video" style="margin-top:14px; background:rgba(0,0,0,0.45); color:#fff; border:0; padding:8px 12px; border-radius:6px; cursor:pointer;">Pause</button>
+    </div>
+  </section>
+
+  <!-- UPCOMING EVENTS -->
+  <section style="padding:60px 20px; background:#fff; text-align:center;">
+    <h2 style="color:#540404; margin-bottom:40px; font-weight:bold; font-size:2rem;">📅 Upcoming Events</h2>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; max-width:1200px; margin:auto;">
+      <div style="width:300px; background:#f8f8f8; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+        <h4 style="color:#540404; font-weight:bold;">Annual Sports Meet</h4>
+        <p>Join us on 5th October 2025 for fun, games, and athletic excellence!</p>
+        <p><strong>Date:</strong> 05-10-2025</p>
+      </div>
+      <div style="width:300px; background:#f8f8f8; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+        <h4 style="color:#540404; font-weight:bold;">Science Exhibition</h4>
+        <p>Explore creative projects and experiments by our young innovators.</p>
+        <p><strong>Date:</strong> 12-11-2025</p>
+      </div>
+      <div style="width:300px; background:#f8f8f8; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+        <h4 style="color:#540404; font-weight:bold;">Cultural Fest</h4>
+        <p>Music, dance, drama and art exhibitions showcasing talent.</p>
+        <p><strong>Date:</strong> 20-12-2025</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAST EVENTS HIGHLIGHT -->
+  <section style="padding:60px 20px; background:#f8f8f8; text-align:center;">
+    <h2 style="color:#540404; margin-bottom:40px; font-weight:bold; font-size:2rem;">✨ Past Events Highlights</h2>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:1200px; margin:auto;">
+      <div style="width:280px; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+        <img src="./Images/inde1.jpg" alt="Event 1" style="width:100%; height:180px; object-fit:cover;">
+        <div style="padding:15px;">
+          <h4 style="color:#540404; font-weight:bold;">Independence Day Celebration</h4>
+          <p>Flag hoisting and cultural performances by students.</p>
+        </div>
+      </div>
+      <div style="width:280px; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+        <img src="./Images/result banner.jpg" alt="Event 2" style="width:100%; height:180px; object-fit:cover;">
+        <div style="padding:15px;">
+          <h4 style="color:#540404; font-weight:bold;">Annual Prize Distribution</h4>
+          <p>Recognizing achievements in academics, sports, and arts.</p>
+        </div>
+      </div>
+      <div style="width:280px; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+        <img src="./Images/teah1.jpg" alt="Event 3" style="width:100%; height:180px; object-fit:cover;">
+        <div style="padding:15px;">
+          <h4 style="color:#540404; font-weight:bold;">Teacher’s Day Celebration</h4>
+          <p>Students honor teachers with performances and gratitude.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section style="padding:60px 20px; background:#fff; text-align:center;">
+    <h2 style="color:#540404; margin-bottom:40px; font-weight:bold; font-size:2rem;">📸 Photo Gallery</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; max-width:1200px; margin:auto;">
+      <img src="./Images/ind1.jpg" alt="Gallery 1" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <img src="./Images/img1.jpg" alt="Gallery 2" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <img src="./Images/img2.jpg" alt="Gallery 3" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <img src="./Images/img3.jpg" alt="Gallery 4" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <img src="./Images/img4.jpg" alt="Gallery 5" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <img src="./Images/img5.jpg" alt="Gallery 6" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+            <img src="./Images/img6.jpg" alt="Gallery 6" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                  <img src="./Images/img7.jpg" alt="Gallery 6" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                        <img src="./Images/img14.jpg" alt="Gallery 6" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                              <img src="./Images/img9.jpg" alt="Gallery 6" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                                    <img src="./Images/img10.jpg" alt="Gallery 6" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                                          <img src="./Images/img11.jpg" alt="Gallery 6" style="width:100%; height:200px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                                                <img src="./Images/ig12.jpg" alt="Gallery 6" style="width:100%; height:400px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                                                      <img src="./Images/img13.jpg" alt="Gallery 6" style="width:100%; height:400px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                                                            <img src="./Images/img8.jpg" alt="Gallery 6" style="width:100%; height:400px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                                                <img src="./Images/ino1.jpg" alt="Gallery 6" style="width:100%; height:400px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+                                                          </div>
+  </section>
+
+
+  <!-- VIDEO HIGHLIGHTS -->
+<section style="padding:60px 20px; background:#f8f8f8; text-align:center;">
+  <h2 style="color:#540404; margin-bottom:40px; font-weight:bold; font-size:2rem;">🎥 Video Highlights</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; max-width:1200px; margin:auto;">
+    <div style="width:320px; box-shadow:0 4px 12px rgba(0,0,0,0.1); border-radius:12px; overflow:hidden;">
+      <video controls style="width:100%; border-radius:12px;">
+        <source src="./Images/academic video.MP4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div style="padding:10px; background:#fff;">
+        <h4 style="color:#540404; font-weight:bold;">Art & craft fair 2025</h4>
+      </div>
+    </div>
+    <div style="width:320px; box-shadow:0 4px 12px rgba(0,0,0,0.1); border-radius:12px; overflow:hidden;">
+      <video controls style="width:100%; border-radius:12px;">
+        <source src="./Images/exibition.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div style="padding:10px; background:#fff;">
+        <h4 style="color:#540404; font-weight:bold;">Science Exhibition 2025</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .events-banner { position: relative; }
+  .events-banner video { display: block; width: 100%; height: 350px; object-fit: cover; }
+  .events-banner-overlay { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+  .events-banner-overlay h1, .events-banner-overlay p { pointer-events: auto; }
+  #banner-play-toggle { pointer-events: auto; }
+</style>
+
+
+<!-- INTERACTIVE EVENT CALENDAR -->
+<section style="padding:60px 20px; background:#fff; text-align:center;">
+  <h2 style="color:#540404; margin-bottom:40px; font-weight:bold; font-size:2rem;">🗓 Upcoming Events Calendar</h2>
+  <div style="max-width:900px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px;">
+    <div style="background:#f8f8f8; border-radius:12px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+      <h4 style="color:#540404; font-weight:bold;">Annual Sports Meet</h4>
+      <p><strong>Date:</strong> 05-10-2025</p>
+      <p><strong>Venue:</strong> School Ground</p>
+    </div>
+    <div style="background:#f8f8f8; border-radius:12px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+      <h4 style="color:#540404; font-weight:bold;">Science Exhibition</h4>
+      <p><strong>Date:</strong> 12-11-2025</p>
+      <p><strong>Venue:</strong> Auditorium</p>
+    </div>
+    <div style="background:#f8f8f8; border-radius:12px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+      <h4 style="color:#540404; font-weight:bold;">Cultural Fest</h4>
+      <p><strong>Date:</strong> 20-12-2025</p>
+      <p><strong>Venue:</strong> School Auditorium</p>
+    </div>
+    <div style="background:#f8f8f8; border-radius:12px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+      <h4 style="color:#540404; font-weight:bold;">Annual Prize Distribution</h4>
+      <p><strong>Date:</strong> 15-01-2026</p>
+      <p><strong>Venue:</strong> School Hall</p>
+    </div>
+  </div>
+</section>
+
+
+<section style="background:#f8f8f8; padding:60px 20px; text-align:center;">
+  <h2 style="color:#540404; margin-bottom:40px; font-weight:bold; font-size:2rem;">📸 Event Photo Collage</h2>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:15px; max-width:1200px; margin:auto;">
+    <img src="./Images/ev1.jpg" alt="Event Photo 1" style="width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/ev2.jpg" alt="Event Photo 2" style="width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/ev3.jpg" alt="Event Photo 3" style="width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/ev4.jpg" alt="Event Photo 4" style="width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/ev5.jpg" alt="Event Photo 5" style="width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/ev6.jpg" alt="Event Photo 6" style="width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/ev7.jpg" alt="Event Photo 7" style="width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/ev8.jpg" alt="Event Photo 8" style="width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/v9.jpg" alt="Event Photo 9" style="width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <img src="./Images/ev10.jpg" alt="Event Photo 10" style="width:100%; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+  </div>
+</section>
+
+<section style="background:#fff; padding:60px 20px; text-align:center;">
+  <h2 style="color:#540404; margin-bottom:40px; font-weight:bold; font-size:2rem;">🕒 Event Timeline</h2>
+  <div style="max-width:800px; margin:auto; position:relative;">
+    <!-- Timeline Line -->
+    <div style="position:absolute; left:50%; top:0; bottom:0; width:4px; background:#540404; transform:translateX(-50%);"></div>
+    
+    <!-- Timeline Items -->
+    <div style="margin-bottom:50px; position:relative;">
+      <div style="background:#f8f8f8; padding:20px; border-radius:12px; width:45%; position:absolute; left:0; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <h4 style="color:#540404; font-weight:bold;">Sports Meet</h4>
+        <p>05-10-2025 | School Ground</p>
+      </div>
+      <div style="position:absolute; left:50%; width:20px; height:20px; background:#f2c200; border-radius:50%; top:20px; transform:translateX(-50%);"></div>
+    </div>
+
+    <div style="margin-bottom:50px; position:relative;">
+      <div style="background:#f8f8f8; padding:20px; border-radius:12px; width:45%; position:absolute; right:0; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <h4 style="color:#540404; font-weight:bold;">Cultural Fest</h4>
+        <p>20-12-2025 | School Auditorium</p>
+      </div>
+      <div style="position:absolute; left:50%; width:20px; height:20px; background:#f2c200; border-radius:50%; top:20px; transform:translateX(-50%);"></div>
+    </div>
+
+    <div style="margin-bottom:50px; position:relative;">
+      <div style="background:#f8f8f8; padding:20px; border-radius:12px; width:45%; position:absolute; left:0; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        <h4 style="color:#540404; font-weight:bold;">Annual Prize Distribution</h4>
+        <p>15-01-2026 | School Hall</p>
+      </div>
+      <div style="position:absolute; left:50%; width:20px; height:20px; background:#f2c200; border-radius:50%; top:20px; transform:translateX(-50%);"></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f2f2f2; padding:60px 20px; text-align:center;">
+  <h2 style="color:#540404; margin-bottom:40px; font-weight:bold; font-size:2rem;">🌟 Student Spotlight</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; max-width:1200px; margin:auto;">
+    <div style="width:220px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <img src="./Images/top12.jpg" alt="Student 1" style="width:100%; height:400px; object-fit:cover; border-radius:12px;">
+      <h4 style="color:#540404; font-weight:bold; margin-top:10px;">Riya Das</h4>
+      <p>Winner of Science  2025</p>
+    </div>
+    <div style="width:220px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <img src="./Images/img8.jpg" alt="Student 2" style="width:100%; height:400px; object-fit:cover; border-radius:12px;">
+      <h4 style="color:#540404; font-weight:bold; margin-top:10px;">Aarav Roy</h4>
+      <p>Topper in Annual Sports Meet 2025</p>
+    </div>
+    <div style="width:220px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <img src="./Images/top10.jpg" alt="Student 3" style="width:100%; height:400px; object-fit:cover; border-radius:12px;">
+      <h4 style="color:#540404; font-weight:bold; margin-top:10px;">Priya Sen & Taniya roy</h4>
+      <p>Debate Champion 2025</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- CALL TO ACTION -->
+  <section style="background: linear-gradient(135deg,#a43737,#540404); color:#fff; padding:50px 20px; text-align:center;">
+    <h2 style="font-size:2rem; font-weight:bold; margin-bottom:20px;">Join Our Exciting Events!</h2>
+    <p style="max-width:600px; margin:auto; font-size:1.1rem;">Stay updated with all school events and activities. Be a part of our vibrant school community.</p>
+    <a href="admission.html" style="display:inline-block; margin-top:25px; background:#f2c200; color:#540404; padding:12px 25px; border-radius:6px; font-weight:bold; text-decoration:none; transition:background 0.3s;">Enroll Now</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#540404; color:#fff; font-family:'Cormorant Garamond', serif; padding:60px 20px; position:relative; overflow:hidden;">
+    <div style="max-width:1200px; margin:auto; display:flex; flex-wrap:wrap; gap:30px; justify-content:space-between;">
+
+      <div style="flex:1 1 250px; min-width:220px;">
+        <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff; font-weight:bold;">About Us</h3>
+        <p style="color:#f0e6e6; line-height:1.7; font-size:0.95rem;">
+          Madhayamgram Girls' High School is dedicated to nurturing excellence, creativity, and discipline. We empower every student to achieve their full potential in academics, arts, and co-curricular activities.
+        </p>
+      </div>
+
+      <div style="flex:1 1 200px; min-width:180px;">
+        <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff; font-weight:bold;">Quick Links</h3>
+        <ul style="list-style:none; padding:0; line-height:2;">
+          <li><a href="index.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">🏠 Home</a></li>
+          <li><a href="about.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">ℹ️ About</a></li>
+          <li><a href="admission.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">📝 Admissions</a></li>
+          <li><a href="academics.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">📚 Academics</a></li>
+          <li><a href="contact.html" style="color:#fff; text-decoration:none; transition: color 0.3s;">📞 Contact</a></li>
+        </ul>
+      </div>
+
+      <div style="flex:1 1 250px; min-width:200px;">
+        <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff; font-weight:bold;">Contact</h3>
+        <p style="color:#f0e6e6; font-size:0.95rem; line-height:1.7;">
+          <i class="fas fa-map-marker-alt"></i> 12 Madhyamgram Road, West Bengal, India<br>
+          <i class="fas fa-phone-alt"></i> +91 12345 67890<br>
+          <i class="fas fa-envelope"></i> info@mghs.edu.in
+        </p>
+        <div style="margin-top:15px;">
+          <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem;"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem;"><i class="fab fa-twitter"></i></a>
+          <a href="#" style="color:#fff; margin-right:10px; font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
+          <a href="#" style="color:#fff; font-size:1.2rem;"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div style="flex:1 1 250px; min-width:220px;">
+        <h3 style="font-size:1.6rem; margin-bottom:15px; color:#fff; font-weight:bold;">Newsletter</h3>
+        <p style="color:#f0e6e6; font-size:0.95rem; line-height:1.7;">Subscribe to get updates on events, admissions, and announcements.</p>
+        <form style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;">
+          <input type="email" placeholder="Your Email" style="flex:1; padding:10px 15px; border:none; border-radius:5px;">
+          <button type="submit" style="background:#f2c200; color:#540404; border:none; padding:10px 20px; border-radius:5px; font-weight:bold; cursor:pointer;">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:50px; font-size:0.9rem; color:#f0e6e6;">
+      &copy; 2025 Madhayamgram Girls' High School. All Rights Reserved.
+      <br>
+      Designed by Rumpi
+    </div>
+  </footer>
+
+  <style>
+    footer a:hover { color: #f2c200; }
+    footer button:hover { background:#e0b500; }
+  </style>
+
+</body>
+</html>

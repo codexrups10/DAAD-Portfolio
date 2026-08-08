@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Digital  Lock – Palam Hybrid Premium</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- ================= CUSTOM CSS ================= -->
+<style>
+:root{
+    --c1:#FFFBDE;
+    --c2:#91C8E4;
+    --c3:#749BC2;
+    --c4:#4682A9;
+    --gradient: linear-gradient(135deg,var(--c1),var(--c2),var(--c3),var(--c4));
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background: var(--c1);
+    padding-top: 80px;
+}
+
+.section-title{
+    font-weight: 700;
+    font-size: 2.4rem;
+}
+
+.icon-box{
+    background: var(--gradient);
+    color:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.2);
+    transition:0.4s;
+}
+
+.icon-box:hover{
+    transform: translateY(-8px);
+}
+
+.icon-box i{
+    font-size:2.5rem;
+    margin-bottom:15px;
+}
+</style>
+</head>
+
+<body>
+ <style>
+:root{
+    --c1:#FFFBDE;
+    --c2:#91C8E4;
+    --c3:#749BC2;
+    --c4:#4682A9;
+    --gradient: linear-gradient(135deg,var(--c1),var(--c2),var(--c3),var(--c4));
+}
+body{
+    font-family: 'Arial', sans-serif;
+    background: var(--c1);
+    padding-top: 80px;
+}
+.section-title{
+    font-weight: 700;
+    font-size: 2.4rem;
+}
+.icon-box{
+    background: var(--gradient);
+    color:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.2);
+    transition:0.4s;
+}
+.icon-box:hover{
+    transform: translateY(-8px);
+}
+.icon-box i{
+    font-size:2.5rem;
+    margin-bottom:15px;
+}
+</style>
+</style>
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 900,
+    once: true
+  });
+</script>
+
+</head>
+<body>
+
+<!-- =============================
+     PREMIUM NAVBAR WITH MEGA DROPDOWN
+============================= -->
+<nav class="navbar navbar-expand-lg fixed-top" style="background: linear-gradient(135deg,#91C8E4,#fff); box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+  <div class="container">
+    <a class="navbar-brand text-white fw-bold d-flex align-items-center" href="index.html">
+      <img src="./image/logo.jpg" width="65" class="me-2 rounded-circle shadow-sm">
+    
+    </a>
+
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="nav">
+      <ul class="navbar-nav">
+
+        <li class="nav-item"><a class="nav-link text-black active" href="./index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-black " href="./about.html">About</a></li>
+
+        <!-- Mega Dropdown -->
+        <li class="nav-item dropdown position-static">
+          <a class="nav-link dropdown-toggle text-black" href="./product.html" data-bs-toggle="dropdown">Products</a>
+          <ul class="dropdown-menu p-4 mega-dropdown shadow" style="min-width:650px; border-radius:12px; background: linear-gradient(135deg,#91C8E4,#fff);">
+            <div class="row">
+              <div class="col-md-4">
+                <h6 class="fw-bold text-primary">Padlocks</h6>
+                <ul class="list-unstyled">
+                  <li><a class="dropdown-item active" href="./product.html">Pad Locks</a></li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <h6 class="fw-bold text-primary">Builders Hardware</h6>
+                <ul class="list-unstyled">
+                  <li><a class="dropdown-item" href="./Door Accessories.html">Door Accessories</a></li>
+                  <li><a class="dropdown-item" href="./Mortis Lock.html">Door Closer</a></li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <h6 class="fw-bold text-primary">Furniture Locks & Accessories</h6>
+                <ul class="list-unstyled">
+                  <li><a class="dropdown-item" href="./Furniture Locks.HTML">Furniture Locks</a></li>
+                  <li><a class="dropdown-item" href="./Digital Locks.HTML">Digital Locks</a></li>
+                </ul>
+              </div>
+            </div>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-black" href="./support.html">Support</a></li>
+        <li class="nav-item"><a class="nav-link text-black" href="./contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- =============================
+       NAVBAR CSS
+============================= -->
+<style>
+/* Navbar links style */
+.navbar-nav .nav-link {
+    position: relative;
+    color: #fff;
+    font-weight: 600;
+    margin-right: 15px;
+    transition: 0.3s;
+    text-shadow: 0 0 3px #91C8E4, 0 0 6px #fff;
+}
+
+/* Gradient animated underline */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #91C8E4, #fff, #91C8E4);
+    border-radius: 2px;
+    transition: width 0.4s ease-in-out;
+}
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+/* Navbar hover glow effect */
+.navbar-nav .nav-link:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #91C8E4, 0 0 12px #fff;
+}
+
+/* Hamburger button */
+.navbar-toggler {
+    border: 2px solid #fff;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.navbar-toggler:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.1);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+}
+
+
+/* Mega Dropdown */
+.mega-dropdown {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 30px 20px;
+}
+.nav-item.dropdown:hover > .mega-dropdown {
+  display: block;
+}
+.mega-dropdown h6 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.mega-dropdown .dropdown-item {
+  color: #0d6efd;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.mega-dropdown .dropdown-item:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #fff;
+  background: rgba(255,255,255,0.2);
+  border-radius: 5px;
+}
+
+/* Toggler icon hover effect */
+.navbar-toggler:hover {
+  filter: brightness(1.2) invert(1);
+}
+</style>
+</head>
+<!-- ==============================
+     PADLOCK HERO SECTION (PREMIUM)
+============================== -->
+<section class="padlock-hero position-relative overflow-hidden text-center py-5" 
+         style="background: linear-gradient(135deg,#91C8E4,#fff);">
+  
+  <!-- Animated glowing background orb -->
+  <div class="glow-orb" style="position:absolute; top:-80px; left:-50px; width:250px; height:250px; background: rgba(0,200,255,0.3); border-radius:50%; filter: blur(120px); z-index:0; animation: floatOrb 6s ease-in-out infinite alternate;"></div>
+  
+  <div class="container position-relative" style="z-index:1;">
+    <h1 class="fw-bold mb-3 text-black display-4" data-aos="fade-down" 
+        style="text-shadow: 0 0 12px #91C8E4, 0 0 20px #fff;">Two Tone Zinc Mortise Lock Sets</h1>
+    
+    <p class="lead mb-4 text-black-50" data-aos="fade-up" data-aos-delay="200">
+      Leading Manufacturer from Kolkata – Strength, Style & Security
+    </p>
+
+    <a href="#padlock-showcase" class="btn btn-light btn-lg fw-bold neon-btn" 
+       data-aos="zoom-in" data-aos-delay="400">Solutions</a>
+  </div>
+  
+</section>
+
+<!-- ==========================
+     HERO CSS
+========================== -->
+<style>
+/* Floating orb animation */
+@keyframes floatOrb {
+    0% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(20px) translateX(10px); }
+    100% { transform: translateY(0px) translateX(0px); }
+}
+
+/* Neon button effect */
+.neon-btn {
+    position: relative;
+    background: #fff;
+    color: #00c6ff;
+    text-shadow: 0 0 5px #00c6ff, 0 0 10px #91C8E4;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 30px;
+    box-shadow: 0 0 15px rgba(0,198,255,0.5), 0 0 30px rgba(145,200,228,0.3);
+    transition: all 0.3s ease-in-out;
+}
+.neon-btn:hover {
+    background: #00c6ff;
+    color: #fff;
+    box-shadow: 0 0 30px #00c6ff, 0 0 60px #91C8E4, 0 0 90px #00ffd5;
+    transform: scale(1.05);
+}
+
+/* Floating padlocks animation */
+.floating-lock {
+    position: absolute;
+    transition: transform 0.6s ease-in-out, filter 0.6s;
+}
+.floating-lock:hover {
+    transform: translateY(-10px) scale(1.05) rotate(-5deg);
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+}
+
+/* Text shadow glow */
+.padlock-hero h1 {
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    animation: textGlow 3s infinite alternate;
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 10px #91C8E4, 0 0 20px #fff; }
+    100% { text-shadow: 0 0 20px #00c6ff, 0 0 40px #fff; }
+}
+</style>
+
+
+
+
+
+<!-- =============================
+     PADLOCK PRODUCT SHOWCASE
+============================= -->
+<section id="padlock-showcase" class="py-5" style="background: #f0f8ff;">
+  <div class="container">
+    <h2 class="section-title text-center mb-5" data-aos="fade-up" style="color:#4682A9;">Our Premium Mortis locks Set </h2>
+
+    <div class="row g-4">
+
+      <!-- Product Card 1 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon-box text-center" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#749BC2,#4682A9);">
+          <img src="./image/mor10.webp" alt="Padlock 1" class="img-fluid mb-3 rounded" style="height:180px; object-fit:contain;">
+          <h5 class="fw-bold">Premium Steel lock</h5>
+          <p>High-quality steel lock with anti-rust coating for long-lasting security.</p>
+          <a href="#" class="btn btn-light mt-2">View Details</a>
+        </div>
+      </div>
+
+      <!-- Product Card 2 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon-box text-center" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#749BC2,#4682A9);">
+          <img src="./image/mor9.webp" alt="Padlock 2" class="img-fluid mb-3 rounded" style="height:180px; object-fit:contain;">
+          <h5 class="fw-bold">Combination Lock</h5>
+          <p>Easy-to-use combination padlock offering enhanced security for home or office.</p>
+          <a href="#" class="btn btn-light mt-2">View Details</a>
+        </div>
+      </div>
+
+      <!-- Product Card 3 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="icon-box text-center" style="background: linear-gradient(135deg,#FFFBDE,#91C8E4,#749BC2,#4682A9);">
+          <img src="./image/mor8.webp" alt="Padlock 3" class="img-fluid mb-3 rounded" style="height:180px; object-fit:contain;">
+          <h5 class="fw-bold">Control lock</h5>
+          <p>Modern digital lock with keypad access, ideal for smart security needs.</p>
+          <a href="#" class="btn btn-light mt-2">View Details</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
+      <a href="./contact.html" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg,#4682A9,#91C8E4); border:none;">Get Your Padlock Today</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ================= MORTISE LOCK PRODUCTS ================= -->
+<section class="py-5 mortise-wave">
+  <div class="container">
+
+    <h2 class="section-title text-center mb-5" style="color:#4682A9;" data-aos="fade-up">
+      Our Mortise Lock Collection
+    </h2>
+
+    <div class="row g-4">
+
+      <!-- Product 1 -->
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="product-card text-center">
+          <img src="./image/mor7.webp" alt="Hulk Hayat Mortise Lock">
+          <h5>Hulk / Hayat</h5>
+          <p>Heavy-duty two tone zinc mortise lock for main doors.</p>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="product-card text-center">
+          <img src="./image/mor6.webp" alt="Lara Mortise Lock">
+          <h5>Lara</h5>
+          <p>Elegant finish with smooth latch & high durability.</p>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="product-card text-center">
+          <img src="./image/mor5.webp" alt="Safari Mortise Lock">
+          <h5>Safari</h5>
+          <p>Strong internal mechanism with stylish two-tone body.</p>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="product-card text-center">
+          <img src="./image/mor4.webp" alt="Nyla Mortise Lock">
+          <h5>Nyla</h5>
+          <p>Modern zinc mortise lock set with premium grip.</p>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="product-card text-center">
+          <img src="./image/mor3.webp" alt="Symphony Baby Latch">
+          <h5>Symphony (Baby Latch)</h5>
+          <p>Compact baby latch with smooth silent locking.</p>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="product-card text-center">
+          <img src="./image/mor2.webp" alt="Dyna Mortise Lock">
+          <h5>Dyna</h5>
+          <p>High-performance mortise lock for heavy usage.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<style>
+/* ================= MORTISE LOCK PRODUCT SECTION ================= */
+
+.mortise-wave {
+    position: relative;
+    background: linear-gradient(180deg, #f0f8ff 0%, #ffffff 100%);
+    overflow: hidden;
+}
+
+/* Wave background */
+.mortise-wave::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 240px;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%2391C8E4' fill-opacity='0.25' d='M0,224L48,213.3C96,203,192,181,288,170.7C384,160,480,160,576,176C672,192,768,224,864,218.7C960,213,1056,171,1152,154.7C1248,139,1344,149,1392,154.7L1440,160L1440,0L0,0Z'/%3E%3C/svg%3E") no-repeat top;
+    background-size: cover;
+    z-index: 0;
+}
+
+/* Keep content above wave */
+.mortise-wave .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Product card */
+.product-card {
+    position: relative;
+    background: linear-gradient(145deg, #ffffff, #e6f1fa);
+    border-radius: 18px;
+    padding: 30px 25px;
+    box-shadow: 0 18px 35px rgba(70,130,169,0.18);
+    transition: all 0.45s ease;
+    height: 100%;
+}
+
+/* Hover lift */
+.product-card:hover {
+    transform: translateY(-14px);
+    box-shadow: 0 28px 55px rgba(70,130,169,0.35);
+}
+
+/* Product image */
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 14px;
+    transition: transform 0.4s ease;
+}
+
+/* Image zoom */
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+/* Title */
+.product-card h5 {
+    margin-top: 18px;
+    font-weight: 700;
+    color: #4682A9;
+}
+
+/* Description */
+.product-card p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 0;
+}
+
+/* Inner glow */
+.product-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    box-shadow: inset 0 0 0 rgba(145,200,228,0);
+    transition: 0.4s;
+}
+
+.product-card:hover::after {
+    box-shadow: inset 0 0 25px rgba(145,200,228,0.25);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .product-card img {
+        height: 180px;
+    }
+}
+</style>
+
+<!-- ================= FEATURES ================= -->
+<section class="py-5" style="background:#f8fcff;">
+<div class="container">
+<h2 class="section-title text-center mb-5" style="color:#4682A9;" data-aos="fade-up">
+Why Choose Palam Mortise Locks?
+</h2>
+
+<div class="row g-4 text-center">
+
+<div class="col-md-3" data-aos="zoom-in">
+<div class="feature-box">
+<i class="bi bi-shield-lock display-5 text-primary"></i>
+<h5 class="fw-bold mt-3">High Security</h5>
+<p>Advanced internal locking system.</p>
+</div>
+</div>
+
+<div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+<div class="feature-box">
+<i class="bi bi-gem display-5 text-primary"></i>
+<h5 class="fw-bold mt-3">Premium Finish</h5>
+<p>Stylish two tone zinc coating.</p>
+</div>
+</div>
+
+<div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+<div class="feature-box">
+<i class="bi bi-tools display-5 text-primary"></i>
+<h5 class="fw-bold mt-3">Durable Build</h5>
+<p>Long life & corrosion resistant.</p>
+</div>
+</div>
+
+<div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+<div class="feature-box">
+<i class="bi bi-award display-5 text-primary"></i>
+<h5 class="fw-bold mt-3">Trusted Brand</h5>
+<p>Manufactured & trusted across India.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="py-5 text-center" style="background:linear-gradient(135deg,#4682A9,#91C8E4);">
+<div class="container">
+<h2 class="fw-bold text-white mb-3" data-aos="fade-up">
+Upgrade Your Door Security Today
+</h2>
+<a href="contact.html" class="btn btn-light btn-lg fw-bold" data-aos="zoom-in">
+Enquire Now
+</a>
+</div>
+</section>
+
+
+
+<!-- ================= COMPARISON TABLE ================= -->
+<section class="py-5" style="background:#ffffff;">
+  <div class="container">
+    <h2 class="section-title text-center mb-4" style="color:#4682A9;" data-aos="fade-up">
+      Palam Mortise Locks vs Others
+    </h2>
+    <p class="text-center text-muted mb-5" data-aos="fade-up" data-aos-delay="150">
+      See why Palam Hybrid Premium is the preferred choice
+    </p>
+
+    <div class="table-responsive" data-aos="zoom-in">
+      <table class="table table-bordered align-middle text-center shadow">
+        <thead style="background:linear-gradient(135deg,#4682A9,#91C8E4);color:#fff;">
+          <tr>
+            <th>Features</th>
+            <th>Palam Hybrid Premium</th>
+            <th>Local Brands</th>
+            <th>Imported Brands</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Material Quality</td>
+            <td class="fw-bold text-success">High-Grade Zinc Alloy</td>
+            <td>Mixed Metal</td>
+            <td>Good</td>
+          </tr>
+          <tr>
+            <td>Finish</td>
+            <td class="fw-bold text-success">Premium Two-Tone</td>
+            <td>Basic</td>
+            <td>Standard</td>
+          </tr>
+          <tr>
+            <td>Durability</td>
+            <td class="fw-bold text-success">Heavy-Duty & Long Life</td>
+            <td>Medium</td>
+            <td>Good</td>
+          </tr>
+          <tr>
+            <td>Spare Availability</td>
+            <td class="fw-bold text-success">Easily Available</td>
+            <td>Limited</td>
+            <td>Difficult</td>
+          </tr>
+          <tr>
+            <td>Indian Door Compatibility</td>
+            <td class="fw-bold text-success">Perfect Fit</td>
+            <td>Average</td>
+            <td>Not Always</td>
+          </tr>
+          <tr>
+            <td>Price Value</td>
+            <td class="fw-bold text-success">Best Value for Money</td>
+            <td>Cheap / Unreliable</td>
+            <td>Expensive</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCT SHOWCASE ================= -->
+<section class="py-5" style="background:#f4f9ff;">
+  <div class="container">
+
+    <h2 class="section-title text-center mb-5" style="color:#4682A9;" data-aos="fade-up">
+      Explore Our Best-Selling Mortise Locks
+    </h2>
+
+    <div class="row align-items-center g-5">
+
+      <!-- Image Showcase -->
+      <div class="col-md-6 text-center" data-aos="fade-right">
+        <img src="./image/mor5.webp" class="img-fluid rounded-4 shadow-lg" alt="Two Tone Mortise Lock">
+      </div>
+
+      <!-- Product Info -->
+      <div class="col-md-6" data-aos="fade-left">
+        <h3 class="fw-bold mb-3">Two Tone Zinc Mortise Lock Set</h3>
+        <p class="text-muted mb-4">
+          Designed for modern homes and commercial doors, Palam’s two-tone mortise locks
+          combine strength, smooth operation, and premium aesthetics.
+        </p>
+
+        <ul class="list-unstyled mb-4">
+          <li>✔ Heavy-duty zinc alloy body</li>
+          <li>✔ Smooth latch & silent operation</li>
+          <li>✔ Corrosion-resistant finish</li>
+          <li>✔ Ideal for wooden & metal doors</li>
+          <li>✔ Long-lasting internal mechanism</li>
+        </ul>
+
+        <a href="contact.html" class="btn btn-primary btn-lg">
+          Get Price / Enquire Now
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<style>
+/* ---------------- PREMIUM FOOTER (INLINE CSS) ---------------- */
+
+.premium-footer {
+    background: rgba(15, 20, 35, 0.85);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 0 20px;
+    color: #dbe3ff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative glowing orbs */
+.premium-footer::before,
+.premium-footer::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    filter: blur(150px);
+    border-radius: 50%;
+    z-index: 0;
+}
+.premium-footer::before {
+    background: rgba(0, 200, 255, 0.25);
+    top: -80px;
+    right: -80px;
+}
+.premium-footer::after {
+    background: rgba(0, 255, 150, 0.25);
+    bottom: -80px;
+    left: -80px;
+}
+
+.footer-section {
+    z-index: 1;
+    position: relative;
+}
+
+/* Logo */
+.footer-logo {
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0px 6px 18px rgba(255, 255, 255, 0.15);
+}
+
+/* About */
+.footer-about {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Social Icons */
+.footer-social a {
+    font-size: 20px;
+    color: #cfd9ff;
+    margin-right: 15px;
+    transition: 0.3s;
+}
+.footer-social a:hover {
+    color: #00c6ff;
+    transform: scale(1.2);
+}
+
+/* Headings */
+.premium-footer h5 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: #fff;
+    position: relative;
+}
+.premium-footer h5::after {
+    content: "";
+    width: 50px;
+    height: 3px;
+    background: #00c6ff;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    border-radius: 3px;
+}
+
+/* Links */
+.footer-links li {
+    margin-bottom: 10px;
+}
+.footer-links a {
+    color: #c9d4ef;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.footer-links a:hover {
+    color: #00c6ff;
+    padding-left: 8px;
+}
+
+/* Newsletter Form */
+.footer-newsletter {
+    display: flex;
+    margin-bottom: 15px;
+}
+.footer-newsletter input {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    background: #ffffff10;
+    color: #fff;
+    outline: none;
+}
+.footer-newsletter input::placeholder {
+    color: #d0d7f1;
+}
+.footer-newsletter button {
+    padding: 10px 16px;
+    margin-left: 8px;
+    border: none;
+    border-radius: 8px;
+    background: #00c6ff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.footer-newsletter button:hover {
+    background: #00ffd5;
+}
+
+/* Contact Info */
+.footer-contact p {
+    margin-bottom: 6px;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 14px;
+    color: #b8c4e3;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .premium-footer {
+        text-align: center;
+    }
+
+    .premium-footer h5::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-newsletter {
+        flex-direction: column;
+    }
+    .footer-newsletter button {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+}
+</style>
+
+<!-- =================== PREMIUM FOOTER HTML =================== -->
+<footer class="premium-footer">
+    <div class="container">
+        <div class="row">
+
+            <!-- Logo & About -->
+            <div class="col-md-4 footer-section">
+                <img src="./image/logo.jpg" alt="Palam Logo" width="90" class="footer-logo">
+                <p class="footer-about">
+                    Premium Hardware & Security Solutions<br>
+                    Trusted by customers for reliability & innovation.
+                </p>
+
+                <!-- Social Icons -->
+                <div class="footer-social">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-youtube"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-4 footer-section">
+                <h5>Quick Links</h5>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="col-md-4 footer-section">
+                <h5>Stay Updated</h5>
+                <p>Subscribe for product updates & offers.</p>
+
+                <form class="footer-newsletter">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+
+                <div class="footer-contact">
+                    <p>Email: info@palam.com</p>
+                    <p>Phone: +91-XXXXXXXXXX</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+        © 2025 Palam Hardware. All Rights Reserved.
+    </div>
+</footer>
+</html></body>
